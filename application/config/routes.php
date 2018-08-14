@@ -121,6 +121,7 @@ $route['home_new'] = 'course_controller/home_new';
 $route['login_student_form'] = 'StudentLogin_controller/login_student_form';
 $route['login_student'] = 'StudentLogin_controller/user_validation';
 $route['confirmation/(.*)'] = 'Student_controller/confirmEmail/$1';
+$route['error_page'] = 'ForgotPassword_Controller/forgot_password_error';
 
 //ADMIN
 $route['login_admin_form'] = 'AdminLogin_controller/login_admin_form';

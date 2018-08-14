@@ -15,13 +15,27 @@ class ForgotPassword_Controller extends CI_Controller {
     public function forgot_password_form() {
         $this->load->view('login/forgot_password');
     }
+    public function forgot_password_error() {
+        $this->load->view('error_page_password');
+    }
 
     public function reset_password_form($seg1,$seg2) {
         $studentno = array(
             'seg1' => $seg1,
             'seg2' => $seg2,
         );
-        $this->load->view('login/reset_password',$studentno);
+        $data['info'] = $this->Student_model->get_stamp($seg1);
+            foreach ($data['info']->result() as $row) {
+                $time_stamp = $row->time_stamp; //or whatever the query returns
+//                echo $time_stamp;
+            }
+            $stamp = date('Y-m-d H:i:s');
+        if ($time_stamp>=$stamp) {
+                $this->load->view('login/reset_password',$studentno);
+            } else {
+                $this->forgot_password_error();
+            }
+        
     }
 
     function generate_email($studentno) {
@@ -40,10 +54,10 @@ class ForgotPassword_Controller extends CI_Controller {
             $from = "s213444844@mandela.ac.za";    //senders email address
             $subject = "EWAYS password reset";  //email subject
             $receiver = $this->generate_email($studentno);
-//            $random = rand(4000,8000);
-            $hash = $this->bcrypt->hash_password($receiver);
-            $message = "Dear User,\nPlease click on the link below to reset your password \n"
-                    . "http://sict-iis.nmmu.ac.za/eways/index.php/reset_password_/".$studentno."/". $hash . "\n\n Thanks";
+            $random = md5(rand(1000000,8000000));
+//            $hash = $this->bcrypt->hash_password($receiver);
+            $message = "Dear User,\nPlease click on the link below to reset your password and keep in mind that this link expires in 5 hours.\n"
+                    . "http://sict-iis.nmmu.ac.za/eways/index.php/reset_password_/".$studentno."/".$random . "\n Thanks";
 
             //config email settings
             $config = array("protocol" => "smtp",
@@ -63,7 +77,8 @@ class ForgotPassword_Controller extends CI_Controller {
             $this->email->to($receiver);
             $this->email->subject($subject);
             $this->email->message($message);
-            if ($this->email->send()) {
+//            
+            if ($this->email->send() && $this->Student_model->update_reset_token($random,$studentno)) {
                 $this->session->set_flashdata('flashSuccess', 'A password reset link was sent to your email.');
 //                $this->load->view('login/login_student');
                 redirect('login/login_student');
@@ -103,18 +118,24 @@ function encrypt_password($password, $email) {
         $this->reset_password_form($email_get, $stud_no);
         } elseif ($this->form_validation->run() == TRUE) 
             {
-            $password = $this->input->post('password');
             $studentno = $this->input->post('studentno');
+            $reset_token = $this->input->post('reset_token');
+            $password = $this->input->post('password');
             $email = $this->generate_email($studentno);
-            $email2 = $this->input->post('email');
-            $data =  $this->encrypt_password($password, $email);
+            $password_1 =  $this->encrypt_password($password, $email);
+            $data['info'] = $this->Student_model->get_stamp($studentno);
+            foreach ($data['info']->result() as $row) {
+                $time_stamp = $row->time_stamp; //or whatever the query returns
+//                echo $time_stamp;
+            }
+            $stamp = date('Y-m-d H:i:s');
 
-            if ($this->Student_model->reset_password($email2,$email, $data, $studentno)) {
+            if ($time_stamp>=$stamp&&($this->Student_model->reset_password($reset_token, $password_1,$studentno))) {
                 $this->session->set_flashdata('flashSuccess', 'Your password was reset.');
                 redirect('login/login_student');
             } else {
                 $this->session->set_flashdata('verifyfailed', 'Your password did not reset');
-                redirect('login/reset_password');
+                $this->forgot_password_error();
             }
         }
     }

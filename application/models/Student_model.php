@@ -183,15 +183,105 @@ class Student_model extends CI_Model {
         $this->db->where('md5(email)', $key);
         return $this->db->update('students', $data);    //update status as 1 to make active user
     }
-    function reset_password($email2,$email, $password, $studentno) {
-        $data = array('password' => $password);
-        $this->db->where($this->bcrypt->check_password('email', $email2), $email2);
-        $this->db->where('email', $email);
+    function reset_password($reset_token, $password_1,$studentno) {
+        $stamp = date('Y-m-d H:i:s');
+        $data = array('password' => $password_1);
+        $where = "reset_token='$reset_token' AND studentNo='$studentno' AND time_stamp>='$stamp'";
+        $this->db->where($where);
+        return $this->db->update('students', $data);
+    }
+    public function update_reset_token($random, $studentno) {
+        $stamp = date("Y-m-d H:i:s", strtotime('+5 hours'));
+         $data = array('reset_token' => $random,'time_stamp' => $stamp);
         $this->db->where('studentNo', $studentno);
         return $this->db->update('students', $data);
     }
+    
+    public function get_stamp($studentno) {
+        $this->db->select('time_stamp');
+        $this->db->from('students');
+        $this->db->where("studentNo",$studentno);
+
+        $data = $this->db->get();
+
+        if($data->num_rows() > 0)
+        {
+           return $data; 
+        }
+        else
+        {
+            return false;
+        }
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
