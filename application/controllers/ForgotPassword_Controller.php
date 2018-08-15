@@ -15,10 +15,16 @@ class ForgotPassword_Controller extends CI_Controller {
     public function forgot_password_form() {
         $this->load->view('login/forgot_password');
     }
-    public function forgot_password_error() {
-        $this->load->view('error_page_password');
+    public function forgot_password_url_change() {
+        $data['message1'] = "Oops!";
+        $data['message2'] = "The page does not exist.";
+        $this->load->view('error_page',$data);
     }
-
+    public function forgot_password_error() {
+        $data['message1'] = "Oops!";
+        $data['message2'] = "The password reset link is expired.";
+        $this->load->view('error_page',$data);
+    }
     public function reset_password_form($seg1,$seg2) {
         $studentno = array(
             'seg1' => $seg1,
@@ -47,7 +53,7 @@ class ForgotPassword_Controller extends CI_Controller {
         $this->form_validation->set_rules('studentno', 'Student Number', 'required|max_length[9]|min_length[9]|trim|callback_checkStudent_exist');
         $studentno = $this->input->post('studentno');
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('login/forgot_password');
+           $this->load->view('login/forgot_password');
         } elseif ($this->form_validation->run() == TRUE) {
 
             $studentno = $this->input->post('studentno');
@@ -57,7 +63,7 @@ class ForgotPassword_Controller extends CI_Controller {
             $random = md5(rand(1000000,8000000));
 //            $hash = $this->bcrypt->hash_password($receiver);
             $message = "Dear User,\nPlease click on the link below to reset your password and keep in mind that this link expires in 5 hours.\n"
-                    . "http://sict-iis.nmmu.ac.za/eways/index.php/reset_password_/".$studentno."/".$random . "\n Thanks";
+                    . "http://sict-iis.nmmu.ac.za/eways/index.php/reset_password_/".$studentno."/".$random . "\n\nRegards\nAdmin.";
 
             //config email settings
             $config = array("protocol" => "smtp",
@@ -110,8 +116,6 @@ function encrypt_password($password, $email) {
         $this->form_validation->set_rules('studentno', 'Student Number', 'required|max_length[9]|min_length[9]|trim|callback_checkStudent_exist');
         $this->form_validation->set_rules('password', 'Password', 'required');
         $this->form_validation->set_rules('confirm_password', 'Confirmation Password', 'required|matches[password]');
-    
-        
         if ($this->form_validation->run() == FALSE) {
             $email_get = $this->input->post('email');
             $stud_no = $this->input->post('studentno');
@@ -126,16 +130,15 @@ function encrypt_password($password, $email) {
             $data['info'] = $this->Student_model->get_stamp($studentno);
             foreach ($data['info']->result() as $row) {
                 $time_stamp = $row->time_stamp; //or whatever the query returns
+                $token = $row->reset_token;
+                $student_num = $row->studentNo;
 //                echo $time_stamp;
             }
             $stamp = date('Y-m-d H:i:s');
-
-            if ($time_stamp>=$stamp&&($this->Student_model->reset_password($reset_token, $password_1,$studentno))) {
-                $this->session->set_flashdata('flashSuccess', 'Your password was reset.');
+            if ($time_stamp>=$stamp&&$token==$reset_token&&$student_num==$studentno&&($this->Student_model->reset_password($reset_token, $password_1,$studentno))) {
                 redirect('login/login_student');
             } else {
-                $this->session->set_flashdata('verifyfailed', 'Your password did not reset');
-                $this->forgot_password_error();
+                $this->forgot_password_url_change();
             }
         }
     }

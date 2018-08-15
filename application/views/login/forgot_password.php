@@ -17,6 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             body{
                 padding-top: 100px;
                 padding-bottom: 100px;
+                background-color: #081E2F;
             }
         </style>
     </head>
@@ -51,6 +52,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
     </body>
 </html>
+
+
 
 
 

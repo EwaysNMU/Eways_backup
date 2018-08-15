@@ -128,7 +128,6 @@ class Student_model extends CI_Model {
             return FALSE;
         }
     }
-   
 
     public function checkUserExist($studentNo) {
         $this->db->where('studentNo', $studentNo);
@@ -183,114 +182,41 @@ class Student_model extends CI_Model {
         $this->db->where('md5(email)', $key);
         return $this->db->update('students', $data);    //update status as 1 to make active user
     }
-    function reset_password($reset_token, $password_1,$studentno) {
+
+    function reset_password($reset_token, $password_1, $studentno) {
         $stamp = date('Y-m-d H:i:s');
         $data = array('password' => $password_1);
         $where = "reset_token='$reset_token' AND studentNo='$studentno' AND time_stamp>='$stamp'";
         $this->db->where($where);
         return $this->db->update('students', $data);
     }
+
     public function update_reset_token($random, $studentno) {
         $stamp = date("Y-m-d H:i:s", strtotime('+5 hours'));
-         $data = array('reset_token' => $random,'time_stamp' => $stamp);
+        $data = array('reset_token' => $random, 'time_stamp' => $stamp);
         $this->db->where('studentNo', $studentno);
         return $this->db->update('students', $data);
     }
-    
+
     public function get_stamp($studentno) {
-        $this->db->select('time_stamp');
+        $this->db->select('time_stamp, reset_token, studentNo');
         $this->db->from('students');
-        $this->db->where("studentNo",$studentno);
-
+        $this->db->where("studentNo", $studentno);
         $data = $this->db->get();
-
-        if($data->num_rows() > 0)
-        {
-           return $data; 
-        }
-        else
-        {
-            return false;
-        }
+        foreach ($data as $row) {
+                $student_num = $row->studentNo;
+//                echo $student_num;
+            }
+        
+            if ($data->num_rows() > 0) {
+                return $data;
+            } else {
+                return $student_num;
+            }
+            
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

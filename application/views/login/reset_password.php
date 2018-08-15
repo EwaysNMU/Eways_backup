@@ -18,6 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             body{
                 padding-top: 100px;
                 padding-bottom: 100px;
+                background-color: #081E2F;
             }
         </style>
        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
@@ -45,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
             }
         }
-
+        }
         function resetPasswordError(){
             $submitBtn.removeAttr("disabled");
             var $errorCont = $("#error_msg");
@@ -53,8 +54,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $errorCont.remove();
             }  
         }
-
-
         $("#confirm_password, #password")
              .on("keydown", function(e){
                 /* only check when the tab or enter keys are pressed
@@ -93,19 +92,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <div class="form-group">
                             <label for="inputResetPasswordEmail">New Password</label>
-                            <input type="password" class="form-control" id="password" name="password"  onkeyup='check();'>
+                            <input type="password" class="form-control" id="password" name="password"
+                                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                                   required >
                             <?php echo form_error('password'); ?>
                         </div>
                         <div class="form-group">
                             <label for="inputResetPasswordEmail">Confirm Password</label>
-                            <input type="password" class="form-control" id="confirm_password" name="confirm_password"  onkeyup='check();'>
+                            <input type="password" class="form-control" id="confirm_password" name="confirm_password"
+                                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                                   required>
                             <?php echo form_error('confirm_password'); ?>
                             <span id='message'></span>
                         </div>
                         <input hidden type="text" name="reset_token" id="reset_token" value="<?php echo $seg2; ?>"required><br>
                         <div class="form-group">
-<!--                            <button type="submit" class="btn btn-success btn-lg float-right">Reset</button>-->
-                            <input type="submit" name="submit" class="btn btn-success btn-lg float-right"  value="Reset"  />
+                            <input type="submit" name="submit" class="btn btn-success btn-lg float-right"  value="Reset" onclick="return val();" />
                         </div>
                     </form>
                 </div>
