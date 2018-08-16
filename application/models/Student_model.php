@@ -203,20 +203,30 @@ class Student_model extends CI_Model {
         $this->db->from('students');
         $this->db->where("studentNo", $studentno);
         $data = $this->db->get();
-        foreach ($data as $row) {
-                $student_num = $row->studentNo;
-//                echo $student_num;
-            }
-        
-            if ($data->num_rows() > 0) {
-                return $data;
-            } else {
-                return $student_num;
-            }
+        return $data;
             
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
