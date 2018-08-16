@@ -45,8 +45,11 @@ class ForgotPassword_Controller extends CI_Controller {
             $this->load->view('error_page', $data);
         } elseif ($time_stamp >= $stamp) {
             $this->load->view('login/reset_password', $studentno);
-        } else {
+        } elseif($time_stamp < $stamp) {
             $this->forgot_password_error();
+        }
+        else{
+            $this->forgot_password_url_change();
         }
     }
 
