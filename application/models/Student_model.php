@@ -56,12 +56,12 @@ class Student_model extends CI_Model {
         $sql = "SELECT *
     FROM students
     WHERE email=?";
-        $query = $this->db->query($sql, array($email));
+        return $this->db->query($sql, array($email));
 
-        if ($query->num_rows() > 0) {
-            $row = $query->row_array();
-            return $row;
-        }
+//        if ($query->num_rows() > 0) {
+//            $row = $query->row_array();
+//            return $row;
+//        }
     }
 
     public function _get_courses_for_resources_by_ID($studentID) {
@@ -208,6 +208,7 @@ class Student_model extends CI_Model {
     }
 
 }
+
 
 
 

@@ -52,6 +52,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 $route['default_controller'] = 'home';
 
+$route['login_login'] = 'Student_controller/login_';
+$route['logout'] = 'Student_controller/logout';
+$route['all_courses'] = 'all_courses_controller/list_of_courses';
+$route['time_management_'] = 'all_courses_controller/time_management';
+$route['time_management_feedback_'] = 'all_courses_controller/time_management_feedback';
+$route['time_management_feedback_answer_'] = 'feedbacks_controller/time_management_feedback_answer';
+$route['stress_management_'] = 'all_courses_controller/stress_management';
+$route['stress_management_feedback_'] = 'all_courses_controller/stress_management_feedback';
+$route['stress_management_feedback_answer_'] = 'feedbacks_controller/stress_management_feedback_answer';
+
+
+
+
+
+
+
+
+
 
 // Student
 $route['student_profile'] = 'student_controller/student_profile';

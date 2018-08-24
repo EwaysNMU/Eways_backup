@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login V3</title>
+    <title>Login - EWAYS</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->  
@@ -26,6 +26,8 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/util.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/main.css">
 <!--===============================================================================================-->
+
+
 </head>
 <body>
     
@@ -90,6 +92,10 @@
                     <div class="text-center p-t-90">
                         <a class="txt1" href="<?php echo site_url() ?>/reset_password">
                             Forgot Password?
+                        </a>
+                        <br>
+                        <a class="txt1" href="<?php echo site_url() ?>/home">
+                            Back to Home
                         </a>
                     </div>
                 </form>

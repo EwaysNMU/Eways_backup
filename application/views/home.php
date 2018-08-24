@@ -11,6 +11,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="<?php echo base_url() ?>/assets/css/home_footer.css">
+        
+
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/main.css">
+        <!--===============================================================================================-->
 
         <title>EWAYS</title>
         <style>
@@ -19,7 +24,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
         </style>
     </head>
+
     <body>
+        
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">e-WAYS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,6 +62,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo site_url() ?>/admin_dashboard">Admin</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo site_url() ?>/login_login">Collins Test</a>
+                    </li>
 
 
                 </ul>
@@ -62,28 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         </nav><br><br>
 
-        <!--        <div class="container">
-                    <h2 class="text-center">WELCOME HOME!</h2>
-                </div>
-                <br><br>-->
-
-
-
-<!--        <table style="height: 100px; width: 100%">
-            <tbody>
-                <tr>
-                    <td width="60%"><img height="400px" class="card-img-top" src="http://materializecss.com/images/sample-1.jpg" alt="HOME"></td>
-                    <td class="align-middle">
-                        <h2 class="display-4">EXCELLENT WAYS<br>OF ACHIEVING<br>YOUR SUCCESS</h2>
-                        <h6 class="lead">Opening up a world of education.</h6><br>
-                        <button type="button" class="btn btn-secondary"><a style="color: white; text-decoration: none;" href="<?php echo site_url() ?>/list_of_courses">Check out our courses -></a></button>
-                    </td>    
-                </tr>
-            </tbody>
-        </table>
-        <br><br>-->
-
-        <!--http://placehold.it/900x400-->
+        <div class="container-login100" style="background-image: url('<?php echo base_url() ?>assets/images/bg-01.jpg');">
         <div class="container">
             <div class="row my-4">
                 <div class="col-lg-8">  
@@ -91,71 +80,84 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
 
                 <div class="col-lg-4">
-                    <h1>EXCELLENT<br>WAYS OF<br>ACHIEVING<br>YOUR<br>SUCCESS</h1>
+                    <h1><strong>EXCELLENT<br>WAYS OF<br>ACHIEVING<br>YOUR<br>SUCCESS</strong></h1>
                     <br>
-                    <a class="btn btn-primary btn-lg" href="<?php echo site_url() ?>/list_of_courses">Check out our courses -></a>
+                    <a class="btn btn-primary btn-lg" href="<?php echo site_url() ?>/test_view">Check out our courses -></a>
                 </div>
             </div>
 
             <!-- Grey Strip -->
             <div class="card text-white bg-secondary my-4 text-center">
                 <div class="card-body">
-                    <p class="text-white m-0">Learning couldn't be much easier!</p>
+                    <h5 class="text-white m-0">Learning couldn't be much easier!</h5>
                 </div>
             </div>
 
-            <!-- Content Row -->
-                       <div class="row">
-                            <div class="col-md-4 mb-4">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h2 class="card-title" >Card One</h2>
-                                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <a href="<?php echo site_url() ?>/test_view" class="btn btn-primary" >More Info</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-4">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h2 class="card-title">Card Two</h2>
-                                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tenetur ex natus at dolorem enim! Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id dolore voluptates quos eligendi labore.</p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <a href="<?php echo site_url() ?>/home_new" class="btn btn-primary">More Info</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-4">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h2 class="card-title">Card Three</h2>
-                                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <a href="#" class="btn btn-primary">More Info</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-<!--            <div align="center">
-                <table style="width: 600px;">
-                    <tr>
-                        <td><div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/viHILXVY_eU" allowfullscreen></iframe>
-                            </div></td>
-                    </tr>
-                </table>
-            </div>
-        </div><br>-->
+        <!-- About Us -->
+            <section class="testimonials text-center bg-light">
+                <h1>About us</h1><br>
+                <div class="container">
+        
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-8">
+                      <p class="font-weight-light mb-0">The Centre for Teaching, Learning & Media (CTLM) is a unit within Higher Education Access and Development Services (HEADS) at NMU. HEADS aims to uphold the broader NMU educational purpose and philosophy: to provide transformational leadership in the service of society through teaching development and related research, and to adopt a humanising pedagogical approach that embraces diverse knowledge traditions and engages them in critical dialogue in order to contribute to a multi-cultural society. HEADS aspires to provide institution-wide and research-led services and programmes that focus on optimising human potential and play a role in higher education transformation by enhancing teaching and learning at NMU.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </section><br>
 
+        <!-- Contact Us -->
+            <section class="testimonials text-center bg-light">
+                <h1>Contact details</h1><br>
+                <div class="container">
+        
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0" align="left">
+                        <p class="font-weight-light mb-0">
+                            Ms Karin Grobler<br/> 
+                            M214<br/>
+                            North Campus<br/>
+                            Tel: +27 41 504 3207<br/>
+                            Tel: 27 41 504 3627<br/>
+                            karin.grobler@mandela.ac.za<br/>
+                        </p>
+                    </div>
+                  </div>
 
+                  <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0" align="left">
+                        <p class="font-weight-light mb-0">
+                            Ronelle Plaatjes<br/> 
+                            R107<br/>
+                            North Campus<br/>
+                            Tel: +27 ?? ??? ????<br/>
+                            Ronelle.plaatjes@mandela.ac.za<br/>
+                        </p>
+                    </div>
+                  </div>
 
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+                  <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0" align="left">
+                        <p class="font-weight-light mb-0">
+                            Ms Karin Grobler<br/> 
+                            M214<br/>
+                            North Campus<br/>
+                            Tel: +27 41 504 3207<br/>
+                            Tel: 27 41 504 3627<br/>
+                            karin.grobler@mandela.ac.za<br/>
+                        </p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+        </section>
+
         </div>
+    </div>
     </body>
 
     <!-- Footer -->

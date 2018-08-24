@@ -17,6 +17,10 @@ class Student_controller extends CI_Controller {
     public function student_profile() {
         $this->load->view('student_profile');
     }
+    
+     public function login_() {
+        $this->load->view('login/login_form');
+    }
 
     public function student_register_form() {
         $this->load->view('student/student_register_form');
@@ -137,15 +141,25 @@ class Student_controller extends CI_Controller {
             $dbpassword = $this->Student_model->get_student_pwd($studentno);
 
             if ($this->is_valid_password($this->input->post('password'), $dbpassword)) {
-                //print_r('Login Successfully');
-                //exit();
                 $data['info'] = $this->Student_model->get_student_details($this->generate_email($this->input->post('studentno')));
-                $session_data = array(
-                    'lastname' => $data['info']['firstName'],
-                    'firstname' => $data['info']['firstName'],
-                );
-                $this->session->set_userdata('_logged_in', $session_data);
-                $this->load->view('home');
+
+                foreach ($data['info']->result() as $row) {
+                    $studentID = $row->studentID; //or whatever the query returns
+                    $studentNo = $row->studentNo; //or whatever the query returns
+                    $f_name = $row->firstName; //or whatever the query returns
+                    $l_name = $row->lastName; //or whatever the query returns
+                    $studyArea = $row->studyArea; //or whatever the query returns
+                    $faculty = $row->faculty; //or whatever the query returns
+                }
+                $this->session->set_userdata(
+                        array('studentID' => $studentID,
+                            'studentNo' => $studentNo,
+                            'firstname' => $f_name,
+                            'lastname' => $l_name,
+                            'studyArea' => $studyArea,
+                            'faculty' => $faculty
+                ));
+                redirect('/all_courses',$data2);
                 
             } elseif ($this->Student_model->get_student_not_activated($studentno1)) {
 
@@ -158,9 +172,66 @@ class Student_controller extends CI_Controller {
                 $this->load->view('login/login_student');
             }
         }
+        
+    }
+    
+    public function logout() {
+        $this->session->unset_userdata('firstname','lastname','studentID','studentNo','studyArea','faculty','topicID','completed');
+        $this->session->sess_destroy();
+        redirect('/login_login');
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

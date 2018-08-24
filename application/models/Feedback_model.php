@@ -24,17 +24,20 @@ class Feedback_model extends CI_Model {
   }
 
 
-  public function get_all_feedbacks()
+  public function get_all_feedbacks($studentID)
   {
-    $sql = "SELECT *
-            FROM feedback_answer
-            WHERE deleted=?";
-    $query=$this->db->query($sql,array('No'));
-
-    if ($query->num_rows() > 0)
-    {
-      return $query->result_array();
-    }
+      $status = "No";
+      $this->db->select('*');
+        $this->db->from('feedback_answer');
+        $this->db->where("studentID", $studentID);
+        $this->db->where("deleted", $status);
+        $data = $this->db->get();
+        return $data;
+//      
+//    $sql = "SELECT *
+//            FROM feedback_answer
+//            WHERE deleted=? AND studentID=?";
+//    return $this->db->query($sql,array('No',$studentID));
   }
 
   public function _get_departments_for_student_profile()
@@ -90,3 +93,8 @@ class Feedback_model extends CI_Model {
     }
   }
 }
+
+
+
+
+
