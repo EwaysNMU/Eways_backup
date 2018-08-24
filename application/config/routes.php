@@ -55,13 +55,32 @@ $route['default_controller'] = 'home';
 $route['login_login'] = 'Student_controller/login_';
 $route['logout'] = 'Student_controller/logout';
 $route['all_courses'] = 'all_courses_controller/list_of_courses';
+
 $route['time_management_'] = 'all_courses_controller/time_management';
 $route['time_management_feedback_'] = 'all_courses_controller/time_management_feedback';
 $route['time_management_feedback_answer_'] = 'feedbacks_controller/time_management_feedback_answer';
+
+$route['goals_setting_'] = 'all_courses_controller/goals_setting';
+$route['goals_setting_feedback_'] = 'all_courses_controller/goals_setting_feedback';
+$route['goals_setting_feedback_answer_'] = 'feedbacks_controller/goals_setting_feedback_answer';
+
+$route['motivation_'] = 'all_courses_controller/motivation';
+$route['motivation_feedback_'] = 'all_courses_controller/motivation_feedback';
+$route['motivation_feedback_answer_'] = 'feedbacks_controller/motivation_feedback_answer';
+
+$route['study_strategy_'] = 'all_courses_controller/study_strategy';
+$route['study_strategy_feedback_'] = 'all_courses_controller/study_strategy_feedback';
+$route['study_strategy_feedback_answer_'] = 'feedbacks_controller/study_strategy_feedback_answer';
+
 $route['stress_management_'] = 'all_courses_controller/stress_management';
 $route['stress_management_feedback_'] = 'all_courses_controller/stress_management_feedback';
 $route['stress_management_feedback_answer_'] = 'feedbacks_controller/stress_management_feedback_answer';
 
+$route['tips_for_exams_and_tests_'] = 'all_courses_controller/tips_for_exams_and_tests';
+$route['tips_for_exams_and_tests_feedback_'] = 'all_courses_controller/tips_for_exams_and_tests_feedback';
+$route['tips_for_exams_and_tests_feedback_answer_'] = 'feedbacks_controller/exam_tips_feedback_answer';
+
+$route['user_profile_'] = 'all_courses_controller/user_profile';
 
 
 

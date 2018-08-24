@@ -176,12 +176,13 @@ class Student_controller extends CI_Controller {
     }
     
     public function logout() {
-        $this->session->unset_userdata('firstname','lastname','studentID','studentNo','studyArea','faculty','topicID','completed');
+        $this->session->unset_userdata('firstname','lastname','studentID','studentNo','studyArea','faculty');
         $this->session->sess_destroy();
         redirect('/login_login');
     }
 
 }
+
 
 
 

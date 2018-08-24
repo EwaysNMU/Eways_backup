@@ -54,6 +54,26 @@
 .button:hover {
     text-decoration: none
 }
+#myBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        background-color: #EEAE2C;
+        color: white;
+        cursor: pointer;
+        width:50px;
+        height: 50px;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    #myBtn:hover {
+        background-color: #555;
+    }
         </style>
         <div class="container">
             <div align="center">
@@ -68,12 +88,11 @@
                         <div class="card-body">
                             <h6 style="text-align: center" class="card-title">GOALS SETTING</h6>
                             <p style="text-align: center" class="card-text">The definition of goal setting is the process of identifying something that you want to accomplish and establishing measurable goals and time frames.</p>
-<!--                            <a href="<?php echo site_url() ?>/goals_settings" class="btn btn-primary">Read</a>-->
                         </div>
                         <div class="overlay"><br><br><br><br><br><br>
                             <h6 style="text-align: center">Learn to set achievable goals</h6>
                             <div class="text">
-                                <a class="button" style="color:white"href="#">Start</a>
+                                <a class="button" style="color:white"href="<?php echo site_url() ?>/goals_setting_">Start</a>
                             </div>
                         </div>
                     </div>
@@ -88,9 +107,14 @@
                         </div>
                         <div class="overlay"><br><br><br><br><br><br>
                             <h6 style="text-align: center">Learn how to manage your stress</h6>
+                            <?php foreach ($info->result() as $value) { ?>
+                            <?php if($value->completed == "Yes" && $value->topicID === "1"): ?>
                             <div class="text">
                                 <a class="button" style="color:white"href="<?php echo site_url() ?>/stress_management_">Start</a>
                             </div>
+                             <?php else: ?>
+                             <?php endif ?>
+                            <?php } ?> 
                         </div>
                     </div>
                 </div>
@@ -109,7 +133,6 @@
                                 <a class="button" style="color:white"href="<?php echo site_url() ?>/time_management_">Start</a>
                             </div>
                              <?php else: ?>
-                            <?php echo $value->completed ; ?>
                              <?php endif ?>
                             <?php } ?> 
                         </div>
@@ -127,9 +150,14 @@
                         </div>
                         <div class="overlay"><br><br><br><br><br><br>
                             <h6 style="text-align: center">Learn how to stay motivated</h6>
+                            <?php foreach ($info->result() as $value) { ?>
+                            <?php if($value->completed == "Yes" && $value->topicID === "3"): ?>
                             <div class="text">
-                                <a class="button" style="color:white"href="#">Start</a>
+                                <a class="button" style="color:white"href="<?php echo site_url() ?>/motivation_">Start</a>
                             </div>
+                            <?php else: ?>
+                             <?php endif ?>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -142,9 +170,14 @@
                         </div>
                         <div class="overlay"><br><br><br><br><br><br>
                             <h6 style="text-align: center">Learn techniques for studying</h6>
+                            <?php foreach ($info->result() as $value) { ?>
+                            <?php if($value->completed == "Yes" && $value->topicID === "4"): ?>
                             <div class="text">
-                                <a class="button" style="color:white"href="#">Start</a>
+                                <a class="button" style="color:white"href="<?php echo site_url() ?>/study_strategy_">Start</a>
                             </div>
+                            <?php else: ?>
+                             <?php endif ?>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -157,15 +190,20 @@
                         </div>
                         <div class="overlay"><br><br><br><br><br><br>
                             <h6 style="text-align: center">Learn tips for exams and test</h6>
+                            <?php foreach ($info->result() as $value) { ?>
+                            <?php if($value->completed == "Yes" && $value->topicID === "5"): ?>
                             <div class="text">
-                                <a class="button" style="color:white"href="#">Start</a>
+                                <a class="button" style="color:white"href="<?php echo site_url() ?>/tips_for_exams_and_tests_">Start</a>
                             </div>
+                            <?php else: ?>
+                             <?php endif ?>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <br><br>
-
+<button onclick="topFunction()" id="myBtn" title="Go to top">&nbsp;<i style="color:black"class="fa fa-angle-double-up"></i>&nbsp;</button>
 
         

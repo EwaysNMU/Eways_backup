@@ -6,6 +6,16 @@ class Feedbacks_controller extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+           if ( ! $this->session->userdata('firstname','lastname','studentID','studentNo','studyArea','faculty'))
+    {
+        $allowed = array(
+             // All allowed function names for not logged in users ( i keep it empty usually)
+        );
+        if ( ! in_array($this->router->fetch_method(), $allowed))
+        {
+            redirect('/login_login');
+        }
+    }
     }
 
     public function index() {
@@ -24,9 +34,6 @@ class Feedbacks_controller extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('myform');
         } else {
-            $student_id = $this->input->post('student_id');
-            $topic_id = $this->input->post('topic_id');
-
             $data = array(
                 'studentID' => $this->input->post('student_id'),
                 'topicID' => $this->input->post('topic_id'),
@@ -37,13 +44,14 @@ class Feedbacks_controller extends CI_Controller {
                 'Q5' => $this->input->post('activities'),
                 'Q6' => $this->input->post('opportunity'),
                 'comment' => $this->input->post('comment'),
+                'completed' => "Yes",
                 'date' => date('Y-m-d', strtotime(date('Y-m-d'))),
             );
             if ($this->Feedback_model->_insert_feedback_answer($data)) {
-
+                $this->session->set_flashdata('flash_Success', 'Yes');
                 redirect("/all_courses");
             } else {
-                $this->load->view('courses/goals_setting/goals_setting_feedback');
+                redirect('feedback/goals_setting');
             }
         }
     }
@@ -62,9 +70,6 @@ class Feedbacks_controller extends CI_Controller {
             // print_r('form validation error');
             // exit();
         } else {
-            $student_id = $this->input->post('student_id');
-            $topic_id = $this->input->post('topic_id');
-
             $data = array(
                 'studentID' => $this->input->post('student_id'),
                 'topicID' => $this->input->post('topic_id'),
@@ -82,7 +87,7 @@ class Feedbacks_controller extends CI_Controller {
                $this->session->set_flashdata('flash_Success','Yes');
                 redirect("/all_courses");
             } else {
-                $this->load->view('feedback/time_management');
+                redirect('feedback/stress_management');
             }
         }
     }
@@ -100,9 +105,6 @@ class Feedbacks_controller extends CI_Controller {
             // print_r('form validation error');
             // exit();
         } else {
-            $student_id = $this->input->post('student_id');
-            $topic_id = $this->input->post('topic_id');
-
             $data = array(
                 'studentID' => $this->input->post('student_id'),
                 'topicID' => $this->input->post('topic_id'),
@@ -120,7 +122,7 @@ class Feedbacks_controller extends CI_Controller {
                $this->session->set_flashdata('flash_Success','Yes');
                 redirect("/all_courses");
             } else {
-                $this->load->view('feedback/time_management');
+                redirect('feedback/time_management');
             }
         }
     }
@@ -138,9 +140,6 @@ class Feedbacks_controller extends CI_Controller {
             // print_r('form validation error');
             // exit();
         } else {
-            $student_id = $this->input->post('student_id');
-            $topic_id = $this->input->post('topic_id');
-
             $data = array(
                 'studentID' => $this->input->post('student_id'),
                 'topicID' => $this->input->post('topic_id'),
@@ -151,17 +150,14 @@ class Feedbacks_controller extends CI_Controller {
                 'Q5' => $this->input->post('activities'),
                 'Q6' => $this->input->post('opportunity'),
                 'comment' => $this->input->post('comment'),
+                'completed' => "Yes",
                 'date' => date('Y-m-d', strtotime(date('Y-m-d'))),
             );
             if ($this->Feedback_model->_insert_feedback_answer($data)) {
-
-                $data['message'] = 'Your feedback was saved successfully.';
-                $this->list_of_courses();
+               $this->session->set_flashdata('flash_Success','Yes');
+                redirect("/all_courses");
             } else {
-                // print_r('error input');
-                // exit();
-
-                $this->load->view('courses/exam_tips/exam_tips_feedback');
+                $this->load->view('feedback/tips_for_exams_and_tests');
             }
         }
     }
@@ -179,9 +175,6 @@ class Feedbacks_controller extends CI_Controller {
             // print_r('form validation error');
             // exit();
         } else {
-            $student_id = $this->input->post('student_id');
-            $topic_id = $this->input->post('topic_id');
-
             $data = array(
                 'studentID' => $this->input->post('student_id'),
                 'topicID' => $this->input->post('topic_id'),
@@ -192,17 +185,14 @@ class Feedbacks_controller extends CI_Controller {
                 'Q5' => $this->input->post('activities'),
                 'Q6' => $this->input->post('opportunity'),
                 'comment' => $this->input->post('comment'),
+                'completed' => "Yes",
                 'date' => date('Y-m-d', strtotime(date('Y-m-d'))),
             );
             if ($this->Feedback_model->_insert_feedback_answer($data)) {
-
-                $data['message'] = 'Your feedback was saved successfully.';
-                $this->list_of_courses();
+               $this->session->set_flashdata('flash_Success','Yes');
+                redirect("/all_courses");
             } else {
-                // print_r('error input');
-                // exit();
-
-                $this->load->view('courses/motivation/motivation_feedback');
+                $this->load->view('feedback/motivation');
             }
         }
     }
@@ -221,9 +211,6 @@ class Feedbacks_controller extends CI_Controller {
             // print_r('form validation error');
             // exit();
         } else {
-            $student_id = $this->input->post('student_id');
-            $topic_id = $this->input->post('topic_id');
-
             $data = array(
                 'studentID' => $this->input->post('student_id'),
                 'topicID' => $this->input->post('topic_id'),
@@ -234,22 +221,15 @@ class Feedbacks_controller extends CI_Controller {
                 'Q5' => $this->input->post('activities'),
                 'Q6' => $this->input->post('opportunity'),
                 'comment' => $this->input->post('comment'),
+                'completed' => "Yes",
                 'date' => date('Y-m-d', strtotime(date('Y-m-d'))),
             );
             if ($this->Feedback_model->_insert_feedback_answer($data)) {
-
-                $data['message'] = 'Your feedback was saved successfully.';
-                $this->list_of_courses();
+               $this->session->set_flashdata('flash_Success','Yes');
+                redirect("/all_courses");
             } else {
-                // print_r('error input');
-                // exit();
-
-                $this->load->view('courses/study_strategy/study_strategy_feedback');
+                $this->load->view('feedback/study_strategy');
             }
         }
-    }
-    public function get_feedbacks()
-    {
-        
     }
 }

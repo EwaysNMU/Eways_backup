@@ -87,7 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </a>
                         <div class="dropdown-content">
-                            <a href=""><i class="fa fa-user" aria-hidden="true"></i> View profile</a>
+                            <a href="<?php echo site_url() ?>/user_profile_"><i class="fa fa-user" aria-hidden="true"></i> View profile</a>
                             <a href=""><i class="fa fa-cog" aria-hidden="true"></i></i> Edit profile</a>
                             <a  href="<?php echo site_url() ?>/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
                         </div>

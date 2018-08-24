@@ -1,11 +1,11 @@
 <br><br><br>
 <div class="container">
-    <h2 class="text-center">TIME MANAGEMENT FEEDBACK</h2>
+    <h2 class="text-center">STUDY STRATEGY FEEDBACK</h2>
 
-    <?php $attributes = array('class' => 'was-validated', 'id' => 'time_management_feedback'); ?>
-    <?php echo form_open('time_management_feedback_answer_', $attributes); ?>
+    <?php $attributes = array('class' => 'was-validated', 'id' => 'study_strategy_feedback_answer'); ?>
+    <?php echo form_open('study_strategy_feedback_answer_', $attributes); ?>
 
-    <input type="hidden" name="topic_id" value="3">
+    <input type="hidden" name="topic_id" value="5">
     <input type="hidden" name="student_id" value="<?php echo $this->session->userdata('studentID'); ?>">
 
     <p class="font-weight-bold">1.Was the topic helpful ?</p>
@@ -106,6 +106,9 @@
 
 </div>
 <br>
+
+
+
 
 
 
