@@ -81,6 +81,7 @@ $route['tips_for_exams_and_tests_feedback_'] = 'all_courses_controller/tips_for_
 $route['tips_for_exams_and_tests_feedback_answer_'] = 'feedbacks_controller/exam_tips_feedback_answer';
 
 $route['user_profile_'] = 'all_courses_controller/user_profile';
+$route['update_profile_'] = 'all_courses_controller/update_profile';
 
 
 
@@ -103,7 +104,11 @@ $route['password_reset'] = 'ForgotPassword_Controller/update_password';
 
 
 //Admin
-$route['admin_dashboard'] = 'admin_controller/admin_dashboard';
+$route['admin_home'] = 'admin_controller/admin_home';
+$route['admin_tables'] = 'admin_controller/admin_tables';
+$route['admin_charts'] = 'admin_controller/admin_charts';
+$route['admin_events'] = 'admin_controller/admin_events';
+
 $route['admin_course_management'] = 'admin_controller/admin_course_management';
 $route['feedback_management'] = 'feedback_controller/get_all_feedbacks';
 

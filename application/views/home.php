@@ -60,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo site_url() ?>/admin_dashboard">Admin</a>
+                        <a class="nav-link" href="<?php echo site_url() ?>/admin_home">Admin</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo site_url() ?>/login_login">Collins Test</a>

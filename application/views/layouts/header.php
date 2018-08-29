@@ -83,14 +83,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <img src="http://learn.mandela.ac.za/theme/image.php/adaptable/core/1532591714/u/f1" alt="user picture" style="width:23px; height:23px;border-radius: 100%;" />
                     </li>&nbsp;&nbsp;&nbsp;
                     <li class="nav-item dropdown">
-                        <a id="navhover"> <?php echo $this->session->userdata('firstname'); ?> <?php echo $this->session->userdata('lastname'); ?>
-                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                        </a>
-                        <div class="dropdown-content">
-                            <a href="<?php echo site_url() ?>/user_profile_"><i class="fa fa-user" aria-hidden="true"></i> View profile</a>
-                            <a href=""><i class="fa fa-cog" aria-hidden="true"></i></i> Edit profile</a>
-                            <a  href="<?php echo site_url() ?>/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
-                        </div>
+                        <?php foreach ($info2->result() as $value) { ?>
+                            <?php if ($value->studentID == $this->session->userdata('studentID')): ?>
+                                <a id="navhover"> <?php echo ucfirst($value->firstName); ?> <?php echo ucfirst($value->lastName); ?>
+                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                </a>
+                                <div class="dropdown-content">
+                                    <a href="<?php echo site_url() ?>/user_profile_"><i class="fa fa-user" aria-hidden="true"></i> View profile</a>
+                                    <a href=""><i class="fa fa-cog" aria-hidden="true"></i></i> Edit profile</a>
+                                    <a  href="<?php echo site_url() ?>/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+                                </div>
+                            <?php endif ?>
+                        <?php } ?> 
                     </li>
                 </ul>
 

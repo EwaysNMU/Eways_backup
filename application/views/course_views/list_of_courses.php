@@ -86,7 +86,7 @@
                     <div id="card1" class="card" style="width: 18rem;">
                         <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/goals.png" width="256" height="216" alt="GOALS SETTING">
                         <div class="card-body">
-                            <h6 style="text-align: center" class="card-title">GOALS SETTING</h6>
+                            <h6 style="text-align: center" class="card-title">GOAL SETTING</h6>
                             <p style="text-align: center" class="card-text">The definition of goal setting is the process of identifying something that you want to accomplish and establishing measurable goals and time frames.</p>
                         </div>
                         <div class="overlay"><br><br><br><br><br><br>

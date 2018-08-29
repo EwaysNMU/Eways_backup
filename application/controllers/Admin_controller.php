@@ -13,8 +13,20 @@ class Admin_controller extends CI_Controller {
 
   }
 
-  public function admin_dashboard() {
-    $this->load->view('admin/admin_dashboard');
+  public function admin_home() {
+    $this->load->view('admin/admin_home');
+  }
+
+  public function admin_tables() {
+    $this->load->view('admin/admin_tables');
+  }
+
+  public function admin_charts() {
+    $this->load->view('admin/admin_charts');
+  }
+
+  public function admin_events() {
+    $this->load->view('admin/admin_events');
   }
 
    public function admin_course_management() {

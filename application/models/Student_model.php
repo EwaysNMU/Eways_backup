@@ -207,7 +207,26 @@ class Student_model extends CI_Model {
             
     }
 
+     public function update_student($stud_id, $fname, $lname,$upload) {
+       $data = array('firstName' => $fname, 'lastName' => $lname, 'photo' => $upload);
+        $this->db->where('studentID', $stud_id);
+        return $this->db->update('students', $data); 
+            
+    }
+    public function get_profile($stud_id) {
+        $this->db->where('studentID', $stud_id);
+        return $query = $this->db->get('students');
+    }
 }
+
+
+
+
+
+
+
+
+
 
 
 
