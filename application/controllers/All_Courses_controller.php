@@ -122,7 +122,7 @@ class All_Courses_controller extends CI_Controller {
     public function update_profile() {
         $this->form_validation->set_rules('last_name', 'Last Name', 'required');
         $this->form_validation->set_rules('first_name', 'First Name', 'required');
-        $this->form_validation->set_rules('userfile', 'First Name', 'required');
+        $this->form_validation->set_rules('userfile', 'Photo', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             redirect('user_profile_');
@@ -133,7 +133,7 @@ class All_Courses_controller extends CI_Controller {
                 $imgSize = $_FILES['userfile']['size'];
                 $userpic = '';
                 if ($imgFile) {
-                    $upload_dir = 'upload/'; // upload directory
+                    $upload_dir = 'uploads/'; // upload directory
                     $imgExt = strtolower(pathinfo($imgFile, PATHINFO_EXTENSION)); // get image extension
                     $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
                     $userpic = rand(1000, 1000000) . "." . $imgExt;
@@ -167,6 +167,11 @@ class All_Courses_controller extends CI_Controller {
     
 }
 }
+
+
+
+
+
 
 
 
