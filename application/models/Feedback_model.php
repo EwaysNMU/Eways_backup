@@ -31,6 +31,23 @@ class Feedback_model extends CI_Model {
         $this->db->from('feedback_answer');
         $this->db->where("studentID", $studentID);
         $this->db->where("deleted", $status);
+        $this->db->group_by('feedback_answer.topicID');// add group_by
+        $data = $this->db->get();
+        return $data;
+//      
+//    $sql = "SELECT *
+//            FROM feedback_answer
+//            WHERE deleted=? AND studentID=?";
+//    return $this->db->query($sql,array('No',$studentID));
+  }
+  public function get_all_feedbacks_profile($studentID)
+  {
+      $status = "No";
+      $this->db->distinct('feedback_answer.topicID');
+      $this->db->select('*, count(distinct topicID) AS countTopic');
+        $this->db->from('feedback_answer');
+        $this->db->where("studentID", $studentID);
+        $this->db->where("deleted", $status);
         $data = $this->db->get();
         return $data;
 //      
@@ -93,6 +110,26 @@ class Feedback_model extends CI_Model {
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

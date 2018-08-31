@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </script>
         <?php endif ?>
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">e-WAYS</a>
+            <a class="navbar-brand" href="#">E-WAYS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -69,33 +69,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a id="navhover" class="nav-link" href="<?php echo site_url() ?>/all_courses"><i class="fa fa-home" aria-hidden="true"></i> Home <span class="sr-only">(current)</span></a>
+                        
                     </li>
                 </ul>
                 <ul  class="nav navbar-nav">
                     <li class="nav-item">
-                        <a id="navhover" href="<?php echo site_url() ?>/all_courses"><i class="fa fa-book" aria-hidden="true"></i> Course</a>
+                        <a id="navhover" href="<?php echo site_url() ?>/all_courses"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
                     </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <li class="nav-item">
-                        <a id="navhover" href="#"><i class="fa fa-wrench" aria-hidden="true"></i> Resources</a>
+                        <a id="navhover" href="<?php echo site_url() ?>/resources"><i class="fa fa-briefcase"></i> Resources</a>
                     </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<?php foreach ($info2->result() as $value) { ?>
+                            <?php if ($value->studentID == $this->session->userdata('studentID')): ?>
                     <li class="nav-item">
-                        <img src="http://learn.mandela.ac.za/theme/image.php/adaptable/core/1532591714/u/f1" alt="user picture" style="width:23px; height:23px;border-radius: 100%;" />
+                        <img src="<?php echo base_url(); ?>uploads/user_profiles/<?php echo $value->photo ?>" alt="user picture" style="width:23px; height:23px;border-radius: 100%;" />
                     </li>&nbsp;&nbsp;&nbsp;
                     <li class="nav-item dropdown">
-                        <?php foreach ($info2->result() as $value) { ?>
-                            <?php if ($value->studentID == $this->session->userdata('studentID')): ?>
+                        
                                 <a id="navhover"> <?php echo ucfirst($value->firstName); ?> <?php echo ucfirst($value->lastName); ?>
                                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </a>
                                 <div class="dropdown-content">
-                                    <a href="<?php echo site_url() ?>/user_profile_"><i class="fa fa-user" aria-hidden="true"></i> View profile</a>
-                                    <a href=""><i class="fa fa-cog" aria-hidden="true"></i></i> Edit profile</a>
+                                    <a href="<?php echo site_url() ?>/user_profile_"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+<!--                                    <a href=""><i class="fa fa-cog" aria-hidden="true"></i></i> Edit profile</a>-->
                                     <a  href="<?php echo site_url() ?>/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
                                 </div>
+                    </li>
+					
                             <?php endif ?>
                         <?php } ?> 
-                    </li>
                 </ul>
 
                 </ul>

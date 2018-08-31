@@ -82,6 +82,8 @@ $route['tips_for_exams_and_tests_feedback_answer_'] = 'feedbacks_controller/exam
 
 $route['user_profile_'] = 'all_courses_controller/user_profile';
 $route['update_profile_'] = 'all_courses_controller/update_profile';
+$route['remove_profile'] = 'all_courses_controller/delete_photo';
+$route['resources'] = 'all_courses_controller/get_resources';
 
 
 
@@ -108,6 +110,8 @@ $route['admin_home'] = 'admin_controller/admin_home';
 $route['admin_tables'] = 'admin_controller/admin_tables';
 $route['admin_charts'] = 'admin_controller/admin_charts';
 $route['admin_events'] = 'admin_controller/admin_events';
+$route['admin_resources'] = 'admin_controller/admin_resources';
+$route['add_resources'] = 'admin_controller/add_resources';
 
 $route['admin_course_management'] = 'admin_controller/admin_course_management';
 $route['feedback_management'] = 'feedback_controller/get_all_feedbacks';

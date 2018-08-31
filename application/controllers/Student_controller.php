@@ -150,6 +150,7 @@ class Student_controller extends CI_Controller {
                     $l_name = $row->lastName; //or whatever the query returns
                     $studyArea = $row->studyArea; //or whatever the query returns
                     $faculty = $row->faculty; //or whatever the query returns
+                    $photo = $row->photo; //or whatever the query returns
                 }
                 $this->session->set_userdata(
                         array('studentID' => $studentID,
@@ -157,7 +158,8 @@ class Student_controller extends CI_Controller {
                             'firstname' => $f_name,
                             'lastname' => $l_name,
                             'studyArea' => $studyArea,
-                            'faculty' => $faculty
+                            'faculty' => $faculty,
+                            'photo' => $photo
                 ));
                 redirect('/all_courses',$data2);
                 
@@ -182,6 +184,7 @@ class Student_controller extends CI_Controller {
     }
 
 }
+
 
 
 

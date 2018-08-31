@@ -217,7 +217,26 @@ class Student_model extends CI_Model {
         $this->db->where('studentID', $stud_id);
         return $query = $this->db->get('students');
     }
+    public function remove_photo($stud_id, $photo) {
+       $data = array('photo' => $photo);
+        $this->db->where('studentID', $stud_id);
+        return $this->db->update('students', $data); 
+            
+    }
+    public function get_resources() {
+        return $query = $this->db->get('resources');
+    }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
