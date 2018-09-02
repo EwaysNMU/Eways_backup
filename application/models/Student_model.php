@@ -226,12 +226,49 @@ class Student_model extends CI_Model {
     public function get_resources() {
         return $query = $this->db->get('resources');
     }
-    public function count_resources() {
- 
-       return $this->db->count_all("resources");
+    public function insert_count_home($data) {
+        $this->db->insert('visit_count', $data);
+
+        if ($this->db->affected_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
  
    }
+   public function count_home_visit()
+   {
+      $this->db->select('*, count(distinct studentID) AS countHome');
+        $this->db->from('visit_count');
+        $data = $this->db->get();
+        return $data;
+   }
+   public function count_active_users(){
+//       $minutes = 60 * 2;
+       $time = 'DATE_SUB(NOW(), INTERVAL 2 MINUTE)';
+       $this->db->select('count(id) AS countUsers');
+        $this->db->from('ci_sessions');
+        $where = "timestamp<'$time'";
+        $this->db->where($where);
+        $data = $this->db->get();
+        return $data;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

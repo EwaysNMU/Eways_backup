@@ -38,16 +38,16 @@
 
     <p class="font-weight-bold">3.How consistent was the course content with the objectives?</p>
     <div class="custom-control custom-radio">
+        <input type="radio" class="custom-control-input" id="customControlValidation7" value="Very Consistent" name="objectives" required>
+        <label class="custom-control-label" for="customControlValidation7">Very Consistent</label>
+    </div>
+    <div class="custom-control custom-radio">
         <input type="radio" class="custom-control-input" id="customControlValidation5" value="Consistent"name="objectives" required>
         <label class="custom-control-label" for="customControlValidation5">Consistent</label>
     </div>
     <div class="custom-control custom-radio">
         <input type="radio" class="custom-control-input" id="customControlValidation6" value="Inconsistent" name="objectives" required>
         <label class="custom-control-label" for="customControlValidation6">Inconsistent</label>
-    </div>
-    <div class="custom-control custom-radio">
-        <input type="radio" class="custom-control-input" id="customControlValidation7" value="Very Consistent" name="objectives" required>
-        <label class="custom-control-label" for="customControlValidation7">Very Consistent</label>
         <div class="invalid-feedback">Please select one of the above answer.</div>
     </div>
 

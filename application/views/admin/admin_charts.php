@@ -2,7 +2,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">E-WAYS</a>
+    <a class="navbar-brand" href="#">E-WAYS</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -76,7 +76,7 @@
 
           <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-area-chart"></i> Area Chart Example</div>
+          <i class="fa fa-area-chart"></i> Area Chart </div>
         <div class="card-body">
           <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -114,7 +114,7 @@
           <!-- Example Bar Chart Card-->
           <div class="card mb-3">
             <div class="card-header">
-              <i class="fa fa-bar-chart"></i> Bar Chart Example</div>
+              <i class="fa fa-bar-chart"></i> Bar Chart </div>
             <div class="card-body">
               <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
@@ -141,8 +141,8 @@
 
       var options = {
         title: "Topics Completed",
-        width: 600,
-        height: 400,
+        //width: 100%,
+        //height: 100%,
         bar: {groupWidth: "50%"},
         legend: { position: "none" },
       };
@@ -159,7 +159,7 @@
           <!-- Example Pie Chart Card-->
           <div class="card mb-3">
             <div class="card-header">
-              <i class="fa fa-pie-chart"></i> Pie Chart Example</div>
+              <i class="fa fa-pie-chart"></i> Pie Chart </div>
             <div class="card-body">
               <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
               <script type="text/javascript">
@@ -172,27 +172,27 @@
                       ['Topic', 'Number Completed'],
 
                       
-                      ['Goal Setting',     1],
-                    
+                      ['Goal Setting',     3],
+           
 
                       
                       ['Time Management',      2],
                       
 
               
-                      ['Stress Management',  3],
+                      ['Stress Management',  1],
                       
 
                      
-                      ['Motivation', 4],
+                      ['Motivation', 3],
               
 
                      
-                      ['Study Strategies',    5],
+                      ['Study Strategies',    2],
      
 
                      
-                      ['Tips for Exams',    6]
+                      ['Tips for Exams',    4]
         
                       
                     ]);

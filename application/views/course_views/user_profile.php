@@ -26,10 +26,11 @@
                     });
             </script>
         <?php endif ?>
+          
 <br><br><br>
 <?php foreach ($info2->result() as $value) { ?>
                             <?php if ($value->studentID == $this->session->userdata('studentID')): ?>
-<form enctype="multipart/form-data" class="form" action="<?php echo site_url() ?>/update_profile_" method="post">
+<form name="myform" enctype="multipart/form-data" class="form" action="<?php echo site_url() ?>/update_profile_" method="post">
 
     <div class="container bootstrap snippet">
         <div class="row">
@@ -40,10 +41,11 @@
                     <?php if ($value->photo == "no_profile.jpeg"): ?>
                     <img src="<?php echo base_url(); ?>uploads/user_profiles/no_profile.jpeg" class="avatar img-circle img-thumbnail" alt="avatar">
                     <h6>Upload a different photo...</h6>
-                    <input  accept=".jpeg, .jpg, .jpe, .jfif, .jif,.png,image/*" type="file" name="userfile" class="text-center center-block file-upload">
+                    <input accept=".jpeg, .jpg, .jpe, .jfif, .jif,.png,image/*" type="file" name="userfile" class="text-center center-block file-upload">
                     <?php else: ?>
                     <img src="<?php echo base_url(); ?>uploads/user_profiles/<?php echo $value->photo ?>" class="avatar img-circle img-thumbnail" alt="avatar">
                     <a style="text-decoration: none;" href="<?php echo site_url(); ?>/remove_profile">remove photo <i class="fa fa-times" aria-hidden="true"></i></a>
+                    <input type="file" name="userfile" hidden>
                <?php endif ?>
                 </div></hr><br>
                 <input type="text" name="db_photo" value="<?php echo $value->photo ?>" hidden>

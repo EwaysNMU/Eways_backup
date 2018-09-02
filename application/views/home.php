@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/main.css">
         <!--===============================================================================================-->
 
-        <title>EWAYS</title>
+        <title>E-WAYS</title>
         <style>
             navbarSupportedContent {
                 z-index: 999999;
@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="<?php echo site_url() ?>">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="<?php echo site_url() ?>"><i class="fa fa-home" aria-hidden="true"></i> Home <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
                 <ul  class="navbar-nav">
@@ -181,7 +181,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-                        <p>Nelson Mandela University</p>
+                        <p style="color:white">Nelson Mandela University</p>
                         <p class="h6">&copy <?php echo date("Y"); ?> All right Reversed.<a class="text-green ml-2" href="https://www.mandela.ac.za" target="_blank">Peer-Colaboration</a></p>
 
                     </div>

@@ -83,6 +83,7 @@ class Admin_model extends CI_Model {
     public function getNoRegisteredUser() {
     	$this->db->select('count(studentNo) AS countRegisteredUser');
         $this->db->from('students');
+        $this->db->where('activated = 1');
 
         $data = $this->db->get();
 
@@ -112,22 +113,12 @@ class Admin_model extends CI_Model {
 
     public function getNoCompleteCourse() {
         //$this->db->distinct('feedback_answer.studentID');
+        $t6 = "6";
         $this->db->select('count(distinct studentID) AS countCompletedCourses');
         $this->db->from('feedback_answer');
-        $this->db->where('topicID = 1');
-        $this->db->where('topicID = 2');
-        $this->db->where('topicID = 3');
-        $this->db->where('topicID = 4');
-        $this->db->where('topicID = 5');
-        $this->db->where('topicID = 6');
-
-        $data = $this->db->get();
-
-        if ($data->num_rows() > 0) {
-            return $data;
-        } else {
-            return FALSE;
-        }
+        $this->db->where('topicID',$t6);
+         $data = $this->db->get();
+        return $data;
     }
 
     public function insert_resources($data) {
@@ -211,5 +202,22 @@ class Admin_model extends CI_Model {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

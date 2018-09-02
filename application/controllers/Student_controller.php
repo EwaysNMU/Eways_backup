@@ -91,7 +91,7 @@ class Student_controller extends CI_Controller {
             );
             if ($this->Student_model->_insert_new_student($data)) {
                 $this->session->set_flashdata('flashSuccess', '<strong>Successful!</strong> Check your mailbox to confirm the email sent.');
-                $this->load->view('login/login_student');
+                redirect('login_login');
             } else {
                 $this->student_register_form();
             }
@@ -116,10 +116,10 @@ class Student_controller extends CI_Controller {
     function confirmEmail($hashcode) {
         if ($this->Student_model->verifyEmail($hashcode)) {
             $this->session->set_flashdata('verifySuccess', 'Email address is confirmed. Please login.');
-            $this->load->view('login/login_student');
+            redirect('login_login');
         } else {
             $this->session->set_flashdata('verifyfailed', 'Email address is not confirmed. Please check your mailbox to confirm.');
-            $this->load->view('login/login_student');
+            redirect('login_login');
         }
     }
 
@@ -142,7 +142,8 @@ class Student_controller extends CI_Controller {
 
             if ($this->is_valid_password($this->input->post('password'), $dbpassword)) {
                 $data['info'] = $this->Student_model->get_student_details($this->generate_email($this->input->post('studentno')));
-
+                  $home_count = "H";
+                  
                 foreach ($data['info']->result() as $row) {
                     $studentID = $row->studentID; //or whatever the query returns
                     $studentNo = $row->studentNo; //or whatever the query returns
@@ -161,6 +162,12 @@ class Student_controller extends CI_Controller {
                             'faculty' => $faculty,
                             'photo' => $photo
                 ));
+                $stud_no = $this->session->userdata('studentID');
+                 $data = array(
+                'studentID' => $stud_no,
+                'counter' => $home_count,
+            );
+                $this->Student_model->insert_count_home($data);
                 redirect('/all_courses',$data2);
                 
             } elseif ($this->Student_model->get_student_not_activated($studentno1)) {
@@ -184,6 +191,13 @@ class Student_controller extends CI_Controller {
     }
 
 }
+
+
+
+
+
+
+
 
 
 

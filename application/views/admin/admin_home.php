@@ -1,7 +1,7 @@
 
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-            <a class="navbar-brand" href="index.html">E-WAYS</a>
+            <a class="navbar-brand" href="#">E-WAYS</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -92,8 +92,10 @@
                                         <div class="card text-white bg-info">
                                             <div class="card-body pb-0">
 
-                                                <div class="text-value">9.823</div>
-                                                <div>Students online</div>
+                                               <?php foreach ($home_count->result() as $home) { ?>
+                                                <div class="text-value"><?php echo $home->countHome ?></div>
+                                                <div>Website visits per student</div>
+                                                <?php } ?>
                                             </div>
                                             <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
                                                <canvas class="chart" id="card-chart2" height="70"></canvas>
@@ -131,7 +133,8 @@
                                     <!-- /.col-->
                                 </div><br><br>
                                 <!-- /.row-->
-
+                               
+                                <!-- /.row-->
                                 
                             </div>
 

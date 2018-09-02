@@ -1,11 +1,16 @@
-<br><br><br><div class="container">
+<script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+<br><br><br><br><br><br><div class="container">
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
                     <h4> Resources</h4></div>
-                <div class="card-body">
-                    <table class="table table-responsive-sm table-bordered table-striped table-sm">
+                <div style="height:500px;overflow-x:auto;" class="card-body">
+                    <table id="example" class="table table-responsive-sm table-bordered table-striped table-sm">
                             <th style="width:40%">Title</th>
                         <tbody>
                             <?php foreach ($info->result() as $value) { ?>
@@ -27,6 +32,4 @@
     </div>
 </div>
     <br><br><br>
-
-
 

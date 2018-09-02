@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </style>
         <title>E-WAYS</title>
     </head>
-    <body>
+    <body >
         
  <?php if ($this->session->flashdata('flash_Success')): ?>
             <script>

@@ -17,11 +17,13 @@ class Admin_controller extends CI_Controller {
         //$this->load->view('admin/admin_home');
 
         $this->load->model('Admin_model', '', TRUE);
+        
 
+        $data["home_count"] = $this->Student_model->count_home_visit();
         $data ['notes'] = $this->Admin_model->getNoRegisteredUser();
         $data ['completeTopic'] = $this->Admin_model->getNoCompleteTopic();
         $data ['completeCourse'] = $this->Admin_model->getNoCompleteCourse();
-
+        $data ['activeUsers'] = $this->Student_model->count_active_users();
         $this->load->view('layouts/admin_header');
         $this->load->view('admin/admin_home', $data);
         $this->load->view('layouts/admin_footer');
@@ -31,7 +33,6 @@ class Admin_controller extends CI_Controller {
         //$this->load->view('admin/admin_tables');
 
         $this->load->model('Admin_model', '', TRUE);
-
         $data ['notes'] = $this->Admin_model->getRegisteredUser();
         if ($data ['notes'] == FALSE) {
             $this->load->view('layouts/admin_header');
@@ -47,13 +48,13 @@ class Admin_controller extends CI_Controller {
     public function admin_charts() {
 
         $this->load->model('Admin_model', '', TRUE);
-
-        $data ['topic1'] = $this->Admin_model->getCountTopic1();
-        $data ['topic2'] = $this->Admin_model->getCountTopic2();
-        $data ['topic3'] = $this->Admin_model->getCountTopic3();
-        $data ['topic4'] = $this->Admin_model->getCountTopic4();
-        $data ['topic5'] = $this->Admin_model->getCountTopic5();
-        $data ['topic6'] = $this->Admin_model->getCountTopic6();
+        
+        $data ['ctopic1'] = $this->Admin_model->getCountTopic1();
+        $data ['ctopic2'] = $this->Admin_model->getCountTopic2();
+        $data ['ctopic3'] = $this->Admin_model->getCountTopic3();
+        $data ['ctopic4'] = $this->Admin_model->getCountTopic4();
+        $data ['ctopic5'] = $this->Admin_model->getCountTopic5();
+        $data ['ctopic6'] = $this->Admin_model->getCountTopic6();
 
         $this->load->view('layouts/admin_header');
         $this->load->view('admin/admin_charts');
@@ -124,6 +125,13 @@ class Admin_controller extends CI_Controller {
                 
         }
     
+
+
+
+
+
+
+
 
 
 

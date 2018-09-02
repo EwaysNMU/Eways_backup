@@ -25,6 +25,8 @@ class All_Courses_controller extends CI_Controller {
         $stud_id = $this->session->userdata('studentID');
         $data['info'] = $this->Feedback_model->get_all_feedbacks($stud_id);
         $data['info2'] = $this->Student_model->get_profile($stud_id);
+        
+        
         $this->load->view('layouts/header', $data);
         $this->load->view('course_views/list_of_courses', $data);
         $this->load->view('layouts/footer');
@@ -199,6 +201,15 @@ class All_Courses_controller extends CI_Controller {
     }
 
 }
+
+
+
+
+
+
+
+
+
 
 
 
