@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class All_Courses_controller extends CI_Controller {
 
+        
     public function __construct() {
         parent::__construct();
         if (!$this->session->userdata('firstname', 'lastname', 'studentID', 'studentNo', 'studyArea', 'faculty')) {
@@ -186,14 +187,50 @@ class All_Courses_controller extends CI_Controller {
     }
 
 //      Resources--------------------------------------------------------
+   
     public function get_resources() {
         $stud_id = $this->session->userdata('studentID');
         $data['info2'] = $this->Student_model->get_profile($stud_id);
         $data["info"] = $this->Student_model->get_resources();
+
         $this->load->view('layouts/header', $data);
         $this->load->view('course_views/resources', $data);
         $this->load->view('layouts/footer');
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

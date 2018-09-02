@@ -42,34 +42,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="col-md-12">
                     <?php $attributes = array('class' => 'was-validated', 'id' => 'login_student'); ?>
                     <?php echo form_open('student_validation', $attributes); ?>
-                    <?php if($this->session->flashdata('flashSuccess')):?>
-                    <div class="alert alert-success alert-dismissible" style="">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <div class="text-center"><?= $this->session->flashdata('flashSuccess') ?></div>
-                    </div>
-                    <?php endif?>
-                    <?php if($this->session->flashdata('flashDanger')):?>
-                    <script>
-                                                swal({
-                              title: "",
-                              text: "Invalid Username or Password!",
-                              icon: "dangerMode"
-                            });
-                    </script>
-                    <?php endif?>
-                    <?php if($this->session->flashdata('verifySuccess')):?>
-                    <div class="alert alert-success alert-dismissible" style="">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <div class="text-center"><?= $this->session->flashdata('verifySuccess') ?></div>
-                    </div>
-                    <?php endif?>
-                    <?php if($this->session->flashdata('verifyfailed')):?>
-                    <div class="alert alert-warning alert-dismissible" style="">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <div class="text-center"><?= $this->session->flashdata('verifyfailed') ?></div>
-                    </div>
-                    <?php endif?>
-
                     <div id="center_div" class="row">
                         <div class="col-md-6 mx-auto">
 
@@ -80,6 +52,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                                 <div class="card-body">
                                     <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
+                                        <?php if ($this->session->flashdata('flashDanger')): ?>
+                                            <div class="alert alert-danger alert-dismissible" style="">
+                                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                                <div class="text-center"><?= $this->session->flashdata('flashDanger') ?></div>
+                                            </div>
+                                        <?php endif ?>
+                                        <?php if ($this->session->flashdata('flashSuccess')): ?>
+                                            <div class="alert alert-success alert-dismissible" style="">
+                                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                                <div class="text-center"><?= $this->session->flashdata('flashSuccess') ?></div>
+                                            </div>
+                                        <?php endif ?>
+
+                                        <?php if ($this->session->flashdata('verifySuccess')): ?>
+                                            <div class="alert alert-success alert-dismissible" style="">
+                                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                                <div class="text-center"><?= $this->session->flashdata('verifySuccess') ?></div>
+                                            </div>
+                                        <?php endif ?>
+                                        <?php if ($this->session->flashdata('verifyfailed')): ?>
+                                            <div class="alert alert-warning alert-dismissible" style="">
+                                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                                <div class="text-center"><?= $this->session->flashdata('verifyfailed') ?></div>
+                                            </div>
+                                        <?php endif ?>
                                         <div class="form-group">
                                             <label for="email">Student #</label>
                                             <input type="number" placeholder="216959956" class="form-control form-control-lg rounded-0" name="studentno" id="email" required=""value="<?php if (isset($_POST['studentno'])) echo $_POST['studentno']; ?>">
@@ -100,6 +97,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin">Login</button>
                                     </form>
                                     <a href="<?php echo site_url() ?>/reset_password" class="float-left">Forgot Password?</a><br>
+                                    <a href="<?php echo site_url() ?>/student_register_form" class="float-left">New User? Register here</a><br>
                                     <a href="<?php echo site_url() ?>/home" class="float-left">Return Home</a>
                                 </div>
                             </div>
@@ -108,7 +106,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <?php echo form_close(); ?>
                 </div>
             </div>
-        </div>
+</div><br><br>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

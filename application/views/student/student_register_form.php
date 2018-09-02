@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">e-WAYS</a>
+            <a class="navbar-brand" href="#">E-WAYS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </ul>
 
             </div>
-        </nav>
+        </nav><br>
         <div class="container">
             <h2 class="text-center">STUDENT REGISTRATION</h2>
 
@@ -58,12 +58,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="form-row">
                 <div class="col-md-6 mb-3">
                     <label for="passowrd">Password</label>
-                    <input type="password" class="form-control" name="password" required>
+                    <input type="password" class="form-control" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                     <?php echo form_error('password'); ?>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="confirm_password">Password Confirmation</label>
-                    <input type="password" class="form-control" name="confirm_password" required>
+                    <input type="password" class="form-control" name="confirm_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                     <?php echo form_error('confirm_password'); ?>
                 </div>
             </div>
@@ -108,7 +108,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <button type="submit" class="btn btn-primary  float-right">Submit</button>
             </div>
             <?php echo form_close(); ?>
-            &emsp;&emsp;&emsp;&emsp;<a href="<?php echo site_url() ?>/home" class="btn btn-default float-right" role="button">Cancel</a>
+            &emsp;&emsp;&emsp;&emsp;<a href="<?php echo site_url() ?>/home" class="btn float-right" role="button">Cancel</a>
         </div>
         <script type="text/javascript">
             var depArt = ["Architecture", "Governmental and Social Sciences", "Language, Media & Communication", "Music, Art & Design"];
@@ -172,6 +172,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>
 </html>
+
+
+
+
+
+
 
 
 

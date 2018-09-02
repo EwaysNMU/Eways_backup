@@ -69,7 +69,7 @@ class Admin_model extends CI_Model {
         $this->db->select('*');
         $this->db->from('students');
         $this->db->order_by('lastName');
-        $this->db->limit(5);
+        //$this->db->limit(5);
 
         $data = $this->db->get();
 
@@ -129,18 +129,84 @@ class Admin_model extends CI_Model {
             return FALSE;
         }
     }
-    public function insert_resources($data)
-  {
-    $this->db->insert('resources', $data);
-    if ($this->db->affected_rows() > 0)
-    {
-      return TRUE;
-    }
-    else
-    {
-      return FALSE;
+
+    public function insert_resources($data) {
+        $this->db->insert('resources', $data);
+        if ($this->db->affected_rows() > 0)
+        {
+          return TRUE;
+        }
+        else
+        {
+          return FALSE;
     }
   }
+
+    public function getCountTopic1() {
+        //$this->db->distinct('feedback_answer.studentID');
+        $this->db->select('count(topicID) AS topic1');
+        $this->db->from('feedback_answer');
+        $this->db->where('topicID = 1');
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+
+    public function getCountTopic2() {
+        //$this->db->distinct('feedback_answer.studentID');
+        $this->db->select('count(topicID) AS topic2');
+        $this->db->from('feedback_answer');
+        $this->db->where('topicID = 2');
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+
+    public function getCountTopic3() {
+        //$this->db->distinct('feedback_answer.studentID');
+        $this->db->select('count(topicID) AS topic3');
+        $this->db->from('feedback_answer');
+        $this->db->where('topicID = 3');
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+
+    public function getCountTopic4() {
+        //$this->db->distinct('feedback_answer.studentID');
+        $this->db->select('count(topicID) AS topic4');
+        $this->db->from('feedback_answer');
+        $this->db->where('topicID = 4');
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+
+    public function getCountTopic5() {
+        //$this->db->distinct('feedback_answer.studentID');
+        $this->db->select('count(topicID) AS topic5');
+        $this->db->from('feedback_answer');
+        $this->db->where('topicID = 5');
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+
+    public function getCountTopic6() {
+        //$this->db->distinct('feedback_answer.studentID');
+        $this->db->select('count(topicID) AS topic6');
+        $this->db->from('feedback_answer');
+        $this->db->where('topicID = 6');
+
+        $data = $this->db->get();
+
+        return $data;
+    }
 
 
 

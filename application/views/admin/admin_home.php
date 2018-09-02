@@ -1,7 +1,7 @@
 
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-            <a class="navbar-brand" href="index.html">EWAYS</a>
+            <a class="navbar-brand" href="index.html">E-WAYS</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -76,6 +76,7 @@
                                     <div class="col-sm-6 col-lg-3">
                                         <div class="card text-white bg-primary">
                                             <div class="card-body pb-0">
+
                                                 <?php foreach ($notes->result() as $value) { ?>
                                                 <div class="text-value"><?php echo $value->countRegisteredUser ?></div>
                                                 <div>Registered Students</div>
@@ -95,7 +96,7 @@
                                                 <div>Students online</div>
                                             </div>
                                             <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
-                                                <canvas class="chart" id="card-chart2" height="70"></canvas>
+                                               <canvas class="chart" id="card-chart2" height="70"></canvas>
                                             </div>
                                         </div>
                                     </div>
@@ -116,9 +117,11 @@
                                     <!-- /.col-->
                                     <div class="col-sm-6 col-lg-3">
                                         <div class="card text-white bg-danger">
-                                            <div class="card-body pb-0">
-                                                <div class="text-value">9.823</div>
-                                                <div>Website visits</div>
+                                             <div class="card-body pb-0">
+                                                <?php foreach ($completeCourse->result() as $value) { ?>
+                                                <div class="text-value"><?php echo $value->countCompletedCourses ?></div>
+                                                <div>Full courses completed</div>
+                                                 <?php } ?>
                                             </div>
                                             <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
                                                 <canvas class="chart" id="card-chart4" height="70"></canvas>
@@ -129,36 +132,7 @@
                                 </div><br><br>
                                 <!-- /.row-->
 
-                                <div class="row">
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="card text-white bg-dark">
-                                            <div class="card-body pb-0">
-                                                <?php foreach ($completeCourse->result() as $value) { ?>
-                                                <div class="text-value"><?php echo $value->countCompletedCourses ?></div>
-                                                <div>Full courses completed</div>
-                                                 <?php } ?>
-                                            </div>
-                                            <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
-                                                <canvas class="chart" id="card-chart1" height="70"></canvas>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.col-->
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="card text-white bg-success">
-                                            <div class="card-body pb-0">
-
-                                                <div class="text-value">9.823</div>
-                                                <div>Students online</div>
-                                            </div>
-                                            <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
-                                                <canvas class="chart" id="card-chart2" height="70"></canvas>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.col-->
-                                </div>
-                                <!-- /.row-->
+                                
                             </div>
 
                         </div>

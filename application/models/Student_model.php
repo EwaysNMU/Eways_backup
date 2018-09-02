@@ -226,7 +226,13 @@ class Student_model extends CI_Model {
     public function get_resources() {
         return $query = $this->db->get('resources');
     }
+    public function count_resources() {
+ 
+       return $this->db->count_all("resources");
+ 
+   }
 }
+
 
 
 

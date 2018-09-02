@@ -45,6 +45,16 @@ class Admin_controller extends CI_Controller {
     }
 
     public function admin_charts() {
+
+        $this->load->model('Admin_model', '', TRUE);
+
+        $data ['topic1'] = $this->Admin_model->getCountTopic1();
+        $data ['topic2'] = $this->Admin_model->getCountTopic2();
+        $data ['topic3'] = $this->Admin_model->getCountTopic3();
+        $data ['topic4'] = $this->Admin_model->getCountTopic4();
+        $data ['topic5'] = $this->Admin_model->getCountTopic5();
+        $data ['topic6'] = $this->Admin_model->getCountTopic6();
+
         $this->load->view('layouts/admin_header');
         $this->load->view('admin/admin_charts');
         $this->load->view('layouts/admin_footer');

@@ -22,13 +22,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             navbarSupportedContent {
                 z-index: 999999;
             }
+            
+             #navhover:hover{
+            text-decoration: none;
+            color: yellow
+            
+        }
+        #navhover{
+            color: white
+        }
         </style>
     </head>
 
     <body>
         
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">e-WAYS</a>
+            <a class="navbar-brand" href="#">E-WAYS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -39,17 +48,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </li>
                 </ul>
                 <ul  class="navbar-nav">
-                    <li class="nav-item dropdown">
+                    <li class="nav-item">
+                        <a id="navhover" class="nav-link" href="<?php echo site_url() ?>/login_login"><i class="fa fa-sign-in"></i> Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="navhover" class="nav-link" href="<?php echo site_url() ?>/student_register_form"> <i class="fa fa-user-plus"></i> Registration</a>
+                    </li>
+<!--                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Login</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="<?php echo site_url() ?>/login_admin_form">Admin</a>
-                            <a class="dropdown-item" href="<?php echo site_url() ?>/login_student_form">Student</a>
+                            <a class="dropdown-item" href="<?php echo site_url() ?>/login_login">Student</a>
                             <div role="separator" class="dropdown-divider"></div>
                             <a class="dropdown-item" href="<?php echo site_url() ?>/student_register_form">Student Registration</a>
                             <a class="dropdown-item" href="<?php echo site_url() ?>/student_profile">Student Profile</a>
                         </div>
-                    </li>
-                    <li class="nav-item">
+                    </li>-->
+<!--                    <li class="nav-item">
                         <a class="nav-link" href="#!">About</a>
                     </li>
                     <li class="nav-item">
@@ -57,14 +72,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#!">Contact</a>
-                    </li>
+                    </li>-->
 
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo site_url() ?>/admin_home">Admin</a>
                     </li>
-                    <li class="nav-item">
+<!--                    <li class="nav-item">
                         <a class="nav-link" href="<?php echo site_url() ?>/login_login">Collins Test</a>
-                    </li>
+                    </li>-->
 
 
                 </ul>
@@ -82,7 +97,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="col-lg-4">
                     <h1><strong>EXCELLENT<br>WAYS OF<br>ACHIEVING<br>YOUR<br>SUCCESS</strong></h1>
                     <br>
-                    <a class="btn btn-primary btn-lg" href="<?php echo site_url() ?>/test_view">Check out our courses -></a>
+                    <a class="btn btn-primary btn-lg" href="<?php echo site_url() ?>/login_login">Check out our courses -></a>
                 </div>
             </div>
 
@@ -116,38 +131,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="row">
                   <div class="col-lg-4">
                     <div class="testimonial-item mx-auto mb-5 mb-lg-0" align="left">
+                        
+                        <b>Francisco de Vega</b>
                         <p class="font-weight-light mb-0">
-                            Ms Karin Grobler<br/> 
-                            M214<br/>
-                            North Campus<br/>
+                            Room: R112<br/>
+                            Location: North Campus<br/>
                             Tel: +27 41 504 3207<br/>
-                            Tel: 27 41 504 3627<br/>
-                            karin.grobler@mandela.ac.za<br/>
+                          Email: Francisco.deVega@mandela.ac.za<br/>
                         </p>
                     </div>
                   </div>
 
                   <div class="col-lg-4">
                     <div class="testimonial-item mx-auto mb-5 mb-lg-0" align="left">
+                        <b>Ronelle Plaatjes</b>
                         <p class="font-weight-light mb-0">
-                            Ronelle Plaatjes<br/> 
-                            R107<br/>
-                            North Campus<br/>
-                            Tel: +27 ?? ??? ????<br/>
-                            Ronelle.plaatjes@mandela.ac.za<br/>
+                            Room: R107<br/>
+                            Location: North Campus<br/>
+                            Tel: +27 41 504 9055<br/>
+                            Email: Ronelle.plaatjes@mandela.ac.za<br/>
                         </p>
                     </div>
                   </div>
 
                   <div class="col-lg-4">
                     <div class="testimonial-item mx-auto mb-5 mb-lg-0" align="left">
+                        <b>Selwyn Milborrow</b>
                         <p class="font-weight-light mb-0">
-                            Ms Karin Grobler<br/> 
-                            M214<br/>
-                            North Campus<br/>
-                            Tel: +27 41 504 3207<br/>
-                            Tel: 27 41 504 3627<br/>
-                            karin.grobler@mandela.ac.za<br/>
+                            Room: R226<br/>
+                            Location: North Campus<br/>
+                            Tel: +27 41 504 9976<br/>
+                            Email: selwyn.milborrow@mandela.ac.za<br/>
                         </p>
                     </div>
                   </div>

@@ -166,12 +166,12 @@ class Student_controller extends CI_Controller {
             } elseif ($this->Student_model->get_student_not_activated($studentno1)) {
 
                 $this->session->set_flashdata('verifyfailed', 'Email address is not confirmed. Please check your mailbox to confirm.');
-                $this->load->view('login/login_student');
+                redirect('login_login');
             } else {
 //                print_r('Login Unsuccessful');
 //                exit();
                 $this->session->set_flashdata('flashDanger', 'Wrong username or password.');
-                $this->load->view('login/login_student');
+                redirect('login_login');
             }
         }
         
@@ -184,6 +184,9 @@ class Student_controller extends CI_Controller {
     }
 
 }
+
+
+
 
 
 

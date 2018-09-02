@@ -2,7 +2,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">EWAYS</a>
+    <a class="navbar-brand" href="index.html">E-WAYS</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -78,9 +78,36 @@
         <div class="card-header">
           <i class="fa fa-area-chart"></i> Area Chart Example</div>
         <div class="card-body">
-          <canvas id="myAreaChart" width="100%" height="30">hjuhnilnhinhohbouh</canvas>
+          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+     function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Topics', 'Completed'],
+          ['Goal Setting',  3],
+          ['Time Management',  2],
+          ['Stress Management',  1],
+          ['Motivation',  3],
+          ['Study Strategies',  2],
+          ['Tips for  Exams',  4]
+        ]);
+
+        var options = {
+          title: 'Topics Completed',
+          hAxis: {title: 'Topics',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+    <div id="chart_div" style="width: 100%; height: 100%;"></div>
         </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        <div class="card-footer small text-muted"></div>
       </div>
       <div class="row">
         <div class="col-lg-8">
@@ -89,9 +116,43 @@
             <div class="card-header">
               <i class="fa fa-bar-chart"></i> Bar Chart Example</div>
             <div class="card-body">
-              <canvas id="myBarChart" width="100" height="50"></canvas>
+              <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load("current", {packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["Element", "Density", { role: "style" } ],
+        ["Goal Setting", 3, "#b87333"],
+        ["Time Management", 2, "silver"],
+        ["Stress Management", 1, "gold"],
+        ["Motivation", 3, "b87333"],
+        ["Study Strategies", 2, "silver"],
+        ["Tips for  Exams", 4, "color: gold"]
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "Topics Completed",
+        width: 600,
+        height: 400,
+        bar: {groupWidth: "50%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(view, options);
+  }
+  </script>
+<div id="columnchart_values" style="width: 100%; height: 100%;"></div>
             </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+            <div class="card-footer small text-muted"></div>
           </div>
         </div>
         <div class="col-lg-4">
@@ -100,9 +161,55 @@
             <div class="card-header">
               <i class="fa fa-pie-chart"></i> Pie Chart Example</div>
             <div class="card-body">
-              <canvas id="myPieChart" width="100%" height="100"></canvas>
+              <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+              <script type="text/javascript">
+                  google.charts.load('current', {'packages':['corechart']});
+                  google.charts.setOnLoadCallback(drawChart);
+
+                  function drawChart() {
+
+                    var data = google.visualization.arrayToDataTable([
+                      ['Topic', 'Number Completed'],
+
+                      
+                      ['Goal Setting',     1],
+                    
+
+                      
+                      ['Time Management',      2],
+                      
+
+              
+                      ['Stress Management',  3],
+                      
+
+                     
+                      ['Motivation', 4],
+              
+
+                     
+                      ['Study Strategies',    5],
+     
+
+                     
+                      ['Tips for Exams',    6]
+        
+                      
+                    ]);
+
+                    var options = {
+                      title: 'Topics Completed'
+                    };
+
+                    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+                    chart.draw(data, options);
+                  }
+              </script>
+
+    <div id="piechart" style="width: 100%; height: 100%;"></div>
             </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+            <div class="card-footer small text-muted"></div>
           </div>
         </div>
       </div>

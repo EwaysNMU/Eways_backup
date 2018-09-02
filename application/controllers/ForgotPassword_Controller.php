@@ -96,7 +96,7 @@ class ForgotPassword_Controller extends CI_Controller {
             if ($this->email->send() && $this->Student_model->update_reset_token($random, $studentno)) {
                 $this->session->set_flashdata('flashSuccess', 'A password reset link was sent to your email.');
 //                $this->load->view('login/login_student');
-                redirect('login/login_student');
+                redirect('/login_login');
             } else {
                 $this->session->set_flashdata('flashFailed', 'Something When wrong.');
                 redirect('login/forgot_password');
@@ -146,7 +146,7 @@ class ForgotPassword_Controller extends CI_Controller {
             }
             $stamp = date('Y-m-d H:i:s');
             if ($time_stamp >= $stamp && $token == $reset_token && $student_num == $studentno && ($this->Student_model->reset_password($reset_token, $password_1, $studentno))) {
-                redirect('login/login_student');
+                redirect('login_login');
             } else {
                 $this->forgot_password_url_change();
             }
