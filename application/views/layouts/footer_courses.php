@@ -36,7 +36,7 @@
 <!-- Footer -->
 <div class="footer">
     <p>Nelson Mandela University</p>
-    <p class="h6"> &copy <?php echo date("Y"); ?> All right Reversed. Peer-Colaboration</p>
+    <p class="h6"> &copy <?php echo date("Y"); ?> All right Reserved. Peer-Collaboration</p>
 
 </div>
 </body>

@@ -123,10 +123,10 @@
                         <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/time management.jpg" width="256" height="216" alt="TIME MANAGEMENT">
                         <div class="card-body">
                             <h6 style="text-align: center" class="card-title">TIME MANAGEMENT</h6>
-                            <p style="text-align: center" class="card-text">“Time management” is the process of organizing and planning how to divide your time between specific activities. Good time management enables you to work smarter.</p>
+                            <p style="text-align: center" class="card-text">Time management is the process of organising and planning how to divide your time between specific activities. Good time management enables you to work smarter.</p>
                         </div>
                         <div class="overlay"><br><br><br><br><br><br>
-                            <h6 style="text-align: center">Learn how to prioritize</h6>
+                            <h6 style="text-align: center">Learn how to prioritise</h6>
                             <?php foreach ($info->result() as $value) { ?>
                             <?php if($value->completed == "Yes" && $value->topicID === "2"): ?>
                             <div class="text">

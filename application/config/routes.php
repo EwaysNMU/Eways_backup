@@ -107,6 +107,8 @@ $route['password_reset'] = 'ForgotPassword_Controller/update_password';
 
 //Admin
 $route['admin_home'] = 'admin_controller/admin_home';
+$route['admin_reg_user'] = 'admin_controller/admin_reg_user';
+
 $route['admin_tables'] = 'admin_controller/admin_tables';
 $route['admin_charts'] = 'admin_controller/admin_charts';
 $route['admin_events'] = 'admin_controller/admin_events';

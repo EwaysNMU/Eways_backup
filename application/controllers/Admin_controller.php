@@ -17,16 +17,18 @@ class Admin_controller extends CI_Controller {
         //$this->load->view('admin/admin_home');
 
         $this->load->model('Admin_model', '', TRUE);
-        
+
 
         $data["home_count"] = $this->Student_model->count_home_visit();
         $data ['notes'] = $this->Admin_model->getNoRegisteredUser();
         $data ['completeTopic'] = $this->Admin_model->getNoCompleteTopic();
         $data ['completeCourse'] = $this->Admin_model->getNoCompleteCourse();
         $data ['activeUsers'] = $this->Student_model->count_active_users();
+        
         $this->load->view('layouts/admin_header');
         $this->load->view('admin/admin_home', $data);
         $this->load->view('layouts/admin_footer');
+        
     }
 
     public function admin_tables() {
@@ -37,7 +39,7 @@ class Admin_controller extends CI_Controller {
         if ($data ['notes'] == FALSE) {
             $this->load->view('layouts/admin_header');
             $this->load->view('admin/admin_home');
-        $this->load->view('layouts/admin_footer');
+            $this->load->view('layouts/admin_footer');
         } else {
             $this->load->view('layouts/admin_header');
             $this->load->view('admin/admin_tables', $data);
@@ -45,10 +47,26 @@ class Admin_controller extends CI_Controller {
         }
     }
 
+    public function admin_reg_user() {
+        //$this->load->view('admin/admin_tables');
+
+        $this->load->model('Admin_model', '', TRUE);
+        $data ['notes'] = $this->Admin_model->getRegisteredUser();
+        if ($data ['notes'] == FALSE) {
+            $this->load->view('layouts/admin_header');
+            $this->load->view('admin/admin_home');
+            $this->load->view('layouts/admin_footer');
+        } else {
+            $this->load->view('layouts/admin_header');
+            $this->load->view('admin/admin_reg_user', $data);
+            $this->load->view('layouts/admin_footer');
+        }
+    }
+
     public function admin_charts() {
 
         $this->load->model('Admin_model', '', TRUE);
-        
+
         $data ['ctopic1'] = $this->Admin_model->getCountTopic1();
         $data ['ctopic2'] = $this->Admin_model->getCountTopic2();
         $data ['ctopic3'] = $this->Admin_model->getCountTopic3();
@@ -57,7 +75,7 @@ class Admin_controller extends CI_Controller {
         $data ['ctopic6'] = $this->Admin_model->getCountTopic6();
 
         $this->load->view('layouts/admin_header');
-        $this->load->view('admin/admin_charts');
+        $this->load->view('admin/admin_charts', $data);
         $this->load->view('layouts/admin_footer');
     }
 
@@ -78,7 +96,7 @@ class Admin_controller extends CI_Controller {
     }
 
     public function add_resources() {
-        
+
         if (isset($_POST['upload'])) {
             $imgFile = $_FILES['file']['name'];
             $tmp_dir = $_FILES['file']['tmp_name'];
@@ -104,7 +122,7 @@ class Admin_controller extends CI_Controller {
             if ($upload == NULL) {
                 $upload = 'no_file';
             }
-            $url=$this->input->post('web_url');
+            $url = $this->input->post('web_url');
             if ($url == NULL) {
                 $url = 'no_url';
             }
@@ -121,80 +139,5 @@ class Admin_controller extends CI_Controller {
             }
         }
     }
-                
-                
-        }
-    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}

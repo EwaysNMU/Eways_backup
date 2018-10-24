@@ -31,7 +31,7 @@
                     <span class="nav-link-text">Events</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Resources">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Events">
                 <a class="nav-link" href="<?php echo site_url() ?>/admin_resources">
                     <i class="fa fa-briefcase" aria-hidden="true"></i>
                     <span class="nav-link-text">Resources</span>
@@ -65,83 +65,57 @@
             <li class="breadcrumb-item">
                 <a href="<?php echo site_url() ?>/admin_home">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Charts</li>
+            <li class="breadcrumb-item active">Registered Students</li>
         </ol>
-
-        <div class="card mb-3">
-            <div class="card-header">
-                <i class="fa fa-area-chart"></i> Topics completed</div>
-            <div class="card-body">
-                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-                <script type="text/javascript">
-                    google.charts.load('current', {'packages': ['corechart']});
-                    google.charts.setOnLoadCallback(drawChart);
-
-                    function drawChart() {
-                        var data = google.visualization.arrayToDataTable([
-                        ['Topic', 'No. Completed'],
-<?php foreach ($ctopic1->result() as $value) { ?>
-                            ['Goals Setting', <?php echo $value->topic1 ?>],
-<?php } ?>
-<?php foreach ($ctopic2->result() as $value) { ?>
-                            ['Stress Management ', <?php echo $value->topic2 ?>],
-<?php } ?>
-<?php foreach ($ctopic3->result() as $value) { ?>
-                            ['Time Management', <?php echo $value->topic3 ?>],
-<?php } ?>
-<?php foreach ($ctopic4->result() as $value) { ?>
-                            ['Motivation', <?php echo $value->topic4 ?>],
-<?php } ?>
-<?php foreach ($ctopic5->result() as $value) { ?>
-                            ['Study Strategy', <?php echo $value->topic5 ?>],
-<?php } ?>
-<?php foreach ($ctopic6->result() as $value) { ?>
-                            ['Tips for Exams and Tests', <?php echo $value->topic6 ?>]
-<?php } ?>
-                        ]);
-
-                        var options = {
-                            title: '',
-                            curveType: 'function',
-                            legend: {position: 'left'}
-                        };
-
-                        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-                        chart.draw(data, options);
-                    }
-                </script>
-
-                <div id="curve_chart" width="100%" height="40%"></div>
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fa fa-align-justify"></i> Registered Students</div>
+                        <div class="card-body">
+                            <table id="myTable" class="table table-responsive-sm table-bordered table-striped table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Student No</th>
+                                        <th>Last Name</th>
+                                        <th>First Name</th>
+                                        <th>Faculty</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($notes->result() as $value) { ?>
+                                        <tr>
+                                            <td><?php echo $value->studentNo ?></td>
+                                            <td><?php echo $value->lastName ?></td>
+                                            <td><?php echo $value->firstName ?></td>
+                                            <td><?php echo $value->faculty ?></td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col-->
             </div>
-            <div class="card-footer small text-muted"></div>
+            <!-- /.row-->
         </div>
-        <canvas id="myChart" width="100%" height="40%"></canvas>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-        <script>
-            var ctx = document.getElementById('myChart').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
-
-    // The data for our dataset
-    data: {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
-        datasets: [{
-            label: "My First dataset",
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45],
-        }]
-    },
-
-    // Configuration options go here
-    options: {}
-});
-        </script>
     </div>
-    <!-- /.container-fluid-->
 
+    <!-- Bootstrap core JavaScript-->
+    <script src="<?php echo base_url() ?>assets/vendor/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="<?php echo base_url() ?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="<?php echo base_url() ?>assets/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="<?php echo base_url() ?>assets/vendor/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="<?php echo base_url() ?>assets/js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="<?php echo base_url() ?>assets/js/sb-admin-datatables.min.js"></script>
+</div>
+<!-- /.container-fluid-->
 <!-- /.content-wrapper-->
-
 <br>

@@ -135,9 +135,11 @@ class Admin_model extends CI_Model {
 
     public function getCountTopic1() {
         //$this->db->distinct('feedback_answer.studentID');
+        $t = 1;
         $this->db->select('count(topicID) AS topic1');
         $this->db->from('feedback_answer');
-        $this->db->where('topicID = 1');
+        $this->db->where('topicID',$t);
+        $this->db->where("completed = 'Yes'");
 
         $data = $this->db->get();
 
@@ -146,9 +148,11 @@ class Admin_model extends CI_Model {
 
     public function getCountTopic2() {
         //$this->db->distinct('feedback_answer.studentID');
+        $t = 2;
         $this->db->select('count(topicID) AS topic2');
         $this->db->from('feedback_answer');
-        $this->db->where('topicID = 2');
+        $this->db->where('topicID',$t);
+        $this->db->where("completed = 'Yes'");
 
         $data = $this->db->get();
 
@@ -157,9 +161,11 @@ class Admin_model extends CI_Model {
 
     public function getCountTopic3() {
         //$this->db->distinct('feedback_answer.studentID');
+        $t = 3;
         $this->db->select('count(topicID) AS topic3');
         $this->db->from('feedback_answer');
-        $this->db->where('topicID = 3');
+        $this->db->where('topicID',$t);
+        $this->db->where("completed = 'Yes'");
 
         $data = $this->db->get();
 
@@ -168,9 +174,11 @@ class Admin_model extends CI_Model {
 
     public function getCountTopic4() {
         //$this->db->distinct('feedback_answer.studentID');
+        $t = 4;
         $this->db->select('count(topicID) AS topic4');
         $this->db->from('feedback_answer');
-        $this->db->where('topicID = 4');
+        $this->db->where('topicID',$t);
+        $this->db->where("completed = 'Yes'");
 
         $data = $this->db->get();
 
@@ -179,9 +187,11 @@ class Admin_model extends CI_Model {
 
     public function getCountTopic5() {
         //$this->db->distinct('feedback_answer.studentID');
+        $t = 5;
         $this->db->select('count(topicID) AS topic5');
         $this->db->from('feedback_answer');
-        $this->db->where('topicID = 5');
+        $this->db->where('topicID',$t);
+        $this->db->where("completed = 'Yes'");
 
         $data = $this->db->get();
 
@@ -190,9 +200,11 @@ class Admin_model extends CI_Model {
 
     public function getCountTopic6() {
         //$this->db->distinct('feedback_answer.studentID');
+        $t = 6;
         $this->db->select('count(topicID) AS topic6');
         $this->db->from('feedback_answer');
-        $this->db->where('topicID = 6');
+        $this->db->where('topicID',$t);
+        $this->db->where("completed = 'Yes'");
 
         $data = $this->db->get();
 
