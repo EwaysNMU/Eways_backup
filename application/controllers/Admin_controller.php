@@ -65,6 +65,22 @@ class Admin_controller extends CI_Controller {
 
     public function admin_charts() {
 
+//        $this->load->model('Admin_model', '', TRUE);
+//
+//        $data ['ctopic1'] = $this->Admin_model->getCountTopic1();
+//        $data ['ctopic2'] = $this->Admin_model->getCountTopic2();
+//        $data ['ctopic3'] = $this->Admin_model->getCountTopic3();
+//        $data ['ctopic4'] = $this->Admin_model->getCountTopic4();
+//        $data ['ctopic5'] = $this->Admin_model->getCountTopic5();
+//        $data ['ctopic6'] = $this->Admin_model->getCountTopic6();
+
+        $this->load->view('layouts/admin_header');
+        $this->load->view('admin/admin_charts', $data);
+        $this->load->view('layouts/admin_footer');
+    }
+    
+    public function admin_charts_completed_topics() {
+
         $this->load->model('Admin_model', '', TRUE);
 
         $data ['ctopic1'] = $this->Admin_model->getCountTopic1();
@@ -75,7 +91,7 @@ class Admin_controller extends CI_Controller {
         $data ['ctopic6'] = $this->Admin_model->getCountTopic6();
 
         $this->load->view('layouts/admin_header');
-        $this->load->view('admin/admin_charts', $data);
+        $this->load->view('admin/admin_charts_completed_topics', $data);
         $this->load->view('layouts/admin_footer');
     }
 

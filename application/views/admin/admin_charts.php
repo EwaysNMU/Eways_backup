@@ -67,81 +67,105 @@
             </li>
             <li class="breadcrumb-item active">Charts</li>
         </ol>
-
-        <div class="card mb-3">
-            <div class="card-header">
-                <i class="fa fa-area-chart"></i> Topics completed</div>
-            <div class="card-body">
-                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-                <script type="text/javascript">
-                    google.charts.load('current', {'packages': ['corechart']});
-                    google.charts.setOnLoadCallback(drawChart);
-
-                    function drawChart() {
-                        var data = google.visualization.arrayToDataTable([
-                        ['Topic', 'No. Completed'],
-<?php foreach ($ctopic1->result() as $value) { ?>
-                            ['Goals Setting', <?php echo $value->topic1 ?>],
-<?php } ?>
-<?php foreach ($ctopic2->result() as $value) { ?>
-                            ['Stress Management ', <?php echo $value->topic2 ?>],
-<?php } ?>
-<?php foreach ($ctopic3->result() as $value) { ?>
-                            ['Time Management', <?php echo $value->topic3 ?>],
-<?php } ?>
-<?php foreach ($ctopic4->result() as $value) { ?>
-                            ['Motivation', <?php echo $value->topic4 ?>],
-<?php } ?>
-<?php foreach ($ctopic5->result() as $value) { ?>
-                            ['Study Strategy', <?php echo $value->topic5 ?>],
-<?php } ?>
-<?php foreach ($ctopic6->result() as $value) { ?>
-                            ['Tips for Exams and Tests', <?php echo $value->topic6 ?>]
-<?php } ?>
-                        ]);
-
-                        var options = {
-                            title: '',
-                            curveType: 'function',
-                            legend: {position: 'left'}
-                        };
-
-                        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-                        chart.draw(data, options);
-                    }
-                </script>
-
-                <div id="curve_chart" width="100%" height="40%"></div>
+        <div class="row">
+            <div class="col-12">
+                <div class="container-fluid">
+                    <div class="animated fadeIn">
+                        <div class="row">
+                            <div class="col-xl-3 col-sm-6 mb-3">
+                                <div class="card text-white bg-primary o-hidden h-100">
+                                    <div class="card-body">
+                                        <div class="card-body-icon">
+                                            <i class="fa fa-fw fa-line-chart"></i>
+                                        </div>
+                                        
+                                            <div class="text-value"></div>
+                                            <br>
+                                            <div>Topics Completed</div>
+                                        
+                                    </div>
+                                    <a class="card-footer text-white clearfix small z-1" href="<?php echo site_url() ?>/admin_charts_completed_topics">
+                                        <span class="float-left">View Details</span>
+                                        <span class="float-right">
+                                            <i class="fa fa-angle-right"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- /.col-->
+                            <div class="col-xl-3 col-sm-6 mb-3">
+                                <div class="card text-white bg-success o-hidden h-100">
+                                    <div class="card-body">
+                                        <div class="card-body-icon">
+                                            <i class="fa fa-fw fa-group"></i>
+                                        </div>
+                                        
+                                            <div class="text-value"></div>
+                                            <br>
+                                            <div></div>
+                                        
+                                    </div>
+                                    <a class="card-footer text-white clearfix small z-1" href="#">
+                                        <span class="float-left">View Details</span>
+                                        <span class="float-right">
+                                            <i class="fa fa-angle-right"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- /.col-->
+                            <div class="col-xl-3 col-sm-6 mb-3">
+                                <div class="card text-white bg-warning o-hidden h-100">
+                                    <div class="card-body">
+                                        <div class="card-body-icon">
+                                            <i class="fa fa-fw fa-comments"></i>
+                                        </div>
+                                        
+                                            <div class="text-value"></div>
+                                            <br>
+                                            <div></div>
+                                        
+                                    </div>
+                                    <a class="card-footer text-white clearfix small z-1" href="#">
+                                        <span class="float-left">View Details</span>
+                                        <span class="float-right">
+                                            <i class="fa fa-angle-right"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- /.col-->
+                            <div class="col-xl-3 col-sm-6 mb-3">
+                                <div class="card text-white bg-danger o-hidden h-100">
+                                    <div class="card-body">
+                                        <div class="card-body-icon">
+                                            <i class="fa fa-fw fa-check-circle"></i>
+                                        </div>
+                                        
+                                            <div class="text-value"></div>
+                                            <br>
+                                            <div></div>
+                                       
+                                    </div>
+                                    <a class="card-footer text-white clearfix small z-1" href="#">
+                                        <span class="float-left">View Details</span>
+                                        <span class="float-right">
+                                            <i class="fa fa-angle-right"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- /.col-->
+                        </div><br><br>
+                        <!-- /.row-->
+                        <!-- /.row-->
+  
+                    </div>
+                </div>
             </div>
-            <div class="card-footer small text-muted"></div>
         </div>
-        <canvas id="myChart" width="100%" height="40%"></canvas>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-        <script>
-            var ctx = document.getElementById('myChart').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
-
-    // The data for our dataset
-    data: {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
-        datasets: [{
-            label: "My First dataset",
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45],
-        }]
-    },
-
-    // Configuration options go here
-    options: {}
-});
-        </script>
+            
     </div>
-    <!-- /.container-fluid-->
-
-<!-- /.content-wrapper-->
-
-<br>
+</div>
+        <!-- /.container-fluid-->
+        <!-- /.content-wrapper-->

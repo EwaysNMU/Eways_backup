@@ -110,12 +110,17 @@ $route['admin_home'] = 'admin_controller/admin_home';
 $route['admin_reg_user'] = 'admin_controller/admin_reg_user';
 
 $route['admin_tables'] = 'admin_controller/admin_tables';
+
 $route['admin_charts'] = 'admin_controller/admin_charts';
+$route['admin_charts_completed_topics'] = 'admin_controller/admin_charts_completed_topics';
+
 $route['admin_events'] = 'admin_controller/admin_events';
+
 $route['admin_resources'] = 'admin_controller/admin_resources';
 $route['add_resources'] = 'admin_controller/add_resources';
 
 $route['admin_course_management'] = 'admin_controller/admin_course_management';
+
 $route['feedback_management'] = 'feedback_controller/get_all_feedbacks';
 
 
