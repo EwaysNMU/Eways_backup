@@ -87,12 +87,6 @@ $route['resources'] = 'all_courses_controller/get_resources';
 
 
 
-
-
-
-
-
-
 // Student
 $route['student_profile'] = 'student_controller/student_profile';
 $route['student_register_form'] = 'student_controller/student_register_form';
@@ -113,60 +107,17 @@ $route['admin_tables'] = 'admin_controller/admin_tables';
 
 $route['admin_charts'] = 'admin_controller/admin_charts';
 $route['admin_charts_completed_topics'] = 'admin_controller/admin_charts_completed_topics';
+$route['admin_charts_topics_per_student'] = 'admin_controller/admin_charts_topics_per_student';
 
 $route['admin_events'] = 'admin_controller/admin_events';
 
-$route['admin_resources'] = 'admin_controller/admin_resources';
-$route['add_resources'] = 'admin_controller/add_resources';
+$route['admin_resources'] = 'admin/Admin_resources/Admin_resources';
+$route['add_resources'] = 'admin/Admin_resources/Add_resources';
 
 $route['admin_course_management'] = 'admin_controller/admin_course_management';
 
 $route['feedback_management'] = 'feedback_controller/get_all_feedbacks';
 
-
-//------------------------------------------------COURSES------------------------------------------------//
-//Goal Setting
-$route['goals_settings'] = 'course_controller/goals_settings';
-$route['goals_settings_p2'] = 'course_controller/goals_settings_p2';
-$route['goals_setting_feedback_form'] = 'course_controller/goals_setting_feedback_form';
-$route['goal_setting_feedback'] = 'course_controller/goals_setting_feedback_answer';
-
-//Stress Management
-$route['stress_management'] = 'course_controller/stress_management';
-$route['stress_management_p2'] = 'course_controller/stress_management_p2';
-$route['stress_management_feedback'] = 'course_controller/stress_management_feedback_answer';
-$route['stress_management_feedback_form'] = 'course_controller/stress_management_feedback_form';
-
-//Time Management
-$route['time_management'] = 'course_controller/time_management';
-$route['time_management_p2'] = 'course_controller/time_management_p2';
-$route['time_management_feedback_form'] = 'course_controller/time_management_feedback_form';
-$route['time_management_feedback'] = 'course_controller/time_management_feedback_answer';
-
-//Motivation
-$route['motivation'] = 'course_controller/motivation';
-$route['motivation_p2'] = 'course_controller/motivation_p2';
-$route['motivation_feedback_form'] = 'course_controller/motivation_feedback_form';
-$route['motivation_feedback'] = 'course_controller/motivation_feedback_answer';
-
-//Exam Tips
-$route['exam_tips'] = 'course_controller/exam_tips';
-$route['exam_tips_p2'] = 'course_controller/exam_tips_p2';
-$route['exam_tips_feedback_form'] = 'course_controller/exam_tips_feedback_form';
-$route['exam_tips_feedback'] = 'course_controller/exam_tips_feedback_answer';
-
-//Study Strategies
-$route['study_strategy'] = 'course_controller/study_strategy';
-$route['study_strategy_p2'] = 'course_controller/study_strategy_p2';
-$route['study_strategy_feedback_form'] = 'course_controller/study_strategy_feedback_form';
-$route['study_strategy_feedback'] = 'course_controller/study_strategy_feedback_answer';
-
-
-
-//FEEDBACK
-//Courses
-$route['list_of_courses'] = 'course_controller/list_of_courses';
-$route['home_new'] = 'course_controller/home_new';
 
 
 //------------------------------------------------LOGIN------------------------------------------------//

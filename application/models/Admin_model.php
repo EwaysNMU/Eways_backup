@@ -95,7 +95,7 @@ class Admin_model extends CI_Model {
     }
 
 
-//----------------------------------------------DISPLAY TOPICS COMPLETED----------------------------------------------//
+//----------------------------------------------DISPLAY TOTAL TOPICS COMPLETED----------------------------------------------//
     public function getNoCompleteTopic() {
         //$this->db->distinct('feedback_answer.topicID');
         //$this->db->select('count(distinct topicID) AS countCompletedTopics');
@@ -211,6 +211,23 @@ class Admin_model extends CI_Model {
         return $data;
     }
 
+//----------------------------------------------DISPLAY TOPICS COMPLETED / STUDENT----------------------------------------------//
+
+    public function getUserCountGoalStetting($studentName, $startDate, $endDate) {
+
+        $this->db->select('count(topicID) AS countGoalSettting, firstName, lastName');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 1");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+        //$this->db->order_by('AdvertID', 'desc');
+
+        $data = $this->db->get();
+
+        return $data;
+    }
 
 
 }

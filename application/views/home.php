@@ -19,6 +19,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <title>E-WAYS</title>
         <style>
+        .mandelacolor {
+    background-color: #061C2C;
+}
             navbarSupportedContent {
                 z-index: 999999;
             }
@@ -36,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <body>
         
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark mandelacolor">
             <a class="navbar-brand" href="#">E-WAYS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

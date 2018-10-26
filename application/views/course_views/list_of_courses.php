@@ -42,7 +42,7 @@
   text-align: center;
 }
 .button {
-    background-color: #4CAF50; /* Green */
+    background-color: #061C2C; /* Mandela Blue */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -52,7 +52,8 @@
     font-size: 16px;
 }
 .button:hover {
-    text-decoration: none
+    text-decoration: none;
+    background-color:#FDB819 /*Mandela yellow */;
 }
 #myBtn {
         display: none;
@@ -92,8 +93,28 @@
                         <div class="overlay"><br><br><br><br><br><br>
                             <h6 style="text-align: center">Learn to set achievable goals</h6>
                             <div class="text">
-                                <a class="button" style="color:white"href="<?php echo site_url() ?>/goals_setting_">Start</a>
+                                <a class="button" style="color:white;" href="<?php echo site_url() ?>/goals_setting_">Start</a>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div id="card3" class="card" style="width: 18rem;">
+                        <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/time management.jpg" width="256" height="216" alt="TIME MANAGEMENT">
+                        <div class="card-body">
+                            <h6 style="text-align: center" class="card-title">TIME MANAGEMENT</h6>
+                            <p style="text-align: center" class="card-text">Time management is the process of organising and planning how to divide your time between specific activities. Good time management enables you to work smarter.</p>
+                        </div>
+                        <div class="overlay"><br><br><br><br><br><br>
+                            <h6 style="text-align: center">Learn how to prioritise</h6>
+                            <?php foreach ($info->result() as $value) { ?>
+                            <?php if($value->completed == "Yes" && $value->topicID === "2"): ?>
+                            <div class="text">
+                                <a class="button" style="color:white;"href="<?php echo site_url() ?>/time_management_">Start</a>
+                            </div>
+                             <?php else: ?>
+                             <?php endif ?>
+                            <?php } ?> 
                         </div>
                     </div>
                 </div>
@@ -110,27 +131,7 @@
                             <?php foreach ($info->result() as $value) { ?>
                             <?php if($value->completed == "Yes" && $value->topicID === "1"): ?>
                             <div class="text">
-                                <a class="button" style="color:white"href="<?php echo site_url() ?>/stress_management_">Start</a>
-                            </div>
-                             <?php else: ?>
-                             <?php endif ?>
-                            <?php } ?> 
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m4">
-                    <div id="card3" class="card" style="width: 18rem;">
-                        <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/time management.jpg" width="256" height="216" alt="TIME MANAGEMENT">
-                        <div class="card-body">
-                            <h6 style="text-align: center" class="card-title">TIME MANAGEMENT</h6>
-                            <p style="text-align: center" class="card-text">Time management is the process of organising and planning how to divide your time between specific activities. Good time management enables you to work smarter.</p>
-                        </div>
-                        <div class="overlay"><br><br><br><br><br><br>
-                            <h6 style="text-align: center">Learn how to prioritise</h6>
-                            <?php foreach ($info->result() as $value) { ?>
-                            <?php if($value->completed == "Yes" && $value->topicID === "2"): ?>
-                            <div class="text">
-                                <a class="button" style="color:white"href="<?php echo site_url() ?>/time_management_">Start</a>
+                                <a class="button" style="color:white;"href="<?php echo site_url() ?>/stress_management_">Start</a>
                             </div>
                              <?php else: ?>
                              <?php endif ?>
@@ -140,6 +141,9 @@
                 </div>
                  
             </div><br><br>
+            <div class="row">
+                
+            </div>
             <div class="row">
                 <div class="col s12 m4">
                     <div id="card4" class="card" style="width: 18rem;">
@@ -153,7 +157,7 @@
                             <?php foreach ($info->result() as $value) { ?>
                             <?php if($value->completed == "Yes" && $value->topicID === "3"): ?>
                             <div class="text">
-                                <a class="button" style="color:white"href="<?php echo site_url() ?>/motivation_">Start</a>
+                                <a class="button" style="color:white;"href="<?php echo site_url() ?>/motivation_">Start</a>
                             </div>
                             <?php else: ?>
                              <?php endif ?>
@@ -173,7 +177,7 @@
                             <?php foreach ($info->result() as $value) { ?>
                             <?php if($value->completed == "Yes" && $value->topicID === "4"): ?>
                             <div class="text">
-                                <a class="button" style="color:white"href="<?php echo site_url() ?>/study_strategy_">Start</a>
+                                <a class="button" style="color:white;"href="<?php echo site_url() ?>/study_strategy_">Start</a>
                             </div>
                             <?php else: ?>
                              <?php endif ?>
@@ -193,7 +197,7 @@
                             <?php foreach ($info->result() as $value) { ?>
                             <?php if($value->completed == "Yes" && $value->topicID === "5"): ?>
                             <div class="text">
-                                <a class="button" style="color:white"href="<?php echo site_url() ?>/tips_for_exams_and_tests_">Start</a>
+                                <a class="button" style="color:white;"href="<?php echo site_url() ?>/tips_for_exams_and_tests_">Start</a>
                             </div>
                             <?php else: ?>
                              <?php endif ?>

@@ -120,6 +120,7 @@
                 </div>
             </div>
         </div>
+    </div>
         <!-- /.container-fluid-->
         <!-- /.content-wrapper-->
 

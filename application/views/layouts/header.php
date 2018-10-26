@@ -14,6 +14,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <style>
+
+            .mandelacolor {
+                background-color: #061C2C;
+            }
             .dropdown-content {
                 display: none;
                 position: absolute;
@@ -60,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 });
             </script>
         <?php endif ?>
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark mandelacolor">
             <a class="navbar-brand" href="#">E-WAYS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

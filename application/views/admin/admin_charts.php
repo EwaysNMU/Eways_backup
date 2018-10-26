@@ -78,11 +78,11 @@
                                         <div class="card-body-icon">
                                             <i class="fa fa-fw fa-line-chart"></i>
                                         </div>
-                                        
-                                            <div class="text-value"></div>
-                                            <br>
-                                            <div>Topics Completed</div>
-                                        
+
+                                        <div class="text-value"></div>
+                                        <br>
+                                        <div>Topics Completed</div>
+
                                     </div>
                                     <a class="card-footer text-white clearfix small z-1" href="<?php echo site_url() ?>/admin_charts_completed_topics">
                                         <span class="float-left">View Details</span>
@@ -99,13 +99,13 @@
                                         <div class="card-body-icon">
                                             <i class="fa fa-fw fa-group"></i>
                                         </div>
-                                        
-                                            <div class="text-value"></div>
-                                            <br>
-                                            <div></div>
-                                        
+
+                                        <div class="text-value"></div>
+                                        <br>
+                                        <div>Topics completed per student</div>
+
                                     </div>
-                                    <a class="card-footer text-white clearfix small z-1" href="#">
+                                    <a class="card-footer text-white clearfix small z-1" href="<?php echo site_url() ?>/admin_charts_topics_per_student">
                                         <span class="float-left">View Details</span>
                                         <span class="float-right">
                                             <i class="fa fa-angle-right"></i>
@@ -120,11 +120,11 @@
                                         <div class="card-body-icon">
                                             <i class="fa fa-fw fa-comments"></i>
                                         </div>
-                                        
-                                            <div class="text-value"></div>
-                                            <br>
-                                            <div></div>
-                                        
+
+                                        <div class="text-value"></div>
+                                        <br>
+                                        <div></div>
+
                                     </div>
                                     <a class="card-footer text-white clearfix small z-1" href="#">
                                         <span class="float-left">View Details</span>
@@ -141,11 +141,11 @@
                                         <div class="card-body-icon">
                                             <i class="fa fa-fw fa-check-circle"></i>
                                         </div>
-                                        
-                                            <div class="text-value"></div>
-                                            <br>
-                                            <div></div>
-                                       
+
+                                        <div class="text-value"></div>
+                                        <br>
+                                        <div></div>
+
                                     </div>
                                     <a class="card-footer text-white clearfix small z-1" href="#">
                                         <span class="float-left">View Details</span>
@@ -159,13 +159,13 @@
                         </div><br><br>
                         <!-- /.row-->
                         <!-- /.row-->
-  
+
                     </div>
                 </div>
             </div>
         </div>
-            
+
     </div>
 </div>
-        <!-- /.container-fluid-->
-        <!-- /.content-wrapper-->
+<!-- /.container-fluid-->
+<!-- /.content-wrapper-->
