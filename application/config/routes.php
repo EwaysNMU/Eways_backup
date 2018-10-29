@@ -107,11 +107,12 @@ $route['admin_tables'] = 'admin_controller/admin_tables';
 
 $route['admin_charts'] = 'admin_controller/admin_charts';
 $route['admin_charts_completed_topics'] = 'admin_controller/admin_charts_completed_topics';
-$route['admin_charts_topics_per_student'] = 'admin_controller/admin_charts_topics_per_student';
+$route['admin_charts_topics_per_student'] = 'admin_controller/admin_charts_student_validation';
 
 $route['admin_events'] = 'admin_controller/admin_events';
 
 $route['admin_resources'] = 'admin/Admin_resources/Admin_resources';
+$route['add_resources_'] = 'admin/Admin_resources/add_resources_view';
 $route['add_resources'] = 'admin/Admin_resources/Add_resources';
 
 $route['admin_course_management'] = 'admin_controller/admin_course_management';

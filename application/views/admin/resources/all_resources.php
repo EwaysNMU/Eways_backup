@@ -1,25 +1,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $.viewMap = {
-            '': $([]),
-            'PDF': $('#file'),
-            'Web Url': $('#url'),
-            'Photo': $('#file')
-        };
-
-        $('#type').change(function () {
-            // hide all
-            $.each($.viewMap, function () {
-                this.hide();
-            });
-            // show current
-            $.viewMap[$(this).val()].show();
-        });
-    });
-</script>
 <!-- Navigation-->
-
 <div class="content-wrapper">
     <div class="container-fluid">
         <!-- Breadcrumbs-->
@@ -31,7 +11,6 @@
         </ol>
         <div class="row">
             <div class="col-12">
-                <h2>Resources</h2><br>
                 <div class="container-fluid">
                     <div class="animated fadeIn">
                         <div class="row">
@@ -40,33 +19,28 @@
                                     <div class="card-header">
                                         <i class="fa fa-briefcase"></i> Available resources</div>
                                     <div class="card-body">
-                                        <table id="example" class="display responsive nowrap" style="width:100%">
+                                        <a style="margin-bottom: 10px" class="btn btn-info pull-right" href="<?php echo site_url() ?>/add_resources_">Add resources</a>
+                                        <table id="example" class="display responsive nowrap" style="width:100% ">
                                             <thead>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>Position</th>
-                                                    <th>Office</th>
-                                                    <th>Age</th>
-                                                    <th>Start date</th>
-                                                    <th>Salary</th>
+                                                    <th>No.</th>
+                                                    <th>Title</th>
+                                                    <th>Type</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>Tiger Nixon</td>
+                                                    <td>1</td>
                                                     <td>System Architect</td>
-                                                    <td>Edinburgh</td>
+                                                    <td>xxxxxx</td>
                                                     <td>61</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>$320,800</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Garrett Winters</td>
+                                                    <td>1</td>
                                                     <td>Accountant</td>
-                                                    <td>Tokyo</td>
+                                                    <td>xxxxxx</td>
                                                     <td>63</td>
-                                                    <td>2011/07/25</td>
-                                                    <td>$170,750</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -87,6 +61,64 @@
         </div>
     </div>
 </div>
+
+<script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "columnDefs": [
+            {
+                "targets": [ 2 ],
+                "visible": false,
+                "searchable": false
+            }
+        ],
+        responsive: true
+    } );
+} );
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

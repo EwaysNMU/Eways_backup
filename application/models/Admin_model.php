@@ -81,7 +81,7 @@ class Admin_model extends CI_Model {
     }
 
     public function getNoRegisteredUser() {
-    	$this->db->select('count(studentNo) AS countRegisteredUser');
+        $this->db->select('count(studentNo) AS countRegisteredUser');
         $this->db->from('students');
         $this->db->where('activated = 1');
 
@@ -93,7 +93,6 @@ class Admin_model extends CI_Model {
             return FALSE;
         }
     }
-
 
 //----------------------------------------------DISPLAY TOTAL TOPICS COMPLETED----------------------------------------------//
     public function getNoCompleteTopic() {
@@ -116,29 +115,26 @@ class Admin_model extends CI_Model {
         $t6 = "6";
         $this->db->select('count(distinct studentID) AS countCompletedCourses');
         $this->db->from('feedback_answer');
-        $this->db->where('topicID',$t6);
-         $data = $this->db->get();
+        $this->db->where('topicID', $t6);
+        $data = $this->db->get();
         return $data;
     }
 
     public function insert_resources($data) {
         $this->db->insert('resources', $data);
-        if ($this->db->affected_rows() > 0)
-        {
-          return TRUE;
+        if ($this->db->affected_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
         }
-        else
-        {
-          return FALSE;
     }
-  }
 
     public function getCountTopic1() {
         //$this->db->distinct('feedback_answer.studentID');
         $t = 1;
         $this->db->select('count(topicID) AS topic1');
         $this->db->from('feedback_answer');
-        $this->db->where('topicID',$t);
+        $this->db->where('topicID', $t);
         $this->db->where("completed = 'Yes'");
 
         $data = $this->db->get();
@@ -151,7 +147,7 @@ class Admin_model extends CI_Model {
         $t = 2;
         $this->db->select('count(topicID) AS topic2');
         $this->db->from('feedback_answer');
-        $this->db->where('topicID',$t);
+        $this->db->where('topicID', $t);
         $this->db->where("completed = 'Yes'");
 
         $data = $this->db->get();
@@ -164,7 +160,7 @@ class Admin_model extends CI_Model {
         $t = 3;
         $this->db->select('count(topicID) AS topic3');
         $this->db->from('feedback_answer');
-        $this->db->where('topicID',$t);
+        $this->db->where('topicID', $t);
         $this->db->where("completed = 'Yes'");
 
         $data = $this->db->get();
@@ -177,7 +173,7 @@ class Admin_model extends CI_Model {
         $t = 4;
         $this->db->select('count(topicID) AS topic4');
         $this->db->from('feedback_answer');
-        $this->db->where('topicID',$t);
+        $this->db->where('topicID', $t);
         $this->db->where("completed = 'Yes'");
 
         $data = $this->db->get();
@@ -190,7 +186,7 @@ class Admin_model extends CI_Model {
         $t = 5;
         $this->db->select('count(topicID) AS topic5');
         $this->db->from('feedback_answer');
-        $this->db->where('topicID',$t);
+        $this->db->where('topicID', $t);
         $this->db->where("completed = 'Yes'");
 
         $data = $this->db->get();
@@ -203,7 +199,7 @@ class Admin_model extends CI_Model {
         $t = 6;
         $this->db->select('count(topicID) AS topic6');
         $this->db->from('feedback_answer');
-        $this->db->where('topicID',$t);
+        $this->db->where('topicID', $t);
         $this->db->where("completed = 'Yes'");
 
         $data = $this->db->get();
@@ -211,7 +207,7 @@ class Admin_model extends CI_Model {
         return $data;
     }
 
-//----------------------------------------------DISPLAY TOPICS COMPLETED / STUDENT----------------------------------------------//
+//------------------------------------------DISPLAY TOPICS COMPLETED / STUDENT----------------------------------------------//
 
     public function getUserCountGoalStetting($studentName, $startDate, $endDate) {
 
@@ -222,31 +218,85 @@ class Admin_model extends CI_Model {
         $this->db->where("feedback_answer.studentID = students.studentID");
         $this->db->where("students.studentNo", $studentName);
         $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
-        //$this->db->order_by('AdvertID', 'desc');
 
         $data = $this->db->get();
 
         return $data;
     }
 
+    public function getUserCountStressManagement($studentName, $startDate, $endDate) {
+
+        $this->db->select('count(topicID) AS countStressManagement, firstName, lastName');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 2");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+
+    public function getUserCountTimeManagement($studentName, $startDate, $endDate) {
+
+        $this->db->select('count(topicID) AS countTimeManagement, firstName, lastName');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 3");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+
+    public function getUserCountMotivation($studentName, $startDate, $endDate) {
+
+        $this->db->select('count(topicID) AS countMotivation, firstName, lastName');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 4");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+
+    public function getUserCountStudyStrategy($studentName, $startDate, $endDate) {
+
+        $this->db->select('count(topicID) AS countStudyStrategy, firstName, lastName');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 5");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+
+    public function getUserCountTipsforExams($studentName, $startDate, $endDate) {
+
+        $this->db->select('count(topicID) AS countTipsforExams, firstName, lastName');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 6");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

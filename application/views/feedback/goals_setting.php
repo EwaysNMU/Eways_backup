@@ -1,6 +1,6 @@
 <br><br><br>
 <div class="container">
-    <h2 class="text-center">GOAL SETTING FEEDBACK</h2>
+    <h2 class="text-center">GOAL SETTING FEEDBACK</h2><br>
 
     <?php $attributes = array('class' => 'was-validated', 'id' => 'goals_setting_feedback_answer'); ?>
     <?php echo form_open('goals_setting_feedback_answer_', $attributes); ?>
@@ -8,7 +8,7 @@
     <input type="hidden" name="topic_id" value="1">
     <input type="hidden" name="student_id" value="<?php echo $this->session->userdata('studentID'); ?>">
 
-    <p class="font-weight-bold">1.Was the topic helpful ?</p>
+    <p class="font-weight-bold">1. Did the course clearly explain what you were expected to learn from the course (i.e give learning objectives)?</p>
     <div class="custom-control custom-radio">
         <input type="radio" class="custom-control-input" id="customControlValidation2" value="Yes" name="topic_helpful" required>
         <label class="custom-control-label" for="customControlValidation2">Yes</label>

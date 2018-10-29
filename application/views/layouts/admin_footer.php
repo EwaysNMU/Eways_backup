@@ -37,7 +37,6 @@
     <script src="<?php echo base_url() ?>assets/js/sb-admin.min.js"></script>
      <!-- Datatables jquery-->
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-      <script src="<?php echo base_url() ?>assets/js/dataTables.js"></script>
       <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
       
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
@@ -54,6 +53,8 @@
 </body>
 
 </html>
+
+
 
 
 
