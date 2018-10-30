@@ -30,7 +30,7 @@
                                                 <?php foreach ($notes->result() as $value) { ?>
                                                     <tr>
                                                         <td style="width: 20px"><?php echo $value->studentNo ?></td>
-                                                        <td><?php echo $value->firstName." ".$value->lastName ?></td>
+                                                        <td><?php echo $value->firstName . " " . $value->lastName ?></td>
                                                         <td><?php echo $value->faculty ?></td>
                                                     </tr>
                                                 <?php } ?>
@@ -71,7 +71,7 @@
             "columnDefs": [
                 {
                     "targets": [2],
-                    "visible": false,
+                    "visible": true,
                     "searchable": false
                 }
             ],

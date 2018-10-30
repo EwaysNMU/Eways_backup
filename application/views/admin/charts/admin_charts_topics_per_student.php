@@ -9,12 +9,12 @@
             <li class="breadcrumb-item">
                 <a href="<?php echo site_url() ?>/admin_charts">Charts</a>
             </li>
-            <li class="breadcrumb-item active">No. Topics Completed</li>
+            <li class="breadcrumb-item active">No. Topics Completed per student</li>
         </ol>
 
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-area-chart"></i> Topics completed</div>
+                <i class="fa fa-area-chart"></i> Topics completed by student</div>
             <div class="card-body">
                 <div style="text-align: center">
                     <form class="" action="<?php echo site_url() ?>/admin_charts_topics_per_student" method="POST">

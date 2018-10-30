@@ -11,12 +11,15 @@ class Resources extends CI_Model {
     public function getResources() {
         $this->db->select('*');
         $this->db->from('resources');
+        $this->db->where('StaffID = 1');
         $data = $this->db->get();
         return $data;
     }
 
     
 }
+
+
 
 
 

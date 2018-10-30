@@ -126,7 +126,7 @@
                                         <div></div>
 
                                     </div>
-                                    <a class="card-footer text-white clearfix small z-1" href="#">
+                                    <a class="card-footer text-white clearfix small z-1" href="<?php echo site_url() ?>/admin_charts_q1">
                                         <span class="float-left">View Details</span>
                                         <span class="float-right">
                                             <i class="fa fa-angle-right"></i>

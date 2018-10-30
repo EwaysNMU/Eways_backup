@@ -108,6 +108,8 @@ $route['admin_tables'] = 'admin_controller/admin_tables';
 $route['admin_charts'] = 'admin_controller/admin_charts';
 $route['admin_charts_completed_topics'] = 'admin_controller/admin_charts_completed_topics';
 $route['admin_charts_topics_per_student'] = 'admin_controller/admin_charts_student_validation';
+$route['admin_charts_q1'] = 'admin_controller/admin_charts_q1';
+
 
 $route['admin_events'] = 'admin_controller/admin_events';
 

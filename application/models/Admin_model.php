@@ -299,4 +299,42 @@ class Admin_model extends CI_Model {
         return $data;
     }
 
+    //------------------------------------------COUNT(YES) STUDENTS QUESTION 1----------------------------------------------//
+
+    public function getUserCountQ1Yes() {
+
+        $this->db->select('count(studentID) AS countYes');
+        $this->db->from('feedback_answer');
+        $this->db->where("feedback_answer.Q1 = 'Yes'");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+
+    public function getUserCountQ1No() {
+
+        $this->db->select('count(studentID) AS countNo');
+        $this->db->from('feedback_answer');
+        $this->db->where("feedback_answer.Q1 = 'No'");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+
+    public function getUserCountQ1Somehow() {
+
+        $this->db->select('count(studentID) AS countSomehow');
+        $this->db->from('feedback_answer');
+        $this->db->where("feedback_answer.Q1 = 'Somehow'");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+
 }

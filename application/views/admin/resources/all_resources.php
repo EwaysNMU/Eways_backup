@@ -23,25 +23,23 @@
                                         <table id="example" class="display responsive nowrap" style="width:100% ">
                                             <thead>
                                                 <tr>
-                                                    <th>No.</th>
                                                     <th>Title</th>
                                                     <th>Type</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php foreach($get_resources->result() as $value){?>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>System Architect</td>
-                                                    <td>xxxxxx</td>
-                                                    <td>61</td>
+                                                    <td><?php echo $value->title; ?></td>
+                                                    <td><?php echo $value->type; ?></td>
+                                                    <td>  
+                                                        <a id="aedBtn" href="#">Edit/ </a> 
+                                                        <a id="aedBtn" href="#">Delete/ </a>
+                                                        <a id="aedBtn" href="#">View</a> 
+                                                    </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Accountant</td>
-                                                    <td>xxxxxx</td>
-                                                    <td>63</td>
-                                                </tr>
+                                                <?php } ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -53,10 +51,7 @@
 
 
                     </div>
-                </div>
-
-
-
+                </div><br>
             </div>
         </div>
     </div>
@@ -67,15 +62,78 @@ $(document).ready(function() {
     $('#example').DataTable( {
         "columnDefs": [
             {
-                "targets": [ 2 ],
-                "visible": false,
+                "targets": [2],
+                "visible": true,
                 "searchable": false
             }
         ],
         responsive: true
     } );
+    
+    t.on( 'order.dt search.dt', function () {
+    t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+        cell.innerHTML = i+1;
+    } );
+} ).draw();
 } );
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

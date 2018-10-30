@@ -13,8 +13,11 @@ class Admin_resources extends CI_Controller {
     }
 
     public function admin_resources() {
+        $this->load->model('admin/Resources','resources');
+        
+        $data['get_resources'] = $this->resources->getResources();
         $this->load->view('layouts/admin_header');
-        $this->load->view('admin/resources/all_resources');
+        $this->load->view('admin/resources/all_resources',$data);
         $this->load->view('layouts/admin_footer');
     }
     public function add_resources_view() {
@@ -69,6 +72,19 @@ class Admin_resources extends CI_Controller {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

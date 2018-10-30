@@ -38,14 +38,14 @@ class Admin_controller extends CI_Controller {
             return false;
         }
     }
-    
+
     public function admin_charts_student_validation() {
-        
+
         $this->form_validation->set_rules('endDate', 'End Date', 'trim|callback_compareDates');
-        
+
         if ($this->form_validation->run() == FALSE) {
             $this->admin_charts_topics_per_student();
-        }else {
+        } else {
             $this->admin_charts_topics_per_student();
         }
     }
@@ -81,7 +81,7 @@ class Admin_controller extends CI_Controller {
     public function admin_charts() {
 
         $this->load->view('layouts/admin_header');
-        $this->load->view('admin/admin_charts');
+        $this->load->view('admin/charts/admin_charts');
         $this->load->view('layouts/admin_footer');
     }
 
@@ -95,7 +95,7 @@ class Admin_controller extends CI_Controller {
         $data ['ctopic6'] = $this->Admin_model->getCountTopic6();
 
         $this->load->view('layouts/admin_header');
-        $this->load->view('admin/admin_charts_completed_topics', $data);
+        $this->load->view('admin/charts/admin_charts_completed_topics', $data);
         $this->load->view('layouts/admin_footer');
     }
 
@@ -104,8 +104,8 @@ class Admin_controller extends CI_Controller {
         $studentName = $this->input->post('sname');
         $startDate = $this->input->post('startDate');
         $endDate = $this->input->post('endDate');
-        
-        
+
+
         $data ['goalsetting'] = $this->Admin_model->getUserCountGoalStetting($studentName, $startDate, $endDate);
         $data ['stressmanagement'] = $this->Admin_model->getUserCountStressManagement($studentName, $startDate, $endDate);
         $data ['timemanagement'] = $this->Admin_model->getUserCountTimeManagement($studentName, $startDate, $endDate);
@@ -114,11 +114,20 @@ class Admin_controller extends CI_Controller {
         $data ['tipsforexams'] = $this->Admin_model->getUserCountTipsForExams($studentName, $startDate, $endDate);
 
         $this->load->view('layouts/admin_header');
-        $this->load->view('admin/admin_charts_topics_per_student', $data);
+        $this->load->view('admin/charts/admin_charts_topics_per_student', $data);
         $this->load->view('layouts/admin_footer');
     }
-    
-    
+
+    public function admin_charts_q1() {
+
+        $data ['yes'] = $this->Admin_model->getUserCountQ1Yes();
+        $data ['no'] = $this->Admin_model->getUserCountQ1No();
+        $data ['somehow'] = $this->Admin_model->getUserCountQ1Somehow();
+
+        $this->load->view('layouts/admin_header');
+        $this->load->view('admin/charts/feedback/admin_charts_q1', $data);
+        $this->load->view('layouts/admin_footer');
+    }
 
     public function admin_events() {
         $this->load->view('layouts/admin_header');
