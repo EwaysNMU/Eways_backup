@@ -28,15 +28,15 @@
                                     label: "Was this topic helpful?",
                                             //borderColor: 'rgb(255, 255, 255)',
                                             data: [
-                                                    <?php foreach ($yes->result() as $value) { ?>
-                                                        <?php echo $value->countYes ?>,
-                                                    <?php } ?>
-                                                    <?php foreach ($no->result() as $value) { ?>
-                                                        <?php echo $value->countNo ?>,
-                                                    <?php } ?>
-                                                    <?php foreach ($somehow->result() as $value) { ?>
-                                                        <?php echo $value->countSomehow ?>
-                                                    <?php } ?>],
+<?php foreach ($yes->result() as $value) { ?>
+    <?php echo $value->countYes ?>,
+<?php } ?>
+<?php foreach ($no->result() as $value) { ?>
+    <?php echo $value->countNo ?>,
+<?php } ?>
+<?php foreach ($somehow->result() as $value) { ?>
+    <?php echo $value->countSomehow ?>
+<?php } ?>],
                                             backgroundColor: [
                                                     "rgba(50,150,300,0.5)",
                                                     "rgba(200,0,200,0.5)",
