@@ -14,7 +14,7 @@
 
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-bar-chart"></i> Feedback Question 1</div>
+                <i class="fa fa-bar-chart"></i> Feedback Question 1 </div>
             <div class="card-body">
                 <canvas id="myChart" width="100%" height="40%"></canvas>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
@@ -55,7 +55,7 @@
                     });
                 </script>
             </div>
-        </div>
+        </div></div>
     </div></div>
 <!-- /.container-fluid-->
 <!-- /.content-wrapper-->
