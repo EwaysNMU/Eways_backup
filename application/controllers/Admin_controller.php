@@ -119,10 +119,18 @@ class Admin_controller extends CI_Controller {
     }
 
     public function admin_charts_q1() {
-
-        $data ['yes'] = $this->Admin_model->getUserCountQ1Yes();
-        $data ['no'] = $this->Admin_model->getUserCountQ1No();
-        $data ['somehow'] = $this->Admin_model->getUserCountQ1Somehow();
+        
+        
+        $studentName = $this->input->post('sname');
+        $startDate = $this->input->post('startDate');
+        $endDate = $this->input->post('endDate');
+        $topic = $this->input->post('stopic');
+        
+        $data ['topics'] = $this->Admin_model->getTopics();
+        
+        $data ['yes'] = $this->Admin_model->getUserCountQ1Yes($topic, $studentName, $startDate, $endDate);
+        $data ['no'] = $this->Admin_model->getUserCountQ1No($topic, $studentName, $startDate, $endDate);
+        $data ['somehow'] = $this->Admin_model->getUserCountQ1Somehow($topic, $studentName, $startDate, $endDate);
 
         $this->load->view('layouts/admin_header');
         $this->load->view('admin/charts/feedback/admin_charts_q1', $data);

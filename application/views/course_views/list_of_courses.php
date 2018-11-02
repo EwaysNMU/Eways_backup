@@ -42,7 +42,7 @@
   text-align: center;
 }
 .button {
-    background-color: #061C2C; /* Mandela Blue */
+    background-color: #103A5C; /* Mandela Blue */
     border: none;
     color: white;
     padding: 15px 32px;

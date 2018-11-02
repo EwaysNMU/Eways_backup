@@ -9,6 +9,11 @@
             </li>
             <li class="breadcrumb-item active">Resources</li>
         </ol>
+        <p style="color:#EDAD2A" align="center">
+        <?php if ($this->session->flashdata('flash_Success')): ?>
+         <?php echo $this->session->flashdata('flash_Success') ?>
+        <?php endif ?>
+        </p>
         <div class="row">
             <div class="col-12">
                 <div class="container-fluid">
@@ -34,8 +39,9 @@
                                                     <td><?php echo $value->title; ?></td>
                                                     <td><?php echo $value->type; ?></td>
                                                     <td>  
-                                                        <a id="aedBtn" href="#">Edit/ </a> 
-                                                        <a id="aedBtn" href="#">Delete/ </a>
+                                                        <a id="aedBtn" href="<?php echo site_url() ?>/edit_resources_/<?php $url =$value->web_url; echo $value->resourceID."/".$value->title."/".$value->type."/".$value->file_name."/".$url ?>">
+                                                            Edit/ </a> 
+                                                        <a id="aedBtn" href="<?php echo site_url() ?>/delete_resources/<?php echo $value->resourceID ?>">Delete/ </a>
                                                         <a id="aedBtn" href="#">View</a> 
                                                     </td>
                                                 </tr>
@@ -77,6 +83,18 @@ $(document).ready(function() {
 } ).draw();
 } );
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

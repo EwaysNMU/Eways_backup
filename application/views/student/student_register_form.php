@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <style>
             
         .mandelacolor {
-            background-color: #061C2C;
+            background-color: #103A5C;
         }
         </style>
 

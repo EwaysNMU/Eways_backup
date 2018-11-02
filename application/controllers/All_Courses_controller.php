@@ -142,7 +142,7 @@ class All_Courses_controller extends CI_Controller {
         }
         $photo = "no_profile.jpeg";
         $this->Student_model->remove_photo($stud_id, $photo);
-        unlink(FCPATH . "uploads/user_profiles/" . $db_photo);
+        unlink(FCPATH ."uploads/user_profiles/". $db_photo);
         redirect('user_profile_');
     }
 
@@ -201,6 +201,11 @@ class All_Courses_controller extends CI_Controller {
     }
 
 }
+
+
+
+
+
 
 
 

@@ -6,6 +6,7 @@ class Admin_resources extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+        $this->load->model('admin/Resources','resources');
     }
 
     public function index() {
@@ -13,7 +14,7 @@ class Admin_resources extends CI_Controller {
     }
 
     public function admin_resources() {
-        $this->load->model('admin/Resources','resources');
+        
         
         $data['get_resources'] = $this->resources->getResources();
         $this->load->view('layouts/admin_header');
@@ -22,8 +23,27 @@ class Admin_resources extends CI_Controller {
     }
     public function add_resources_view() {
         $this->load->view('layouts/admin_header');
-        $this->load->view('admin/resources/admin_resources');
+        $this->load->view('admin/resources/add_resources');
         $this->load->view('layouts/admin_footer');
+    }
+    public function edit_resources_view($meg1,$meg2,$meg3,$meg4,$meg5) {
+         $edit = array(
+            'meg1' => $meg1,
+            'meg2' => $meg2,
+             'meg3' => $meg3,
+             'meg4' => $meg4,
+             'meg5' => $meg5,
+        );
+        $this->load->view('layouts/admin_header');
+        $this->load->view('admin/resources/edit_resources',$edit);
+        $this->load->view('layouts/admin_footer');
+    }
+    public function delete() {
+         $resourceID = $this->uri->segment(2);
+            $this->resources->delete($resourceID);
+            $resources="Resources deleted";
+        $this->session->set_flashdata('flash_Success', $resources);
+        redirect("/admin_resources");
     }
 
     public function add_resources() {
@@ -64,6 +84,8 @@ class Admin_resources extends CI_Controller {
                 'file_name' => $upload,
             );
             if ($this->Admin_model->insert_resources($data)) {
+                  $resources="Resources added";
+        $this->session->set_flashdata('flash_Success', $resources);
                 redirect('/admin_resources');
             } else {
                 $this->admin_resources();
@@ -72,6 +94,21 @@ class Admin_resources extends CI_Controller {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

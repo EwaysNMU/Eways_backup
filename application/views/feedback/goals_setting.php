@@ -93,19 +93,19 @@
         <input type="radio" class="custom-control-input" id="customControlValidation13" value="Not At All" name="opportunity" required>
         <label class="custom-control-label" for="customControlValidation13">Not at all</label>
         <div class="invalid-feedback">Please select one of the above answer.</div>
-    <p class="font-weight-bold">7.Any personal comment.</p>
-    <div class="form-group">
+        <p class="font-weight-bold">7.Any personal comment.</p>
+        <div class="form-group">
 
-        <textarea class="form-control" id="exampleFormControlTextarea1" name="comment" rows="3" required></textarea>
-        <div class="invalid-feedback">Please enter comment in the space above.</div>
-    </div>
-    <div>
-        <button type="submit" class="btn btn-primary  float-right">Submit</button>
-    </div>
-    <?php echo form_close(); ?>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="comment" rows="3" required></textarea>
+            <div class="invalid-feedback">Please enter comment in the space above.</div>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary  float-right">Submit</button>
+        </div>
+        <?php echo form_close(); ?>
 
-</div>
-<br>
+    </div>
+    <br>
 
 
 

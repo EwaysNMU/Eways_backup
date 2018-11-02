@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <style>
 
             .mandelacolor {
-                background-color: #061C2C;
+                background-color: #103A5C;
             }
             .dropdown-content {
                 display: none;
@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
 
             .dropdown-content a:hover {
-                background-color: ghostwhite;
+                background-color: #FEC000;
                 color: black;
             }
 
@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             #navhover:hover{
                 text-decoration: none;
-                color: yellow
+                color: #FEC000
 
             }
             #navhover{

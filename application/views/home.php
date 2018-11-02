@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <title>E-WAYS</title>
         <style>
         .mandelacolor {
-    background-color: #061C2C;
+    background-color: #103A5C;
 }
             navbarSupportedContent {
                 z-index: 999999;
@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
              #navhover:hover{
             text-decoration: none;
-            color: yellow
+            color: #FDB819
             
         }
         #navhover{
