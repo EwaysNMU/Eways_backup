@@ -26,9 +26,6 @@ class Admin_controller extends CI_Controller {
         $this->load->view('layouts/admin_footer');
     }
 
-    
-    
-
     public function admin_tables() {
 
         $data ['notes'] = $this->Admin_model->getRegisteredUser();
@@ -56,10 +53,6 @@ class Admin_controller extends CI_Controller {
             $this->load->view('layouts/admin_footer');
         }
     }
-
-    
-
-    
 
     public function admin_events() {
         $this->load->view('layouts/admin_header');

@@ -116,6 +116,7 @@ $route['admin_charts_q2'] = 'admin/Admin_charts/admin_charts_q2_validation';
 $route['admin_charts_q3'] = 'admin/Admin_charts/admin_charts_q3_validation';
 $route['admin_charts_q4'] = 'admin/Admin_charts/admin_charts_q4_validation';
 $route['admin_charts_q5'] = 'admin/Admin_charts/admin_charts_q5_validation';
+$route['admin_charts_q6'] = 'admin/Admin_charts/admin_charts_q6_validation';
 
 
 $route['admin_events'] = 'admin_controller/admin_events';

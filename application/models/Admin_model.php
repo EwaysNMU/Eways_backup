@@ -504,4 +504,197 @@ class Admin_model extends CI_Model {
 
         return $data;
     }
+    
+    //------------------------------------------COUNT STUDENTS QUESTION 4----------------------------------------------//
+
+    public function getUserCountQ4_1($topic, $studentName, $startDate, $endDate) {
+
+        $this->db->select('count(feedback_answer.studentID) AS rate1, title, firstName, lastName');
+        $this->db->from('feedback_answer, topics, students');
+        $this->db->where("feedback_answer.Q4 = 1");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.topicID = topics.topicID");
+        $this->db->where("topics.topicID", $topic);
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getUserCountQ4_2($topic, $studentName, $startDate, $endDate) {
+
+        $this->db->select('count(feedback_answer.studentID) AS rate2, title, firstName, lastName');
+        $this->db->from('feedback_answer, topics, students');
+        $this->db->where("feedback_answer.Q4 = 2");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.topicID = topics.topicID");
+        $this->db->where("topics.topicID", $topic);
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getUserCountQ4_3($topic, $studentName, $startDate, $endDate) {
+
+        $this->db->select('count(feedback_answer.studentID) AS rate3, title, firstName, lastName');
+        $this->db->from('feedback_answer, topics, students');
+        $this->db->where("feedback_answer.Q4 = 3");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.topicID = topics.topicID");
+        $this->db->where("topics.topicID", $topic);
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getUserCountQ4_4($topic, $studentName, $startDate, $endDate) {
+
+        $this->db->select('count(feedback_answer.studentID) AS rate4, title, firstName, lastName');
+        $this->db->from('feedback_answer, topics, students');
+        $this->db->where("feedback_answer.Q4 = 4");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.topicID = topics.topicID");
+        $this->db->where("topics.topicID", $topic);
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getUserCountQ4_5($topic, $studentName, $startDate, $endDate) {
+
+        $this->db->select('count(feedback_answer.studentID) AS rate5, title, firstName, lastName');
+        $this->db->from('feedback_answer, topics, students');
+        $this->db->where("feedback_answer.Q4 = 5");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.topicID = topics.topicID");
+        $this->db->where("topics.topicID", $topic);
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    //------------------------------------------COUNT STUDENTS QUESTION 5----------------------------------------------//
+
+    public function getUserCountQ5_Yes($topic, $studentName, $startDate, $endDate) {
+
+        $this->db->select('count(feedback_answer.studentID) AS countYes, title, firstName, lastName');
+        $this->db->from('feedback_answer, topics, students');
+        $this->db->where("feedback_answer.Q5 = 'Yes'");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.topicID = topics.topicID");
+        $this->db->where("topics.topicID", $topic);
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+
+    public function getUserCountQ5_No($topic, $studentName, $startDate, $endDate) {
+
+        $this->db->select('count(feedback_answer.studentID) AS countNo, title, firstName, lastName');
+        $this->db->from('feedback_answer, topics, students');
+        $this->db->where("feedback_answer.Q5 = 'Not At All'");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.topicID = topics.topicID");
+        $this->db->where("topics.topicID", $topic);
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+
+    public function getUserCountQ5_Somehow($topic, $studentName, $startDate, $endDate) {
+
+        $this->db->select('count(feedback_answer.studentID) AS countSomehow, title, firstName, lastName');
+        $this->db->from('feedback_answer, topics, students');
+        $this->db->where("feedback_answer.Q5 = 'Somehow'");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.topicID = topics.topicID");
+        $this->db->where("topics.topicID", $topic);
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    //------------------------------------------COUNT STUDENTS QUESTION 6----------------------------------------------//
+
+    public function getUserCountQ6_Yes($topic, $studentName, $startDate, $endDate) {
+
+        $this->db->select('count(feedback_answer.studentID) AS countYes, title, firstName, lastName');
+        $this->db->from('feedback_answer, topics, students');
+        $this->db->where("feedback_answer.Q6 = 'Yes'");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.topicID = topics.topicID");
+        $this->db->where("topics.topicID", $topic);
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+
+    public function getUserCountQ6_No($topic, $studentName, $startDate, $endDate) {
+
+        $this->db->select('count(feedback_answer.studentID) AS countNo, title, firstName, lastName');
+        $this->db->from('feedback_answer, topics, students');
+        $this->db->where("feedback_answer.Q6 = 'No At All'");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.topicID = topics.topicID");
+        $this->db->where("topics.topicID", $topic);
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+
+    public function getUserCountQ6_Somehow($topic, $studentName, $startDate, $endDate) {
+
+        $this->db->select('count(feedback_answer.studentID) AS countSomehow, title, firstName, lastName');
+        $this->db->from('feedback_answer, topics, students');
+        $this->db->where("feedback_answer.Q6 = 'Somehow'");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.topicID = topics.topicID");
+        $this->db->where("topics.topicID", $topic);
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
 }

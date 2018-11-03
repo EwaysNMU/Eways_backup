@@ -99,6 +99,17 @@ class Admin_charts extends CI_Controller {
         }
     }
     
+    public function admin_charts_q6_validation() {
+
+        $this->form_validation->set_rules('endDate', 'End Date', 'trim|callback_compareDates');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->admin_charts_q6();
+        } else {
+            $this->admin_charts_q6();
+        }
+    }
+    
     public function admin_charts_completed_topics() {
 
         $data ['ctopic1'] = $this->Admin_model->getCountTopic1();
@@ -184,6 +195,62 @@ class Admin_charts extends CI_Controller {
 
         $this->load->view('layouts/admin_header');
         $this->load->view('admin/charts/feedback/admin_charts_q3', $data);
+        $this->load->view('layouts/admin_footer');
+    }
+    
+    public function admin_charts_q4() {
+        
+        $studentName = $this->input->post('sname');
+        $startDate = $this->input->post('startDate');
+        $endDate = $this->input->post('endDate');
+        $topic = $this->input->post('stopic');
+        
+        $data ['topics'] = $this->Admin_model->getTopics();
+        
+        $data ['rating1'] = $this->Admin_model->getUserCountQ4_1($topic, $studentName, $startDate, $endDate);
+        $data ['rating2'] = $this->Admin_model->getUserCountQ4_2($topic, $studentName, $startDate, $endDate);
+        $data ['rating3'] = $this->Admin_model->getUserCountQ4_3($topic, $studentName, $startDate, $endDate);
+        $data ['rating4'] = $this->Admin_model->getUserCountQ4_4($topic, $studentName, $startDate, $endDate);
+        $data ['rating5'] = $this->Admin_model->getUserCountQ4_5($topic, $studentName, $startDate, $endDate);
+
+        $this->load->view('layouts/admin_header');
+        $this->load->view('admin/charts/feedback/admin_charts_q4', $data);
+        $this->load->view('layouts/admin_footer');
+    }
+    
+    public function admin_charts_q5() {
+        
+        $studentName = $this->input->post('sname');
+        $startDate = $this->input->post('startDate');
+        $endDate = $this->input->post('endDate');
+        $topic = $this->input->post('stopic');
+        
+        $data ['topics'] = $this->Admin_model->getTopics();
+        
+        $data ['yes'] = $this->Admin_model->getUserCountQ5_Yes($topic, $studentName, $startDate, $endDate);
+        $data ['no'] = $this->Admin_model->getUserCountQ5_No($topic, $studentName, $startDate, $endDate);
+        $data ['somehow'] = $this->Admin_model->getUserCountQ5_Somehow($topic, $studentName, $startDate, $endDate);
+
+        $this->load->view('layouts/admin_header');
+        $this->load->view('admin/charts/feedback/admin_charts_q5', $data);
+        $this->load->view('layouts/admin_footer');
+    }
+    
+    public function admin_charts_q6() {
+        
+        $studentName = $this->input->post('sname');
+        $startDate = $this->input->post('startDate');
+        $endDate = $this->input->post('endDate');
+        $topic = $this->input->post('stopic');
+        
+        $data ['topics'] = $this->Admin_model->getTopics();
+        
+        $data ['yes'] = $this->Admin_model->getUserCountQ6_Yes($topic, $studentName, $startDate, $endDate);
+        $data ['no'] = $this->Admin_model->getUserCountQ6_No($topic, $studentName, $startDate, $endDate);
+        $data ['somehow'] = $this->Admin_model->getUserCountQ6_Somehow($topic, $studentName, $startDate, $endDate);
+
+        $this->load->view('layouts/admin_header');
+        $this->load->view('admin/charts/feedback/admin_charts_q6', $data);
         $this->load->view('layouts/admin_footer');
     }
 }
