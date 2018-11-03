@@ -9,15 +9,15 @@
             <li class="breadcrumb-item">
                 <a href="<?php echo site_url() ?>/admin_charts">Charts</a>
             </li>
-            <li class="breadcrumb-item active">Question 1</li>
+            <li class="breadcrumb-item active">Question 3</li>
         </ol>
 
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-bar-chart"></i> Feedback Question 1 </div>
+                <i class="fa fa-bar-chart"></i> Feedback Question 3 </div>
             <div class="card-body">
                 <div style="text-align: center">
-                    <form class="" action="<?php echo site_url() ?>/admin_charts_q1" method="POST">
+                    <form class="" action="<?php echo site_url() ?>/admin_charts_q3" method="POST">
                         Topic: <select name="stopic">
                             <?php foreach ($topics->result() as $value) { ?>
                                 <option value="<?php echo $value->topicID ?>"><?php echo $value->title ?></option>
@@ -27,7 +27,7 @@
                         Student No: <input type="text" id="sname" pattern="[0-9]{9}" placeholder="e.g 212345678" name="sname" minlength="9" maxlength="9" value="<?php if (isset($_POST['sname'])) echo $_POST['sname']; ?>" required autofocus>
 
                         From: <input type="date" id="sdate" name="startDate" max="<?php echo date('Y-m-d') ?>" required value="<?php if (isset($_POST['startDate'])) echo $_POST['startDate']; ?>">
-
+                        s
                         To: <input type="date" id="sdate" name="endDate" max="<?php echo date('Y-m-d') ?>" required value="<?php if (isset($_POST['endDate'])) echo $_POST['endDate']; ?>"><br><br>
 
                         <input id="postBtn" type="submit" value="Search"><br><br>
@@ -35,7 +35,7 @@
                         <?php echo form_error('endDate'); ?>
                     </form>
 
-                    <?php foreach ($yes->result() as $value) { ?>
+                    <?php foreach ($consistent->result() as $value) { ?>
                         <strong><?php echo $value->firstName ?> <?php echo $value->lastName ?>, <?php echo $value->title ?></strong>
                     <?php } ?>
 
@@ -47,19 +47,19 @@
                     var chart = new Chart(ctx, {
                     type: 'bar',
                             data: {
-                            labels: ["Yes", "No", "Somehow"],
+                            labels: ["Very Consistent", "Consistent", "Inconsistent"],
                                     datasets: [{
-                                    label: "Was this topic helpful?",
+                                    label: "How consistent was the course content with the objectives?",
                                             //borderColor: 'rgb(255, 255, 255)',
                                             data: [
-<?php foreach ($yes->result() as $value) { ?>
-    <?php echo $value->countYes ?>,
+<?php foreach ($veryConsistent->result() as $value) { ?>
+    <?php echo $value->countVeryConsistent ?>,
 <?php } ?>
-<?php foreach ($no->result() as $value) { ?>
-    <?php echo $value->countNo ?>,
+<?php foreach ($consistent->result() as $value) { ?>
+    <?php echo $value->countConsistent ?>,
 <?php } ?>
-<?php foreach ($somehow->result() as $value) { ?>
-    <?php echo $value->countSomehow ?>
+<?php foreach ($inconsistent->result() as $value) { ?>
+    <?php echo $value->countInconsistent ?>
 <?php } ?>],
                                             backgroundColor: [
                                                     "rgba(50,150,300,0.5)",

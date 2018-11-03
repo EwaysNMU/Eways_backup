@@ -96,6 +96,9 @@ $route['reset_password'] = 'ForgotPassword_Controller/forgot_password_form';
 $route['send_link'] = 'ForgotPassword_Controller/send_reset_link';
 $route['reset_password_/(.*)'] = 'ForgotPassword_Controller/reset_password_form/$1';
 $route['password_reset'] = 'ForgotPassword_Controller/update_password';
+$route['chat'] = 'test_controller/chat_view';
+$route['chat/time_management'] = 'test_controller/chat_question_list';
+$route['chat/time_management/How to manage my time effectively?'] = 'test_controller/chat_question_details';
 
 
 
@@ -105,10 +108,14 @@ $route['admin_reg_user'] = 'admin_controller/admin_reg_user';
 
 $route['admin_tables'] = 'admin_controller/admin_tables';
 
-$route['admin_charts'] = 'admin_controller/admin_charts';
-$route['admin_charts_completed_topics'] = 'admin_controller/admin_charts_completed_topics';
-$route['admin_charts_topics_per_student'] = 'admin_controller/admin_charts_student_validation';
-$route['admin_charts_q1'] = 'admin_controller/admin_charts_q1';
+$route['admin_charts'] = 'admin/Admin_charts/admin_charts';
+$route['admin_charts_completed_topics'] = 'admin/Admin_charts/admin_charts_completed_topics';
+$route['admin_charts_student_validation'] = 'admin/Admin_charts/admin_charts_student_validation';
+$route['admin_charts_q1'] = 'admin/Admin_charts/admin_charts_q1_validation';
+$route['admin_charts_q2'] = 'admin/Admin_charts/admin_charts_q2_validation';
+$route['admin_charts_q3'] = 'admin/Admin_charts/admin_charts_q3_validation';
+$route['admin_charts_q4'] = 'admin/Admin_charts/admin_charts_q4_validation';
+$route['admin_charts_q5'] = 'admin/Admin_charts/admin_charts_q5_validation';
 
 
 $route['admin_events'] = 'admin_controller/admin_events';

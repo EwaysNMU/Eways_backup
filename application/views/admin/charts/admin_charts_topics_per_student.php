@@ -17,7 +17,7 @@
                 <i class="fa fa-area-chart"></i> Topics completed by student</div>
             <div class="card-body">
                 <div style="text-align: center">
-                    <form class="" action="<?php echo site_url() ?>/admin_charts_topics_per_student" method="POST">
+                    <form class="" action="<?php echo site_url() ?>/admin_charts_student_validation" method="POST">
                         Student No: <input type="text" id="sname" pattern="[0-9]{9}" placeholder="e.g 212345678" name="sname" minlength="9" maxlength="9" required autofocus>
 
                         From: <input type="date" id="sdate" name="startDate" max="<?php echo date('Y-m-d') ?>" required value="<?php if (isset($_POST['startDate'])) echo $_POST['startDate']; ?>">

@@ -1,8 +1,4 @@
-<script>
-$(document).ready(function() {
-    $('#example').DataTable();
-} );
-</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <br><br><br><br><br><br><div class="container">
     <div class="row">
         <div class="col-lg-12">
@@ -10,8 +6,9 @@ $(document).ready(function() {
                 <div class="card-header">
                     <h4> Resources</h4></div>
                 <div style="height:500px;overflow-x:auto;" class="card-body">
-                    <table id="example" class="table table-responsive-sm table-bordered table-striped table-sm">
+                    <table id="example" class="display responsive nowrap" style="width:100% ">
                             <th style="width:40%">Title</th>
+                            <th></th>
                         <tbody>
                             <?php foreach ($info->result() as $value) { ?>
                                 <tr>
@@ -33,3 +30,23 @@ $(document).ready(function() {
 </div>
     <br><br><br>
 
+<script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "columnDefs": [
+            {
+                "targets": [2],
+                "visible": true,
+                "searchable": false
+            }
+        ],
+        responsive: true
+    } );
+    
+    t.on( 'order.dt search.dt', function () {
+    t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+        cell.innerHTML = i+1;
+    } );
+} ).draw();
+} );
+</script>
