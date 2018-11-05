@@ -51,8 +51,32 @@ class test_controller extends CI_Controller {
         $this->load->view('course_views/chat_question_detail', $data);
         $this->load->view('layouts/footer');
     }
+    public function post_comment() {
+//        $data = array(
+//'chatID' => "1",
+//'studentID'=>$this->session->userdata('studentID'),
+//            'comment'=>$this->input->post('comment')
+//);
+//        echo json_encode($data);
+        $this->form_validation->set_rules('comment', 'Comment', 'required');
+
+
+        if ($this->form_validation->run() == FALSE){
+            $errors = validation_errors();
+            echo json_encode(['error'=>$errors]);
+        }else{
+           echo json_encode(['success'=>'Record added successfully.']);
+        }
+    }
    
 }
+
+
+
+
+
+
+
 
 
 

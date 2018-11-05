@@ -99,6 +99,7 @@ $route['password_reset'] = 'ForgotPassword_Controller/update_password';
 $route['chat'] = 'test_controller/chat_view';
 $route['chat/time_management'] = 'test_controller/chat_question_list';
 $route['chat/time_management/How to manage my time effectively?'] = 'test_controller/chat_question_details';
+$route['chat/time_management/post'] = 'test_controller/post_comment';
 
 
 
