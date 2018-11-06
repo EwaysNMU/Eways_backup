@@ -51,7 +51,7 @@
                                             <?php else:?>
                         <div id="url" class="form-group type">
                             <label for="web_url">Web Url:</label>
-                            <input type="text" value="<?php echo $this->input->get('url');?>" placeholder="e.g. http://www.google.com" title="Include http://" class="form-control" name="web_url">
+                            <input type="url" value="<?php echo $this->input->get('url');?>" placeholder="e.g. http://www.google.com" title="Include http://" class="form-control" name="web_url">
                             <?php echo form_error('web_url'); ?>
                         </div>
                                             <?php endif?>
@@ -72,6 +72,10 @@
         </div>
     </div>
 </div>
+
+
+
+
 
 
 

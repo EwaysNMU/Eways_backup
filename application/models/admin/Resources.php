@@ -33,18 +33,18 @@ class Resources extends CI_Model {
         return $this->db->update('resources', $data);
     }
 
-    public function update($resourceID,$title,$type,$web_url,$file_name) {
+    public function update($resourceID,$title,$type,$file_web_url) {
         $data = array(
                 'title' => $title,
                 'type' => $type,
-                'web_url' => $web_url,
-                'file_name' => $file_name,
+                'file_web_url' => $file_web_url,
             );
         $this->db->where('resourceID', $resourceID);
         return $this->db->update('resources', $data);
     }
 
 }
+
 
 
 

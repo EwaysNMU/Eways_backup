@@ -70,18 +70,17 @@ class Admin_resources extends CI_Controller {
             }
             
             if($this->input->post('type') == "Web Url"){
-                
             $data = array(
                 'title' => $this->input->post('title'),
                 'type' => $this->input->post('type'),
-                'file/web_url' => $this->input->post('web_url'),
+                'file_web_url' => $this->input->post('web_url'),
             );
             }
             else{
                 $data = array(
                 'title' => $this->input->post('title'),
                 'type' => $this->input->post('type'),
-                'file/web_url' => $upload,
+                'file_web_url' => $upload,
             );
             }
             if ($this->resources->insert_resources($data)) {
@@ -117,19 +116,24 @@ class Admin_resources extends CI_Controller {
                     redirect('/admin/resources');
                 }
             }
-            if ($upload == NULL) {
-                $upload = $this->input->post('db_file');
+            if($upload == null)
+            {
+                $upload = $this->input->post('db_url');
             }
-            $url = $this->input->post('web_url');
-            if ($url == NULL) {
-                $url = $this->input->post('db_url');
+            if($this->input->post('type') == "Web Url"){
+                $title = $this->input->post('title');
+                $type = $this->input->post('type');
+                $file_web_url = $this->input->post('web_url');
+            }
+            else{
+                  $title = $this->input->post('title');
+                $type = $this->input->post('type');
+                $file_web_url = $upload;
             }
                 $title = $this->input->post('title');
                 $type = $this->input->post('type');
-                $web_url = $url;
-                $file_name = $upload;
             $id = $this->input->post('id');
-            if ($this->resources->update($id,$title,$type,$web_url,$file_name)) {
+            if ($this->resources->update($id,$title,$type,$file_web_url)) {
                   $resources="Resources updated";
         $this->session->set_flashdata('flash_Success', $resources);
                 redirect('/admin/resources');
@@ -140,6 +144,13 @@ class Admin_resources extends CI_Controller {
     }
 
 }
+
+
+
+
+
+
+
 
 
 
