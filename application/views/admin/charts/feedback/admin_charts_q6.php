@@ -20,7 +20,7 @@
                     <form class="" action="<?php echo site_url() ?>/admin_charts_q6" method="POST">
                         Topic: <select name="stopic">
                             <?php foreach ($topics->result() as $value) { ?>
-                                <option value="<?php echo $value->topicID ?>"><?php echo $value->title ?></option>
+                            <option value="<?php echo $value->topicID ?>"><?php echo $value->title ?></option>
                             <?php } ?>    
                         </select>
 
@@ -29,14 +29,22 @@
                         From: <input type="date" id="sdate" name="startDate" max="<?php echo date('Y-m-d') ?>" required value="<?php if (isset($_POST['startDate'])) echo $_POST['startDate']; ?>">
 
                         To: <input type="date" id="sdate" name="endDate" max="<?php echo date('Y-m-d') ?>" required value="<?php if (isset($_POST['endDate'])) echo $_POST['endDate']; ?>"><br><br>
-
+                        
+                        Graph: <select name="graph">
+                            <?php foreach ($graphs->result() as $value) { ?>
+                                <option value="<?php echo $value->graphID ?>"><?php echo $value->graphType ?></option>
+                            <?php } ?>
+                        </select>&nbsp;
+                        
                         <input id="postBtn" type="submit" value="Search"><br><br>
 
                         <?php echo form_error('endDate'); ?>
                     </form>
 
+
+
                     <?php foreach ($yes->result() as $value) { ?>
-                        <strong><?php echo $value->firstName ?> <?php echo $value->lastName ?>, <?php echo $value->title ?></strong>
+                        <strong><?php echo $value->firstName, ' ', $value->lastName, ', ', $value->title ?></strong>
                     <?php } ?>
 
                 </div>
@@ -45,7 +53,9 @@
                 <script>
                     var ctx = document.getElementById('myChart').getContext('2d');
                     var chart = new Chart(ctx, {
-                    type: 'bar',
+                        <?php foreach ($yes->result() as $value) { ?>
+                        type: '<?php echo $value->graphType ?>', 
+                                <?php } ?>
                             data: {
                             labels: ["Yes", "Not At All", "Somehow"],
                                     datasets: [{

@@ -120,15 +120,6 @@ class Admin_model extends CI_Model {
         return $data;
     }
 
-    public function insert_resources($data) {
-        $this->db->insert('resources', $data);
-        if ($this->db->affected_rows() > 0) {
-            return TRUE;
-        } else {
-            return FALSE;
-        }
-    }
-
     public function getCountTopic1() {
         //$this->db->distinct('feedback_answer.studentID');
         $t = 1;
@@ -306,6 +297,19 @@ class Admin_model extends CI_Model {
         $this->db->select('topicID, title');
         $this->db->from('topics');
         $this->db->order_by('topicID', 'asc');
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    //------------------------------------------LOAD GRAPHS----------------------------------------------//
+
+    public function getGraphs() {
+
+        $this->db->select('graphID, graphType');
+        $this->db->from('graphs');
+        //$this->db->order_by('graphID', 'asc');
 
         $data = $this->db->get();
 
@@ -647,14 +651,15 @@ class Admin_model extends CI_Model {
     
     //------------------------------------------COUNT STUDENTS QUESTION 6----------------------------------------------//
 
-    public function getUserCountQ6_Yes($topic, $studentName, $startDate, $endDate) {
+    public function getUserCountQ6_Yes($graph, $topic, $studentName, $startDate, $endDate) {
 
-        $this->db->select('count(feedback_answer.studentID) AS countYes, title, firstName, lastName');
-        $this->db->from('feedback_answer, topics, students');
+        $this->db->select('count(feedback_answer.studentID) AS countYes, title, firstName, lastName, graphType');
+        $this->db->from('feedback_answer, topics, students, graphs');
         $this->db->where("feedback_answer.Q6 = 'Yes'");
         $this->db->where("feedback_answer.completed = 'Yes'");
         $this->db->where("feedback_answer.topicID = topics.topicID");
         $this->db->where("topics.topicID", $topic);
+        $this->db->where("graphs.graphID", $graph);
         $this->db->where("feedback_answer.studentID = students.studentID");
         $this->db->where("students.studentNo", $studentName);
         $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
@@ -664,14 +669,15 @@ class Admin_model extends CI_Model {
         return $data;
     }
 
-    public function getUserCountQ6_No($topic, $studentName, $startDate, $endDate) {
+    public function getUserCountQ6_No($graph, $topic, $studentName, $startDate, $endDate) {
 
-        $this->db->select('count(feedback_answer.studentID) AS countNo, title, firstName, lastName');
-        $this->db->from('feedback_answer, topics, students');
+        $this->db->select('count(feedback_answer.studentID) AS countNo, title, firstName, lastName, graphType');
+        $this->db->from('feedback_answer, topics, students, graphs');
         $this->db->where("feedback_answer.Q6 = 'No At All'");
         $this->db->where("feedback_answer.completed = 'Yes'");
         $this->db->where("feedback_answer.topicID = topics.topicID");
         $this->db->where("topics.topicID", $topic);
+        $this->db->where("graphs.graphID", $graph);
         $this->db->where("feedback_answer.studentID = students.studentID");
         $this->db->where("students.studentNo", $studentName);
         $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
@@ -681,14 +687,15 @@ class Admin_model extends CI_Model {
         return $data;
     }
 
-    public function getUserCountQ6_Somehow($topic, $studentName, $startDate, $endDate) {
+    public function getUserCountQ6_Somehow($graph, $topic, $studentName, $startDate, $endDate) {
 
-        $this->db->select('count(feedback_answer.studentID) AS countSomehow, title, firstName, lastName');
-        $this->db->from('feedback_answer, topics, students');
+        $this->db->select('count(feedback_answer.studentID) AS countSomehow, title, firstName, lastName, graphType');
+        $this->db->from('feedback_answer, topics, students, graphs');
         $this->db->where("feedback_answer.Q6 = 'Somehow'");
         $this->db->where("feedback_answer.completed = 'Yes'");
         $this->db->where("feedback_answer.topicID = topics.topicID");
         $this->db->where("topics.topicID", $topic);
+        $this->db->where("graphs.graphID", $graph);
         $this->db->where("feedback_answer.studentID = students.studentID");
         $this->db->where("students.studentNo", $studentName);
         $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
@@ -698,3 +705,4 @@ class Admin_model extends CI_Model {
         return $data;
     }
 }
+

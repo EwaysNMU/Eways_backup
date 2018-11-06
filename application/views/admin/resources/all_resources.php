@@ -24,7 +24,7 @@
                                     <div class="card-header">
                                         <i class="fa fa-briefcase"></i> Available resources</div>
                                     <div class="card-body">
-                                        <a style="margin-bottom: 10px" class="btn btn-info pull-right" href="<?php echo site_url() ?>/add_resources_">Add resources</a>
+                                        <a style="margin-bottom: 10px" class="btn btn-info pull-right" href="<?php echo site_url() ?>/admin/add_resources_">Add resources</a>
                                         <table id="example" class="display responsive nowrap" style="width:100% ">
                                             <thead>
                                                 <tr>
@@ -39,9 +39,9 @@
                                                     <td><?php echo $value->title; ?></td>
                                                     <td><?php echo $value->type; ?></td>
                                                     <td>  
-                                                        <a id="aedBtn" href="<?php echo site_url() ?>/edit_resources_/<?php $url =$value->web_url; echo $value->resourceID."/".$value->title."/".$value->type."/".$value->file_name."/".$url ?>">
+                                                        <a id="aedBtn" href="<?php echo site_url() ?>/admin/edit_resources_/<?php echo $value->resourceID."/".$value->title."/".$value->type."/"."?url=".urlencode($value->file_web_url) ?>">
                                                             Edit/ </a> 
-                                                        <a id="aedBtn" href="<?php echo site_url() ?>/delete_resources/<?php echo $value->resourceID ?>">Delete/ </a>
+                                                        <a id="aedBtn" href="<?php echo site_url() ?>/admin/delete_resources/<?php echo $value->resourceID ?>">Delete/ </a>
                                                         <a id="aedBtn" href="#">View</a> 
                                                     </td>
                                                 </tr>
@@ -83,6 +83,39 @@ $(document).ready(function() {
 } ).draw();
 } );
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -120,13 +120,14 @@ $route['admin_charts_q5'] = 'admin/Admin_charts/admin_charts_q5_validation';
 $route['admin_charts_q6'] = 'admin/Admin_charts/admin_charts_q6_validation';
 
 
-$route['admin_events'] = 'admin_controller/admin_events';
+$route['admin/events'] = 'admin_controller/admin_events';
 
-$route['admin_resources'] = 'admin/Admin_resources/Admin_resources';
-$route['add_resources_'] = 'admin/Admin_resources/add_resources_view';
-$route['edit_resources_/(.*)'] = 'admin/Admin_resources/edit_resources_view/$1';
-$route['add_resources'] = 'admin/Admin_resources/Add_resources';
-$route['delete_resources/(.*)'] = 'admin/Admin_resources/delete/$1';
+$route['admin/resources'] = 'admin/Admin_resources/Admin_resources';
+$route['admin/add_resources_'] = 'admin/Admin_resources/add_resources_view';
+$route['admin/add_resources'] = 'admin/Admin_resources/Add_resources';
+$route['admin/edit_resources_/(.*)'] = 'admin/Admin_resources/edit_resources_view/$1';
+$route['admin/edit_resources'] = 'admin/Admin_resources/edit_resources';
+$route['admin/delete_resources/(.*)'] = 'admin/Admin_resources/delete/$1';
 
 $route['admin_course_management'] = 'admin_controller/admin_course_management';
 

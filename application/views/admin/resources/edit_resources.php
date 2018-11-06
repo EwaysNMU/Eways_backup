@@ -7,7 +7,7 @@
                 <a href="<?php echo site_url() ?>/admin_home">Dashboard</a>
             </li>
             <li class="breadcrumb-item active">
-                <a href="<?php echo site_url() ?>/admin_resources">Resources</a>
+                <a href="<?php echo site_url() ?>/admin/resources">Resources</a>
             </li>
             <li class="breadcrumb-item active">Edit Resources</li>
         </ol>
@@ -21,7 +21,7 @@
                                     <div class="card-header">
                                         <i class="fa fa-briefcase"></i> Edit Resources</div>
                                     <div class="card-body">
-                                        <form method="post" action="<?php echo site_url() ?>/add_resources" enctype="multipart/form-data">
+                                        <form method="post" action="<?php echo site_url() ?>/admin/edit_resources" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="title">Title:</label>
                             <input type="text" value="<?php echo $meg2?>" required class="form-control" name="title">
@@ -45,16 +45,19 @@
                                             <?php if($meg3 != "Web Url"):?>
                         <div id="file" class="form-group type">
                             <label for="file">File:</label>
-                            <input required accept=".jpeg, .jpg, .jpe, .jfif, .jif,.png,.pdf,image/*" type="file" class="form-control" name="file">
+                            <input accept=".jpeg, .jpg, .jpe, .jfif, .jif,.png,.pdf,image/*" type="file" class="form-control" name="file">
                             <?php echo form_error('file'); ?>
                         </div>
                                             <?php else:?>
                         <div id="url" class="form-group type">
                             <label for="web_url">Web Url:</label>
-                            <input type="text" required value="<?php echo $meg5?>" placeholder="e.g. http://www.google.com" pattern="https?://.+" title="Include http://" class="form-control" name="web_url">
+                            <input type="text" value="<?php echo $this->input->get('url');?>" placeholder="e.g. http://www.google.com" title="Include http://" class="form-control" name="web_url">
                             <?php echo form_error('web_url'); ?>
                         </div>
                                             <?php endif?>
+                                            
+                                <input hidden type="text" value="<?php echo $this->input->get('url')?>"name="db_url">
+                                <input hidden type="text" value="<?php echo $meg1?>"name="id">
                         <button name="upload" type="submit" class="btn btn-default">Submit</button>
                     </form>
                                     </div>
@@ -69,6 +72,40 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

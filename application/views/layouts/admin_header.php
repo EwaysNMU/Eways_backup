@@ -52,13 +52,13 @@
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Events">
-                <a class="nav-link" href="<?php echo site_url() ?>/admin_events">
+                <a class="nav-link" href="<?php echo site_url() ?>/admin/events">
                     <i class="fa fa-calendar"></i>
                     <span class="nav-link-text">Events</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Events">
-                <a class="nav-link" href="<?php echo site_url() ?>/admin_resources">
+                <a class="nav-link" href="<?php echo site_url() ?>/admin/resources">
                     <i class="fa fa-briefcase" aria-hidden="true"></i>
                     <span class="nav-link-text">Resources</span>
                 </a>
@@ -85,6 +85,9 @@
         </ul>
     </div>
 </nav>
+
+
+
 
 
 

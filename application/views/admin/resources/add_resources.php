@@ -26,7 +26,7 @@
                 <a href="<?php echo site_url() ?>/admin_home">Dashboard</a>
             </li>
             <li class="breadcrumb-item active">
-                <a href="<?php echo site_url() ?>/admin_resources">Resources</a>
+                <a href="<?php echo site_url() ?>/admin/resources">Resources</a>
             </li>
             <li class="breadcrumb-item active">Add Resources</li>
         </ol>
@@ -40,34 +40,34 @@
                                     <div class="card-header">
                                         <i class="fa fa-briefcase"></i> Add Resources</div>
                                     <div class="card-body">
-                                        <form method="post" action="<?php echo site_url() ?>/add_resources" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label for="title">Title:</label>
-                            <input type="text" required class="form-control" name="title">
-                            <?php echo form_error('title'); ?>
-                        </div>
-                        <div class="form-group">
-                            <label for="resources">Type of resources:</label>
-                            <select id="type" required class="form-control" name="type" onchange="showHide(this)">
-                                <option selected value="">--Select--</option>
-                                <option value="PDF">PDF</option>
-                                <option value="Web Url">Web Url</option>
-                                <option value="Photo">Photo</option>
-                            </select>
-                            <?php echo form_error('type'); ?>
-                        </div>
-                        <div id="file" class="form-group type">
-                            <label for="file">File:</label>
-                            <input accept=".jpeg, .jpg, .jpe, .jfif, .jif,.png,.pdf,image/*" type="file" class="form-control" name="file">
-                            <?php echo form_error('file'); ?>
-                        </div>
-                        <div id="url" class="form-group type">
-                            <label for="web_url">Web Url:</label>
-                            <input type="url" placeholder="e.g. http://www.google.com" pattern="https?://.+" title="Include http://" class="form-control" name="web_url">
-                            <?php echo form_error('web_url'); ?>
-                        </div>
-                        <button name="upload" type="submit" class="btn btn-default">Submit</button>
-                    </form>
+                                        <form method="post" action="<?php echo site_url() ?>/admin/add_resources" enctype="multipart/form-data">
+                                            <div class="form-group">
+                                                <label for="title">Title:</label>
+                                                <input type="text" required class="form-control" name="title">
+                                                <?php echo form_error('title'); ?>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="resources">Type of resources:</label>
+                                                <select id="type" required class="form-control" name="type" onchange="showHide(this)">
+                                                    <option selected value="">--Select--</option>
+                                                    <option value="PDF">PDF</option>
+                                                    <option value="Web Url">Web Url</option>
+                                                    <option value="Photo">Photo</option>
+                                                </select>
+                                                <?php echo form_error('type'); ?>
+                                            </div>
+                                            <div id="file" class="form-group type">
+                                                <label for="file">File:</label>
+                                                <input accept=".jpeg, .jpg, .jpe, .jfif, .jif,.png,.pdf,image/*" type="file" class="form-control" name="file">
+                                                <?php echo form_error('file'); ?>
+                                            </div>
+                                            <div id="url" class="form-group type">
+                                                <label for="web_url">Web Url:</label>
+                                                <input type="url" placeholder="e.g. http://www.google.com" pattern="https?://.+" title="Include http://" class="form-control" name="web_url">
+                                                <?php echo form_error('web_url'); ?>
+                                            </div>
+                                            <button name="upload" type="submit" class="btn btn-default">Submit</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -80,6 +80,9 @@
         </div>
     </div>
 </div>
+
+
+
 
 
 
