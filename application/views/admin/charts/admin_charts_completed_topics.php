@@ -15,6 +15,17 @@
             <div class="card-header">
                 <i class="fa fa-area-chart"></i> Topics completed</div>
             <div class="card-body">
+                <div style="text-align: center">
+                    <form class="" action="<?php echo site_url() ?>/admin_charts_completed_topics_date" method="POST">
+                        From: <input type="date" id="sdate" name="startDate" max="<?php echo date('Y-m-d') ?>" required value="<?php if (isset($_POST['startDate'])) echo $_POST['startDate']; ?>">&nbsp;
+
+                        To: <input type="date" id="sdate" name="endDate" max="<?php echo date('Y-m-d') ?>" required value="<?php if (isset($_POST['endDate'])) echo $_POST['endDate']; ?>">
+
+                        <input id="postBtn" type="submit" value="Search"><br><br>
+
+                        <?php echo form_error('endDate'); ?>
+                    </form>
+                </div>
                 <canvas id="myChart" width="100%" height="40%"></canvas>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
                 <script>

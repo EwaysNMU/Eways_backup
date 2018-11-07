@@ -42,7 +42,7 @@
                                                         <a id="aedBtn" href="<?php echo site_url() ?>/admin/edit_resources_/<?php echo $value->resourceID."/".$value->title."/".$value->type."/"."?url=".urlencode($value->file_web_url) ?>">
                                                             Edit/ </a> 
                                                         <a id="aedBtn" href="<?php echo site_url() ?>/admin/delete_resources/<?php echo $value->resourceID ?>">Delete/ </a>
-                                                        <a id="aedBtn" href="#">View</a> 
+                                                        <a id="aedBtn" href="<?php echo site_url() ?>/admin/resources/view/<?php echo $value->title."/".$value->type."/"."?url=".urlencode($value->file_web_url) ?>">View</a> 
                                                     </td>
                                                 </tr>
                                                 <?php } ?>
@@ -83,6 +83,9 @@ $(document).ready(function() {
 } ).draw();
 } );
 </script>
+
+
+
 
 
 

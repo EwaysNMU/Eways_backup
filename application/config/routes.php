@@ -107,10 +107,9 @@ $route['chat/time_management/post'] = 'test_controller/post_comment';
 $route['admin_home'] = 'admin_controller/admin_home';
 $route['admin_reg_user'] = 'admin_controller/admin_reg_user';
 
-$route['admin_tables'] = 'admin_controller/admin_tables';
-
 $route['admin_charts'] = 'admin/Admin_charts/admin_charts';
 $route['admin_charts_completed_topics'] = 'admin/Admin_charts/admin_charts_completed_topics';
+$route['admin_charts_completed_topics_date'] = 'admin/Admin_charts/admin_charts_completed_topics_validation';
 $route['admin_charts_student_validation'] = 'admin/Admin_charts/admin_charts_student_validation';
 $route['admin_charts_q1'] = 'admin/Admin_charts/admin_charts_q1_validation';
 $route['admin_charts_q2'] = 'admin/Admin_charts/admin_charts_q2_validation';
@@ -119,6 +118,16 @@ $route['admin_charts_q4'] = 'admin/Admin_charts/admin_charts_q4_validation';
 $route['admin_charts_q5'] = 'admin/Admin_charts/admin_charts_q5_validation';
 $route['admin_charts_q6'] = 'admin/Admin_charts/admin_charts_q6_validation';
 
+$route['admin_tables'] = 'admin/Admin_tables/admin_tables';
+$route['admin_tables_completed_topics'] = 'admin/Admin_tables/admin_tables_completed_topics';
+$route['admin_tables_completed_topics_date'] = 'admin/Admin_tables/admin_tables_completed_topics_validation';
+$route['admin_tables_student_validation'] = 'admin/Admin_tables/admin_tables_student_validation';
+$route['admin_tables_q1'] = 'admin/Admin_tables/admin_tables_q1_validation';
+$route['admin_tables_q2'] = 'admin/Admin_tables/admin_tables_q2_validation';
+$route['admin_tables_q3'] = 'admin/Admin_tables/admin_tables_q3_validation';
+$route['admin_tables_q4'] = 'admin/Admin_tables/admin_tables_q4_validation';
+$route['admin_tables_q5'] = 'admin/Admin_tables/admin_tables_q5_validation';
+$route['admin_tables_q6'] = 'admin/Admin_tables/admin_tables_q6_validation';
 
 $route['admin/events'] = 'admin_controller/admin_events';
 
@@ -128,6 +137,7 @@ $route['admin/add_resources'] = 'admin/Admin_resources/Add_resources';
 $route['admin/edit_resources_/(.*)'] = 'admin/Admin_resources/edit_resources_view/$1';
 $route['admin/edit_resources'] = 'admin/Admin_resources/edit_resources';
 $route['admin/delete_resources/(.*)'] = 'admin/Admin_resources/delete/$1';
+$route['admin/resources/view/(.*)'] = 'admin/Admin_resources/detailed_resources_view/$1';
 
 $route['admin_course_management'] = 'admin_controller/admin_course_management';
 

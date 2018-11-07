@@ -36,6 +36,15 @@ class Admin_resources extends CI_Controller {
         $this->load->view('admin/resources/edit_resources',$edit);
         $this->load->view('layouts/admin_footer');
     }
+    public function detailed_resources_view($meg1,$meg2) {
+         $detail = array(
+            'meg1' => $meg1,
+            'meg2' => $meg2,
+        );
+        $this->load->view('layouts/admin_header');
+        $this->load->view('admin/resources/detailed_resources',$detail);
+        $this->load->view('layouts/admin_footer');
+    }
     public function delete() {
          $resourceID = $this->uri->segment(3);
             $this->resources->delete($resourceID);
@@ -144,6 +153,10 @@ class Admin_resources extends CI_Controller {
     }
 
 }
+
+
+
+
 
 
 

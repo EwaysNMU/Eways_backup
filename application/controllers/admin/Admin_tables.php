@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_charts extends CI_Controller {
+class Admin_tables extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
@@ -13,10 +13,10 @@ class Admin_charts extends CI_Controller {
         
     }
 
-    public function admin_charts() {
+    public function admin_tables() {
 
         $this->load->view('layouts/admin_header');
-        $this->load->view('admin/charts/admin_charts');
+        $this->load->view('admin/tables/admin_tables');
         $this->load->view('layouts/admin_footer');
     }
 
@@ -33,95 +33,95 @@ class Admin_charts extends CI_Controller {
         }
     }
     
-    public function admin_charts_student_validation() {
+    public function admin_tables_student_validation() {
 
         $this->form_validation->set_rules('endDate', 'End Date', 'trim|callback_compareDates');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->admin_charts_topics_per_student();
+            $this->admin_tables_topics_per_student();
         } else {
-            $this->admin_charts_topics_per_student();
+            $this->admin_tables_topics_per_student();
         }
     }
 
-    public function admin_charts_completed_topics_validation() {
+    public function admin_tables_completed_topics_validation() {
 
         $this->form_validation->set_rules('endDate', 'End Date', 'trim|callback_compareDates');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->admin_charts_completed_topics_date();
+            $this->admin_tables_completed_topics_date();
         } else {
-            $this->admin_charts_completed_topics_date();
+            $this->admin_tables_completed_topics_date();
         }
     }
 
-    public function admin_charts_q1_validation() {
+    public function admin_tables_q1_validation() {
 
         $this->form_validation->set_rules('endDate', 'End Date', 'trim|callback_compareDates');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->admin_charts_q1();
+            $this->admin_tables_q1();
         } else {
-            $this->admin_charts_q1();
+            $this->admin_tables_q1();
         }
     }
 
-    public function admin_charts_q2_validation() {
+    public function admin_tables_q2_validation() {
 
         $this->form_validation->set_rules('endDate', 'End Date', 'trim|callback_compareDates');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->admin_charts_q2();
+            $this->admin_tables_q2();
         } else {
-            $this->admin_charts_q2();
+            $this->admin_tables_q2();
         }
     }
 
-    public function admin_charts_q3_validation() {
+    public function admin_tables_q3_validation() {
 
         $this->form_validation->set_rules('endDate', 'End Date', 'trim|callback_compareDates');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->admin_charts_q3();
+            $this->admin_tables_q3();
         } else {
-            $this->admin_charts_q3();
+            $this->admin_tables_q3();
         }
     }
 
-    public function admin_charts_q4_validation() {
+    public function admin_tables_q4_validation() {
 
         $this->form_validation->set_rules('endDate', 'End Date', 'trim|callback_compareDates');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->admin_charts_q4();
+            $this->admin_tables_q4();
         } else {
-            $this->admin_charts_q4();
+            $this->admin_tables_q4();
         }
     }
 
-    public function admin_charts_q5_validation() {
+    public function admin_tables_q5_validation() {
 
         $this->form_validation->set_rules('endDate', 'End Date', 'trim|callback_compareDates');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->admin_charts_q5();
+            $this->admin_tables_q5();
         } else {
-            $this->admin_charts_q5();
+            $this->admin_tables_q5();
         }
     }
 
-    public function admin_charts_q6_validation() {
+    public function admin_tables_q6_validation() {
 
         $this->form_validation->set_rules('endDate', 'End Date', 'trim|callback_compareDates');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->admin_charts_q6();
+            $this->admin_tables_q6();
         } else {
-            $this->admin_charts_q6();
+            $this->admin_tables_q6();
         }
     }
 
-    public function admin_charts_completed_topics() {
+    public function admin_tables_completed_topics() {
 
         $data ['ctopic1'] = $this->Admin_model->getCountTopic1();
         $data ['ctopic2'] = $this->Admin_model->getCountTopic2();
@@ -131,11 +131,11 @@ class Admin_charts extends CI_Controller {
         $data ['ctopic6'] = $this->Admin_model->getCountTopic6();
 
         $this->load->view('layouts/admin_header');
-        $this->load->view('admin/charts/admin_charts_completed_topics', $data);
+        $this->load->view('admin/tables/admin_tables_completed_topics', $data);
         $this->load->view('layouts/admin_footer');
     }
     
-    public function admin_charts_completed_topics_date() {
+    public function admin_tables_completed_topics_date() {
 
         $startDate = $this->input->post('startDate');
         $endDate = $this->input->post('endDate');
@@ -148,11 +148,11 @@ class Admin_charts extends CI_Controller {
         $data ['ctopic6'] = $this->Admin_model->getCountTopic6_date($startDate, $endDate);
 
         $this->load->view('layouts/admin_header');
-        $this->load->view('admin/charts/admin_charts_completed_topics', $data);
+        $this->load->view('admin/tables/admin_tables_completed_topics', $data);
         $this->load->view('layouts/admin_footer');
     }
 
-    public function admin_charts_topics_per_student() {
+    public function admin_tables_topics_per_student() {
 
         $studentName = $this->input->post('sname');
         $startDate = $this->input->post('startDate');
@@ -166,11 +166,11 @@ class Admin_charts extends CI_Controller {
         $data ['tipsforexams'] = $this->Admin_model->getUserCountTipsForExams($studentName, $startDate, $endDate);
 
         $this->load->view('layouts/admin_header');
-        $this->load->view('admin/charts/admin_charts_topics_per_student', $data);
+        $this->load->view('admin/tables/admin_tables_topics_per_student', $data);
         $this->load->view('layouts/admin_footer');
     }
 
-    public function admin_charts_q1() {
+    public function admin_tables_q1() {
 
         $studentName = $this->input->post('sname');
         $startDate = $this->input->post('startDate');
@@ -186,11 +186,11 @@ class Admin_charts extends CI_Controller {
         $data ['somehow'] = $this->Admin_model->getUserCountQ1_Somehow($graph, $topic, $studentName, $startDate, $endDate);
 
         $this->load->view('layouts/admin_header');
-        $this->load->view('admin/charts/feedback/admin_charts_q1', $data);
+        $this->load->view('admin/tables/feedback/admin_tables_q1', $data);
         $this->load->view('layouts/admin_footer');
     }
 
-    public function admin_charts_q2() {
+    public function admin_tables_q2() {
 
         $studentName = $this->input->post('sname');
         $startDate = $this->input->post('startDate');
@@ -208,11 +208,11 @@ class Admin_charts extends CI_Controller {
         $data ['rating5'] = $this->Admin_model->getUserCountQ2_5($graph, $topic, $studentName, $startDate, $endDate);
 
         $this->load->view('layouts/admin_header');
-        $this->load->view('admin/charts/feedback/admin_charts_q2', $data);
+        $this->load->view('admin/tables/feedback/admin_tables_q2', $data);
         $this->load->view('layouts/admin_footer');
     }
 
-    public function admin_charts_q3() {
+    public function admin_tables_q3() {
 
         $studentName = $this->input->post('sname');
         $startDate = $this->input->post('startDate');
@@ -228,11 +228,11 @@ class Admin_charts extends CI_Controller {
         $data ['inconsistent'] = $this->Admin_model->getUserCountQ3_Inconsistent($graph, $topic, $studentName, $startDate, $endDate);
 
         $this->load->view('layouts/admin_header');
-        $this->load->view('admin/charts/feedback/admin_charts_q3', $data);
+        $this->load->view('admin/tables/feedback/admin_tables_q3', $data);
         $this->load->view('layouts/admin_footer');
     }
 
-    public function admin_charts_q4() {
+    public function admin_tables_q4() {
 
         $studentName = $this->input->post('sname');
         $startDate = $this->input->post('startDate');
@@ -250,11 +250,11 @@ class Admin_charts extends CI_Controller {
         $data ['rating5'] = $this->Admin_model->getUserCountQ4_5($graph, $topic, $studentName, $startDate, $endDate);
 
         $this->load->view('layouts/admin_header');
-        $this->load->view('admin/charts/feedback/admin_charts_q4', $data);
+        $this->load->view('admin/tables/feedback/admin_tables_q4', $data);
         $this->load->view('layouts/admin_footer');
     }
 
-    public function admin_charts_q5() {
+    public function admin_tables_q5() {
 
         $studentName = $this->input->post('sname');
         $startDate = $this->input->post('startDate');
@@ -270,11 +270,11 @@ class Admin_charts extends CI_Controller {
         $data ['somehow'] = $this->Admin_model->getUserCountQ5_Somehow($graph, $topic, $studentName, $startDate, $endDate);
 
         $this->load->view('layouts/admin_header');
-        $this->load->view('admin/charts/feedback/admin_charts_q5', $data);
+        $this->load->view('admin/tables/feedback/admin_tables_q5', $data);
         $this->load->view('layouts/admin_footer');
     }
 
-    public function admin_charts_q6() {
+    public function admin_tables_q6() {
 
         $studentName = $this->input->post('sname');
         $startDate = $this->input->post('startDate');
@@ -290,7 +290,7 @@ class Admin_charts extends CI_Controller {
         $data ['somehow'] = $this->Admin_model->getUserCountQ6_Somehow($graph, $topic, $studentName, $startDate, $endDate);
 
         $this->load->view('layouts/admin_header');
-        $this->load->view('admin/charts/feedback/admin_charts_q6', $data);
+        $this->load->view('admin/tables/feedback/admin_tables_q6', $data);
         $this->load->view('layouts/admin_footer');
     }
 

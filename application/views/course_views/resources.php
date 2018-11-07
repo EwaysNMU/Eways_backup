@@ -14,9 +14,9 @@
                                 <tr>
                                     <td style="text-align: left"><?php echo ucfirst($value->title); ?></td>
                                     <?php if ($value->type == "Photo" || $value->type == "PDF"): ?>
-                                        <td style="text-align: left"><a href="<?php echo base_url(); ?>/uploads/files<?php echo "/" . $value->file_name ?>" download target="blank_">Download <i class="fa fa-download" aria-hidden="true"></i></a></td>
+                                        <td style="text-align: left"><a href="<?php echo base_url(); ?>/uploads/files<?php echo "/" . $value->file_web_url ?>" download target="blank_">Download <i class="fa fa-download" aria-hidden="true"></i></a></td>
                                     <?php else: ?>
-                                        <td style="text-align: left"><a href="<?php echo $value->web_url ?>" target="blank_">Visit Link</a></td>
+                                        <td style="text-align: left"><a href="<?php echo $value->file_web_url ?>" target="blank_">Visit Link</a></td>
                                     <?php endif ?>
                                 </tr>
                             <?php } ?>
@@ -42,11 +42,5 @@ $(document).ready(function() {
         ],
         responsive: true
     } );
-    
-    t.on( 'order.dt search.dt', function () {
-    t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
-        cell.innerHTML = i+1;
-    } );
-} ).draw();
 } );
 </script>

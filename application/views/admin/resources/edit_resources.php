@@ -30,8 +30,8 @@
                         <div class="form-group">
                             <label for="resources">Type of resources:</label>
                             <select required id="type" required class="form-control" name="type">
-                                <?php if($meg3 == "Web Url"):?>
-                                <option value="Web Url">Web Url</option>
+                                <?php if($meg3 == "Web Address"):?>
+                                <option value="Web Address">Web Address</option>
                                 <?php elseif($meg3 == "PDF"):?>
                                 <option value="PDF">PDF</option>
                                 <option value="Photo">Photo</option>
@@ -42,7 +42,7 @@
                             </select>
                             <?php echo form_error('type'); ?>
                         </div>
-                                            <?php if($meg3 != "Web Url"):?>
+                                            <?php if($meg3 != "Web Address"):?>
                         <div id="file" class="form-group type">
                             <label for="file">File:</label>
                             <input accept=".jpeg, .jpg, .jpe, .jfif, .jif,.png,.pdf,image/*" type="file" class="form-control" name="file">
@@ -50,8 +50,10 @@
                         </div>
                                             <?php else:?>
                         <div id="url" class="form-group type">
-                            <label for="web_url">Web Url:</label>
+                            <label for="web_url">Web Address:</label>
                             <input type="url" value="<?php echo $this->input->get('url');?>" placeholder="e.g. http://www.google.com" title="Include http://" class="form-control" name="web_url">
+                            
+                                <input type="file" name="file" hidden>
                             <?php echo form_error('web_url'); ?>
                         </div>
                                             <?php endif?>
@@ -72,6 +74,12 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
 
 
 

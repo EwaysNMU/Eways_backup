@@ -51,7 +51,7 @@
                                                 <select id="type" required class="form-control" name="type" onchange="showHide(this)">
                                                     <option selected value="">--Select--</option>
                                                     <option value="PDF">PDF</option>
-                                                    <option value="Web Url">Web Url</option>
+                                                    <option value="Web Address">Web Address</option>
                                                     <option value="Photo">Photo</option>
                                                 </select>
                                                 <?php echo form_error('type'); ?>
@@ -62,7 +62,7 @@
                                                 <?php echo form_error('file'); ?>
                                             </div>
                                             <div id="url" class="form-group type">
-                                                <label for="web_url">Web Url:</label>
+                                                <label for="web_url">Web Address:</label>
                                                 <input type="url" placeholder="e.g. http://www.google.com" pattern="https?://.+" title="Include http://" class="form-control" name="web_url">
                                                 <?php echo form_error('web_url'); ?>
                                             </div>
@@ -80,6 +80,8 @@
         </div>
     </div>
 </div>
+
+
 
 
 

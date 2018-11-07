@@ -1,0 +1,2 @@
+icacls \\sict-iis\eways$\uploads\user_profiles /grant Everyone:F
+icacls \\sict-iis\eways$\uploads\user_profiles /remove Everyone:G
