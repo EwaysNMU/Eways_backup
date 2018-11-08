@@ -45,36 +45,52 @@ class test_controller extends CI_Controller {
         $stud_id = $this->session->userdata('studentID');
         $data['info'] = $this->Feedback_model->get_all_feedbacks($stud_id);
         $data['info2'] = $this->Student_model->get_profile($stud_id);
+        $data['get_chat'] = $this->Chat_model->get_comments();
         
         
         $this->load->view('layouts/header', $data);
         $this->load->view('course_views/chat_question_detail', $data);
     }
     public function post_comment() {
-//        $data = array(
-//'chatID' => "1",
-//'studentID'=>$this->session->userdata('studentID'),
-//            'comment'=>$this->input->post('comment')
-//);
+
 //        echo json_encode($data);
-//        $this->form_validation->set_rules('comment', 'Comment', 'required');
-//
-//
-//        if ($this->form_validation->run() == FALSE){
-//            $errors = validation_errors();
-//            echo json_encode(['error'=>$errors]);
-//        }else{
-//           echo json_encode(['success'=>'Record added successfully.']);
-//        }
+        $this->form_validation->set_rules('comment', 'Comment', 'required');
+
+
+        if ($this->form_validation->run() == FALSE){
+            $errors = validation_errors();
+            echo json_encode(['error'=>$errors]);
+        }else{
+                    $data = array(
+                'chatID' => "1",
+                'studentID' => $this->session->userdata('studentID'),
+                'comment' => $this->input->post('comment')
+            );
+                    if ($this->Chat_model->post_comment($data)) {
+            echo json_encode(['comment_return'=>'Record added successfully.']);
+            } else {
+            }
+        }
         
         
-            $data = array(
-                    'comment_return' => $this->input->post('comment')
-                        );
-	        echo json_encode($data);
+//            $data = array(
+//                    'comment_return' => $this->input->post('comment')
+//                        );
+//	        echo json_encode($data);
     }
    
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

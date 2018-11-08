@@ -9,12 +9,12 @@
             <li class="breadcrumb-item">
                 <a href="<?php echo site_url() ?>/admin_tables">Tables</a>
             </li>
-            <li class="breadcrumb-item active">No. Topics Completed per student</li>
+            <li class="breadcrumb-item active">Topics Completed per student</li>
         </ol>
 
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-area-chart"></i> Topics completed by student</div>
+                <i class="fa fa-area-chart"></i> No. Topics completed by student</div>
             <div class="card-body">
                 <div style="text-align: center">
                     <form class="" action="<?php echo site_url() ?>/admin_tables_student_validation" method="POST">
@@ -33,61 +33,95 @@
                     <?php } ?>
                 </div>
                 <br><br>
-                <canvas id="myChart" width="100%" height="40%"></canvas>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-                <script>
-                    var ctx = document.getElementById('myChart').getContext('2d');
-                    var chart = new Chart(ctx, {
-                    type: 'bar',
-                            data: {
-                            labels: ["Goals Setting", "Stress Management", "Time Management", "Motivation", "Study Strategy", "Tips for Exams and Tests"],
-                                    datasets: [{
-                                    label: "No. Completed topics",
-                                            borderColor: 'rgb(255, 255, 255)',
-                                            data: [
-<?php foreach ($goalsetting->result() as $value) { ?>
-    <?php echo $value->countGoalSettting ?>,
-<?php } ?>
-<?php foreach ($stressmanagement->result() as $value) { ?>
-    <?php echo $value->countStressManagement ?>,
-<?php } ?>
-<?php foreach ($timemanagement->result() as $value) { ?>
-    <?php echo $value->countTimeManagement ?>,
-<?php } ?>
-<?php foreach ($motivation->result() as $value) { ?>
-    <?php echo $value->countMotivation ?>,
-<?php } ?>
-<?php foreach ($studystrategy->result() as $value) { ?>
-    <?php echo $value->countStudyStrategy ?>,
-<?php } ?>
-<?php foreach ($tipsforexams->result() as $value) { ?>
-    <?php echo $value->countTipsforExams ?>
-<?php } ?>],
-                                            backgroundColor: [
-                                                    "rgba(50,150,300,0.5)",
-                                                    "rgba(100,150,250,0.5)",
-                                                    "rgba(150,150,200,0.5)",
-                                                    "rgba(200,150,150,0.5)",
-                                                    "rgba(250,150,100,0.5)",
-                                                    "rgba(300,150,50,0.5)"
-                                            ],
-                                            borderColor: [
-                                                    "rgba(50,150,300,1)",
-                                                    "rgba(100,150,250,1)",
-                                                    "rgba(150,150,200,1)",
-                                                    "rgba(200,150,150,1)",
-                                                    "rgba(250,150,100,1)",
-                                                    "rgba(300,150,50,1)"
-                                            ],
-                                            borderWidth: 1
-                                    }]
-                            },
-                            // Configuration options go here
-                            options: {}
-                    });
-                </script>
+                <table id="example" class="display responsive nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Topic</th>
+                            <th>No. Completed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="width: 20px">Goals Setting</td>
+                            <?php foreach ($goalsetting->result() as $value) { ?>
+                                <td><?php echo $value->countGoalSettting ?></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                            <td style="width: 20px">Stress Management</td>
+                            <?php foreach ($stressmanagement->result() as $value) { ?>
+                                <td><?php echo $value->countStressManagement ?></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                            <td style="width: 20px">Time Management</td>
+                            <?php foreach ($timemanagement->result() as $value) { ?>
+                                <td><?php echo $value->countTimeManagement ?></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                            <td style="width: 20px">Motivation</td>
+                            <?php foreach ($motivation->result() as $value) { ?>
+                                <td><?php echo $value->countMotivation ?></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                            <td style="width: 20px">Study Strategy</td>
+                            <?php foreach ($studystrategy->result() as $value) { ?>
+                                <td><?php echo $value->countStudyStrategy ?></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                            <td style="width: 20px">Tips for Exams and Tests</td>
+                            <?php foreach ($tipsforexams->result() as $value) { ?>
+                                <td><?php echo $value->countTipsforExams ?></td>
+                            <?php } ?>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div></div>
+    </div>
+</div>
 <!-- /.container-fluid-->
 <!-- /.content-wrapper-->
+
+<!-- Bootstrap core JavaScript-->
+<script src="<?php echo base_url() ?>assets/vendor/jquery/jquery.min.js"></script>
+<script src="<?php echo base_url() ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="<?php echo base_url() ?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Page level plugin JavaScript-->
+<script src="<?php echo base_url() ?>assets/vendor/datatables/jquery.dataTables.js"></script>
+<script src="<?php echo base_url() ?>assets/vendor/datatables/dataTables.bootstrap4.js"></script>
+<!-- Custom scripts for all pages-->
+<script src="<?php echo base_url() ?>assets/js/sb-admin.min.js"></script>
+<!-- Custom scripts for this page-->
+<script src="<?php echo base_url() ?>assets/js/sb-admin-datatables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable({
+            "columnDefs": [
+                {
+                    "targets": [1],
+                    "visible": true,
+                    "searchable": false
+                }
+            ],
+            responsive: true,
+            buttons: [
+                {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                'copy', 'csv', 'excel', 'pdf', 'colvis'
+            ],
+            "scrollX": true,
+            "autoWidth": false,
+            dom: 'Bfrtip',
+            "lengthChange": true
+        });
+    });
+</script>

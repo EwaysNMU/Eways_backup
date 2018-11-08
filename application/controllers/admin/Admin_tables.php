@@ -27,7 +27,7 @@ class Admin_tables extends CI_Controller {
         $end = $this->input->post('endDate');
 
         if ($start > $end) {
-            $this->form_validation->set_message('compareDates', 'Your start date must be earlier than your end date');
+            $this->form_validation->set_message('compareDates', '<p style="color:red;">Your START date must be earlier than your END date</p>');
 
             return false;
         }

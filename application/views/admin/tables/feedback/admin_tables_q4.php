@@ -9,67 +9,82 @@
             <li class="breadcrumb-item">
                 <a href="<?php echo site_url() ?>/admin_tables">Tables</a>
             </li>
-            <li class="breadcrumb-item active">Topics Completed</li>
+            <li class="breadcrumb-item active">Question 4</li>
         </ol>
+
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-area-chart"></i> No. Topics completed</div>
+                <i class="fa fa-bar-chart"></i> Feedback Question 4 </div>
             <div class="card-body">
                 <div style="text-align: center">
-                    <form class="" action="<?php echo site_url() ?>/admin_tables_completed_topics_date" method="POST">
+                    <form class="" action="<?php echo site_url() ?>/admin_tables_q4" method="POST">
+                        Topic: <select name="stopic">
+                            <?php foreach ($topics->result() as $value) { ?>
+                                <option value="<?php echo $value->topicID ?>"><?php echo $value->title ?></option>
+                            <?php } ?>    
+                        </select>&nbsp;
+
+                        Student No: <input type="text" id="sname" pattern="[0-9]{9}" placeholder="e.g 212345678" name="sname" minlength="9" maxlength="9" value="<?php if (isset($_POST['sname'])) echo $_POST['sname']; ?>" required autofocus>&nbsp;
+
                         From: <input type="date" id="sdate" name="startDate" max="<?php echo date('Y-m-d') ?>" required value="<?php if (isset($_POST['startDate'])) echo $_POST['startDate']; ?>">&nbsp;
 
-                        To: <input type="date" id="sdate" name="endDate" max="<?php echo date('Y-m-d') ?>" required value="<?php if (isset($_POST['endDate'])) echo $_POST['endDate']; ?>">
+                        To: <input type="date" id="sdate" name="endDate" max="<?php echo date('Y-m-d') ?>" required value="<?php if (isset($_POST['endDate'])) echo $_POST['endDate']; ?>"><br><br>
+
+                        <select hidden name="graph">
+                            <?php foreach ($graphs->result() as $value) { ?>
+                                <option value="<?php echo $value->graphID ?>"><?php echo $value->graphType ?></option>
+                            <?php } ?>
+                        </select>&nbsp;
 
                         <input id="postBtn" type="submit" value="Search"><br><br>
 
                         <?php echo form_error('endDate'); ?>
                     </form>
-                </div>
-                <br><br>
+
+                    <?php foreach ($rating1->result() as $value) { ?>
+                        <strong><?php echo $value->firstName, ' ', $value->lastName, ', ', $value->title ?></strong>
+                    <?php } ?>
+                </div><br>
 
                 <table id="example" class="display responsive nowrap" style="width:100%">
                     <thead>
+                        <tr style="text-align: center">
+                            <th colspan="2">Rate your confidence level for completing the knowledge or skill presented?</th>
+                        </tr>
                         <tr>
-                            <th>Topic</th>
-                            <th>No. Completed</th>
+                            <th>Rating</th>
+                            <th>Count</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td style="width: 20px">Goals Setting</td>
-                            <?php foreach ($ctopic1->result() as $value) { ?>
-                                <td><?php echo $value->topic1 ?></td>
+                            <td style="width: 20px">Rating: 1</td>
+                            <?php foreach ($rating1->result() as $value) { ?>
+                                <td><?php echo $value->rate1 ?></td>
                             <?php } ?>
                         </tr>
                         <tr>
-                            <td style="width: 20px">Stress Management</td>
-                            <?php foreach ($ctopic2->result() as $value) { ?>
-                                <td><?php echo $value->topic2 ?></td>
+                            <td style="width: 20px">Rating: 2</td>
+                            <?php foreach ($rating2->result() as $value) { ?>
+                                <td><?php echo $value->rate2 ?></td>
                             <?php } ?>
                         </tr>
                         <tr>
-                            <td style="width: 20px">Time Management</td>
-                            <?php foreach ($ctopic3->result() as $value) { ?>
-                                <td><?php echo $value->topic3 ?></td>
+                            <td style="width: 20px">Rating: 3</td>
+                            <?php foreach ($rating3->result() as $value) { ?>
+                                <td><?php echo $value->rate3 ?></td>
                             <?php } ?>
                         </tr>
                         <tr>
-                            <td style="width: 20px">Motivation</td>
-                            <?php foreach ($ctopic4->result() as $value) { ?>
-                                <td><?php echo $value->topic4 ?></td>
+                            <td style="width: 20px">Rating: 4</td>
+                            <?php foreach ($rating4->result() as $value) { ?>
+                                <td><?php echo $value->rate4 ?></td>
                             <?php } ?>
                         </tr>
                         <tr>
-                            <td style="width: 20px">Study Strategy</td>
-                            <?php foreach ($ctopic5->result() as $value) { ?>
-                                <td><?php echo $value->topic5 ?></td>
-                            <?php } ?>
-                        </tr>
-                        <tr>
-                            <td style="width: 20px">Tips for Exams and Tests</td>
-                            <?php foreach ($ctopic6->result() as $value) { ?>
-                                <td><?php echo $value->topic6 ?></td>
+                            <td style="width: 20px">Rating: 5</td>
+                            <?php foreach ($rating5->result() as $value) { ?>
+                                <td><?php echo $value->rate5 ?></td>
                             <?php } ?>
                         </tr>
                     </tbody>

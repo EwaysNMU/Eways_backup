@@ -5,10 +5,14 @@
             <div class="card">
                 <div class="card-header">
                     <h4> Resources</h4></div>
-                <div style="height:500px;overflow-x:auto;" class="card-body">
+                <div class="card-body">
                     <table id="example" class="display responsive nowrap" style="width:100% ">
-                            <th style="width:40%">Title</th>
-                            <th></th>
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th></th>
+                            </tr>
+                        </thead>
                         <tbody>
                             <?php foreach ($info->result() as $value) { ?>
                                 <tr>
@@ -28,19 +32,20 @@
         </div>
     </div>
 </div>
-    <br><br><br>
+<br><br><br>
 
 <script>
-$(document).ready(function() {
-    $('#example').DataTable( {
-        "columnDefs": [
-            {
-                "targets": [2],
-                "visible": true,
-                "searchable": false
-            }
-        ],
-        responsive: true
-    } );
-} );
+    $(document).ready(function () {
+        $('#example').DataTable({
+            "columnDefs": [
+                {
+                    "targets": [1],
+                    "visible": true,
+                    "searchable": false
+                }
+            ],
+            responsive: true,
+            "autoWidth": false
+        });
+    });
 </script>
