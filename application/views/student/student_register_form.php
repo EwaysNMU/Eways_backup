@@ -97,6 +97,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
 
             </div>
+             <div class="form-row">
+            <div class="col-md-4 mb-3">
+                    <label for="studyYear">Year of Study</label>
+                    <input type="number" class="form-control" name="studyYear" placeholder="1"value="<?php if (isset($_POST['studyYear'])) echo $_POST['studyYear']; ?>">
+                    <?php echo form_error('studyYear'); ?>
+                </div>
+            </div>
 
             <div class="form-group">
                 <div class="form-check">

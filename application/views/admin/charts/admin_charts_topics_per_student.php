@@ -18,7 +18,7 @@
             <div class="card-body">
                 <div style="text-align: center">
                     <form class="" action="<?php echo site_url() ?>/admin_charts_student_validation" method="POST">
-                        Student No: <input type="text" id="sname" pattern="[0-9]{9}" placeholder="e.g 212345678" name="sname" minlength="9" maxlength="9" required autofocus>
+                        Student No: <input type="text" id="sname" pattern="[0-9]{9}" placeholder="e.g 212345678" name="sname" minlength="9" maxlength="9" value="<?php if (isset($_POST['sname'])) echo $_POST['sname']; ?>" required autofocus>
 
                         From: <input type="date" id="sdate" name="startDate" max="<?php echo date('Y-m-d') ?>" required value="<?php if (isset($_POST['startDate'])) echo $_POST['startDate']; ?>">
 
@@ -27,12 +27,11 @@
                         <input id="postBtn" type="submit" value="Search"><br><br>
 
                         <?php echo form_error('endDate'); ?>
-                    </form>
-                    <?php foreach ($goalsetting->result() as $value) { ?>
-                    <strong><?php echo $value->firstName ?> <?php echo $value->lastName ?></strong>
-                    <?php } ?>
-                </div>
-                <br><br>
+                    </form><br>
+
+                    <?php echo $text1 ?>                  
+                </div><br>
+
                 <canvas id="myChart" width="100%" height="40%"></canvas>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
                 <script>
@@ -85,7 +84,30 @@
                             // Configuration options go here
                             options: {}
                     });
-                </script>
+                </script><br><br><br>
+                <?php echo $text2 ?>
+                <?php foreach ($goalsetting->result() as $value) { ?>
+                    <strong><?php echo $value->firstName ?> <?php echo $value->lastName ?></strong>
+                <?php } ?>
+                <?php echo $text3 ?><br>
+                Goals Setting: <?php foreach ($goalsetting->result() as $value) { ?>
+                    <strong><?php echo $value->countGoalSettting ?></strong>,
+                <?php } ?><br>
+                Stress Management: <?php foreach ($stressmanagement->result() as $value) { ?>
+                    <strong><?php echo $value->countStressManagement ?></strong>,
+                <?php } ?><br>
+                Time Management: <?php foreach ($timemanagement->result() as $value) { ?>
+                    <strong><?php echo $value->countTimeManagement ?></strong>,
+                <?php } ?><br>
+                Motivation: <?php foreach ($motivation->result() as $value) { ?>
+                    <strong><?php echo $value->countMotivation ?></strong>,
+                <?php } ?><br>
+                Study Strategy: <?php foreach ($studystrategy->result() as $value) { ?>
+                    <strong><?php echo $value->countStudyStrategy ?></strong>,
+                <?php } ?><br>
+                Tips for Exams and Tests: <?php foreach ($tipsforexams->result() as $value) { ?>
+                    <strong><?php echo $value->countTipsforExams ?></strong>
+                <?php } ?><br>
             </div>
         </div>
     </div></div>

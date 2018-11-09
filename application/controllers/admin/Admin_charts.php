@@ -129,6 +129,9 @@ class Admin_charts extends CI_Controller {
         $data ['ctopic4'] = $this->Admin_model->getCountTopic4();
         $data ['ctopic5'] = $this->Admin_model->getCountTopic5();
         $data ['ctopic6'] = $this->Admin_model->getCountTopic6();
+        
+        $data ['text1'] = "This graph illustrates the total number of times each topic has been completed by all students.";
+        $data ['text2'] = "As shown on the graph, the number of times each topic has been completed is as follows:<br>"; 
 
         $this->load->view('layouts/admin_header');
         $this->load->view('admin/charts/admin_charts_completed_topics', $data);
@@ -146,7 +149,10 @@ class Admin_charts extends CI_Controller {
         $data ['ctopic4'] = $this->Admin_model->getCountTopic4_date($startDate, $endDate);
         $data ['ctopic5'] = $this->Admin_model->getCountTopic5_date($startDate, $endDate);
         $data ['ctopic6'] = $this->Admin_model->getCountTopic6_date($startDate, $endDate);
-
+        
+        $data ['text1'] = "This graph illustrates the total number of times each topic has been<br> completed by all students.";
+        $data ['text2'] = "As shown on the graph, between <strong>$startDate</strong> and <strong>$endDate</strong>, the number of times each topic has been completed is as follows:<br>"; 
+        
         $this->load->view('layouts/admin_header');
         $this->load->view('admin/charts/admin_charts_completed_topics', $data);
         $this->load->view('layouts/admin_footer');
@@ -164,6 +170,10 @@ class Admin_charts extends CI_Controller {
         $data ['motivation'] = $this->Admin_model->getUserCountMotivation($studentName, $startDate, $endDate);
         $data ['studystrategy'] = $this->Admin_model->getUserCountStudyStrategy($studentName, $startDate, $endDate);
         $data ['tipsforexams'] = $this->Admin_model->getUserCountTipsForExams($studentName, $startDate, $endDate);
+        
+        $data ['text1'] = "This graph illustrates the total number of times each topic has been completed by a student.";
+        $data ['text2'] = "As shown on the graph, between <strong>$startDate</strong> and <strong>$endDate</strong>, ";
+        $data ['text3'] = " <strong>(s$studentName)</strong> completed:<br>";
 
         $this->load->view('layouts/admin_header');
         $this->load->view('admin/charts/admin_charts_topics_per_student', $data);

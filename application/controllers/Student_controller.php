@@ -13,13 +13,8 @@ class Student_controller extends CI_Controller {
     public function index() {
         
     }
-
-    public function student_profile() {
-        $this->load->view('student_profile');
-    }
-    
      public function login_() {
-        $this->load->view('login/login_form');
+        $this->load->view('login/login_student');
     }
 
     public function student_register_form() {
@@ -61,6 +56,7 @@ class Student_controller extends CI_Controller {
         $this->form_validation->set_rules('lastname', 'Last Name', 'required');
         $this->form_validation->set_rules('firstname', 'First Name', 'required');
         $this->form_validation->set_rules('faculty', 'Faculty', 'required');
+        $this->form_validation->set_rules('studyYear', 'Year of Study', 'required');
         $this->form_validation->set_rules('study_area', 'Department', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
         $this->form_validation->set_rules('confirm_password', 'Confirmation Password', 'required|matches[password]');
@@ -86,12 +82,13 @@ class Student_controller extends CI_Controller {
                 'lastName' => $this->input->post('lastname'),
                 'studyArea' => $this->input->post('study_area'),
                 'faculty' => $this->input->post('faculty'),
+                'studyYear'=> $this->input->post('studyYear'),
                 'email' => $this->generate_email($studentno),
                 'password' => $this->encrypt_password($password, $email),
             );
             if ($this->Student_model->_insert_new_student($data)) {
                 $this->session->set_flashdata('flashSuccess', '<strong>Successful!</strong> Check your mailbox to confirm the email sent.');
-                redirect('login_login');
+                redirect('student/login');
             } else {
                 $this->student_register_form();
             }
@@ -99,9 +96,6 @@ class Student_controller extends CI_Controller {
     }
 
     Public function checkStudent($requested_StudentNo) {
-        // $studentNo = "s".$this->input->post('studentNo');
-        // $this->load->model('StudentModel');
-
         $studentNo_available = $this->Student_model->checkUserExist($requested_StudentNo);
 
         if ($studentNo_available) {
@@ -116,10 +110,10 @@ class Student_controller extends CI_Controller {
     function confirmEmail($hashcode) {
         if ($this->Student_model->verifyEmail($hashcode)) {
             $this->session->set_flashdata('verifySuccess', 'Email address is confirmed. Please login.');
-            redirect('login_login');
+            redirect('student/login');
         } else {
             $this->session->set_flashdata('verifyfailed', 'Email address is not confirmed. Please check your mailbox to confirm.');
-            redirect('login_login');
+            redirect('student/login');
         }
     }
 
@@ -173,12 +167,10 @@ class Student_controller extends CI_Controller {
             } elseif ($this->Student_model->get_student_not_activated($studentno1)) {
 
                 $this->session->set_flashdata('verifyfailed', 'Email address is not confirmed. Please check your mailbox to confirm.');
-                redirect('login_login');
+                redirect('student/login');
             } else {
-//                print_r('Login Unsuccessful');
-//                exit();
                 $this->session->set_flashdata('flashDanger', 'Wrong username or password.');
-                redirect('login_login');
+                redirect('student/login');
             }
         }
         
@@ -187,10 +179,16 @@ class Student_controller extends CI_Controller {
     public function logout() {
         $this->session->unset_userdata('firstname','lastname','studentID','studentNo','studyArea','faculty');
         $this->session->sess_destroy();
-        redirect('/login_login');
+        redirect('/student/login');
     }
 
 }
+
+
+
+
+
+
 
 
 

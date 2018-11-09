@@ -68,4 +68,5 @@ $lang['form_validation_error_message_not_set']	= 'Unable to access an error mess
 $lang['form_validation_in_list']		= 'The {field} field must be one of: {param}.';
 $lang['checkStudent']		= 'Sorry, student number already exist';
 $lang['checkStudent_exist']		= 'Sorry, student number does not exist';
+$lang['checkUser_exist']		= 'Sorry, Username number does not exist';
 

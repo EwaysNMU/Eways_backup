@@ -12,7 +12,7 @@ class All_Courses_controller extends CI_Controller {
                     // All allowed function names for not logged in users ( i keep it empty usually)
             );
             if (!in_array($this->router->fetch_method(), $allowed)) {
-                redirect('/login_login');
+                redirect('/student/login');
             }
         }
     }
@@ -201,6 +201,7 @@ class All_Courses_controller extends CI_Controller {
     }
 
 }
+
 
 
 

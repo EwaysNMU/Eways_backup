@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 $route['default_controller'] = 'home';
 
-$route['login_login'] = 'Student_controller/login_';
+$route['student/login'] = 'Student_controller/login_';
 $route['logout'] = 'Student_controller/logout';
 $route['all_courses'] = 'all_courses_controller/list_of_courses';
 
@@ -87,15 +87,18 @@ $route['resources'] = 'all_courses_controller/get_resources';
 
 
 
-// Student
+//------------------------------------------------LOGIN------------------------------------------------//
+//STUDENT
 $route['student_profile'] = 'student_controller/student_profile';
 $route['student_register_form'] = 'student_controller/student_register_form';
 $route['add_new_student'] = 'student_controller/add_new_student';
 $route['student_validation'] = 'student_controller/student_validation';
+$route['confirmation/(.*)'] = 'Student_controller/confirmEmail/$1';
 $route['reset_password'] = 'ForgotPassword_Controller/forgot_password_form';
 $route['send_link'] = 'ForgotPassword_Controller/send_reset_link';
 $route['reset_password_/(.*)'] = 'ForgotPassword_Controller/reset_password_form/$1';
 $route['password_reset'] = 'ForgotPassword_Controller/update_password';
+$route['error_page'] = 'ForgotPassword_Controller/forgot_password_error';
 $route['chat'] = 'test_controller/chat_view';
 $route['chat/time_management'] = 'test_controller/chat_question_list';
 $route['chat/time_management/How to manage my time effectively?'] = 'test_controller/chat_question_details';
@@ -145,15 +148,15 @@ $route['feedback_management'] = 'feedback_controller/get_all_feedbacks';
 
 
 
-//------------------------------------------------LOGIN------------------------------------------------//
-//STUDENT
-$route['login_student_form'] = 'StudentLogin_controller/login_student_form';
-$route['login_student'] = 'StudentLogin_controller/user_validation';
-$route['confirmation/(.*)'] = 'Student_controller/confirmEmail/$1';
-$route['error_page'] = 'ForgotPassword_Controller/forgot_password_error';
+
 
 //ADMIN
-$route['login_admin_form'] = 'AdminLogin_controller/login_admin_form';
+$route['admin/login'] = 'AdminLogin_controller/login_admin_form';
+$route['admin/logout'] = 'AdminLogin_controller/logout';
+$route['admin/forgot_password'] = 'AdminLogin_controller/forgot_password_form';
+$route['admin/send_link'] = 'AdminLogin_controller/send_reset_link';
+$route['admin/reset_password_/(.*)'] = 'AdminLogin_controller/reset_password_form/$1';
+$route['admin/password_reset'] = 'AdminLogin_controller/update_password';
 $route['login_admin'] = 'AdminLogin_controller/user_validation';
 
 $route['404_override'] = '';

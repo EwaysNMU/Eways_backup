@@ -12,7 +12,7 @@ class test_controller extends CI_Controller {
                     // All allowed function names for not logged in users ( i keep it empty usually)
             );
             if (!in_array($this->router->fetch_method(), $allowed)) {
-                redirect('/login_login');
+                redirect('/student/login');
             }
         }
     }
@@ -52,16 +52,7 @@ class test_controller extends CI_Controller {
         $this->load->view('course_views/chat_question_detail', $data);
     }
     public function post_comment() {
-
-//        echo json_encode($data);
-        $this->form_validation->set_rules('comment', 'Comment', 'required');
-
-
-        if ($this->form_validation->run() == FALSE){
-            $errors = validation_errors();
-            echo json_encode(['error'=>$errors]);
-        }else{
-                    $data = array(
+              $data = array(
                 'chatID' => "1",
                 'studentID' => $this->session->userdata('studentID'),
                 'comment' => $this->input->post('comment')
@@ -71,15 +62,11 @@ class test_controller extends CI_Controller {
             } else {
             }
         }
-        
-        
-//            $data = array(
-//                    'comment_return' => $this->input->post('comment')
-//                        );
-//	        echo json_encode($data);
     }
    
-}
+
+
+
 
 
 

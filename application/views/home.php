@@ -52,37 +52,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </ul>
                 <ul  class="navbar-nav">
                     <li class="nav-item">
-                        <a id="navhover" class="nav-link" href="<?php echo site_url() ?>/login_login"><i class="fa fa-sign-in"></i> Login</a>
+                        <a id="navhover" class="nav-link" href="<?php echo site_url() ?>/student/login"><i class="fa fa-sign-in"></i> Login</a>
                     </li>
                     <li class="nav-item">
                         <a id="navhover" class="nav-link" href="<?php echo site_url() ?>/student_register_form"> <i class="fa fa-user-plus"></i> Registration</a>
                     </li>
-<!--                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Login</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="<?php echo site_url() ?>/login_admin_form">Admin</a>
-                            <a class="dropdown-item" href="<?php echo site_url() ?>/login_login">Student</a>
-                            <div role="separator" class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="<?php echo site_url() ?>/student_register_form">Student Registration</a>
-                            <a class="dropdown-item" href="<?php echo site_url() ?>/student_profile">Student Profile</a>
-                        </div>
-                    </li>-->
-<!--                    <li class="nav-item">
-                        <a class="nav-link" href="#!">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo site_url() ?>/list_of_courses">Courses</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#!">Contact</a>
-                    </li>-->
 
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo site_url() ?>/admin_home">Admin</a>
+                        <a class="nav-link" href="<?php echo site_url() ?>/admin/login">Admin</a>
                     </li>
-<!--                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo site_url() ?>/login_login">Collins Test</a>
-                    </li>-->
 
 
                 </ul>
@@ -100,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="col-lg-4">
                     <h1><strong>EXCELLENT<br>WAYS OF<br>ACHIEVING<br>YOUR<br>SUCCESS</strong></h1>
                     <br>
-                    <a class="btn btn-primary btn-lg" href="<?php echo site_url() ?>/login_login">Check out our courses -></a>
+                    <a class="btn btn-primary btn-lg" href="<?php echo site_url() ?>/student/login">Check out our courses -></a>
                 </div>
             </div>
 

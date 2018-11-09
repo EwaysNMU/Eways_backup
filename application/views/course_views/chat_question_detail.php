@@ -22,7 +22,7 @@
             </form>
 
             <br><br>
-            <div id='value'><br>
+            <div id='value'>
             </div>
             <div id="links">
                 <table class="table table-bordered" style="margin-top:20px">
@@ -55,6 +55,12 @@
         $(".submit").click(function(event) {
             event.preventDefault();
             var comment_post = $("textarea#comment").val();
+            if(comment_post ==="")
+            {
+                jQuery("div#value").show();
+                jQuery("div#value").html(comment_post+"The comment field is required");
+        return false;
+            }
             jQuery.ajax({
                 type: "POST",
                 url: "<?php echo site_url(); ?>" + "/chat/time_management/post",
