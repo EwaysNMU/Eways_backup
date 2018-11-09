@@ -107,7 +107,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     if (textValue.indexOf(word) !== - 1)
                     {
-                    alert('type your username without "@mandela.ac.za"');
+                    alert('Invalid username: type your username without "@mandela.ac.za"');
                      event.preventDefault();
                 }
 

@@ -189,7 +189,8 @@ public function forgot_password_form() {
                 $db_username = $row->username;
             }
             $stamp = date('Y-m-d H:i:s');
-            if ($time_stamp >= $stamp && $token == $reset_token && $db_username == $username && ($this->login_model->reset_password($reset_token, $password_1, $username))) {
+            if ($time_stamp >= $stamp && $token == $reset_token && $db_username == $username && ($this->Login_model->reset_password($reset_token, $password_1, $username))) {
+                $this->session->set_flashdata('flashSuccess', 'Please login with your new password.');
                 redirect('admin/login');
             } else {
                 $this->forgot_password_url_change();

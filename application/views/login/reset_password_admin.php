@@ -50,17 +50,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <label for="inputResetPasswordEmail">New Password</label>
                             <input type="password" class="form-control" id="password" name="password"
                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                                   required >
+                                   required onchange='check_pass();'>
                         </div>
                         <div class="form-group">
                             <label for="inputResetPasswordEmail">Confirm Password</label>
                             <input type="password" class="form-control" id="confirm_password" name="confirm_password"
                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                                   required >
+                                   required onchange='check_pass();'>
+                            <span id='message'></span>
                         </div>
                         <input hidden type="text" name="reset_token" id="reset_token" value="<?php echo $seg2; ?>"required><br>
                         <div class="form-group">
-                            <button id="btnLogin" type="submit" class="btn btn-success btn-lg float-right">Reset</button>
+                            <button disabled id="btnLogin" type="submit" class="btn btn-success btn-lg float-right">Reset</button>
                         </div>
                     </form>
                     <?php echo form_close(); ?>
@@ -75,18 +76,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<!--        <script>
-            $("#btnLogin").click(function (event) {
-                
-            var password = document.getElementById('password');
-            var confirm_password = document.getElementById('confirm_password');
-                    if ( confirm_password !== password )
-                    {
-                    alert('password and confirm password does not match');
-                     event.preventDefault();
-                }
-                    });
-        </script>  -->
+        <script>
+       function check_pass() {
+    if (document.getElementById('password').value === document.getElementById('confirm_password').value) {
+        $('#message').html('Matching').css('color', 'green');
+        document.getElementById('btnLogin').disabled = false;
+    } else {
+         $('#message').html('Not Matching').css('color', 'red');
+        document.getElementById('btnLogin').disabled = true;
+    }
+}
+        </script>  
 </html>
 
 

@@ -146,6 +146,7 @@ class ForgotPassword_Controller extends CI_Controller {
             }
             $stamp = date('Y-m-d H:i:s');
             if ($time_stamp >= $stamp && $token == $reset_token && $student_num == $studentno && ($this->Student_model->reset_password($reset_token, $password_1, $studentno))) {
+                $this->session->set_flashdata('flashSuccess', 'Please login with your new password.');
                 redirect('student/login');
             } else {
                 $this->forgot_password_url_change();
