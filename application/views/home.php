@@ -46,8 +46,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="<?php echo site_url() ?>"><i class="fa fa-home" aria-hidden="true"></i> Home <span class="sr-only">(current)</span></a>
+                    </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="<?php echo site_url() ?>/event"><i class="fas fa-calendar-alt"></i>&nbsp;Events <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
                 <ul  class="navbar-nav">

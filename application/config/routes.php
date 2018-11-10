@@ -161,3 +161,9 @@ $route['login_admin'] = 'AdminLogin_controller/user_validation';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+
+//Events
+$route['event'] = 'event_controller';
+$route['event_form'] = 'event_controller/event_registration_form';
+
