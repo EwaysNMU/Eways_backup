@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         color: white
     }
     .anyClass {
-      height:500px;
+      height:700px;
       overflow-y: scroll;
   }
 </style>
