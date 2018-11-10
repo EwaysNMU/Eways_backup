@@ -6,6 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+      <title>EWAYS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="<?php echo base_url() ?>assets/images/favicon/favicon.ico" type="image/x-icon">
     <!-- Bootstrap CSS -->
@@ -14,7 +15,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
-    <title>EWAYS</title>
+    <!-- Google Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
     <style>
     .mandelacolor {
         background-color: #103A5C;
@@ -34,6 +37,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     .anyClass {
       height:700px;
       overflow-y: scroll;
+      font-size: 12px;
+  }
+  .feeds{
+    font-family: 'Inconsolata', monospace;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  .dates{
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-style: italic;
   }
 </style>
 </head>
@@ -64,77 +78,51 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <table id="example" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
+                        <th>Title</th>
+                        <th>Created</th>
+                        <th>Short Description</th>
+                        <th>Last Updated</th>
                     </tr>
                 </thead>
                 <tbody>
+                   <?php foreach ($event_list as $row){?>
                     <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>$320,800</td>
+                        <td><?php echo $row['title']; ?></td>
+                        <td class="dates"><?php echo date('l, M j, Y', strtotime($row['created'])); ?></td>
+                        <td><?php echo $row['shortDescription']; ?></td>
+                        <td class="dates"><?php echo date('l, M j, Y', strtotime($row['updated'])); ?></td>
                     </tr>
-                    <tr>
-                        <td>Garrett Winters</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                        <td>63</td>
-                        <td>2011/07/25</td>
-                        <td>$170,750</td>
-                    </tr>
-                    <tr>
-                        <td>Ashton Cox</td>
-                        <td>Junior Technical Author</td>
-                        <td>San Francisco</td>
-                        <td>66</td>
-                        <td>2009/01/12</td>
-                        <td>$86,000</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-        <div  class="col-sm-2">
-          <h6>News feed <a href="#">see more.</a></h6>
-          <div class="anyClass">
-            <div class="row"> 
+                <?php } ?>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Title</th>
+                    <th>Created</th>
+                    <th>Short Description</th>
+                    <th>Last Updated</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div  class="col-sm-2">
+      <h6 class="feeds">News feed</h6>
+      <div class="anyClass ">
+        <div class="row"> 
             <div class="col-12">
-                <h6>1st January 2018</h6>
-                 <a href="#">news feed number one</a>
-                 <hr>
-                 <h6>1st January 2018</h6>
-                 <a href="#">news feed number two</a>
-                 <hr>
-                 <h6>2nd January 2018</h6>
-                 <a href="#">news feed number three</a>
-                 <hr>
-                 <h6>3rd January 2018</h6>
-                 <a href="#">news feed number four</a>
-                 <hr>
+                 <?php foreach ($feeds_list as $row){?>
+                <p><b>Date:</b>&nbsp;<?php echo date('d-M-Y', strtotime($row['created'])); ?><br>
+                    <b>Title:</b>&nbsp;<mark><?php echo $row['title']; ?></mark><br>
+                    <b>Link:</b>&nbsp;<a target="_blank" href="<?php echo $row['link']; ?>"><?php echo $row['link']; ?></a>
+                </p>
+                <hr>
+                <?php } ?>
             </div> 
-            </div>
         </div>
-    </div> 
+    </div>
+</div> 
 </div>
 </div>
-</div>
-</div>
+
 
 
 

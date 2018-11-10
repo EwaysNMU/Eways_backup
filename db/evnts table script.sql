@@ -5,14 +5,20 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 CREATE TABLE IF NOT EXISTS `events` (
-  `event_id` int(11) DEFAULT NULL,
+  `event_id` int(11) NOT NULL AUTO_INCREMENT,
   `deleted` varchar(3) DEFAULT 'No',
+  `title` varchar(255) DEFAULT 'No Title',
   `updated` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `description` varchar(255) DEFAULT 'No Description',
-  `created` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `created` datetime DEFAULT CURRENT_TIMESTAMP,
+  `shortDescription` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`event_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*!40000 ALTER TABLE `events` DISABLE KEYS */;
+INSERT INTO `events` (`event_id`, `deleted`, `title`, `updated`, `description`, `created`, `shortDescription`) VALUES
+	(1, 'No', 'Tesla', '2018-11-10 11:47:24', 'No Here\'s Why the Tesla Model 3 Is the Coolest Car of 2017', '2018-11-10 11:32:51', 'Here\'s Why the Tesla Model 3 Is the Coolest Car of 2017'),
+	(2, 'No', 'Google', '2018-11-10 11:47:28', 'Display RSS Feed on a Web Page with Google Feed', '2018-11-10 11:33:18', 'You can use the Google Feeds API to fetch and display the content of any RSS feed on a web page.');
 /*!40000 ALTER TABLE `events` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

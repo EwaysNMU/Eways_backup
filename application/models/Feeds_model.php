@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Event_model extends CI_Model {
+class Feeds_model extends CI_Model {
 
     public function __construct() {
         parent::__construct();
@@ -10,10 +10,10 @@ class Event_model extends CI_Model {
 		$this->load->library('get');
     }
 
-    public function get_all_events()
+    public function get_all_feeds()
 	{
 		$params = array('deleted' => 'No');
-		$table_name = 'events';
+		$table_name = 'feeds';
 		return $this->get->get_from_table($params, $table_name);
 	}
 }

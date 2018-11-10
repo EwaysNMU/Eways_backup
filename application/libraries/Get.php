@@ -19,10 +19,12 @@ class Get
          */
         $this->CI->db->select();
         $this->CI->db->where($params);
+        $this->CI->db->order_by("created", "desc");
         $query = $this->CI->db->get($table_name);
         $results = $query->result_array();
         return $results;
     }
+
     public function get_from_table_path($params, $table_name)
     {
         /**
