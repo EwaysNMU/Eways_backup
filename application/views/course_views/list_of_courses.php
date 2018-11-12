@@ -84,7 +84,7 @@
 
             <div class="row">
                 <div class="col s12 m4">
-                    <div id="card1" class="card" style="width: 18rem;">
+                    <div id="card1" class="card" style="width: 18rem;margin: auto">
                         <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/goals.png" width="256" height="216" alt="GOALS SETTING">
                         <div class="card-body">
                             <h6 style="text-align: center" class="card-title">GOAL SETTING</h6>
@@ -99,7 +99,7 @@
                     </div>
                 </div>
                 <div class="col s12 m4">
-                    <div id="card3" class="card" style="width: 18rem;">
+                    <div id="card3" class="card" style="width: 18rem;margin: auto">
                         <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/time management.jpg" width="256" height="216" alt="TIME MANAGEMENT">
                         <div class="card-body">
                             <h6 style="text-align: center" class="card-title">TIME MANAGEMENT</h6>
@@ -120,7 +120,7 @@
                 </div>
                 
                 <div class="col s12 m4">
-                    <div id="card2" class="card" style="width: 18rem;">
+                    <div id="card2" class="card" style="width: 18rem;margin: auto">
                         <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/stress-management.png" width="256" height="216" alt="STRESS MANAGEMENT">
                         <div class="card-body">
                             <h6 style="text-align: center" class="card-title">STRESS MANAGEMENT</h6>
@@ -146,7 +146,7 @@
             </div>
             <div class="row">
                 <div class="col s12 m4">
-                    <div id="card4" class="card" style="width: 18rem;">
+                    <div id="card4" class="card" style="width: 18rem;margin: auto">
                         <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/motivation.jpg" width="256" height="216" alt="Motivation">
                         <div class="card-body">
                             <h6 style="text-align: center" class="card-title">MOTIVATION</h6>
@@ -166,7 +166,7 @@
                     </div>
                 </div>
                 <div class="col s12 m4">
-                    <div id="card5" class="card" style="width: 18rem;">
+                    <div id="card5" class="card" style="width: 18rem;margin: auto">
                         <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/strategy.jpg" width="256" height="216" alt="Study Strategy">
                         <div class="card-body">
                             <h6 style="text-align: center" class="card-title">STUDY STRATEGY</h6>
@@ -186,7 +186,7 @@
                     </div>
                 </div>
                 <div class="col s12 m4">
-                    <div id="card6" class="card" style="width: 18rem;">
+                    <div id="card6" class="card" style="width: 18rem;margin: auto">
                         <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/tips.png" width="256" height="216" alt="Tips For Exams And Tests">
                         <div class="card-body">
                             <h6 style="text-align: center" class="card-title">TIPS FOR EXAMS AND TESTS</h6>

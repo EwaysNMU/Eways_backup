@@ -39,7 +39,7 @@
                         <input id="postBtn" type="submit" value="Search"><br><br>
 
                         <?php echo form_error('endDate'); ?>
-                    </form>
+                    </form><?php echo $text1 ?><br><br>
 
                     <?php foreach ($yes->result() as $value) { ?>
                         <strong><?php echo $value->firstName, ' ', $value->lastName, ', ', $value->title ?></strong>
@@ -87,7 +87,8 @@
                     });
                 </script>
             </div>
-        </div></div>
-</div></div>
+        </div>
+    </div>
+</div>
 <!-- /.container-fluid-->
 <!-- /.content-wrapper-->

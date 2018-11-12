@@ -165,9 +165,38 @@
     }
     .scrollmenu { overflow: auto;
                   white-space: nowrap;}
-    </style>
-    <br>
-    <h2 style="text-align:center">Goal Setting</h2>
+    .hr{margin:5px 0;}
+    .accordion-group{margin-bottom:10px;border-radius:0;}
+    .accordion-toggle{
+        background:#EFAF2E;
+        color:black
+
+    }
+
+    .accordion-toggle:hover{
+        text-decoration: none;
+
+    }
+
+    .accordion-heading .accordion-toggle {
+        display: block;
+        padding: 8px 15px;
+    }
+
+
+
+    .selectStyle{
+        width:46%; float: left; margin-right: 8%;
+    }
+
+
+    .accordion-group{
+        margin-bottom:20px;
+    }
+
+</style>
+<br>
+<h2 style="text-align:center">Goal Setting</h2>
 <div class="container">
     <div class="mySlides">
         <div style="color: black" class="numbertext">1 / 16</div>
@@ -238,61 +267,11 @@
         <div style="color: black" class="numbertext">16 / 16</div>
         <img src="<?php echo base_url() ?>assets/images/topics/goal_setting/slide16.jpg" style="width:100%">
     </div>
-    
+
 
     <a class="prev" onclick="plusSlides(-1)">❮</a>
     <a class="next" onclick="plusSlides(1)">❯</a>
     <br>
-    <div class="row scrollmenu">
-        <div class="column">
-            <img class="demo cursor" src="<?php echo base_url() ?>assets/images/topics/goal_setting/slide1.jpg" style="width:100%" onclick="currentSlide(1)">
-        </div>
-        <div class="column">
-            <img class="demo cursor" src="<?php echo base_url() ?>assets/images/topics/goal_setting/slide2.jpg" style="width:100%" onclick="currentSlide(2)">
-        </div>
-        <div class="column">
-            <img class="demo cursor" src="<?php echo base_url() ?>assets/images/topics/goal_setting/slide3.jpg" style="width:100%" onclick="currentSlide(3)">
-        </div>
-        <div class="column">
-            <img class="demo cursor" src="<?php echo base_url() ?>assets/images/topics/goal_setting/slide4.jpg" style="width:100%" onclick="currentSlide(4)">
-        </div>
-        <div class="column">
-            <img class="demo cursor" src="<?php echo base_url() ?>assets/images/topics/goal_setting/slide5.jpg" style="width:100%" onclick="currentSlide(5)">
-        </div>    
-        <div class="column">
-            <img class="demo cursor" src="<?php echo base_url() ?>assets/images/topics/goal_setting/slide6.jpg" style="width:100%" onclick="currentSlide(6)">
-        </div>
-        <div class="column">
-            <img class="demo cursor" src="<?php echo base_url() ?>assets/images/topics/goal_setting/slide7.jpg" style="width:100%" onclick="currentSlide(7)">
-        </div>
-        <div class="column">
-            <img class="demo cursor" src="<?php echo base_url() ?>assets/images/topics/goal_setting/slide8.jpg" style="width:100%" onclick="currentSlide(8)">
-        </div>
-        <div class="column">
-            <img class="demo cursor" src="<?php echo base_url() ?>assets/images/topics/goal_setting/slide9.jpg" style="width:100%" onclick="currentSlide(9)">
-        </div>
-        <div class="column">
-            <img class="demo cursor" src="<?php echo base_url() ?>assets/images/topics/goal_setting/slide10.jpg" style="width:100%" onclick="currentSlide(9)">
-        </div>
-        <div class="column">
-            <img class="demo cursor" src="<?php echo base_url() ?>assets/images/topics/goal_setting/slide11.jpg" style="width:100%" onclick="currentSlide(9)">
-        </div>
-        <div class="column">
-            <img class="demo cursor" src="<?php echo base_url() ?>assets/images/topics/goal_setting/slide12.jpg" style="width:100%" onclick="currentSlide(9)">
-        </div>
-        <div class="column">
-            <img class="demo cursor" src="<?php echo base_url() ?>assets/images/topics/goal_setting/slide13.jpg" style="width:100%" onclick="currentSlide(9)">
-        </div>
-        <div class="column">
-            <img class="demo cursor" src="<?php echo base_url() ?>assets/images/topics/goal_setting/slide14.jpg" style="width:100%" onclick="currentSlide(9)">
-        </div>
-        <div class="column">
-            <img class="demo cursor" src="<?php echo base_url() ?>assets/images/topics/goal_setting/slide15.jpg" style="width:100%" onclick="currentSlide(9)">
-        </div>
-        <div class="column">
-            <img class="demo cursor" src="<?php echo base_url() ?>assets/images/topics/goal_setting/slide16.jpg" style="width:100%" onclick="currentSlide(9)">
-        </div>
-    </div>
 </div>
 <br>
 <div class="wrapper">
@@ -302,11 +281,48 @@
 </div>
 <button onclick="topFunction()" id="myBtn" title="Go to top">&nbsp;<i style="color:black"class="fa fa-angle-double-up"></i>&nbsp;</button>
 <br>
+<div class="container " style="max-width: 800px; min-width: 200px; margin: auto">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle"  data-toggle="collapse" data-parent="toggle" href="#collapseOne">
+                            <i class="fa fa-pencil-square-o"></i> Topic study note
+                        </a>
+                    </div>
+                    <div id="collapseOne" class="accordion-body collapse in">
+                        <div class="accordion-inner"><br>
+                            <div id="value" style="color: #4CAF50"></div>
+                            <form name="submit">
+                                <?php foreach ($notes->result() as $note) { ?>
+                                    <?php if ($note->topicID === "1"): ?>   
+                                        <textarea type="text" id="description" name="description" style="margin-bottom: 10px; resize: none;color:black;" rows="4" cols="50" class="form-control" placeholder="enter your chat" autofocus><?php echo $note->description ?></textarea>
+                                    <?php endif ?>
+                                <?php } ?>
+
+                                <input name="submit" value="save" type="submit" class="btn-submit pull-right submit btn-info">
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div><br>
 <div align="center">
     <i>“If you want to be happy, set a goal that commands your thoughts, liberates your energy and inspires your hopes”.
     </i><br>
     - <b>Andrew Carnegie</b>
 </div>
+<script src="<?php echo base_url() ?>assets/js/jquery-3.3.1.js"></script>
+<script src="<?php echo base_url() ?>assets/js/post_note.js"></script>
+<script type="text/javascript">
+</script> 
+
+
 <!--Start script for button timer-->
 <script>
     window.onload = function () {

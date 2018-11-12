@@ -78,7 +78,7 @@
                                         </div>
                                         <div class="text-value"></div>
                                         <br>
-                                        <div>Q2</div>
+                                        <div>Q2 </div>
                                     </div>
                                     <a class="card-footer text-white clearfix small z-1" href="<?php echo site_url() ?>/admin_charts_q2">
                                         <span class="float-left">View Details</span>

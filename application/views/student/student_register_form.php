@@ -100,7 +100,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
              <div class="form-row">
             <div class="col-md-4 mb-3">
                     <label for="studyYear">Year of Study</label>
-                    <input type="number" class="form-control" name="studyYear" placeholder="1"value="<?php if (isset($_POST['studyYear'])) echo $_POST['studyYear']; ?>">
+<!--                    <input type="number" class="form-control" name="studyYear" placeholder="1"value="<?php if (isset($_POST['studyYear'])) echo $_POST['studyYear']; ?>">-->
+                    <select name="studyYear" class="form-control" id="sel1">
+                        <option>--Select--</option>
+                        <option value="1">1 Year</option>
+                        <option value="2">2 Year</option>
+                        <option value="3">3 Year</option>
+                        <option value="4">4 Year</option>
+                    </select>
                     <?php echo form_error('studyYear'); ?>
                 </div>
             </div>
@@ -185,6 +192,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>
 </html>
+
+
+
 
 
 

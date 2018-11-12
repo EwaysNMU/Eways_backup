@@ -97,9 +97,20 @@ class All_Courses_controller extends CI_Controller {
     public function goals_setting() {
         $stud_id = $this->session->userdata('studentID');
         $data['info2'] = $this->Student_model->get_profile($stud_id);
+        $data['notes'] = $this->Student_model->get_notes($stud_id);
         $this->load->view('layouts/header', $data);
         $this->load->view('course_views/goals_setting');
         $this->load->view('layouts/footer_courses');
+    }
+    
+     public function goals_setting_note() {
+         $stud_id = $this->session->userdata('studentID');
+         $topicID = "1";
+         $desc = $this->input->post('description');
+                    if ($this->Student_model->update_notes($stud_id,$topicID,$desc)) {
+            echo json_encode(['comment_return'=>'Saved!']);
+            } else {
+            }
     }
 
     public function goals_setting_feedback() {
@@ -201,6 +212,17 @@ class All_Courses_controller extends CI_Controller {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

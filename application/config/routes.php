@@ -63,6 +63,7 @@ $route['time_management_feedback_answer_'] = 'feedbacks_controller/time_manageme
 $route['goals_setting_'] = 'all_courses_controller/goals_setting';
 $route['goals_setting_feedback_'] = 'all_courses_controller/goals_setting_feedback';
 $route['goals_setting_feedback_answer_'] = 'feedbacks_controller/goals_setting_feedback_answer';
+$route['goals_note'] = 'all_courses_controller/goals_setting_note';
 
 $route['motivation_'] = 'all_courses_controller/motivation';
 $route['motivation_feedback_'] = 'all_courses_controller/motivation_feedback';

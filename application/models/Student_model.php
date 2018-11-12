@@ -223,6 +223,17 @@ class Student_model extends CI_Model {
         return $this->db->update('students', $data); 
             
     }
+    public function get_notes($stud_id) {
+      $this->db->where('studentID', $stud_id);
+        return $query = $this->db->get('note');   
+    }
+     public function update_notes($stud_id, $topicID, $desc) {
+       $data = array('description' => $desc);
+        $this->db->where('studentID', $stud_id);
+        $this->db->where('topicID', $topicID);
+        return $this->db->update('note', $data); 
+            
+    }
     public function get_resources() {
         return $query = $this->db->get('resources');
     }
@@ -254,6 +265,17 @@ class Student_model extends CI_Model {
         return $data;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
