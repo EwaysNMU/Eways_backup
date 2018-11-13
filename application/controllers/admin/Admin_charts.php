@@ -163,13 +163,16 @@ class Admin_charts extends CI_Controller {
         $studentName = $this->input->post('sname');
         $startDate = $this->input->post('startDate');
         $endDate = $this->input->post('endDate');
+        $graph = $this->input->post('graph');
+        
+        $data ['graphs'] = $this->Admin_model->getGraphs();
 
-        $data ['goalsetting'] = $this->Admin_model->getUserCountGoalStetting($studentName, $startDate, $endDate);
-        $data ['stressmanagement'] = $this->Admin_model->getUserCountStressManagement($studentName, $startDate, $endDate);
-        $data ['timemanagement'] = $this->Admin_model->getUserCountTimeManagement($studentName, $startDate, $endDate);
-        $data ['motivation'] = $this->Admin_model->getUserCountMotivation($studentName, $startDate, $endDate);
-        $data ['studystrategy'] = $this->Admin_model->getUserCountStudyStrategy($studentName, $startDate, $endDate);
-        $data ['tipsforexams'] = $this->Admin_model->getUserCountTipsForExams($studentName, $startDate, $endDate);
+        $data ['goalsetting'] = $this->Admin_model->getUserCountGoalStetting($graph, $studentName, $startDate, $endDate);
+        $data ['stressmanagement'] = $this->Admin_model->getUserCountStressManagement($graph, $studentName, $startDate, $endDate);
+        $data ['timemanagement'] = $this->Admin_model->getUserCountTimeManagement($graph, $studentName, $startDate, $endDate);
+        $data ['motivation'] = $this->Admin_model->getUserCountMotivation($graph, $studentName, $startDate, $endDate);
+        $data ['studystrategy'] = $this->Admin_model->getUserCountStudyStrategy($graph, $studentName, $startDate, $endDate);
+        $data ['tipsforexams'] = $this->Admin_model->getUserCountTipsForExams($graph, $studentName, $startDate, $endDate);
 
         $data ['text1'] = "This graph illustrates the total number of times each topic has been completed by a student.";
         $data ['text2'] = "As shown on the graph, between <strong>$startDate</strong> and <strong>$endDate</strong>, ";
@@ -195,7 +198,9 @@ class Admin_charts extends CI_Controller {
         $data ['no'] = $this->Admin_model->getUserCountQ1_No($graph, $topic, $studentName, $startDate, $endDate);
         $data ['somehow'] = $this->Admin_model->getUserCountQ1_Somehow($graph, $topic, $studentName, $startDate, $endDate);
 
-        $data ['text1'] = "This graph illustrates the responses of a student to a specific question.";
+        $data ['text1'] = "This graph illustrates the number of responses of a student to a specific question.";
+        $data ['text2'] = "As shown on the graph, between <strong>$startDate</strong> and <strong>$endDate</strong>, ";
+        $data ['text3'] = " <strong>(s$studentName)</strong> gave the following responses as to whether the course was helpful or not:<br>";
         
         $this->load->view('layouts/admin_header');
         $this->load->view('admin/charts/feedback/admin_charts_q1', $data);
@@ -218,6 +223,10 @@ class Admin_charts extends CI_Controller {
         $data ['rating3'] = $this->Admin_model->getUserCountQ2_3($graph, $topic, $studentName, $startDate, $endDate);
         $data ['rating4'] = $this->Admin_model->getUserCountQ2_4($graph, $topic, $studentName, $startDate, $endDate);
         $data ['rating5'] = $this->Admin_model->getUserCountQ2_5($graph, $topic, $studentName, $startDate, $endDate);
+        
+        $data ['text1'] = "This graph illustrates the number of responses of a student to a specific question.";
+        $data ['text2'] = "As shown on the graph, between <strong>$startDate</strong> and <strong>$endDate</strong>, ";
+        $data ['text3'] = " <strong>(s$studentName)</strong> gave the following ratings for the amount of material covered:<br>";
 
         $this->load->view('layouts/admin_header');
         $this->load->view('admin/charts/feedback/admin_charts_q2', $data);
@@ -238,6 +247,10 @@ class Admin_charts extends CI_Controller {
         $data ['veryConsistent'] = $this->Admin_model->getUserCountQ3_VeryConsistent($graph, $topic, $studentName, $startDate, $endDate);
         $data ['consistent'] = $this->Admin_model->getUserCountQ3_Consistent($graph, $topic, $studentName, $startDate, $endDate);
         $data ['inconsistent'] = $this->Admin_model->getUserCountQ3_Inconsistent($graph, $topic, $studentName, $startDate, $endDate);
+
+        $data ['text1'] = "This graph illustrates the number of responses of a student to a specific question.";
+        $data ['text2'] = "As shown on the graph, between <strong>$startDate</strong> and <strong>$endDate</strong>, ";
+        $data ['text3'] = " <strong>(s$studentName)</strong> gave the following responses regarding the consistency of the course content:<br>";
 
         $this->load->view('layouts/admin_header');
         $this->load->view('admin/charts/feedback/admin_charts_q3', $data);
@@ -261,6 +274,10 @@ class Admin_charts extends CI_Controller {
         $data ['rating4'] = $this->Admin_model->getUserCountQ4_4($graph, $topic, $studentName, $startDate, $endDate);
         $data ['rating5'] = $this->Admin_model->getUserCountQ4_5($graph, $topic, $studentName, $startDate, $endDate);
 
+        $data ['text1'] = "This graph illustrates the number of responses of a student to a specific question.";
+        $data ['text2'] = "As shown on the graph, between <strong>$startDate</strong> and <strong>$endDate</strong>, ";
+        $data ['text3'] = " <strong>(s$studentName)</strong> gave the following ratings regarding his/her confidence level for completing the knowledge or skill presented:<br>";
+
         $this->load->view('layouts/admin_header');
         $this->load->view('admin/charts/feedback/admin_charts_q4', $data);
         $this->load->view('layouts/admin_footer');
@@ -280,6 +297,10 @@ class Admin_charts extends CI_Controller {
         $data ['yes'] = $this->Admin_model->getUserCountQ5_Yes($graph, $topic, $studentName, $startDate, $endDate);
         $data ['no'] = $this->Admin_model->getUserCountQ5_No($graph, $topic, $studentName, $startDate, $endDate);
         $data ['somehow'] = $this->Admin_model->getUserCountQ5_Somehow($graph, $topic, $studentName, $startDate, $endDate);
+
+        $data ['text1'] = "This graph illustrates the number of responses of a student to a specific question.";
+        $data ['text2'] = "As shown on the graph, between <strong>$startDate</strong> and <strong>$endDate</strong>, ";
+        $data ['text3'] = " <strong>(s$studentName)</strong> gave the following responses:<br>";
 
         $this->load->view('layouts/admin_header');
         $this->load->view('admin/charts/feedback/admin_charts_q5', $data);
@@ -301,6 +322,10 @@ class Admin_charts extends CI_Controller {
         $data ['no'] = $this->Admin_model->getUserCountQ6_No($graph, $topic, $studentName, $startDate, $endDate);
         $data ['somehow'] = $this->Admin_model->getUserCountQ6_Somehow($graph, $topic, $studentName, $startDate, $endDate);
 
+        $data ['text1'] = "This graph illustrates the number of responses of a student to a specific question.";
+        $data ['text2'] = "As shown on the graph, between <strong>$startDate</strong> and <strong>$endDate</strong>, ";
+        $data ['text3'] = " <strong>(s$studentName)</strong> gave the following responses:<br>";
+        
         $this->load->view('layouts/admin_header');
         $this->load->view('admin/charts/feedback/admin_charts_q6', $data);
         $this->load->view('layouts/admin_footer');

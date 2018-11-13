@@ -1,3 +1,4 @@
+
 <style>
     #myBtn {
         display: none;
@@ -281,7 +282,8 @@
 </div>
 <button onclick="topFunction()" id="myBtn" title="Go to top">&nbsp;<i style="color:black"class="fa fa-angle-double-up"></i>&nbsp;</button>
 <br>
-<div class="container " style="max-width: 800px; min-width: 200px; margin: auto">
+
+<div class="container " style="max-width: 800px; min-width: 200px; margin: auto;">
     <div class="col-sm-12">
         <div class="row">
             <div class="col-sm-12">
@@ -295,9 +297,11 @@
                         <div class="accordion-inner"><br>
                             <div id="value" style="color: #4CAF50"></div>
                             <form name="submit">
+                                
                                 <?php foreach ($notes->result() as $note) { ?>
-                                    <?php if ($note->topicID === "1"): ?>   
-                                        <textarea type="text" id="description" name="description" style="margin-bottom: 10px; resize: none;color:black;" rows="4" cols="50" class="form-control" placeholder="enter your chat" autofocus><?php echo $note->description ?></textarea>
+                                    <?php if ($note->topicID === "1"): ?> 
+                                <textarea id="description" name="description" name="textarea" style="margin-bottom: 10px; resize: none;color:black;" rows="4" cols="50" class="jqte-test form-control" placeholder="enter your chat" autofocus><?php echo $note->description ?></textarea>
+<!--                                                <textarea type="text" id="description" name="description" style="margin-bottom: 10px; resize: none;color:black;" rows="4" cols="50" class="form-control" placeholder="enter your chat" autofocus></textarea>-->
                                     <?php endif ?>
                                 <?php } ?>
 
@@ -317,10 +321,7 @@
     </i><br>
     - <b>Andrew Carnegie</b>
 </div>
-<script src="<?php echo base_url() ?>assets/js/jquery-3.3.1.js"></script>
-<script src="<?php echo base_url() ?>assets/js/post_note.js"></script>
-<script type="text/javascript">
-</script> 
+
 
 
 <!--Start script for button timer-->

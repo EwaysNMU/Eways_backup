@@ -1,4 +1,12 @@
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>
+<script>
+setInterval(  
+function()  
+{  
+$('#links').load('<?php echo site_url() ?>/chat/time_management/table');  
+}, 3000);
+</script>
 <br><br>
 <div style="margin-bottom: 400px" class="container">
 
@@ -18,30 +26,14 @@
             <div class="alert alert-danger print-error-msg" style="display:none"></div>
             <form name="submit">
                 <textarea type="text" id="comment" name="comment" style="margin-bottom: 10px; resize: none" rows="4" cols="50" class="form-control" placeholder="enter your chat" autofocus></textarea>
-                <input name="submit" type="submit" class="btn-submit pull-right submit">
+                <input name="submit" type="submit" value="send" class="btn-submit pull-right submit">
             </form>
 
             <br><br>
-            <div id='value'>
+            <div id='value' style="color: green">
             </div>
             <div id="links">
-                <table class="table table-bordered" style="margin-top:20px">
-                    <thead>
-                        <tr>
-                            <th>Comment</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                         <?php foreach ($get_chat->result() as $chat) { ?>
-                            <tr>
-                                <td><?php echo $chat->comment; ?></td>
-                            </tr>
-                        <?php } ?>
-                    </tbody>
-
-
-                </table>
-
+                <?php $this->load->view('course_views/chat_table');?>
             </div>
         </div>
     </div>
@@ -52,6 +44,8 @@
 
     // Ajax post
     $(document).ready(function () {
+        
+//                         $("div#links").load(location.href + " div#links");
         $(".submit").click(function(event) {
             event.preventDefault();
             var comment_post = $("textarea#comment").val();
@@ -73,8 +67,10 @@
                         $('#comment').val("");
                         // Show Entered Value
                         jQuery("div#value").show();
+                        $('div#value').delay(5000).fadeOut(400);
                         jQuery("div#value").html(res.comment_return);
-                         jQuery("tbody").append("<tr><td>"+comment_post+"</td></tr>");
+//                         jQuery("tbody").append("<tr><td>"+comment_post+"</td></tr>");
+
                     } else {
                         jQuery("div#value").show();
                         jQuery("div#value").html(res.error);

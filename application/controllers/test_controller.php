@@ -58,12 +58,22 @@ class test_controller extends CI_Controller {
                 'comment' => $this->input->post('comment')
             );
                     if ($this->Chat_model->post_comment($data)) {
-            echo json_encode(['comment_return'=>'Record added successfully.']);
+            echo json_encode(['comment_return'=>'Sent!']);
             } else {
             }
         }
+        public function chat_table() {
+            $data['get_chat'] = $this->Chat_model->get_comments();
+        $this->load->view('course_views/chat_table',$data);
+    }
     }
    
+
+
+
+
+
+
 
 
 

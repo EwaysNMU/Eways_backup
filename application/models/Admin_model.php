@@ -284,14 +284,15 @@ class Admin_model extends CI_Model {
 
 //------------------------------------------DISPLAY TOPICS COMPLETED / STUDENT----------------------------------------------//
 
-    public function getUserCountGoalStetting($studentName, $startDate, $endDate) {
+    public function getUserCountGoalStetting($graph, $studentName, $startDate, $endDate) {
 
-        $this->db->select('count(topicID) AS countGoalSettting, firstName, lastName');
-        $this->db->from('feedback_answer, students');
+        $this->db->select('count(topicID) AS countGoalSettting, firstName, lastName, graphType');
+        $this->db->from('feedback_answer, students, graphs');
         $this->db->where("feedback_answer.topicID = 1");
         $this->db->where("feedback_answer.completed = 'Yes'");
         $this->db->where("feedback_answer.studentID = students.studentID");
         $this->db->where("students.studentNo", $studentName);
+        $this->db->where("graphs.graphID", $graph);
         $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
 
         $data = $this->db->get();
@@ -299,14 +300,15 @@ class Admin_model extends CI_Model {
         return $data;
     }
 
-    public function getUserCountStressManagement($studentName, $startDate, $endDate) {
+    public function getUserCountStressManagement($graph, $studentName, $startDate, $endDate) {
 
-        $this->db->select('count(topicID) AS countStressManagement, firstName, lastName');
-        $this->db->from('feedback_answer, students');
+        $this->db->select('count(topicID) AS countStressManagement, firstName, lastName, graphType');
+        $this->db->from('feedback_answer, students, graphs');
         $this->db->where("feedback_answer.topicID = 2");
         $this->db->where("feedback_answer.completed = 'Yes'");
         $this->db->where("feedback_answer.studentID = students.studentID");
         $this->db->where("students.studentNo", $studentName);
+        $this->db->where("graphs.graphID", $graph);
         $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
 
         $data = $this->db->get();
@@ -314,14 +316,15 @@ class Admin_model extends CI_Model {
         return $data;
     }
 
-    public function getUserCountTimeManagement($studentName, $startDate, $endDate) {
+    public function getUserCountTimeManagement($graph, $studentName, $startDate, $endDate) {
 
-        $this->db->select('count(topicID) AS countTimeManagement, firstName, lastName');
-        $this->db->from('feedback_answer, students');
+        $this->db->select('count(topicID) AS countTimeManagement, firstName, lastName, graphType');
+        $this->db->from('feedback_answer, students, graphs');
         $this->db->where("feedback_answer.topicID = 3");
         $this->db->where("feedback_answer.completed = 'Yes'");
         $this->db->where("feedback_answer.studentID = students.studentID");
         $this->db->where("students.studentNo", $studentName);
+        $this->db->where("graphs.graphID", $graph);
         $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
 
         $data = $this->db->get();
@@ -329,14 +332,15 @@ class Admin_model extends CI_Model {
         return $data;
     }
 
-    public function getUserCountMotivation($studentName, $startDate, $endDate) {
+    public function getUserCountMotivation($graph, $studentName, $startDate, $endDate) {
 
-        $this->db->select('count(topicID) AS countMotivation, firstName, lastName');
-        $this->db->from('feedback_answer, students');
+        $this->db->select('count(topicID) AS countMotivation, firstName, lastName, graphType');
+        $this->db->from('feedback_answer, students, graphs');
         $this->db->where("feedback_answer.topicID = 4");
         $this->db->where("feedback_answer.completed = 'Yes'");
         $this->db->where("feedback_answer.studentID = students.studentID");
         $this->db->where("students.studentNo", $studentName);
+        $this->db->where("graphs.graphID", $graph);
         $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
 
         $data = $this->db->get();
@@ -344,14 +348,15 @@ class Admin_model extends CI_Model {
         return $data;
     }
 
-    public function getUserCountStudyStrategy($studentName, $startDate, $endDate) {
+    public function getUserCountStudyStrategy($graph, $studentName, $startDate, $endDate) {
 
-        $this->db->select('count(topicID) AS countStudyStrategy, firstName, lastName');
-        $this->db->from('feedback_answer, students');
+        $this->db->select('count(topicID) AS countStudyStrategy, firstName, lastName, graphType');
+        $this->db->from('feedback_answer, students, graphs');
         $this->db->where("feedback_answer.topicID = 5");
         $this->db->where("feedback_answer.completed = 'Yes'");
         $this->db->where("feedback_answer.studentID = students.studentID");
         $this->db->where("students.studentNo", $studentName);
+        $this->db->where("graphs.graphID", $graph);
         $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
 
         $data = $this->db->get();
@@ -359,14 +364,15 @@ class Admin_model extends CI_Model {
         return $data;
     }
 
-    public function getUserCountTipsforExams($studentName, $startDate, $endDate) {
+    public function getUserCountTipsforExams($graph, $studentName, $startDate, $endDate) {
 
-        $this->db->select('count(topicID) AS countTipsforExams, firstName, lastName');
-        $this->db->from('feedback_answer, students');
+        $this->db->select('count(topicID) AS countTipsforExams, firstName, lastName, graphType');
+        $this->db->from('feedback_answer, students, graphs');
         $this->db->where("feedback_answer.topicID = 6");
         $this->db->where("feedback_answer.completed = 'Yes'");
         $this->db->where("feedback_answer.studentID = students.studentID");
         $this->db->where("students.studentNo", $studentName);
+        $this->db->where("graphs.graphID", $graph);
         $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
 
         $data = $this->db->get();

@@ -6,7 +6,7 @@ $(document).ready(function () {
         if (comment_post === "")
         {
             jQuery("div#value").show();
-            jQuery("div#value").html(comment_post + "The description field is required");
+            jQuery("div#value").html(comment_post + "This field is required or press the space bar");
             return false;
         } else {
 

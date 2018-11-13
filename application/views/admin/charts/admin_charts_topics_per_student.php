@@ -22,7 +22,13 @@
 
                         From: <input type="date" id="sdate" name="startDate" max="<?php echo date('Y-m-d') ?>" required value="<?php if (isset($_POST['startDate'])) echo $_POST['startDate']; ?>">
 
-                        To: <input type="date" id="sdate" name="endDate" max="<?php echo date('Y-m-d') ?>" required value="<?php if (isset($_POST['endDate'])) echo $_POST['endDate']; ?>">
+                        To: <input type="date" id="sdate" name="endDate" max="<?php echo date('Y-m-d') ?>" required value="<?php if (isset($_POST['endDate'])) echo $_POST['endDate']; ?>"><br><br>
+
+                        Graph: <select name="graph">
+                            <?php foreach ($graphs->result() as $value) { ?>
+                                <option value="<?php echo $value->graphID ?>"><?php echo $value->graphType ?></option>
+                            <?php } ?>
+                        </select>&nbsp;
 
                         <input id="postBtn" type="submit" value="Search"><br><br>
 
@@ -37,13 +43,15 @@
                 <script>
                     var ctx = document.getElementById('myChart').getContext('2d');
                     var chart = new Chart(ctx, {
-                    type: 'bar',
-                            data: {
-                            labels: ["Goals Setting", "Stress Management", "Time Management", "Motivation", "Study Strategy", "Tips for Exams and Tests"],
-                                    datasets: [{
-                                    label: "No. Completed topics",
-                                            borderColor: 'rgb(255, 255, 255)',
-                                            data: [
+<?php foreach ($goalsetting->result() as $value) { ?>
+                        type: '<?php echo $value->graphType ?>',
+<?php } ?>
+                    data: {
+                    labels: ["Goals Setting", "Stress Management", "Time Management", "Motivation", "Study Strategy", "Tips for Exams and Tests"],
+                            datasets: [{
+                            label: "No. Completed topics",
+                                    borderColor: 'rgb(255, 255, 255)',
+                                    data: [
 <?php foreach ($goalsetting->result() as $value) { ?>
     <?php echo $value->countGoalSettting ?>,
 <?php } ?>
@@ -62,25 +70,25 @@
 <?php foreach ($tipsforexams->result() as $value) { ?>
     <?php echo $value->countTipsforExams ?>
 <?php } ?>],
-                                            backgroundColor: [
-                                                    "rgba(50,150,300,0.5)",
-                                                    "rgba(100,150,250,0.5)",
-                                                    "rgba(150,150,200,0.5)",
-                                                    "rgba(200,150,150,0.5)",
-                                                    "rgba(250,150,100,0.5)",
-                                                    "rgba(300,150,50,0.5)"
-                                            ],
-                                            borderColor: [
-                                                    "rgba(50,150,300,1)",
-                                                    "rgba(100,150,250,1)",
-                                                    "rgba(150,150,200,1)",
-                                                    "rgba(200,150,150,1)",
-                                                    "rgba(250,150,100,1)",
-                                                    "rgba(300,150,50,1)"
-                                            ],
-                                            borderWidth: 1
-                                    }]
-                            },
+                                    backgroundColor: [
+                                            "rgba(231, 76, 60,0.5)",
+                                            "rgba(155, 89, 182,0.5)",
+                                            "rgba(52, 152, 219,0.5)",
+                                            "rgba(26, 188, 156,0.5)",
+                                            "rgba(241, 196, 15,0.5)",
+                                            "rgba(149, 165, 166,0.5)"
+                                    ],
+                                    borderColor: [
+                                            "rgba(231, 76, 60,1)",
+                                            "rgba(155, 89, 182,1)",
+                                            "rgba(52, 152, 219,1)",
+                                            "rgba(26, 188, 156,1)",
+                                            "rgba(241, 196, 15,1)",
+                                            "rgba(149, 165, 166,1)"
+                                    ],
+                                    borderWidth: 1
+                            }]
+                    },
                             // Configuration options go here
                             options: {}
                     });

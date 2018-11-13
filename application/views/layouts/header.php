@@ -17,6 +17,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css">
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<!--        <------------------------TEXT EDITOR SCRIPT AND CSS---------------------------->
+        <link rel="stylesheet" href="<?php echo base_url() ?>/assets/css/jquery-te-1.4.0.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript"  src="<?php echo base_url() ?>/assets/js/jquery-te-1.4.0.min.js"></script>
         <style>
 
             .mandelacolor {
