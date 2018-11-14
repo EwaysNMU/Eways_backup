@@ -1,5 +1,5 @@
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>-->
 <script>
 setInterval(  
 function()  
@@ -14,8 +14,7 @@ $('#links').load('<?php echo site_url() ?>/chat/time_management/table');
     <h4 align="center" class="my-4">
         How do i manage my time effectively?
     </h4>
-    <a href="<?php echo site_url() ?>/chat">Chat</a>&nbsp;&nbsp;/&nbsp;
-    <a href="<?php echo site_url() ?>/chat/time_management">Time Management</a><hr>
+    <a href="<?php echo site_url() ?>/community">Community</a><hr>
     <div class="row">
         <div class="col-lg-8 col-sm-6 portfolio-item">
             <p>
@@ -26,6 +25,7 @@ $('#links').load('<?php echo site_url() ?>/chat/time_management/table');
             <div class="alert alert-danger print-error-msg" style="display:none"></div>
             <form name="submit">
                 <textarea type="text" id="comment" name="comment" style="margin-bottom: 10px; resize: none" rows="4" cols="50" class="form-control" placeholder="enter your chat" autofocus></textarea>
+                <input type="text" >
                 <input name="submit" type="submit" value="send" class="btn-submit pull-right submit">
             </form>
 

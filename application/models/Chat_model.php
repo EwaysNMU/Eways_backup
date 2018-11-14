@@ -25,7 +25,25 @@ class Chat_model extends CI_Model {
         return $data;
             
     }
+    
+    public function get_chats() {
+        $this->db->select('*');
+        $this->db->from('chat');
+        $data = $this->db->get();
+        return $data;
+            
+    }
+    public function get_student() {
+        $this->db->select('*');
+        $this->db->from('students');
+        $data = $this->db->get();
+        return $data;
+            
+    }
 }
+
+
+
 
 
 
