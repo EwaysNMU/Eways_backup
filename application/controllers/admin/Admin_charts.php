@@ -129,6 +129,9 @@ class Admin_charts extends CI_Controller {
         $data ['ctopic4'] = $this->Admin_model->getCountTopic4();
         $data ['ctopic5'] = $this->Admin_model->getCountTopic5();
         $data ['ctopic6'] = $this->Admin_model->getCountTopic6();
+        $data ['ctopic7'] = $this->Admin_model->getCountTopic7();
+        $data ['ctopic8'] = $this->Admin_model->getCountTopic8();
+        $data ['ctopic9'] = $this->Admin_model->getCountTopic9();
 
         $data ['text1'] = "This graph illustrates the total number of times each topic has been completed by all students.";
         $data ['text2'] = "As shown on the graph, the number of times each topic has been completed is as follows:<br>";
@@ -149,6 +152,9 @@ class Admin_charts extends CI_Controller {
         $data ['ctopic4'] = $this->Admin_model->getCountTopic4_date($startDate, $endDate);
         $data ['ctopic5'] = $this->Admin_model->getCountTopic5_date($startDate, $endDate);
         $data ['ctopic6'] = $this->Admin_model->getCountTopic6_date($startDate, $endDate);
+        $data ['ctopic7'] = $this->Admin_model->getCountTopic7_date($startDate, $endDate);
+        $data ['ctopic8'] = $this->Admin_model->getCountTopic8_date($startDate, $endDate);
+        $data ['ctopic9'] = $this->Admin_model->getCountTopic9_date($startDate, $endDate);
 
         $data ['text1'] = "This graph illustrates the total number of times each topic has been<br> completed by all students.";
         $data ['text2'] = "As shown on the graph, between <strong>$startDate</strong> and <strong>$endDate</strong>, the number of times each topic has been completed is as follows:<br>";
@@ -167,11 +173,14 @@ class Admin_charts extends CI_Controller {
         
         $data ['graphs'] = $this->Admin_model->getGraphs();
 
-        $data ['goalsetting'] = $this->Admin_model->getUserCountGoalStetting($graph, $studentName, $startDate, $endDate);
-        $data ['stressmanagement'] = $this->Admin_model->getUserCountStressManagement($graph, $studentName, $startDate, $endDate);
+        $data ['goalsetting'] = $this->Admin_model->getUserCountGoalSetting($graph, $studentName, $startDate, $endDate);
         $data ['timemanagement'] = $this->Admin_model->getUserCountTimeManagement($graph, $studentName, $startDate, $endDate);
-        $data ['motivation'] = $this->Admin_model->getUserCountMotivation($graph, $studentName, $startDate, $endDate);
-        $data ['studystrategy'] = $this->Admin_model->getUserCountStudyStrategy($graph, $studentName, $startDate, $endDate);
+        $data ['studystrategies'] = $this->Admin_model->getUserCountStudyStrategies($graph, $studentName, $startDate, $endDate);
+        $data ['concentration'] = $this->Admin_model->getUserCountConcentration($graph, $studentName, $startDate, $endDate);
+        $data ['assignment'] = $this->Admin_model->getUserCountAssignment($graph, $studentName, $startDate, $endDate);
+        $data ['reference'] = $this->Admin_model->getUserCountReference($graph, $studentName, $startDate, $endDate);
+        $data ['notetaking'] = $this->Admin_model->getUserCountNotetaking($graph, $studentName, $startDate, $endDate);
+        $data ['presentation'] = $this->Admin_model->getUserCountPresentation($graph, $studentName, $startDate, $endDate);
         $data ['tipsforexams'] = $this->Admin_model->getUserCountTipsForExams($graph, $studentName, $startDate, $endDate);
 
         $data ['text1'] = "This graph illustrates the total number of times each topic has been completed by a student.";

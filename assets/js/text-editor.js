@@ -1,5 +1,5 @@
 $('.jqte-test').jqte({
         source: false,
-        placeholder: "<i>write your notes</i>"
+        placeholder: "<i>write something</i>"
     });
 

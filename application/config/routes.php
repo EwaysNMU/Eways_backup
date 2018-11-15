@@ -104,6 +104,7 @@ $route['community'] = 'test_controller/chat_view';
 $route['community/time_management'] = 'test_controller/chat_question_list';
 $route['community/time_management/How'] = 'test_controller/chat_question_details';
 $route['chat/time_management/post'] = 'test_controller/post_comment';
+$route['chat/discussion/post'] = 'test_controller/post_discussion';
 $route['chat/time_management/table'] = 'test_controller/chat_table';
 
 

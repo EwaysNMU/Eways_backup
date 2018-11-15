@@ -18,16 +18,17 @@
             <div class="card-body">
                 <div style="text-align: center">
                     <form class="" action="<?php echo site_url() ?>/admin_tables_student_validation" method="POST">
-                        Student No: <input type="text" id="sname" pattern="[0-9]{9}" placeholder="e.g 212345678" name="sname" minlength="9" maxlength="9" required autofocus>
+                        Student No: <input type="text" id="sname" pattern="[0-9]{9}" placeholder="e.g 212345678" name="sname" minlength="9" maxlength="9" value="<?php if (isset($_POST['sname'])) echo $_POST['sname']; ?>" required autofocus>&nbsp;
 
-                        From: <input type="date" id="sdate" name="startDate" max="<?php echo date('Y-m-d') ?>" required value="<?php if (isset($_POST['startDate'])) echo $_POST['startDate']; ?>">
+                        From: <input type="date" id="sdate" name="startDate" max="<?php echo date('Y-m-d') ?>" required value="<?php if (isset($_POST['startDate'])) echo $_POST['startDate']; ?>">&nbsp;
 
-                        To: <input type="date" id="sdate" name="endDate" max="<?php echo date('Y-m-d') ?>" required value="<?php if (isset($_POST['endDate'])) echo $_POST['endDate']; ?>">
+                        To: <input type="date" id="sdate" name="endDate" max="<?php echo date('Y-m-d') ?>" required value="<?php if (isset($_POST['endDate'])) echo $_POST['endDate']; ?>">&nbsp;
 
                         <input id="postBtn" type="submit" value="Search"><br><br>
 
                         <?php echo form_error('endDate'); ?>
-                    </form>
+                    </form><br>
+
                     <?php foreach ($goalsetting->result() as $value) { ?>
                         <strong><?php echo $value->firstName ?> <?php echo $value->lastName ?></strong>
                     <?php } ?>
@@ -48,31 +49,49 @@
                             <?php } ?>
                         </tr>
                         <tr>
-                            <td style="width: 20px">Stress Management</td>
-                            <?php foreach ($stressmanagement->result() as $value) { ?>
-                                <td><?php echo $value->countStressManagement ?></td>
-                            <?php } ?>
-                        </tr>
-                        <tr>
                             <td style="width: 20px">Time Management</td>
                             <?php foreach ($timemanagement->result() as $value) { ?>
                                 <td><?php echo $value->countTimeManagement ?></td>
                             <?php } ?>
                         </tr>
                         <tr>
-                            <td style="width: 20px">Motivation</td>
-                            <?php foreach ($motivation->result() as $value) { ?>
-                                <td><?php echo $value->countMotivation ?></td>
+                            <td style="width: 20px">Study Strategies</td>
+                            <?php foreach ($studystrategies->result() as $value) { ?>
+                                <td><?php echo $value->countStudyStrategies ?></td>
                             <?php } ?>
                         </tr>
                         <tr>
-                            <td style="width: 20px">Study Strategy</td>
-                            <?php foreach ($studystrategy->result() as $value) { ?>
-                                <td><?php echo $value->countStudyStrategy ?></td>
+                            <td style="width: 20px">Concentration & Memorising</td>
+                            <?php foreach ($concentration->result() as $value) { ?>
+                                <td><?php echo $value->countConcentration ?></td>
                             <?php } ?>
                         </tr>
                         <tr>
-                            <td style="width: 20px">Tips for Exams and Tests</td>
+                            <td style="width: 20px">Assignment Writing</td>
+                            <?php foreach ($assignment->result() as $value) { ?>
+                                <td><?php echo $value->countAssignment ?></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                            <td style="width: 20px">Reference Correctly</td>
+                            <?php foreach ($reference->result() as $value) { ?>
+                                <td><?php echo $value->countReference ?></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                            <td style="width: 20px">Note taking & Summarising</td>
+                            <?php foreach ($notetaking->result() as $value) { ?>
+                                <td><?php echo $value->countNotetaking ?></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                            <td style="width: 20px">Making better presentations</td>
+                            <?php foreach ($presentation->result() as $value) { ?>
+                                <td><?php echo $value->countPresentation ?></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                            <td style="width: 20px">Tips for Exams</td>
                             <?php foreach ($tipsforexams->result() as $value) { ?>
                                 <td><?php echo $value->countTipsforExams ?></td>
                             <?php } ?>

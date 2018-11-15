@@ -33,7 +33,7 @@ $('#links').load('<?php echo site_url() ?>/chat/time_management/table');
             <div id='value' style="color: green">
             </div>
             <div id="links">
-                <?php $this->load->view('course_views/chat_table');?>
+                <?php $this->load->view('chat/chat_table');?>
             </div>
         </div>
     </div>

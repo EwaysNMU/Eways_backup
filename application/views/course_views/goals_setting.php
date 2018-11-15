@@ -305,7 +305,7 @@
                                     <?php endif ?>
                                 <?php } ?>
 
-                                <input name="submit" value="save" type="submit" class="btn-submit pull-right submit btn-info">
+                                <input style="margin-top: 5px" name="submit" value="save" type="submit" class="btn-submit pull-right submit btn-info">
                             </form>
                         </div>
                     </div>

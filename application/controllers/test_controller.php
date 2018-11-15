@@ -30,7 +30,7 @@ class test_controller extends CI_Controller {
         
         
         $this->load->view('layouts/header', $data);
-        $this->load->view('course_views/chat_room', $data);
+        $this->load->view('chat/chat_room', $data);
         $this->load->view('layouts/footer');
     }
     public function chat_question_list() {
@@ -40,7 +40,7 @@ class test_controller extends CI_Controller {
         
         
         $this->load->view('layouts/header', $data);
-        $this->load->view('course_views/chat_question_list', $data);
+        $this->load->view('chat/chat_question_list', $data);
         $this->load->view('layouts/footer');
     }
     public function chat_question_details() {
@@ -51,7 +51,7 @@ class test_controller extends CI_Controller {
         
         
         $this->load->view('layouts/header', $data);
-        $this->load->view('course_views/chat_question_detail', $data);
+        $this->load->view('chat/chat_question_detail', $data);
     }
     public function post_comment() {
               $data = array(
@@ -64,12 +64,30 @@ class test_controller extends CI_Controller {
             } else {
             }
         }
+         public function post_discussion() {
+              $data = array(
+                'title' => $this->input->post('title'),
+                'studentID' => $this->session->userdata('studentID'),
+                'description' => $this->input->post('description')
+            );
+                    if ($this->Chat_model->post_discussion($data)) {
+            echo json_encode(['comment_return'=>'Published!']);
+            } else {
+            }
+        }
         public function chat_table() {
             $data['get_chat'] = $this->Chat_model->get_comments();
-        $this->load->view('course_views/chat_table',$data);
+        $this->load->view('chat/chat_table',$data);
     }
     }
+    
    
+
+
+
+
+
+
 
 
 

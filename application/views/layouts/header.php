@@ -89,7 +89,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <a id="navhover" href="<?php echo site_url() ?>/all_courses"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
                     </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <li class="nav-item">
-                        <a id="navhover" href="<?php echo site_url() ?>/community"><i class="fa fa-commenting" aria-hidden="true"></i> Community</a>
+                        <a id="navhover" href="<?php echo site_url() ?>/community"><i class="fa fa-comments" aria-hidden="true"></i> Community</a>
                     </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <li class="nav-item">
                         <a id="navhover" href="<?php echo site_url() ?>/resources"><i class="fa fa-briefcase"></i> Resources</a>
@@ -101,7 +101,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </li>&nbsp;&nbsp;&nbsp;
                             <li class="nav-item dropdown">
 
-                                <a id="navhover"> <?php echo ucfirst($value->firstName); ?> <?php echo ucfirst($value->lastName); ?>
+                                <a id="navhover"> <?php echo ucfirst($value->firstName." ".$value->lastName); ?>
                                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </a>
                                 <div class="dropdown-content">

@@ -18,6 +18,15 @@ class Chat_model extends CI_Model {
             return FALSE;
         }
    }
+   public function post_discussion($data) {
+        $this->db->insert('chat', $data);
+
+        if ($this->db->affected_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+   }
    public function get_comments() {
         $this->db->select('*');
         $this->db->from('chat_comment');
@@ -29,6 +38,7 @@ class Chat_model extends CI_Model {
     public function get_chats() {
         $this->db->select('*');
         $this->db->from('chat');
+        $this->db->order_by('chatID','desc');
         $data = $this->db->get();
         return $data;
             
@@ -41,6 +51,9 @@ class Chat_model extends CI_Model {
             
     }
 }
+
+
+
 
 
 

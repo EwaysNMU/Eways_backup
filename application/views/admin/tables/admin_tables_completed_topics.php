@@ -37,39 +37,57 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td style="width: 20px">Goals Setting</td>
+                            <td style="width: 20px">Goal-Setting</td>
                             <?php foreach ($ctopic1->result() as $value) { ?>
                                 <td><?php echo $value->topic1 ?></td>
                             <?php } ?>
                         </tr>
                         <tr>
-                            <td style="width: 20px">Stress Management</td>
+                            <td style="width: 20px">Time Management</td>
                             <?php foreach ($ctopic2->result() as $value) { ?>
                                 <td><?php echo $value->topic2 ?></td>
                             <?php } ?>
                         </tr>
                         <tr>
-                            <td style="width: 20px">Time Management</td>
+                            <td style="width: 20px">Study Strategies</td>
                             <?php foreach ($ctopic3->result() as $value) { ?>
                                 <td><?php echo $value->topic3 ?></td>
                             <?php } ?>
                         </tr>
                         <tr>
-                            <td style="width: 20px">Motivation</td>
+                            <td style="width: 20px">Concentration & Memorising</td>
                             <?php foreach ($ctopic4->result() as $value) { ?>
                                 <td><?php echo $value->topic4 ?></td>
                             <?php } ?>
                         </tr>
                         <tr>
-                            <td style="width: 20px">Study Strategy</td>
+                            <td style="width: 20px">Assignment Writing</td>
                             <?php foreach ($ctopic5->result() as $value) { ?>
                                 <td><?php echo $value->topic5 ?></td>
                             <?php } ?>
                         </tr>
                         <tr>
-                            <td style="width: 20px">Tips for Exams and Tests</td>
+                            <td style="width: 20px">Reference Correctly</td>
                             <?php foreach ($ctopic6->result() as $value) { ?>
                                 <td><?php echo $value->topic6 ?></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                            <td style="width: 20px">Note taking & Summarising</td>
+                            <?php foreach ($ctopic7->result() as $value) { ?>
+                                <td><?php echo $value->topic7 ?></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                            <td style="width: 20px">Making better presentations</td>
+                            <?php foreach ($ctopic8->result() as $value) { ?>
+                                <td><?php echo $value->topic8 ?></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                            <td style="width: 20px">Tips for Exams</td>
+                            <?php foreach ($ctopic9->result() as $value) { ?>
+                                <td><?php echo $value->topic9 ?></td>
                             <?php } ?>
                         </tr>
                     </tbody>

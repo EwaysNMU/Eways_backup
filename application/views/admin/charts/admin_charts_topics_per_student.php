@@ -47,7 +47,7 @@
                         type: '<?php echo $value->graphType ?>',
 <?php } ?>
                     data: {
-                    labels: ["Goals Setting", "Stress Management", "Time Management", "Motivation", "Study Strategy", "Tips for Exams and Tests"],
+                    labels: ["Goals Setting", "Time Management", "Study Strategies", "Concentration & Memorising", "Assignment Writing", "Reference Correctly", "Note taking & Summarising", "Making better presentations", "Tips for Exams"],
                             datasets: [{
                             label: "No. Completed topics",
                                     borderColor: 'rgb(255, 255, 255)',
@@ -55,18 +55,28 @@
 <?php foreach ($goalsetting->result() as $value) { ?>
     <?php echo $value->countGoalSettting ?>,
 <?php } ?>
-<?php foreach ($stressmanagement->result() as $value) { ?>
-    <?php echo $value->countStressManagement ?>,
-<?php } ?>
 <?php foreach ($timemanagement->result() as $value) { ?>
     <?php echo $value->countTimeManagement ?>,
 <?php } ?>
-<?php foreach ($motivation->result() as $value) { ?>
-    <?php echo $value->countMotivation ?>,
+<?php foreach ($studystrategies->result() as $value) { ?>
+    <?php echo $value->countStudyStrategies ?>,
 <?php } ?>
-<?php foreach ($studystrategy->result() as $value) { ?>
-    <?php echo $value->countStudyStrategy ?>,
+<?php foreach ($concentration->result() as $value) { ?>
+    <?php echo $value->countConcentration ?>,
 <?php } ?>
+<?php foreach ($assignment->result() as $value) { ?>
+    <?php echo $value->countAssignment ?>,
+<?php } ?>
+<?php foreach ($reference->result() as $value) { ?>
+    <?php echo $value->countReference ?>,
+<?php } ?>
+<?php foreach ($notetaking->result() as $value) { ?>
+    <?php echo $value->countNotetaking ?>,
+<?php } ?>
+<?php foreach ($presentation->result() as $value) { ?>
+    <?php echo $value->countPresentation ?>,
+<?php } ?>
+
 <?php foreach ($tipsforexams->result() as $value) { ?>
     <?php echo $value->countTipsforExams ?>
 <?php } ?>],
@@ -98,24 +108,33 @@
                     <strong><?php echo $value->firstName ?> <?php echo $value->lastName ?></strong>
                 <?php } ?>
                 <?php echo $text3 ?><br>
-                Goals Setting: <?php foreach ($goalsetting->result() as $value) { ?>
+                Goal-Setting: <?php foreach ($goalsetting->result() as $value) { ?>
                     <strong><?php echo $value->countGoalSettting ?></strong>,
-                <?php } ?><br>
-                Stress Management: <?php foreach ($stressmanagement->result() as $value) { ?>
-                    <strong><?php echo $value->countStressManagement ?></strong>,
                 <?php } ?><br>
                 Time Management: <?php foreach ($timemanagement->result() as $value) { ?>
                     <strong><?php echo $value->countTimeManagement ?></strong>,
                 <?php } ?><br>
-                Motivation: <?php foreach ($motivation->result() as $value) { ?>
-                    <strong><?php echo $value->countMotivation ?></strong>,
+                Study Strategies: <?php foreach ($studystrategies->result() as $value) { ?>
+                    <strong><?php echo $value->countStudyStrategies ?></strong>,
                 <?php } ?><br>
-                Study Strategy: <?php foreach ($studystrategy->result() as $value) { ?>
-                    <strong><?php echo $value->countStudyStrategy ?></strong>,
+                Concentration & Memorising: <?php foreach ($concentration->result() as $value) { ?>
+                    <strong><?php echo $value->countConcentration ?></strong>,
                 <?php } ?><br>
-                Tips for Exams and Tests: <?php foreach ($tipsforexams->result() as $value) { ?>
+                Assignment Writing: <?php foreach ($assignment->result() as $value) { ?>
+                    <strong><?php echo $value->countAssignment ?></strong>,
+                <?php } ?><br>
+                Reference Correctly: <?php foreach ($reference->result() as $value) { ?>
+                    <strong><?php echo $value->countReference ?></strong>,
+                <?php } ?><br>
+                Note taking & Summarising: <?php foreach ($notetaking->result() as $value) { ?>
+                    <strong><?php echo $value->countNotetaking ?></strong>,
+                <?php } ?><br>
+                Making better presentations: <?php foreach ($presentation->result() as $value) { ?>
+                    <strong><?php echo $value->countPresentation ?></strong>,
+                <?php } ?><br>
+                Tips for Exams: <?php foreach ($tipsforexams->result() as $value) { ?>
                     <strong><?php echo $value->countTipsforExams ?></strong>
-                <?php } ?><br>
+                <?php } ?>
             </div>
         </div>
     </div></div>
