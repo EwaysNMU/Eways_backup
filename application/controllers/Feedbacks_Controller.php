@@ -43,7 +43,7 @@ class Feedbacks_controller extends CI_Controller {
                 'Q4' => $this->input->post('rate_confidence'),
                 'Q5' => $this->input->post('activities'),
                 'Q6' => $this->input->post('opportunity'),
-                'comment' => $this->input->post('comment'),
+                'comment' => $c,
                 'completed' => "Yes",
                 'date' => date('Y-m-d', strtotime(date('Y-m-d'))),
             );

@@ -182,7 +182,17 @@ class Admin_charts extends CI_Controller {
         $data ['notetaking'] = $this->Admin_model->getUserCountNotetaking($graph, $studentName, $startDate, $endDate);
         $data ['presentation'] = $this->Admin_model->getUserCountPresentation($graph, $studentName, $startDate, $endDate);
         $data ['tipsforexams'] = $this->Admin_model->getUserCountTipsForExams($graph, $studentName, $startDate, $endDate);
-
+        
+        $data ['topic1'] = $this->Admin_model->getCommentTopic1($studentName, $startDate, $endDate);
+        $data ['topic2'] = $this->Admin_model->getCommentTopic2($studentName, $startDate, $endDate);
+        $data ['topic3'] = $this->Admin_model->getCommentTopic3($studentName, $startDate, $endDate);
+        $data ['topic4'] = $this->Admin_model->getCommentTopic4($studentName, $startDate, $endDate);
+        $data ['topic5'] = $this->Admin_model->getCommentTopic5($studentName, $startDate, $endDate);
+        $data ['topic6'] = $this->Admin_model->getCommentTopic6($studentName, $startDate, $endDate);
+        $data ['topic7'] = $this->Admin_model->getCommentTopic7($studentName, $startDate, $endDate);
+        $data ['topic8'] = $this->Admin_model->getCommentTopic8($studentName, $startDate, $endDate);
+        $data ['topic9'] = $this->Admin_model->getCommentTopic9($studentName, $startDate, $endDate);
+        
         $data ['text1'] = "This graph illustrates the total number of times each topic has been completed by a student.";
         $data ['text2'] = "As shown on the graph, between <strong>$startDate</strong> and <strong>$endDate</strong>, ";
         $data ['text3'] = " <strong>(s$studentName)</strong> completed:<br>";

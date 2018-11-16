@@ -34,6 +34,15 @@ class Chat_model extends CI_Model {
         return $data;
             
     }
+    public function get_comments2($chatID) {
+        $this->db->select('*');
+        $this->db->from('chat_comment');
+        $this->db->where('chatID',$chatID);
+        $this->db->order_by('commentID','desc');
+        $data = $this->db->get();
+        return $data;
+            
+    }
     
     public function get_chats() {
         $this->db->select('*');
@@ -51,6 +60,8 @@ class Chat_model extends CI_Model {
             
     }
 }
+
+
 
 
 

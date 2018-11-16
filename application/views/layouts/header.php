@@ -60,19 +60,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
         </style>
         <title>E-WAYS</title>
-    </head>
-    <body >
+        <script>
+setInterval(  
+function()  
+{  
+$('#links').load('<?php echo site_url() ?>/chat/time_management/table');  
+}, 3000);
+</script>
 
-        <?php if ($this->session->flashdata('flash_Success')): ?>
-            <script>
-                swal({
-                    title: "Success!",
-                    text: "Your feedback was submitted",
-                    icon: "success"
-                });
-            </script>
-        <?php endif ?>
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark mandelacolor">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark mandelacolor">
             <a class="navbar-brand" href="#">E-WAYS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -120,3 +116,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             </div>
         </nav>
+    </head>
+        
+

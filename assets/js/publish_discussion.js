@@ -35,7 +35,6 @@ $(document).ready(function () {
                         jQuery("div#myDIV").hide();
                         $('div#value').delay(5000).fadeOut(400);
                         jQuery("div#value").html(res.comment_return);
-                        jQuery("textarea#description").html(res.comment_post);
                     } else {
                         jQuery("div#value").show();
                         jQuery("div#value").html(res.error);

@@ -76,6 +76,17 @@
         background-color: #555;
     }
         </style>
+        
+
+        <?php if ($this->session->flashdata('flash_Success')): ?>
+            <script>
+                swal({
+                    title: "Success!",
+                    text: "Your feedback was submitted",
+                    icon: "success"
+                });
+            </script>
+        <?php endif ?>
         <div class="container">
             <div align="center">
                 <h2>LIST OF COURSES</h2>

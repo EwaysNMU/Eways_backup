@@ -23,7 +23,13 @@
                         From: <input type="date" id="sdate" name="startDate" max="<?php echo date('Y-m-d') ?>" required value="<?php if (isset($_POST['startDate'])) echo $_POST['startDate']; ?>">&nbsp;
 
                         To: <input type="date" id="sdate" name="endDate" max="<?php echo date('Y-m-d') ?>" required value="<?php if (isset($_POST['endDate'])) echo $_POST['endDate']; ?>">&nbsp;
-
+                        
+                        <select hidden name="graph">
+                            <?php foreach ($graphs->result() as $value) { ?>
+                                <option value="<?php echo $value->graphID ?>"><?php echo $value->graphType ?></option>
+                            <?php } ?>
+                        </select>
+                        
                         <input id="postBtn" type="submit" value="Search"><br><br>
 
                         <?php echo form_error('endDate'); ?>
@@ -43,7 +49,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td style="width: 20px">Goals Setting</td>
+                            <td style="width: 20px">Goal-Setting</td>
                             <?php foreach ($goalsetting->result() as $value) { ?>
                                 <td><?php echo $value->countGoalSettting ?></td>
                             <?php } ?>

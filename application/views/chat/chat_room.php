@@ -93,15 +93,20 @@
             <div style="display:none" id="myDIV">
                             <form name="submit_publish">
                                 <b><label>Title:</label></b>
-                                <input id="title" name="title" type="text" class="form-control">
+                                <input id="title" name="title" type="text" class="form-control" autocomplete="No" autofocus="Yes">
                                 <b><label>Body:</label></b>
-                                <textarea id="description" name="description" style="margin-top: 1px; resize: none;color:black;" rows="4" cols="50" class="jqte-test jqte_editor jqte form-control" autofocus></textarea>
-                                <input style="margin-bottom: 5px;margin-top: 5px" name="submit" value="publish" type="submit" class="btn-submit pull-right submit btn-info"><br><hr>
+                                <textarea id="description" name="description" style="margin-top: 1px; resize: none;color:black;" rows="4" cols="50" class="jqte-test jqte_editor jqte form-control" autofocus ></textarea>
+                                <input style="margin-bottom: 5px;margin-top: 5px" name="submit" value="Publish" type="submit" class="btn-submit pull-right submit btn-info"><br><hr>
                             </form>
             </div>
+<!--                "?url=" . urlencode($value->description)-->
             <?php foreach ($allChat->result() as $value) { ?>
                 <p id="chat-list">
-                    <a href="<?php echo site_url() ?>/community/<?php echo $value->title ?>"><?php echo $value->title ?></a><br>
+                    <a href="<?php echo site_url() ?>/discussion/<?php echo 
+                    $value->chatID."/".$value->studentID."/".$value->date_time."/".$value->No_views."/".$value->status."/?title=".urlencode($value->title)."&body=".urlencode($value->description)
+                            ?>">
+                        <?php echo $value->title ?>
+                    </a><br>
                     <i class="badge" style="color:white; background-color: #103A5C; height: 20px">views: <?php echo $value->No_views ?></i> &nbsp;&nbsp;&nbsp;&nbsp; 
                     <i class="badge" style="color:#323232; background-color: #A9DFBF; height: 20px">status: <?php echo $value->status ?></i> &nbsp;&nbsp;&nbsp;&nbsp;
                     <i class="badge" style="color:white; background-color: #0A2131; height: 20px">date: <?php $d_t = new DateTime($value->date_time);

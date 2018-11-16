@@ -163,7 +163,9 @@ class Admin_tables extends CI_Controller {
         $studentName = $this->input->post('sname');
         $startDate = $this->input->post('startDate');
         $endDate = $this->input->post('endDate');
-        $graph = 'bar';
+        $graph = $this->input->post('graph');
+        
+        $data ['graphs'] = $this->Admin_model->getGraphs();
 
         $data ['goalsetting'] = $this->Admin_model->getUserCountGoalSetting($graph, $studentName, $startDate, $endDate);
         $data ['timemanagement'] = $this->Admin_model->getUserCountTimeManagement($graph, $studentName, $startDate, $endDate);
@@ -194,7 +196,7 @@ class Admin_tables extends CI_Controller {
         $data ['yes'] = $this->Admin_model->getUserCountQ1_Yes($graph, $topic, $studentName, $startDate, $endDate);
         $data ['no'] = $this->Admin_model->getUserCountQ1_No($graph, $topic, $studentName, $startDate, $endDate);
         $data ['somehow'] = $this->Admin_model->getUserCountQ1_Somehow($graph, $topic, $studentName, $startDate, $endDate);
-
+        
         $this->load->view('layouts/admin_header');
         $this->load->view('admin/tables/feedback/admin_tables_q1', $data);
         $this->load->view('layouts/admin_footer');

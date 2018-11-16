@@ -1,12 +1,5 @@
 
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>-->
-<script>
-setInterval(  
-function()  
-{  
-$('#links').load('<?php echo site_url() ?>/chat/time_management/table');  
-}, 3000);
-</script>
+
 <br><br>
 <div style="margin-bottom: 400px" class="container">
 

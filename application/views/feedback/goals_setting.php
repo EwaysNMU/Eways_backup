@@ -4,7 +4,7 @@
 
     <?php $attributes = array('class' => 'was-validated', 'id' => 'goals_setting_feedback_answer'); ?>
     <?php echo form_open('goals_setting_feedback_answer_', $attributes); ?>
-
+    <form>
     <input type="hidden" name="topic_id" value="1">
     <input type="hidden" name="student_id" value="<?php echo $this->session->userdata('studentID'); ?>">
 
@@ -95,7 +95,7 @@
         <div class="invalid-feedback">Please select one of the above answer.</div>
         <p class="font-weight-bold">7.Any personal comment.</p>
         <div class="form-group">
-            <textarea class="form-control" id="exampleFormControlTextarea1" name="comment" rows="3" required></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="comment" rows="3"></textarea>
             <div class="invalid-feedback">Please enter comment in the space above.</div>
         </div>
         <div>
@@ -104,6 +104,13 @@
         <?php echo form_close(); ?>
     </div>
     <br>
+
+
+
+
+
+
+
 
 
 

@@ -942,5 +942,153 @@ class Admin_model extends CI_Model {
 
         return $data;
     }
+    
+    //------------------------------------------GET COMMENTS----------------------------------------------//
+
+     public function getCommentTopic1($studentName, $startDate, $endDate) {
+
+        $this->db->select('comment');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 1");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+        $this->db->where("feedback_answer.comment <> 'Nil'");
+        $this->db->where("feedback_answer.comment <> ' '");
+        $this->db->where("feedback_answer.comment <> ''");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getCommentTopic2($studentName, $startDate, $endDate) {
+
+        $this->db->select('comment');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 2");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+        $this->db->where("feedback_answer.comment <> ' '");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getCommentTopic3($studentName, $startDate, $endDate) {
+
+        $this->db->select('comment');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 3");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+        $this->db->where("feedback_answer.comment <> ' '");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getCommentTopic4($studentName, $startDate, $endDate) {
+
+        $this->db->select('comment');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 4");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+        $this->db->where("feedback_answer.comment <> ' '");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getCommentTopic5($studentName, $startDate, $endDate) {
+
+        $this->db->select('comment');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 5");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+        $this->db->where("feedback_answer.comment <> ' '");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getCommentTopic6($studentName, $startDate, $endDate) {
+
+        $this->db->select('comment');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 6");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+        $this->db->where("feedback_answer.comment <> ' '");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getCommentTopic7($studentName, $startDate, $endDate) {
+
+        $this->db->select('comment');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 7");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+        $this->db->where("feedback_answer.comment <> ' '");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getCommentTopic8($studentName, $startDate, $endDate) {
+
+        $this->db->select('comment');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 8");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+        $this->db->where("feedback_answer.comment <> ' '");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getCommentTopic9($studentName, $startDate, $endDate) {
+
+        $this->db->select('comment');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 9");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+        $this->db->where("feedback_answer.comment <> ' '");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
 }
 

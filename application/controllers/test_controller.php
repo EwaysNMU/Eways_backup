@@ -73,15 +73,49 @@ class test_controller extends CI_Controller {
                     if ($this->Chat_model->post_discussion($data)) {
             echo json_encode(['comment_return'=>'Published!']);
             } else {
+                echo json_encode(['error'=>'Something went wrong!']);
             }
         }
         public function chat_table() {
             $data['get_chat'] = $this->Chat_model->get_comments();
         $this->load->view('chat/chat_table',$data);
     }
+    public function discussion_detail($meg1,$meg2,$meg3,$meg4,$meg5) {
+           $detail = array(
+            'meg1' => $meg1,
+            'meg2' => $meg2,
+               'meg3' => $meg3,
+               'meg4' => $meg4,
+               'meg5' => $meg5,
+        );
+            $stud_id = $this->session->userdata('studentID');
+        $data['info'] = $this->Feedback_model->get_all_feedbacks($stud_id);
+        $data['info2'] = $this->Student_model->get_profile($stud_id);
+        $data['get_chat'] = $this->Chat_model->get_comments2($meg1);
+        
+        
+          $this->load->view('layouts/header', $data);
+        $this->load->view('chat/chat_detail', $detail);
+        $this->load->view('layouts/footer');
+    }
     }
     
    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
