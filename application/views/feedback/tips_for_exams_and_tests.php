@@ -1,9 +1,9 @@
 <br><br><br>
 <div class="container">
-    <h2 class="text-center">TIPS FOR EXAMS AND TESTS</h2>
+    <h2 class="text-center">TIPS FOR EXAMS FEEDBACK</h2>
 
-    <?php $attributes = array('class' => 'was-validated', 'id' => 'tips_for_exams_and_tests_feedback_answer'); ?>
-    <?php echo form_open('tips_for_exams_and_tests_feedback_answer_', $attributes); ?>
+    <?php $attributes = array('class' => 'was-validated', 'id' => 'tips_for_exams_feedback_answer'); ?>
+    <?php echo form_open('tips_for_exams_feedback_answer_', $attributes); ?>
 
     <input type="hidden" name="topic_id" value="6">
     <input type="hidden" name="student_id" value="<?php echo $this->session->userdata('studentID'); ?>">

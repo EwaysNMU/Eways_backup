@@ -92,40 +92,51 @@
     }
 </script>
 <body style="background-color: #E0E1E2">
-<div style="margin-bottom: 400px;">
+    <div style="margin-bottom: 400px;">
 
-    <!-- Page Heading -->
-    <h4  align="center" style="padding-bottom:5px; padding-top: 40px"class="my-4">
-        <p id="chat-title"><?php echo $this->input->get('title') ?></p>
-    </h4>
-    <div class="row">
-        <div id="div-media" class="col-lg-8 col-sm-8 portfolio-item">
-            <div style="background-color:#EFF0F1;border-radius: 1%;padding-left: 20px;padding-top: 5px;padding-bottom: 1px"><?php echo $this->input->get('body') ?><br></div>
-            <small><a id="qstBT" href="#" onclick="myFunction()">Post a Comment</a></small><br><hr>
-            <div id="value" style="color: #4CAF50"></div>
-            <div style="" id="myDIV">
-                <form name="submit_publish">
-                    <input hidden type="number" value="<?php echo $meg1 ?>">
-                    <b><label>Comment:</label></b>
-                    <textarea id="description" name="description" style="margin-top: 1px; resize: none;color:black;" rows="4" cols="50" class="jqte-test jqte_editor jqte form-control" autofocus>
+        <!-- Page Heading -->
+        <h4  align="center" style="padding-bottom:5px; padding-top: 40px"class="my-4">
+            <p id="chat-title"><?php echo $this->input->get('title') ?></p>
+        </h4>
+        <div class="row">
+            <div id="div-media" class="col-lg-8 col-sm-8 portfolio-item">
+                <div style="background-color:#EFF0F1;border-radius: 1%;padding-left: 20px;padding-top: 5px;padding-bottom: 5px"><?php echo $this->input->get('body') ?><br></div>
+                <small><a id="qstBT" href="#" onclick="myFunction()">Post a Comment</a></small><br><hr>
+                <div id="value" style="color: #4CAF50"></div>
+                <div style="" id="myDIV">
+                    <form name="submit_comment">
+                        <input hidden type="number" name="chatID" id="chatID" value="<?php echo $meg1 ?>">
+                        <b><label>Comment:</label></b>
+                        <textarea id="comment" name="comment" style="margin-top: 1px; resize: none;color:black;" rows="4" cols="50" class="jqte-test jqte_editor jqte form-control" autofocus>
                                     
-                    </textarea>
-                    <input style="margin-bottom: 5px;margin-top: 5px" name="submit" value="Post" type="submit" class="btn-submit pull-right submit btn-info"><br><br>
-                </form>
+                        </textarea>
+                        <input style="margin-bottom: 5px;margin-top: 5px" name="submit" value="Post" type="submit" class="btn-submit pull-right submit btn-info"><br><br>
+                    </form>
+                </div>
+                <div id="convo">
+                     <?php $this->load->view('chat/chat_conversation');?>
+                </div>
+                            
+
             </div>
-            <?php foreach ($get_chat->result() as $chat) { ?>
-                <div style="background-color:#FFF7E5;border-radius: 1%;padding-left: 20px;padding-top: 5px;padding-bottom: 1px">
-
-                    <?php echo $chat->comment; ?>
-                    <br></div>
-            <?php } ?>
-
-
         </div>
     </div>
-</div>
-<script src="<?php echo base_url() ?>assets/js/text-editor.js"></script>
-<script src="<?php echo base_url() ?>assets/js/jquery-3.3.1.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/text-editor.js"></script>
+<!--    <script src="<?php echo base_url() ?>assets/js/jquery-3.3.1.js"></script>-->
 
 
-<script src="<?php echo base_url() ?>assets/js/publish_discussion.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/post_comment.js"></script>
+<footer class="bottom">
+    <section id="footer">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                    <p>Nelson Mandela University</p>
+                    <p class="h6">&copy <?php echo date("Y"); ?> All right Reserved.<a class="text-green ml-2" href="https://www.mandela.ac.za" target="_blank">Peer-Collaboration</a></p>
+
+                </div>
+            </div>	
+        </div>
+    </section>
+</footer>

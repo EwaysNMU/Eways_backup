@@ -1,11 +1,11 @@
 <br><br><br>
 <div class="container">
-    <h2 class="text-center">STUDY STRATEGY FEEDBACK</h2>
+    <h2 class="text-center">STUDY STRATEGIES FEEDBACK</h2><br>
 
-    <?php $attributes = array('class' => 'was-validated', 'id' => 'study_strategy_feedback_answer'); ?>
-    <?php echo form_open('study_strategy_feedback_answer_', $attributes); ?>
-
-    <input type="hidden" name="topic_id" value="5">
+    <?php $attributes = array('class' => 'was-validated', 'id' => 'study_strategies_feedback_answer'); ?>
+    <?php echo form_open('study_strategies_feedback_answer_', $attributes); ?>
+    <form>
+    <input type="hidden" name="topic_id" value="1">
     <input type="hidden" name="student_id" value="<?php echo $this->session->userdata('studentID'); ?>">
 
     <p class="font-weight-bold">1. Did the course clearly explain what you were expected to learn from the course (i.e give learning objectives)?</p>
@@ -38,16 +38,16 @@
 
     <p class="font-weight-bold">3.How consistent was the course content with the objectives?</p>
     <div class="custom-control custom-radio">
+        <input type="radio" class="custom-control-input" id="customControlValidation7" value="Very Consistent" name="objectives" required>
+        <label class="custom-control-label" for="customControlValidation7">Very Consistent</label>
+    </div>
+    <div class="custom-control custom-radio">
         <input type="radio" class="custom-control-input" id="customControlValidation5" value="Consistent"name="objectives" required>
         <label class="custom-control-label" for="customControlValidation5">Consistent</label>
     </div>
     <div class="custom-control custom-radio">
         <input type="radio" class="custom-control-input" id="customControlValidation6" value="Inconsistent" name="objectives" required>
         <label class="custom-control-label" for="customControlValidation6">Inconsistent</label>
-    </div>
-    <div class="custom-control custom-radio">
-        <input type="radio" class="custom-control-input" id="customControlValidation7" value="Very Consistent" name="objectives" required>
-        <label class="custom-control-label" for="customControlValidation7">Very Consistent</label>
         <div class="invalid-feedback">Please select one of the above answer.</div>
     </div>
 
@@ -95,7 +95,7 @@
         <div class="invalid-feedback">Please select one of the above answer.</div>
         <p class="font-weight-bold">7.Any personal comment.</p>
         <div class="form-group">
-            <textarea class="form-control" id="exampleFormControlTextarea1" name="comment" rows="3" required></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="comment" rows="3"></textarea>
             <div class="invalid-feedback">Please enter comment in the space above.</div>
         </div>
         <div>
@@ -104,21 +104,3 @@
         <?php echo form_close(); ?>
     </div>
     <br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

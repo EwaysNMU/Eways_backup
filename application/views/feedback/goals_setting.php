@@ -1,6 +1,6 @@
 <br><br><br>
 <div class="container">
-    <h2 class="text-center">GOAL SETTING FEEDBACK</h2><br>
+    <h2 class="text-center">GOAL-SETTING FEEDBACK</h2><br>
 
     <?php $attributes = array('class' => 'was-validated', 'id' => 'goals_setting_feedback_answer'); ?>
     <?php echo form_open('goals_setting_feedback_answer_', $attributes); ?>
@@ -104,31 +104,3 @@
         <?php echo form_close(); ?>
     </div>
     <br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

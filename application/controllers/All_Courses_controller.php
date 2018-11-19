@@ -41,55 +41,55 @@ class All_Courses_controller extends CI_Controller {
         $this->load->view('layouts/footer_courses');
     }
 
-    public function time_management_feedback() {
+    public function time_management_feedback()  {
         $this->load->view('layouts/header_feedback');
         $this->load->view('feedback/time_management');
         $this->load->view('layouts/footer_courses');
     }
 
-//    Stress Management----------------------------------------
-    public function stress_management() {
+//    Study Strategies----------------------------------------
+    public function study_strategies() {
         $stud_id = $this->session->userdata('studentID');
         $data['info2'] = $this->Student_model->get_profile($stud_id);
         $this->load->view('layouts/header', $data);
-        $this->load->view('course_views/stress_management');
+        $this->load->view('course_views/study_strategies');
         $this->load->view('layouts/footer_courses');
     }
 
-    public function stress_management_feedback() {
+    public function study_strategies_feedback() {
         $this->load->view('layouts/header_feedback');
-        $this->load->view('feedback/stress_management');
+        $this->load->view('feedback/study_strategies');
         $this->load->view('layouts/footer_courses');
     }
 
-//    Motivation--------------------------------------------------
-    public function motivation() {
+//    Assignment Writing--------------------------------------------------
+    public function assignment_writing() {
         $stud_id = $this->session->userdata('studentID');
         $data['info2'] = $this->Student_model->get_profile($stud_id);
         $this->load->view('layouts/header', $data);
-        $this->load->view('course_views/motivation');
+        $this->load->view('course_views/assignment_writing');
         $this->load->view('layouts/footer_courses');
     }
 
-    public function motivation_feedback() {
+    public function assignment_writing_feedback() {
         $this->load->view('layouts/header_feedback');
-        $this->load->view('feedback/motivation');
+        $this->load->view('feedback/assignment_writing');
         $this->load->view('layouts/footer_courses');
     }
 
-//    Study Strategy-------------------------------------------------
+//    Reference Correctly-------------------------------------------------
 
-    public function study_strategy() {
+    public function reference_correctly()  {
         $stud_id = $this->session->userdata('studentID');
         $data['info2'] = $this->Student_model->get_profile($stud_id);
         $this->load->view('layouts/header', $data);
-        $this->load->view('course_views/study_strategy');
+        $this->load->view('course_views/reference_correctly');
         $this->load->view('layouts/footer_courses');
     }
 
-    public function study_strategy_feedback() {
+    public function reference_correctly_feedback() {
         $this->load->view('layouts/header_feedback');
-        $this->load->view('feedback/study_strategy');
+        $this->load->view('feedback/reference_correctly');
         $this->load->view('layouts/footer_courses');
     }
 
@@ -119,19 +119,51 @@ class All_Courses_controller extends CI_Controller {
         $this->load->view('layouts/footer_courses');
     }
 
-//    Tips For Exams And Tests--------------------------------------------
+//    Note taking & Summarising--------------------------------------------
 
-    public function tips_for_exams_and_tests() {
+    public function notetaking() {
         $stud_id = $this->session->userdata('studentID');
         $data['info2'] = $this->Student_model->get_profile($stud_id);
         $this->load->view('layouts/header', $data);
-        $this->load->view('course_views/tips_for_exams_and_tests');
+        $this->load->view('course_views/notetaking');
         $this->load->view('layouts/footer_courses');
     }
 
-    public function tips_for_exams_and_tests_feedback() {
+    public function notetaking_feedback() {
         $this->load->view('layouts/header_feedback');
-        $this->load->view('feedback/tips_for_exams_and_tests');
+        $this->load->view('feedback/notetaking');
+        $this->load->view('layouts/footer_courses');
+    }
+    
+    //    Making better presentations--------------------------------------------
+
+    public function presentations() {
+        $stud_id = $this->session->userdata('studentID');
+        $data['info2'] = $this->Student_model->get_profile($stud_id);
+        $this->load->view('layouts/header', $data);
+        $this->load->view('course_views/presentations');
+        $this->load->view('layouts/footer_courses');
+    }
+
+    public function presentations_feedback() {
+        $this->load->view('layouts/header_feedback');
+        $this->load->view('feedback/presentations');
+        $this->load->view('layouts/footer_courses');
+    }
+    
+    //    Tips for Exams--------------------------------------------
+
+    public function tips_for_exams() {
+        $stud_id = $this->session->userdata('studentID');
+        $data['info2'] = $this->Student_model->get_profile($stud_id);
+        $this->load->view('layouts/header', $data);
+        $this->load->view('course_views/tips_for_exams');
+        $this->load->view('layouts/footer_courses');
+    }
+
+    public function tips_for_exams_feedback() {
+        $this->load->view('layouts/header_feedback');
+        $this->load->view('feedback/tips_for_exams');
         $this->load->view('layouts/footer_courses');
     }
 
