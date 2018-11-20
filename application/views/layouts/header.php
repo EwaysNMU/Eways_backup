@@ -60,14 +60,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
         </style>
         <title>E-WAYS</title>
-        <script>
+<!--        <script>
 setInterval(  
 function()  
 {  
 $('#links').load('<?php echo site_url() ?>/chat/time_management/table'); 
-$('#convo').load('<?php echo site_url() ?>/chat/conversation/<?php echo $meg1;?>');
 }, 3000);
-</script>
+</script>-->
 
             <nav class="navbar fixed-top navbar-expand-lg navbar-dark mandelacolor">
             <a class="navbar-brand" href="#">E-WAYS</a>
@@ -103,8 +102,7 @@ $('#convo').load('<?php echo site_url() ?>/chat/conversation/<?php echo $meg1;?>
                                 </a>
                                 <div class="dropdown-content">
                                     <a href="<?php echo site_url() ?>/user_profile_"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
-        <!--                                    <a href=""><i class="fa fa-cog" aria-hidden="true"></i></i> Edit profile</a>-->
-                                    <a  href="#"><i class="fa fa-align-left" aria-hidden="true"></i> My posts</a><hr style="background-color: white; margin-bottom: 0.2px;margin-top: 0.2px">
+                                    <a  href="<?php echo site_url() ?>/community/user/post"><i class="fa fa-align-left" aria-hidden="true"></i> My posts</a><hr style="background-color: white; margin-bottom: 0.2px;margin-top: 0.2px">
                                     <a  href="<?php echo site_url() ?>/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
                                 </div>
                             </li>

@@ -47,9 +47,32 @@ class Chat_model extends CI_Model {
     public function get_chats() {
         $this->db->select('*');
         $this->db->from('chat');
+        $this->db->where('delete',"No");
         $this->db->order_by('chatID','desc');
         $data = $this->db->get();
         return $data;
+            
+    }
+    public function get_chats_user() {
+        $user = $this->session->userdata('studentID');
+        $this->db->select('*');
+        $this->db->from('chat');
+        $this->db->where('studentID',$user);
+        $this->db->where('delete',"No");
+        $this->db->order_by('chatID','desc');
+        $data = $this->db->get();
+        return $data;
+            
+    }
+    public function get_chats_user_edit($chatID) {
+        $user = $this->session->userdata('studentID');
+        $this->db->select('*');
+        $this->db->from('chat');
+        $this->db->where('studentID',$user);
+        $this->db->where('delete',"No");
+        $this->db->where('chatID',$chatID);
+        $data = $this->db->get();
+       return $data->row();
             
     }
     public function get_student() {
@@ -60,6 +83,16 @@ class Chat_model extends CI_Model {
             
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -8,7 +8,7 @@ $(document).ready(function () {
         if (comment_post === "")
         {
             jQuery("div#value").show();
-            jQuery("div#value").html(comment_post + "This field is required or press the space bar");
+            jQuery("div#value").html(comment_post + "This field is required");
             return false;
         } else {
 
@@ -24,10 +24,12 @@ $(document).ready(function () {
                     if (res)
                     {
                         // Show Entered Value
+                        jQuery("div#myDIV").hide();
                         jQuery("div#value").show();
                         $('div#value').delay(5000).fadeOut(400);
                         jQuery("div#value").html(res.comment_return);
-                        jQuery("textarea#description").html(res.comment_post);
+                        $('#comment').val("");
+                        $('#comment')[0].reset();
                     } else {
                         jQuery("div#value").show();
                         jQuery("div#value").html(res.error);

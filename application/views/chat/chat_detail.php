@@ -84,7 +84,7 @@
 <script>
     function myFunction() {
         var x = document.getElementById("myDIV");
-        if (x.style.display === "none") {
+        if (x.style.display === "none" || x.style.display === "") {
             x.style.display = "block";
         } else {
             x.style.display = "none";
@@ -103,13 +103,11 @@
                 <div style="background-color:#EFF0F1;border-radius: 1%;padding-left: 20px;padding-top: 5px;padding-bottom: 5px"><?php echo $this->input->get('body') ?><br></div>
                 <small><a id="qstBT" href="#" onclick="myFunction()">Post a Comment</a></small><br><hr>
                 <div id="value" style="color: #4CAF50"></div>
-                <div style="" id="myDIV">
+                <div id="myDIV">
                     <form name="submit_comment">
                         <input hidden type="number" name="chatID" id="chatID" value="<?php echo $meg1 ?>">
                         <b><label>Comment:</label></b>
-                        <textarea id="comment" name="comment" style="margin-top: 1px; resize: none;color:black;" rows="4" cols="50" class="jqte-test jqte_editor jqte form-control" autofocus>
-                                    
-                        </textarea>
+                        <textarea id="comment" name="comment" style="margin-top: 1px; resize: none;color:black;" rows="4" cols="50" class="jqte-test jqte_editor jqte form-control" autofocus></textarea>
                         <input style="margin-bottom: 5px;margin-top: 5px" name="submit" value="Post" type="submit" class="btn-submit pull-right submit btn-info"><br><br>
                     </form>
                 </div>
@@ -122,21 +120,5 @@
         </div>
     </div>
     <script src="<?php echo base_url() ?>assets/js/text-editor.js"></script>
-<!--    <script src="<?php echo base_url() ?>assets/js/jquery-3.3.1.js"></script>-->
-
-
+    <script src="<?php echo base_url() ?>assets/js/jquery-3.3.1.js"></script>
     <script src="<?php echo base_url() ?>assets/js/post_comment.js"></script>
-<footer class="bottom">
-    <section id="footer">
-        <div class="container">
-
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-                    <p>Nelson Mandela University</p>
-                    <p class="h6">&copy <?php echo date("Y"); ?> All right Reserved.<a class="text-green ml-2" href="https://www.mandela.ac.za" target="_blank">Peer-Collaboration</a></p>
-
-                </div>
-            </div>	
-        </div>
-    </section>
-</footer>

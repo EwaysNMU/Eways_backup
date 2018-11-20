@@ -33,25 +33,23 @@ class test_controller extends CI_Controller {
         $this->load->view('chat/chat_room', $data);
         $this->load->view('layouts/footer');
     }
-    public function chat_question_list() {
+    public function chat_user_post() {
         $stud_id = $this->session->userdata('studentID');
         $data['info'] = $this->Feedback_model->get_all_feedbacks($stud_id);
         $data['info2'] = $this->Student_model->get_profile($stud_id);
+        $data['allChat'] = $this->Chat_model->get_chats_user();
+        $data['student'] = $this->Chat_model->get_student();
         
         
         $this->load->view('layouts/header', $data);
-        $this->load->view('chat/chat_question_list', $data);
+        $this->load->view('chat/chat_user_post', $data);
         $this->load->view('layouts/footer');
     }
-    public function chat_question_details() {
-        $stud_id = $this->session->userdata('studentID');
-        $data['info'] = $this->Feedback_model->get_all_feedbacks($stud_id);
-        $data['info2'] = $this->Student_model->get_profile($stud_id);
-        $data['get_chat'] = $this->Chat_model->get_comments();
+     public function chat_user_post_edit($chatID) {
+//         $chatID = $_GET["chatID"];
+         $data = $this->Chat_model->get_chats_user_edit($chatID);
+         echo json_encode($data);
         
-        
-        $this->load->view('layouts/header', $data);
-        $this->load->view('chat/chat_question_detail', $data);
     }
     public function post_comment() {
               $data = array(
@@ -82,8 +80,6 @@ class test_controller extends CI_Controller {
     }
     public function chat_conversation() {
         $data_id = $this->uri->segment(3);
-        print_r($data_id); 
-        exit();
          $data['student'] = $this->Chat_model->get_student();
             $data['get_chat'] = $this->Chat_model->get_comments2($data_id);
         $this->load->view('chat/chat_conversation',$data);
@@ -105,11 +101,30 @@ class test_controller extends CI_Controller {
         
           $this->load->view('layouts/header', $data);
         $this->load->view('chat/chat_detail', $detail);
-//        $this->load->view('layouts/footer');
+        $this->load->view('layouts/footer');
     }
     }
     
    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
