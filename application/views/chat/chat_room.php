@@ -71,39 +71,44 @@
 <script>
     function myFunction() {
         var x = document.getElementById("myDIV");
-        if (x.style.display === "none") {
+        if (x.style.display === "none"|| x.style.display === "") {
+            jQuery("hr#line-hide").hide();
             x.style.display = "block";
         } else {
+            jQuery("hr#line-hide").show();
             x.style.display = "none";
         }
     }
 </script>
+<body style="background-color: #E0E1E2">
 <br><br>
 <div style="margin-bottom: 400px;" class="container">
 
     <!-- Page Heading -->
     <h4  align="center" class="my-4">
         <p id="chat-title">List of Discussions </p>
-        <a id="qstBTN" href="#" onclick="myFunction()" class="btn pull-right btn-info" style="margin-right: 95px">Create Post</a>
+<!--        <a id="qstBTN" href="#" onclick="myFunction()" class="btn pull-right btn-info" style="margin-right: 95px">Create Post</a>-->
     </h4>
 <!--    <p style="margin-bottom:2px"><a href="<?php echo site_url() ?>/community/time_management/How">Test</a></p>-->
     <div class="row">
         <div id="div-media" class="col-lg-10 col-sm-10 portfolio-item"><br>
+            <h6><a href="#" style="color: #D96951;" onclick="myFunction()">Create New Post</a></h6>
             <div id="value" style="color: #4CAF50"></div>
             <div style="display:none" id="myDIV">
-                <form name="submit_publish">
+                <form id="myForm" name="submit_publish">
                     <b><label>Title:</label></b>
                     <input id="title" name="title" type="text" class="form-control" autocomplete="No" autofocus="Yes">
                     <b><label>Body:</label></b>
-                    <textarea id="description" name="description" style="margin-top: 1px; resize: none;color:black;" rows="4" cols="50" class="jqte-test jqte_editor jqte form-control" autofocus ></textarea>
+                    <textarea id="description" name="description" style="margin-top: 1px; resize: none;color:black;" rows="4" cols="50" class="jqte-test jqte_editor editor jqte form-control" autofocus ></textarea>
                     <input style="margin-bottom: 5px;margin-top: 5px" name="submit" value="Publish" type="submit" class="btn-submit pull-right submit btn-info"><br><hr>
                 </form>
             </div>
+            <?php if($allChat->result() != NULL):?>
             <?php foreach ($allChat->result() as $value) { ?>
                 <p id="chat-list">
                     <a href="<?php echo site_url() ?>/discussion/<?php
                     echo
-                    $value->chatID . "/" . $value->studentID . "/" . $value->date_time . "/" . $value->No_views . "/" . $value->status . "/?title=" . urlencode($value->title) . "&body=" . urlencode($value->description)
+                    $value->chatID . "/" . $value->studentID . "/" . $value->date_time . "/" . $value->No_views . "/" . $value->status . "/?title=" . urlencode($value->title) . "&body=" . urlencode($value->description). "&status=" . urlencode($value->status)
                     ?>">
     <?php echo $value->title ?>
                     </a><br>
@@ -123,6 +128,10 @@
 
                 <hr>
 <?php } ?> 
+                <?php else:?>
+                <hr id="line-hide"><br><br><br>
+                <p align="center">There is no post to display</p>
+            <?php endif?>
 
         </div>
     </div>

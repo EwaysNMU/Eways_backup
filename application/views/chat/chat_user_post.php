@@ -10,6 +10,9 @@
             margin-top: 3px;
             margin-left: 10px;
         }
+        #myDIV{
+            display:none;
+        }
 
     } 
 
@@ -28,6 +31,9 @@
             margin-top: 30px;
             margin-right:150px;
         }
+        #myDIV{
+            display:none;
+        }
     } 
 
     /* Medium devices (landscape tablets, 768px and up) */
@@ -43,6 +49,9 @@
         #qstBTN{
             margin-left: 20px;
         }
+        #myDIV{
+            display:none;
+        }
     } 
     /* Large devices (laptops/desktops, 992px and up) */
     @media only screen and (min-width: 992px) {
@@ -53,6 +62,9 @@
         }
         #chat-title{
             margin: auto;
+        }
+        #myDIV{
+            display:none;
         }
     } 
 
@@ -66,18 +78,25 @@
         #chat-title{
             margin: auto;
         }
+        #myDIV{
+            display:none; 
+/*            width:600px;*/
+        }
     }
 </style>
 <script>
     function myFunction() {
         var x = document.getElementById("myDIV");
-        if (x.style.display === "none") {
+        if (x.style.display === "none"|| x.style.display === "") {
+            jQuery("hr#line-hide").hide();
             x.style.display = "block";
         } else {
+            jQuery("hr#line-hide").show();
             x.style.display = "none";
         }
     }
 </script>
+<body style="background-color: #E0E1E2">
 <br><br>
 <div style="margin-bottom: 400px;" class="container">
 
@@ -88,76 +107,58 @@
 <!--    <p style="margin-bottom:2px"><a href="<?php echo site_url() ?>/community/time_management/How">Test</a></p>-->
     <div class="row">
         <div id="div-media" class="col-lg-10 col-sm-10 portfolio-item"><br>
-            <div id="value" style="color: #4CAF50"></div>
+            <h5 align="center"><div id="value" style="color: #4CAF50;"></div></h5> 
+            <h6><a href="#" style="color: #D96951;" onclick="myFunction()">Create New Post</a></h6>
+            <div style="display:none" id="myDIV">
+                <form id="myForm" name="submit_publish">
+                    <b><label>Title:</label></b>
+                    <input id="title" name="title" type="text" class="form-control" autocomplete="No" autofocus="Yes">
+                    <b><label>Body:</label></b>
+                    <textarea id="description" name="description" style="margin-top: 1px; resize: none;color:black;" rows="4" cols="50" class="jqte-test jqte_editor editor jqte form-control" autofocus ></textarea>
+                    <input style="margin-bottom: 5px;margin-top: 5px" name="submit" value="Publish" type="submit" class="btn-submit pull-right submit btn-info"><br><hr>
+                </form>
+            </div>
+            <?php if($allChat->result() != NULL):?>
             <?php foreach ($allChat->result() as $value) { ?>
                 <p id="chat-list">
                     <a href="<?php echo site_url() ?>/discussion/<?php
                     echo
                     $value->chatID . "/" . $value->studentID . "/" . $value->date_time . "/" . $value->No_views . "/" . $value->status . "/?title=" . urlencode($value->title) . "&body=" . urlencode($value->description)
                     ?>">
-    <?php echo $value->title ?>
+                           <?php echo $value->title ?>
                     </a><br>
                     <i class="badge" style="color:white; background-color: #103A5C; height: 20px">views: <?php echo $value->No_views ?></i> &nbsp;&nbsp;&nbsp;&nbsp; 
                     <i class="badge" style="color:#323232; background-color: #A9DFBF; height: 20px">status: <?php echo $value->status ?></i> &nbsp;&nbsp;&nbsp;&nbsp;
-                    <i class="badge" style="color:white; background-color: #0A2131; height: 20px">date: <?php $d_t = new DateTime($value->date_time);
-    echo DATE_FORMAT($d_t, 'd-M-Y') . DATE_FORMAT($d_t, ' @g:i A');
-    ?></i>&nbsp;&nbsp;&nbsp;&nbsp;
-    <button class="fa fa-pencil-square-o" style="color: blue" title="edit post" data-toggle="modal" data-target="#myModal" id="<?php echo $value->chatID ?>" onclick="showDetail(this);"></button> &nbsp;&nbsp;&nbsp;&nbsp;
-  
-   <a class="fa fa-trash-o" style="color: red" title="delete post" href="#" ></a>
-    <?php foreach ($student->result() as $value1) { ?>
+                    <i class="badge" style="color:white; background-color: #0A2131; height: 20px">date: <?php
+                        $d_t = new DateTime($value->date_time);
+                        echo DATE_FORMAT($d_t, 'd-M-Y') . DATE_FORMAT($d_t, ' @g:i A');
+                        ?></i>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a class="fa fa-pencil-square-o" style="color: blue" title="edit post" href="<?php echo site_url() ?>/user/edit/post<?php echo "/?id=" . urlencode($value->chatID) . "&title=" . urlencode($value->title) . "&body=" . urlencode($value->description) . "&status=" . urlencode($value->status) ?>"></a> &nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <a class="fa fa-trash-o submit_delete" style="color: red" title="delete post" href="#" id="<?php echo $value->chatID ?>" onclick="deletePost(this);"></a>
+                    <?php foreach ($student->result() as $value1) { ?>
         <?php if ($value1->studentID == $value->studentID): ?>
                             <img src="<?php echo base_url(); ?>uploads/user_profiles/<?php echo $value1->photo ?>" alt="user picture" style="width:40px; height:40px;border-radius: 5%;float: right;" /><br>
                             <i>posted by: </i><small><?php echo $value1->firstName . " " . $value1->lastName ?></small>
 
-        <?php endif ?>
+                        <?php endif ?>
     <?php } ?> 
                 </p>
 
                 <hr>
 <?php } ?> 
+                <?php else:?>
+                 <hr id="line-hide"><br><br><br>
+                <p align="center">You have no post to display</p>
+            <?php endif?>
+            
+            
 
         </div>
     </div>
 </div>
- <!-- The Modal -->
-<div class="modal" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <!-- Modal body -->
-      <div class="modal-body">
-          <input type="text" id="db_title" width="300">
-          <textarea id="demo"></textarea>
-      </div>
-
-    </div>
-  </div>
-</div>
 <script src="<?php echo base_url() ?>assets/js/text-editor.js"></script>
 <script src="<?php echo base_url() ?>assets/js/jquery-3.3.1.js"></script>
+<script src="<?php echo base_url() ?>assets/js/post_delete.js"></script>
+<script src="<?php echo base_url() ?>assets/js/success_message.js"></script>
 <script src="<?php echo base_url() ?>assets/js/publish_discussion.js"></script>
-<script>
-function showDetail(button)
-{
-    var chatID = button.id;
-//    alert(chatID);
-    jQuery.ajax({
-                type: "GET",
-                url: "http://sict-iis.nmmu.ac.za/eways/index.php/user/get/details/" + chatID,
-                dataType: 'json',
-                success: function (res) {
-                    if (res)
-                    {
-                        var details = JSON.stringify(res);
-                        var title = document.getElementById("db_title");
-                        title.innerHTML = details.title;
-                        alert(details);
-//                       document.getElementById("demo").innerHTML = details;
-                    } else {
-                    }
-                }
-
-            });
-    
-}
-</script>

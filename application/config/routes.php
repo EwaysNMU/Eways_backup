@@ -121,8 +121,12 @@ $route['discussion/(.*)'] = 'test_controller/discussion_detail/$1';
 $route['chat/time_management/table'] = 'test_controller/chat_table';
 $route['chat/post_comment'] = 'test_controller/post_comment';
 $route['chat/conversation/(.*)'] = 'test_controller/chat_conversation/$1';
+$route['chat/comment'] = 'test_controller/chat_comment/';
 $route['community/user/post'] = 'test_controller/chat_user_post';
 $route['user/get/details/(.*)'] = 'test_controller/chat_user_post_edit/$1';
+$route['user/delete/post/(.*)'] = 'test_controller/chat_user_post_delete/$1';
+$route['user/edit/post'] = 'test_controller/chat_user_post_update';
+$route['user/edit/post/update'] = 'test_controller/update_discussion';
 
 
 

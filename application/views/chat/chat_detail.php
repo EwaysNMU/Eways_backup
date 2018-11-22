@@ -101,7 +101,10 @@
         <div class="row">
             <div id="div-media" class="col-lg-8 col-sm-8 portfolio-item">
                 <div style="background-color:#EFF0F1;border-radius: 1%;padding-left: 20px;padding-top: 5px;padding-bottom: 5px"><?php echo $this->input->get('body') ?><br></div>
-                <small><a id="qstBT" href="#" onclick="myFunction()">Post a Comment</a></small><br><hr>
+                <?php if($meg5 != "Closed"):?>
+                <small><a id="qstBT" href="#" onclick="myFunction()">Post a Comment</a></small><br>
+                <?php endif?>
+                <hr>
                 <div id="value" style="color: #4CAF50"></div>
                 <div id="myDIV">
                     <form name="submit_comment">

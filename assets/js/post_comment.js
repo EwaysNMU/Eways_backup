@@ -29,7 +29,6 @@ $(document).ready(function () {
                         $('div#value').delay(5000).fadeOut(400);
                         jQuery("div#value").html(res.comment_return);
                         $('#comment').val("");
-                        $('#comment')[0].reset();
                     } else {
                         jQuery("div#value").show();
                         jQuery("div#value").html(res.error);

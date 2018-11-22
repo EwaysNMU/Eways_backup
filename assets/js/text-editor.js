@@ -3,4 +3,3 @@ $('.jqte-test').jqte({
         link: false,
         placeholder: "<i>write something</i>"
     });
-

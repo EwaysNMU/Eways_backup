@@ -27,7 +27,7 @@
     }
     #card1, #card2, #card3, #card4, #card5, #card6
     {
-        background-color: #f5f5f5
+        background-color: #F2F2F2
     }
 
     .text {
@@ -132,10 +132,10 @@
 
         <div class="col s12 m4">
             <div id="card2" class="card" style="width: 18rem;margin: auto">
-                <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/stress-management.png" width="256" height="216" alt="STRESS MANAGEMENT">
+                <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/strategy.jpg" width="256" height="216" alt="STRESS MANAGEMENT">
                 <div class="card-body">
                     <h6 style="text-align: center" class="card-title">STUDY STRATEGIES</h6>
-                    <p style="text-align: center" class="card-text">Stress management is aimed at controlling a person's level of stress, especially chronic stress, usually for the purpose of improving everyday functioning.</p>
+                    <p style="text-align: center" class="card-text">Study strategy otherwise known as study skills refer to those things that individuals do when they have to locate, organize, and remember information.</p>
                 </div>
                 <div class="overlay"><br><br><br><br><br><br>
                     <h6 style="text-align: center">Learn how to manage your stress</h6>
@@ -158,10 +158,10 @@
     <div class="row">
         <div class="col s12 m4">
             <div id="card4" class="card" style="width: 18rem;margin: auto">
-                <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/motivation.jpg" width="256" height="216" alt="Motivation">
+                <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/concentrating.jpg" width="256" height="216" alt="Motivation">
                 <div class="card-body">
-                    <h6 style="text-align: center" class="card-title">CONCENTRATION & MEMORISING</h6>
-                    <p style="text-align: center" class="card-text">Motivation is the  process of stimulating people to actions to accomplish goals. The word means needs, desires, wants or drives within an individuals. </p>
+                    <h6 style="text-align: center" class="card-title">CONCENTRATION & MEMORIZING</h6>
+                    <p style="text-align: center" class="card-text">If you are not focused, you won't be able to memorize new facts or recall information you memorized previously.  </p>
                 </div>
                 <div class="overlay"><br><br><br><br><br><br>
                     <h6 style="text-align: center">Learn how to stay motivated</h6>
@@ -178,10 +178,10 @@
         </div>
         <div class="col s12 m4">
             <div id="card5" class="card" style="width: 18rem;margin: auto">
-                <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/strategy.jpg" width="256" height="216" alt="Study Strategy">
+                <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/assignment_writing.jpg" width="256" height="216" alt="Study Strategy">
                 <div class="card-body">
                     <h6 style="text-align: center" class="card-title">ASSIGNMENT WRITING</h6>
-                    <p style="text-align: center" class="card-text">Study strategy otherwise known as study skills refer to those things that individuals do when they have to locate, organize, and remember information.</p>
+                    <p style="text-align: center" class="card-text">Assignment writing can be both challenging and exciting. It involves several different processes such as research, planning, reflection etc.</p>
                 </div>
                 <div class="overlay"><br><br><br><br><br><br>
                     <h6 style="text-align: center">Learn techniques for studying</h6>
@@ -198,10 +198,10 @@
         </div>
         <div class="col s12 m4">
             <div id="card6" class="card" style="width: 18rem;margin: auto">
-                <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/tips.png" width="256" height="216" alt="Tips For Exams And Tests">
+                <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/refrencing.png" width="256" height="216" alt="Tips For Exams And Tests">
                 <div class="card-body">
                     <h6 style="text-align: center" class="card-title">REFERENCE CORRECTLY</h6>
-                    <p style="text-align: center" class="card-text">Just as an athlete has to prepare properly for an important game or race, it’s up to you as a student to prepare yourself adequately for a test or exam.</p>
+                    <p style="text-align: center" class="card-text">It is important to reference the sources you use so that the reader can follow your arguments and check your sources.<br><br></p>
                 </div>
                 <div class="overlay"><br><br><br><br><br><br>
                     <h6 style="text-align: center">Learn tips for exams and test</h6>
@@ -221,10 +221,10 @@
     <div class="row">
         <div class="col s12 m4">
             <div id="card1" class="card" style="width: 18rem;margin: auto">
-                <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/goals.png" width="256" height="216" alt="GOALS SETTING">
+                <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/note_taking.jpg" width="256" height="216" alt="GOALS SETTING">
                 <div class="card-body">
                     <h6 style="text-align: center" class="card-title">NOTE TAKING & SUMMARISING</h6>
-                    <p style="text-align: center" class="card-text">The definition of goal setting is the process of identifying something that you want to accomplish and establishing measurable goals and time frames.</p>
+                    <p style="text-align: center" class="card-text"> Note-taking is the process of organizing and writing pieces of information. Summarizing involves analyzing information and identifying the essential elements.</p>
                 </div>
                 <div class="overlay"><br><br><br><br><br><br>
                     <h6 style="text-align: center">Learn to set achievable goals</h6>
@@ -236,10 +236,10 @@
         </div>
         <div class="col s12 m4">
             <div id="card3" class="card" style="width: 18rem;margin: auto">
-                <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/time management.jpg" width="256" height="216" alt="TIME MANAGEMENT">
+                <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/presentation.jpg" width="256" height="216" alt="TIME MANAGEMENT">
                 <div class="card-body">
                     <h6 style="text-align: center" class="card-title">MAKING BETTER PRESENTATIONS</h6>
-                    <p style="text-align: center" class="card-text">Time management is the process of organising and planning how to divide your time between specific activities. Good time management enables you to work smarter.</p>
+                    <p style="text-align: center" class="card-text">Presentation is a means of communication that can be adapted to various speaking situations, such as briefing a team.</p>
                 </div>
                 <div class="overlay"><br><br><br><br><br><br>
                     <h6 style="text-align: center">Learn how to prioritise</h6>
@@ -257,10 +257,10 @@
 
         <div class="col s12 m4">
             <div id="card2" class="card" style="width: 18rem;margin: auto">
-                <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/stress-management.png" width="256" height="216" alt="STRESS MANAGEMENT">
+                <img class="card-img-top" style="-webkit-user-select: none;cursor: zoom-in;" src="<?php echo base_url() ?>assets/images/course_background/tips.png" width="256" height="216" alt="STRESS MANAGEMENT">
                 <div class="card-body">
                     <h6 style="text-align: center" class="card-title">TIPS FOR EXAMS</h6>
-                    <p style="text-align: center" class="card-text">Stress management is aimed at controlling a person's level of stress, especially chronic stress, usually for the purpose of improving everyday functioning.</p>
+                    <p style="text-align: center" class="card-text">Give yourself the best environment to focus in by choosing somewhere with enough light, a comfortable chair, and little to no distractions.</p>
                 </div>
                 <div class="overlay"><br><br><br><br><br><br>
                     <h6 style="text-align: center">Learn how to manage your stress</h6>

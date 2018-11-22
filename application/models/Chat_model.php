@@ -72,7 +72,7 @@ class Chat_model extends CI_Model {
         $this->db->where('delete',"No");
         $this->db->where('chatID',$chatID);
         $data = $this->db->get();
-       return $data->row();
+       return $data->result_array();
             
     }
     public function get_student() {
@@ -82,7 +82,31 @@ class Chat_model extends CI_Model {
         return $data;
             
     }
+    public function delete_post($chatID) {
+       $data = array('delete' => "Yes");
+        $this->db->where('chatID', $chatID);
+        return $this->db->update('chat', $data); 
+            
+    }
+    public function update_post($chatID,$title,$status,$desc) {
+        $data = array('title' => $title,'status' => $status,'description' => $desc);
+        $this->db->where('chatID', $chatID);
+        return $this->db->update('chat', $data); 
+            
+    }
+    public function update_post_count_views($chatID,$views) {
+        $data = array('No_views' => $views);
+        $this->db->where('chatID', $chatID);
+        return $this->db->update('chat', $data); 
+            
+    }
 }
+
+
+
+
+
+
 
 
 
