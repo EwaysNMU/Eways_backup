@@ -168,10 +168,57 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <label for="link">Link</label>
         <input type="text" class="form-control" id="link" placeholder="i.e. www.google.com">
     </div>
+    <div class="form-group">
+    <a class="badge badge-primary" data-toggle="modal" data-target="#UploadPicture" href="#" role="button">Upload Picture</a>
+    </div>
+     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>   
+</div>
+
+  
+      <!-- Modal -->
+<div class="modal fade" id="UploadPicture" tabindex="1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Upload Picture</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+     <form>
+      <div class="form-group">
+    <?php
+    if (isset($error)) {
+        echo "<div class='alert'>$error</div>";
+    }
+    ?>
+  <?php  
+  $attributes = array('class' => 'col s12', 'id' => 'myform');
+    echo form_open_multipart('c_upload/do_upload', $attributes); ?>
+
+  <div class="row">
+    <div class="input-field col s4">
+      <input  name="userfile" type="file" size="80">
+    </div>
+</div>
+  <div class="modal-footer left">
+  <a href="<?php echo base_url('c_search/s_patient_by'); ?>; ?>" class="waves-effect waves-light  red darken-4 btn"><i class="material-icons right">clear</i>Cancel</a>
+        <button class="btn waves-effect waves-light green darken-4" type="submit" name="action">Submit
+  <i class="material-icons right">send</i>
+</button>
+</div>
+<?php echo form_close(); ?>
+
+    </div>
+
      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
+        
 </div>
 </div>
 </div>
