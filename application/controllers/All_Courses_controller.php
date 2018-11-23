@@ -52,7 +52,7 @@ class All_Courses_controller extends CI_Controller {
         $stud_id = $this->session->userdata('studentID');
         $data['info2'] = $this->Student_model->get_profile($stud_id);
         $this->load->view('layouts/header', $data);
-        $this->load->view('course_views/study_strategies');
+        $this->load->view('course_views/study_strategy');
         $this->load->view('layouts/footer_courses');
     }
 
@@ -125,7 +125,7 @@ class All_Courses_controller extends CI_Controller {
         $stud_id = $this->session->userdata('studentID');
         $data['info2'] = $this->Student_model->get_profile($stud_id);
         $this->load->view('layouts/header', $data);
-        $this->load->view('course_views/notetaking');
+        $this->load->view('course_views/note_taking');
         $this->load->view('layouts/footer_courses');
     }
 
@@ -157,11 +157,26 @@ class All_Courses_controller extends CI_Controller {
         $stud_id = $this->session->userdata('studentID');
         $data['info2'] = $this->Student_model->get_profile($stud_id);
         $this->load->view('layouts/header', $data);
-        $this->load->view('course_views/tips_for_exams');
+        $this->load->view('course_views/tips_for_exams_and_tests');
         $this->load->view('layouts/footer_courses');
     }
 
     public function tips_for_exams_feedback() {
+        $this->load->view('layouts/header_feedback');
+        $this->load->view('feedback/tips_for_exams');
+        $this->load->view('layouts/footer_courses');
+    }
+    //    Concentrating and Memorizing--------------------------------------------
+
+    public function concentrating_memorizing() {
+        $stud_id = $this->session->userdata('studentID');
+        $data['info2'] = $this->Student_model->get_profile($stud_id);
+        $this->load->view('layouts/header', $data);
+        $this->load->view('course_views/concentrating_memorizing');
+        $this->load->view('layouts/footer_courses');
+    }
+
+    public function concentrating_memorizing_feedback() {
         $this->load->view('layouts/header_feedback');
         $this->load->view('feedback/tips_for_exams');
         $this->load->view('layouts/footer_courses');
@@ -244,6 +259,12 @@ class All_Courses_controller extends CI_Controller {
     }
 
 }
+
+
+
+
+
+
 
 
 

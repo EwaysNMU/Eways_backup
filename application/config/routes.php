@@ -69,7 +69,7 @@ $route['study_strategies_'] = 'all_courses_controller/study_strategies';
 $route['study_strategies_feedback_'] = 'all_courses_controller/study_strategies_feedback';
 $route['study_strategies_feedback_answer_'] = 'feedbacks_controller/study_strategies_feedback_answer';
 
-$route['concentration_'] = 'all_courses_controller/concentration' ;
+$route['concentration_'] = 'all_courses_controller/concentrating_memorizing' ;
 $route['concentration_feedback_'] = 'all_courses_controller/concentration_feedback';
 $route['concentration_feedback_answer_'] = 'feedbacks_controller/concentration_feedback_answer';
 

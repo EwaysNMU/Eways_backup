@@ -168,7 +168,7 @@ button {
     white-space: nowrap;}
 </style>
 <br>
-<h2 style="text-align:center">Stress Management</h2>
+<h2 style="text-align:center">Concentrating & Memorizing</h2>
 <div class="container">
   <div class="mySlides">
     <div style="color: black" class="numbertext">1 / 9</div>

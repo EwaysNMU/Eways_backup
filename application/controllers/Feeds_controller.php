@@ -58,4 +58,4 @@ class Feeds_controller extends CI_Controller {
 		}
    }
 
-}
+
