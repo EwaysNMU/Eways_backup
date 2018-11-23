@@ -80,7 +80,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <tr>
                         <th>Title</th>
                         <th>Created</th>
-                        <th>Short Description</th>
+                        <th>Topic Name</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
                         <th>Last Updated</th>
                     </tr>
                 </thead>
@@ -89,7 +93,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <tr>
                         <td><?php echo $row['title']; ?></td>
                         <td class="dates"><?php echo date('l, M j, Y', strtotime($row['created'])); ?></td>
-                        <td><?php echo $row['shortDescription']; ?></td>
+                        <td><?php echo $row['topicName']; ?></td>
+                        <td class="dates"><?php echo $row['startDate']; ?></td>
+                        <td class="dates"><?php echo $row['endDate']; ?></td>
+                        <td><?php echo $row['startTime']; ?></td>
+                        <td><?php echo $row['endTime']; ?></td>
                         <td class="dates"><?php echo date('l, M j, Y', strtotime($row['updated'])); ?></td>
                     </tr>
                 <?php } ?>
@@ -98,7 +106,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <tr>
                     <th>Title</th>
                     <th>Created</th>
-                    <th>Short Description</th>
+                    <th>Topic Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
                     <th>Last Updated</th>
                 </tr>
             </tfoot>
