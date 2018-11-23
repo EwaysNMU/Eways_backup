@@ -1,43 +1,4 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
-<!doctype html>
-<html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="<?php echo base_url() ?>assets/images/favicon/favicon.ico" type="image/x-icon">
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="<?php echo base_url() ?>/assets/css/home_footer.css">
-        
-
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/main.css">
-        <!--===============================================================================================-->
-
-        <title>E-WAYS</title>
-        <style>
-        .mandelacolor {
-    background-color: #103A5C;
-}
-            navbarSupportedContent {
-                z-index: 999999;
-            }
-            
-             #navhover:hover{
-            text-decoration: none;
-            color: #FDB819
-            
-        }
-        #navhover{
-            color: white
-        }
-        </style>
-    </head>
-
-    <body>
+  <body>
         
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark mandelacolor">
             <a class="navbar-brand" href="#">E-WAYS</a>
@@ -49,11 +10,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo site_url() ?>"><i class="fa fa-home" aria-hidden="true"></i> Home <span class="sr-only">(current)</span></a>
                     </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="<?php echo site_url() ?>/event"><i class="fas fa-calendar-alt"></i>&nbsp;Events <span class="sr-only">(current)</span></a>
-                    </li>
                 </ul>
                 <ul  class="navbar-nav">
+                      <li class="nav-item">
+                        <a id="navhover" class="nav-link" href="<?php echo site_url() ?>/event"><i class="fa fa-calendar"></i> Events</a>
+                    </li>
                     <li class="nav-item">
                         <a id="navhover" class="nav-link" href="<?php echo site_url() ?>/student/login"><i class="fa fa-sign-in"></i> Login</a>
                     </li>
@@ -71,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         </nav><br><br>
 
-        <div class="container-login100" style="background-image: url('<?php echo base_url() ?>assets/images/bg-01.jpg');">
+        <div class="container-login100" style="background-image: url('<?php echo base_url() ?>assets/images/background.jpg');">
         <div class="container">
             <div class="row my-4">
                 <div class="col-lg-8">  

@@ -56,29 +56,42 @@ $route['student/login'] = 'Student_controller/login_';
 $route['logout'] = 'Student_controller/logout';
 $route['all_courses'] = 'all_courses_controller/list_of_courses';
 
+$route['goals_setting_'] = 'all_courses_controller/goals_setting';
+$route['goals_setting_feedback_'] = 'all_courses_controller/goals_setting_feedback';
+$route['goals_setting_feedback_answer_'] = 'feedbacks_controller/goals_setting_feedback_answer';
+$route['goals_note'] = 'all_courses_controller/goals_setting_note';
+
 $route['time_management_'] = 'all_courses_controller/time_management';
 $route['time_management_feedback_'] = 'all_courses_controller/time_management_feedback';
 $route['time_management_feedback_answer_'] = 'feedbacks_controller/time_management_feedback_answer';
 
-$route['goals_setting_'] = 'all_courses_controller/goals_setting';
-$route['goals_setting_feedback_'] = 'all_courses_controller/goals_setting_feedback';
-$route['goals_setting_feedback_answer_'] = 'feedbacks_controller/goals_setting_feedback_answer';
+$route['study_strategies_'] = 'all_courses_controller/study_strategies';
+$route['study_strategies_feedback_'] = 'all_courses_controller/study_strategies_feedback';
+$route['study_strategies_feedback_answer_'] = 'feedbacks_controller/study_strategies_feedback_answer';
 
-$route['motivation_'] = 'all_courses_controller/motivation';
-$route['motivation_feedback_'] = 'all_courses_controller/motivation_feedback';
-$route['motivation_feedback_answer_'] = 'feedbacks_controller/motivation_feedback_answer';
+$route['concentration_'] = 'all_courses_controller/concentration' ;
+$route['concentration_feedback_'] = 'all_courses_controller/concentration_feedback';
+$route['concentration_feedback_answer_'] = 'feedbacks_controller/concentration_feedback_answer';
 
-$route['study_strategy_'] = 'all_courses_controller/study_strategy';
-$route['study_strategy_feedback_'] = 'all_courses_controller/study_strategy_feedback';
-$route['study_strategy_feedback_answer_'] = 'feedbacks_controller/study_strategy_feedback_answer';
+$route['assignment_writing_'] = 'all_courses_controller/assignment_writing';
+$route['assignment_writing_feedback_'] = 'all_courses_controller/assignment_writing_feedback';
+$route['assignment_writing_feedback_answer_'] = 'feedbacks_controller/assignment_writing_feedback_answer';
 
-$route['stress_management_'] = 'all_courses_controller/stress_management';
-$route['stress_management_feedback_'] = 'all_courses_controller/stress_management_feedback';
-$route['stress_management_feedback_answer_'] = 'feedbacks_controller/stress_management_feedback_answer';
+$route['reference_correctly_'] = 'all_courses_controller/reference_correctly';
+$route['reference_correctly_feedback_'] = 'all_courses_controller/reference_correctly_feedback';
+$route['reference_correctly_feedback_answer_'] = 'feedbacks_controller/reference_correctly_feedback_answer';
 
-$route['tips_for_exams_and_tests_'] = 'all_courses_controller/tips_for_exams_and_tests';
-$route['tips_for_exams_and_tests_feedback_'] = 'all_courses_controller/tips_for_exams_and_tests_feedback';
-$route['tips_for_exams_and_tests_feedback_answer_'] = 'feedbacks_controller/exam_tips_feedback_answer';
+$route['notetaking_'] = 'all_courses_controller/notetaking';
+$route['notetaking_feedback_'] = 'all_courses_controller/notetaking_feedback';
+$route['notetaking_feedback_answer_'] = 'feedbacks_controller/notetaking_feedback_answer';
+
+$route['presentations_'] = 'all_courses_controller/presentations';
+$route['presentations_feedback_'] = 'all_courses_controller/presentations_feedback';
+$route['presentations_feedback_answer_'] = 'feedbacks_controller/presentations_feedback_answer';
+
+$route['tips_for_exams_'] = 'all_courses_controller/tips_for_exams';
+$route['tips_for_exams_feedback_'] = 'all_courses_controller/tips_for_exams_feedback';
+$route['tips_for_exams_feedback_answer_'] = 'feedbacks_controller/tips_for_exams_feedback_answer';
 
 $route['user_profile_'] = 'all_courses_controller/user_profile';
 $route['update_profile_'] = 'all_courses_controller/update_profile';
@@ -99,10 +112,21 @@ $route['send_link'] = 'ForgotPassword_Controller/send_reset_link';
 $route['reset_password_/(.*)'] = 'ForgotPassword_Controller/reset_password_form/$1';
 $route['password_reset'] = 'ForgotPassword_Controller/update_password';
 $route['error_page'] = 'ForgotPassword_Controller/forgot_password_error';
-$route['chat'] = 'test_controller/chat_view';
-$route['chat/time_management'] = 'test_controller/chat_question_list';
-$route['chat/time_management/How to manage my time effectively?'] = 'test_controller/chat_question_details';
+$route['community'] = 'test_controller/chat_view';
+$route['community/time_management'] = 'test_controller/chat_question_list';
+$route['community/time_management/How'] = 'test_controller/chat_question_details';
 $route['chat/time_management/post'] = 'test_controller/post_comment';
+$route['chat/discussion/post'] = 'test_controller/post_discussion';
+$route['discussion/(.*)'] = 'test_controller/discussion_detail/$1';
+$route['chat/time_management/table'] = 'test_controller/chat_table';
+$route['chat/post_comment'] = 'test_controller/post_comment';
+$route['chat/conversation/(.*)'] = 'test_controller/chat_conversation/$1';
+$route['chat/comment'] = 'test_controller/chat_comment/';
+$route['community/user/post'] = 'test_controller/chat_user_post';
+$route['user/get/details/(.*)'] = 'test_controller/chat_user_post_edit/$1';
+$route['user/delete/post/(.*)'] = 'test_controller/chat_user_post_delete/$1';
+$route['user/edit/post'] = 'test_controller/chat_user_post_update';
+$route['user/edit/post/update'] = 'test_controller/update_discussion';
 
 
 

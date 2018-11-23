@@ -129,6 +129,9 @@ class Admin_tables extends CI_Controller {
         $data ['ctopic4'] = $this->Admin_model->getCountTopic4();
         $data ['ctopic5'] = $this->Admin_model->getCountTopic5();
         $data ['ctopic6'] = $this->Admin_model->getCountTopic6();
+        $data ['ctopic7'] = $this->Admin_model->getCountTopic7();
+        $data ['ctopic8'] = $this->Admin_model->getCountTopic8();
+        $data ['ctopic9'] = $this->Admin_model->getCountTopic9();
 
         $this->load->view('layouts/admin_header');
         $this->load->view('admin/tables/admin_tables_completed_topics', $data);
@@ -146,6 +149,9 @@ class Admin_tables extends CI_Controller {
         $data ['ctopic4'] = $this->Admin_model->getCountTopic4_date($startDate, $endDate);
         $data ['ctopic5'] = $this->Admin_model->getCountTopic5_date($startDate, $endDate);
         $data ['ctopic6'] = $this->Admin_model->getCountTopic6_date($startDate, $endDate);
+        $data ['ctopic7'] = $this->Admin_model->getCountTopic7_date($startDate, $endDate);
+        $data ['ctopic8'] = $this->Admin_model->getCountTopic8_date($startDate, $endDate);
+        $data ['ctopic9'] = $this->Admin_model->getCountTopic9_date($startDate, $endDate);
 
         $this->load->view('layouts/admin_header');
         $this->load->view('admin/tables/admin_tables_completed_topics', $data);
@@ -157,13 +163,19 @@ class Admin_tables extends CI_Controller {
         $studentName = $this->input->post('sname');
         $startDate = $this->input->post('startDate');
         $endDate = $this->input->post('endDate');
+        $graph = $this->input->post('graph');
+        
+        $data ['graphs'] = $this->Admin_model->getGraphs();
 
-        $data ['goalsetting'] = $this->Admin_model->getUserCountGoalStetting($studentName, $startDate, $endDate);
-        $data ['stressmanagement'] = $this->Admin_model->getUserCountStressManagement($studentName, $startDate, $endDate);
-        $data ['timemanagement'] = $this->Admin_model->getUserCountTimeManagement($studentName, $startDate, $endDate);
-        $data ['motivation'] = $this->Admin_model->getUserCountMotivation($studentName, $startDate, $endDate);
-        $data ['studystrategy'] = $this->Admin_model->getUserCountStudyStrategy($studentName, $startDate, $endDate);
-        $data ['tipsforexams'] = $this->Admin_model->getUserCountTipsForExams($studentName, $startDate, $endDate);
+        $data ['goalsetting'] = $this->Admin_model->getUserCountGoalSetting($graph, $studentName, $startDate, $endDate);
+        $data ['timemanagement'] = $this->Admin_model->getUserCountTimeManagement($graph, $studentName, $startDate, $endDate);
+        $data ['studystrategies'] = $this->Admin_model->getUserCountStudyStrategies($graph, $studentName, $startDate, $endDate);
+        $data ['concentration'] = $this->Admin_model->getUserCountConcentration($graph, $studentName, $startDate, $endDate);
+        $data ['assignment'] = $this->Admin_model->getUserCountAssignment($graph, $studentName, $startDate, $endDate);
+        $data ['reference'] = $this->Admin_model->getUserCountReference($graph, $studentName, $startDate, $endDate);
+        $data ['notetaking'] = $this->Admin_model->getUserCountNotetaking($graph, $studentName, $startDate, $endDate);
+        $data ['presentation'] = $this->Admin_model->getUserCountPresentation($graph, $studentName, $startDate, $endDate);
+        $data ['tipsforexams'] = $this->Admin_model->getUserCountTipsForExams($graph, $studentName, $startDate, $endDate);
 
         $this->load->view('layouts/admin_header');
         $this->load->view('admin/tables/admin_tables_topics_per_student', $data);
@@ -184,7 +196,7 @@ class Admin_tables extends CI_Controller {
         $data ['yes'] = $this->Admin_model->getUserCountQ1_Yes($graph, $topic, $studentName, $startDate, $endDate);
         $data ['no'] = $this->Admin_model->getUserCountQ1_No($graph, $topic, $studentName, $startDate, $endDate);
         $data ['somehow'] = $this->Admin_model->getUserCountQ1_Somehow($graph, $topic, $studentName, $startDate, $endDate);
-
+        
         $this->load->view('layouts/admin_header');
         $this->load->view('admin/tables/feedback/admin_tables_q1', $data);
         $this->load->view('layouts/admin_footer');

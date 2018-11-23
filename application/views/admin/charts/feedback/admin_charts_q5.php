@@ -36,30 +36,30 @@
                             <?php } ?>
                         </select>&nbsp;
 
-                        <input id="postBtn" type="submit" value="Search"><br><br>
+                        <input id="postBtn" type="submit" value="Search">
 
-                        <?php echo form_error('endDate'); ?>
-                    </form>
-                    
+                        <?php echo form_error('endDate'); ?><br><br>
+                    </form><?php echo $text1 ?><br><br>
+
                     <?php foreach ($yes->result() as $value) { ?>
                         <strong><?php echo $value->firstName, ' ', $value->lastName, ', ', $value->title ?></strong>
                     <?php } ?>
-
                 </div>
+
                 <canvas id="myChart" width="100%" height="40%"></canvas>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
                 <script>
                     var ctx = document.getElementById('myChart').getContext('2d');
                     var chart = new Chart(ctx, {
-                    <?php foreach ($yes->result() as $value) { ?>
+<?php foreach ($yes->result() as $value) { ?>
                         type: '<?php echo $value->graphType ?>',
 <?php } ?>
-                            data: {
-                            labels: ["Yes", "Not At All", "Somehow"],
-                                    datasets: [{
-                                    label: "Did any of the activities help you gain a clearer understanding of the subject?",
-                                            //borderColor: 'rgb(255, 255, 255)',
-                                            data: [
+                    data: {
+                    labels: ["Yes", "Not At All", "Somehow"],
+                            datasets: [{
+                            label: "Did any of the activities help you gain a clearer understanding of the subject?",
+                                    //borderColor: 'rgb(255, 255, 255)',
+                                    data: [
 <?php foreach ($yes->result() as $value) { ?>
     <?php echo $value->countYes ?>,
 <?php } ?>
@@ -69,25 +69,41 @@
 <?php foreach ($somehow->result() as $value) { ?>
     <?php echo $value->countSomehow ?>
 <?php } ?>],
-                                            backgroundColor: [
-                                                    "rgba(50,150,300,0.5)",
-                                                    "rgba(200,0,200,0.5)",
-                                                    "rgba(300,150,50,0.5)"
-                                            ],
-                                            borderColor: [
-                                                    "rgba(50,150,300,1)",
-                                                    "rgba(200,0,200,1)",
-                                                    "rgba(300,150,50,1)"
-                                            ],
-                                            borderWidth: 1
-                                    }]
-                            },
+                                    backgroundColor: [
+                                            "rgba(231, 76, 60,0.5)",
+                                            "rgba(155, 89, 182,0.5)",
+                                            "rgba(149, 165, 166,0.5)"
+                                    ],
+                                    borderColor: [
+                                            "rgba(231, 76, 60,1)",
+                                            "rgba(155, 89, 182,1)",
+                                            "rgba(149, 165, 166,1)"
+                                    ],
+                                    borderWidth: 1
+                            }]
+                    },
                             // Configuration options go here
                             options: {maxBarThickness: .2}
                     });
                 </script>
+                <br><br><br>
+                <?php echo $text2 ?>
+                <?php foreach ($yes->result() as $value) { ?>
+                    <strong><?php echo $value->firstName ?> <?php echo $value->lastName ?></strong>
+                <?php } ?>
+                <?php echo $text3 ?><br>
+                Yes: <?php foreach ($yes->result() as $value) { ?>
+                    <strong><?php echo $value->countYes ?></strong>,
+                <?php } ?><br>
+                Not At All: <?php foreach ($no->result() as $value) { ?>
+                    <strong><?php echo $value->countNo ?></strong>,
+                <?php } ?><br>
+                Somehow: <?php foreach ($somehow->result() as $value) { ?>
+                    <strong><?php echo $value->countSomehow ?></strong>
+                <?php } ?><br>         
             </div>
-        </div></div>
-</div></div>
+        </div>
+    </div>
+</div>
 <!-- /.container-fluid-->
 <!-- /.content-wrapper-->

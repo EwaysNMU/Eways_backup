@@ -36,7 +36,7 @@
                     var chart = new Chart(ctx, {
                     type: 'line',
                             data: {
-                            labels: ["Goals Setting", "Stress Management", "Time Management", "Motivation", "Study Strategy", "Tips for Exams and Tests"],
+                            labels: ["Goals Setting", "Time Management", "Study Strategies", "Concentration & Memorising", "Assignment Writing", "Reference Correctly", "Note taking & Summarising", "Making better presentations", "Tips for Exams"],
                                     datasets: [{
                                     label: "No. Completed courses",
                                             borderColor: 'rgb(255, 99, 132)',
@@ -56,8 +56,17 @@
 <?php foreach ($ctopic5->result() as $value) { ?>
     <?php echo $value->topic5 ?>,
 <?php } ?>
-<?php foreach ($ctopic6->result() as $value) { ?>
-    <?php echo $value->topic6 ?>
+    <?php foreach ($ctopic6->result() as $value) { ?>
+    <?php echo $value->topic6 ?>,
+<?php } ?>
+    <?php foreach ($ctopic7->result() as $value) { ?>
+    <?php echo $value->topic7 ?>,
+<?php } ?>
+    <?php foreach ($ctopic8->result() as $value) { ?>
+    <?php echo $value->topic8 ?>,
+<?php } ?>
+<?php foreach ($ctopic9->result() as $value) { ?>
+    <?php echo $value->topic9 ?>
 <?php } ?>],
                                     }]
                             },
@@ -67,23 +76,32 @@
                 </script><br><br><br>
 
                 <?php echo $text2 ?><br>
-                Goals Setting: <?php foreach ($ctopic1->result() as $value) { ?>
+                Goal-Setting: <?php foreach ($ctopic1->result() as $value) { ?>
                     <strong><?php echo $value->topic1 ?></strong>,
                 <?php } ?><br>
-                Stress Management: <?php foreach ($ctopic2->result() as $value) { ?>
+                Time Management: <?php foreach ($ctopic2->result() as $value) { ?>
                     <strong><?php echo $value->topic2 ?></strong>,
                 <?php } ?><br>
-                Time Management: <?php foreach ($ctopic3->result() as $value) { ?>
+                Study Strategies: <?php foreach ($ctopic3->result() as $value) { ?>
                     <strong><?php echo $value->topic3 ?></strong>,
                 <?php } ?><br>
-                Motivation: <?php foreach ($ctopic4->result() as $value) { ?>
+                Concentration & Memorising: <?php foreach ($ctopic4->result() as $value) { ?>
                     <strong><?php echo $value->topic4 ?></strong>,
                 <?php } ?><br>
-                Study Strategy: <?php foreach ($ctopic5->result() as $value) { ?>
+                Assignment Writing: <?php foreach ($ctopic5->result() as $value) { ?>
                     <strong><?php echo $value->topic5 ?></strong>,
                 <?php } ?><br>
-                Tips for Exams and Tests: <?php foreach ($ctopic6->result() as $value) { ?>
-                <strong><?php echo $value->topic6 ?></strong>
+                Reference Correctly: <?php foreach ($ctopic6->result() as $value) { ?>
+                    <strong><?php echo $value->topic6 ?></strong>,
+                <?php } ?><br>
+                Note taking & Summarising: <?php foreach ($ctopic7->result() as $value) { ?>
+                    <strong><?php echo $value->topic7 ?></strong>,
+                <?php } ?><br>
+                Making better presentations: <?php foreach ($ctopic8->result() as $value) { ?>
+                    <strong><?php echo $value->topic8 ?></strong>,
+                <?php } ?><br>
+                Tips for Exams: <?php foreach ($ctopic9->result() as $value) { ?>
+                <strong><?php echo $value->topic9 ?></strong>
                 <?php } ?>
             </div>
         </div>

@@ -112,10 +112,10 @@ class Admin_model extends CI_Model {
 
     public function getNoCompleteCourse() {
         //$this->db->distinct('feedback_answer.studentID');
-        $t6 = "6";
+        $course = "9";
         $this->db->select('count(distinct studentID) AS countCompletedCourses');
         $this->db->from('feedback_answer');
-        $this->db->where('topicID', $t6);
+        $this->db->where('topicID', $course);
         $data = $this->db->get();
         return $data;
     }
@@ -281,17 +281,99 @@ class Admin_model extends CI_Model {
 
         return $data;
     }
+    
+    public function getCountTopic7() {
+        //$this->db->distinct('feedback_answer.studentID');
+        $t = 7;
+        $this->db->select('count(topicID) AS topic7');
+        $this->db->from('feedback_answer');
+        $this->db->where('topicID', $t);
+        $this->db->where("completed = 'Yes'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getCountTopic7_date($startDate, $endDate) {
+        //$this->db->distinct('feedback_answer.studentID');
+        $t = 7;
+        $this->db->select('count(topicID) AS topic7');
+        $this->db->from('feedback_answer');
+        $this->db->where('topicID', $t);
+        $this->db->where("completed = 'Yes'");
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getCountTopic8() {
+        //$this->db->distinct('feedback_answer.studentID');
+        $t = 8;
+        $this->db->select('count(topicID) AS topic8');
+        $this->db->from('feedback_answer');
+        $this->db->where('topicID', $t);
+        $this->db->where("completed = 'Yes'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getCountTopic8_date($startDate, $endDate) {
+        //$this->db->distinct('feedback_answer.studentID');
+        $t = 8;
+        $this->db->select('count(topicID) AS topic8');
+        $this->db->from('feedback_answer');
+        $this->db->where('topicID', $t);
+        $this->db->where("completed = 'Yes'");
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getCountTopic9() {
+        //$this->db->distinct('feedback_answer.studentID');
+        $t = 9;
+        $this->db->select('count(topicID) AS topic9');
+        $this->db->from('feedback_answer');
+        $this->db->where('topicID', $t);
+        $this->db->where("completed = 'Yes'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getCountTopic9_date($startDate, $endDate) {
+        //$this->db->distinct('feedback_answer.studentID');
+        $t = 9;
+        $this->db->select('count(topicID) AS topic9');
+        $this->db->from('feedback_answer');
+        $this->db->where('topicID', $t);
+        $this->db->where("completed = 'Yes'");
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
 
 //------------------------------------------DISPLAY TOPICS COMPLETED / STUDENT----------------------------------------------//
 
-    public function getUserCountGoalStetting($studentName, $startDate, $endDate) {
+    public function getUserCountGoalSetting($graph, $studentName, $startDate, $endDate) {
 
-        $this->db->select('count(topicID) AS countGoalSettting, firstName, lastName');
-        $this->db->from('feedback_answer, students');
+        $this->db->select('count(topicID) AS countGoalSettting, firstName, lastName, graphType');
+        $this->db->from('feedback_answer, students, graphs');
         $this->db->where("feedback_answer.topicID = 1");
         $this->db->where("feedback_answer.completed = 'Yes'");
         $this->db->where("feedback_answer.studentID = students.studentID");
         $this->db->where("students.studentNo", $studentName);
+        $this->db->where("graphs.graphID", $graph);
         $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
 
         $data = $this->db->get();
@@ -299,59 +381,111 @@ class Admin_model extends CI_Model {
         return $data;
     }
 
-    public function getUserCountStressManagement($studentName, $startDate, $endDate) {
+    public function getUserCountTimeManagement($graph, $studentName, $startDate, $endDate) {
 
-        $this->db->select('count(topicID) AS countStressManagement, firstName, lastName');
-        $this->db->from('feedback_answer, students');
+        $this->db->select('count(topicID) AS countTimeManagement, firstName, lastName, graphType');
+        $this->db->from('feedback_answer, students, graphs');
         $this->db->where("feedback_answer.topicID = 2");
         $this->db->where("feedback_answer.completed = 'Yes'");
         $this->db->where("feedback_answer.studentID = students.studentID");
         $this->db->where("students.studentNo", $studentName);
+        $this->db->where("graphs.graphID", $graph);
         $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
 
         $data = $this->db->get();
 
         return $data;
     }
+    
+    public function getUserCountStudyStrategies($graph, $studentName, $startDate, $endDate) {
 
-    public function getUserCountTimeManagement($studentName, $startDate, $endDate) {
-
-        $this->db->select('count(topicID) AS countTimeManagement, firstName, lastName');
-        $this->db->from('feedback_answer, students');
+        $this->db->select('count(topicID) AS countStudyStrategies, firstName, lastName, graphType');
+        $this->db->from('feedback_answer, students, graphs');
         $this->db->where("feedback_answer.topicID = 3");
         $this->db->where("feedback_answer.completed = 'Yes'");
         $this->db->where("feedback_answer.studentID = students.studentID");
         $this->db->where("students.studentNo", $studentName);
+        $this->db->where("graphs.graphID", $graph);
         $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
 
         $data = $this->db->get();
 
         return $data;
     }
+    
+    public function getUserCountConcentration($graph, $studentName, $startDate, $endDate) {
 
-    public function getUserCountMotivation($studentName, $startDate, $endDate) {
-
-        $this->db->select('count(topicID) AS countMotivation, firstName, lastName');
-        $this->db->from('feedback_answer, students');
+        $this->db->select('count(topicID) AS countConcentration, firstName, lastName, graphType');
+        $this->db->from('feedback_answer, students, graphs');
         $this->db->where("feedback_answer.topicID = 4");
         $this->db->where("feedback_answer.completed = 'Yes'");
         $this->db->where("feedback_answer.studentID = students.studentID");
         $this->db->where("students.studentNo", $studentName);
+        $this->db->where("graphs.graphID", $graph);
         $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
 
         $data = $this->db->get();
 
         return $data;
     }
+    
+    public function getUserCountAssignment($graph, $studentName, $startDate, $endDate) {
 
-    public function getUserCountStudyStrategy($studentName, $startDate, $endDate) {
-
-        $this->db->select('count(topicID) AS countStudyStrategy, firstName, lastName');
-        $this->db->from('feedback_answer, students');
+        $this->db->select('count(topicID) AS countAssignment, firstName, lastName, graphType');
+        $this->db->from('feedback_answer, students, graphs');
         $this->db->where("feedback_answer.topicID = 5");
         $this->db->where("feedback_answer.completed = 'Yes'");
         $this->db->where("feedback_answer.studentID = students.studentID");
         $this->db->where("students.studentNo", $studentName);
+        $this->db->where("graphs.graphID", $graph);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getUserCountReference($graph, $studentName, $startDate, $endDate) {
+
+        $this->db->select('count(topicID) AS countReference, firstName, lastName, graphType');
+        $this->db->from('feedback_answer, students, graphs');
+        $this->db->where("feedback_answer.topicID = 6");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("graphs.graphID", $graph);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getUserCountNotetaking($graph, $studentName, $startDate, $endDate) {
+
+        $this->db->select('count(topicID) AS countNotetaking, firstName, lastName, graphType');
+        $this->db->from('feedback_answer, students, graphs');
+        $this->db->where("feedback_answer.topicID = 7");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("graphs.graphID", $graph);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getUserCountPresentation($graph, $studentName, $startDate, $endDate) {
+
+        $this->db->select('count(topicID) AS countPresentation, firstName, lastName, graphType');
+        $this->db->from('feedback_answer, students, graphs');
+        $this->db->where("feedback_answer.topicID = 8");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("graphs.graphID", $graph);
         $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
 
         $data = $this->db->get();
@@ -359,14 +493,15 @@ class Admin_model extends CI_Model {
         return $data;
     }
 
-    public function getUserCountTipsforExams($studentName, $startDate, $endDate) {
+    public function getUserCountTipsforExams($graph, $studentName, $startDate, $endDate) {
 
-        $this->db->select('count(topicID) AS countTipsforExams, firstName, lastName');
-        $this->db->from('feedback_answer, students');
-        $this->db->where("feedback_answer.topicID = 6");
+        $this->db->select('count(topicID) AS countTipsforExams, firstName, lastName, graphType');
+        $this->db->from('feedback_answer, students, graphs');
+        $this->db->where("feedback_answer.topicID = 9");
         $this->db->where("feedback_answer.completed = 'Yes'");
         $this->db->where("feedback_answer.studentID = students.studentID");
         $this->db->where("students.studentNo", $studentName);
+        $this->db->where("graphs.graphID", $graph);
         $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
 
         $data = $this->db->get();
@@ -802,6 +937,154 @@ class Admin_model extends CI_Model {
         $this->db->where("feedback_answer.studentID = students.studentID");
         $this->db->where("students.studentNo", $studentName);
         $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    //------------------------------------------GET COMMENTS----------------------------------------------//
+
+     public function getCommentTopic1($studentName, $startDate, $endDate) {
+
+        $this->db->select('comment');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 1");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+        $this->db->where("feedback_answer.comment <> 'Nil'");
+        $this->db->where("feedback_answer.comment <> ' '");
+        $this->db->where("feedback_answer.comment <> ''");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getCommentTopic2($studentName, $startDate, $endDate) {
+
+        $this->db->select('comment');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 2");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+        $this->db->where("feedback_answer.comment <> ' '");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getCommentTopic3($studentName, $startDate, $endDate) {
+
+        $this->db->select('comment');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 3");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+        $this->db->where("feedback_answer.comment <> ' '");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getCommentTopic4($studentName, $startDate, $endDate) {
+
+        $this->db->select('comment');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 4");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+        $this->db->where("feedback_answer.comment <> ' '");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getCommentTopic5($studentName, $startDate, $endDate) {
+
+        $this->db->select('comment');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 5");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+        $this->db->where("feedback_answer.comment <> ' '");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getCommentTopic6($studentName, $startDate, $endDate) {
+
+        $this->db->select('comment');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 6");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+        $this->db->where("feedback_answer.comment <> ' '");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getCommentTopic7($studentName, $startDate, $endDate) {
+
+        $this->db->select('comment');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 7");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+        $this->db->where("feedback_answer.comment <> ' '");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getCommentTopic8($studentName, $startDate, $endDate) {
+
+        $this->db->select('comment');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 8");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+        $this->db->where("feedback_answer.comment <> ' '");
+
+        $data = $this->db->get();
+
+        return $data;
+    }
+    
+    public function getCommentTopic9($studentName, $startDate, $endDate) {
+
+        $this->db->select('comment');
+        $this->db->from('feedback_answer, students');
+        $this->db->where("feedback_answer.topicID = 9");
+        $this->db->where("feedback_answer.completed = 'Yes'");
+        $this->db->where("feedback_answer.studentID = students.studentID");
+        $this->db->where("students.studentNo", $studentName);
+        $this->db->where("feedback_answer.date BETWEEN '$startDate' AND '$endDate'");
+        $this->db->where("feedback_answer.comment <> ' '");
 
         $data = $this->db->get();
 

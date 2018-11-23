@@ -1,9 +1,9 @@
 <br><br><br>
 <div class="container">
-    <h2 class="text-center">TIPS FOR EXAMS AND TESTS</h2>
+    <h2 class="text-center">TIPS FOR EXAMS FEEDBACK</h2>
 
-    <?php $attributes = array('class' => 'was-validated', 'id' => 'tips_for_exams_and_tests_feedback_answer'); ?>
-    <?php echo form_open('tips_for_exams_and_tests_feedback_answer_', $attributes); ?>
+    <?php $attributes = array('class' => 'was-validated', 'id' => 'tips_for_exams_feedback_answer'); ?>
+    <?php echo form_open('tips_for_exams_feedback_answer_', $attributes); ?>
 
     <input type="hidden" name="topic_id" value="6">
     <input type="hidden" name="student_id" value="<?php echo $this->session->userdata('studentID'); ?>">
@@ -93,19 +93,17 @@
         <input type="radio" class="custom-control-input" id="customControlValidation13" value="Not At All" name="opportunity" required>
         <label class="custom-control-label" for="customControlValidation13">Not at all</label>
         <div class="invalid-feedback">Please select one of the above answer.</div>
-    <p class="font-weight-bold">7.Any personal comment.</p>
-    <div class="form-group">
-
-        <textarea class="form-control" id="exampleFormControlTextarea1" name="comment" rows="3" required></textarea>
-        <div class="invalid-feedback">Please enter comment in the space above.</div>
+        <p class="font-weight-bold">7.Any personal comment.</p>
+        <div class="form-group">
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="comment" rows="3" required></textarea>
+            <div class="invalid-feedback">Please enter comment in the space above.</div>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary  float-right">Submit</button>
+        </div>
+        <?php echo form_close(); ?>
     </div>
-    <div>
-        <button type="submit" class="btn btn-primary  float-right">Submit</button>
-    </div>
-    <?php echo form_close(); ?>
-
-</div>
-<br>
+    <br>
 
 
 
