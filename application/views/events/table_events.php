@@ -118,7 +118,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
     <div  class="col-sm-2">
       <p class="feeds">News feed</p>
-      <a class="badge badge-primary" data-toggle="modal" data-target="#exampleModalCenter" href="#" role="button">Add feed</a>
+      <a class="badge badge-primary" href="<?php echo site_url() ?>/nw_feed" role="button">Add feed</a>
        <a class="badge badge-warning" href="#" role="button">View feeds</a>
       <hr>
       <div class="anyClass ">

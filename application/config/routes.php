@@ -191,3 +191,6 @@ $route['translate_uri_dashes'] = FALSE;
 $route['event'] = 'event_controller';
 $route['event_form'] = 'event_controller/event_registration_form';
 
+//Feed
+$route['nw_feed']='feeds_controller/feeds_form';
+$route['add_feed']='add_feeds_controller/feeds_form';
