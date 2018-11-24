@@ -193,4 +193,5 @@ $route['event_form'] = 'event_controller/event_registration_form';
 
 //Feed
 $route['nw_feed']='feeds_controller/feeds_form';
-$route['add_feed']='add_feeds_controller/feeds_form';
+$route['add_feed']='feeds_controller/add_feeds';
+$route['allfeeds']='feeds_controller/feeds_table';

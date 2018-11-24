@@ -16,5 +16,9 @@ class Feeds_model extends CI_Model {
 		$table_name = 'feeds';
 		return $this->get->get_from_table($params, $table_name);
 	}
+    public function add_feed($params){
+		$table_name = 'feeds';
+		return $this->insert->insert_into_table($params, $table_name);
+	}
 }
 

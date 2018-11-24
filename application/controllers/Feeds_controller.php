@@ -19,20 +19,22 @@ class Feeds_controller extends CI_Controller {
     public function feeds_form() {
        $this->load->view('feeds/form_add_feed');
    }
+    
+    public function feeds_table() {
+       $data['feeds_list']=$this->Feeds_model->get_all_feeds();
+       $this->load->view('feeds/feeds_table',$data);
+   }
+    
+        
+        
     public function add_feeds() {
         
        	$this->form_validation->set_rules('title', 'Title', 'required');
 		$this->form_validation->set_rules('shortDescription', 'Province', 'required');
 		$this->form_validation->set_rules('description', 'Description Province');
 		$this->form_validation->set_rules('link', 'Link', 'required');
-		if ($this->form_validation->run() == FALSE)
-            
-		{
-			$data['url_back'] =  $this->agent->referrer();
-			$data['message'] = 'There was an error processing your information. Please click on the link below to be redirect to the correct page.';
-			$this->error_m->error_page($data);
-
-			
+		if ($this->form_validation->run() == FALSE){
+			$this->feeds_form();	
 		}
 		else{
 			$data = array(
@@ -41,17 +43,12 @@ class Feeds_controller extends CI_Controller {
 				'description' => $this->input->post('description'),
 				'link'   => $this->input->post('link'));
 				
-				if ($this->M_patient->create_new_patient($data))
+				if ($this->Feeds_model->add_feed($data))
 				{
-					$data['url_back'] =  $this->agent->referrer();
-
-					redirect(site_url("c_tables/t_patient"));
+					redirect(site_url("allfeeds"));
 
 				}else{
-				$data['url_back'] = $this->agent->referrer();
-				$data['message'] = 'Sorry! could not create new patientTry again.';
-
-				$this->error_m->error_page($data);
+				$this->feeds_form();
 				}
 
 			}

@@ -119,7 +119,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div  class="col-sm-2">
       <p class="feeds">News feed</p>
       <a class="badge badge-primary" href="<?php echo site_url() ?>/nw_feed" role="button">Add feed</a>
-       <a class="badge badge-warning" href="#" role="button">View feeds</a>
+       <a class="badge badge-warning" href="<?php echo site_url() ?>/allfeeds" role="button">View feeds</a>
       <hr>
       <div class="anyClass ">
         <div class="row"> 

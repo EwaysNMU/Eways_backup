@@ -72,34 +72,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </nav><br><br><br><br>
 
-<div class="container">
-     <?php $attributes = array('class' => 'col s12', 'id' => 'myform');
-  echo form_open('add_feed', $attributes); ?>
-
-      <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" class="form-control" name="title" id="title" aria-describedby="titleHelp" placeholder="Enter Title">
+<div class="container-fluid">
+    <div class="row">
+            <table id="example" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Created</th>
+                        <th>Short Description</th>
+                        <th>Description</th>
+                        <th>Link</th>
+                        <th>Last Updated</th>
+                    </tr>
+                </thead>
+                <tbody>
+                 <?php foreach ($feeds_list as $row){?>
+                    <tr>
+                        <td><?php echo $row['title']; ?></td>
+                        <td class="dates"><?php echo date('l, M j, Y', strtotime($row['created'])); ?></td>
+                        <td><?php echo $row['shortDescription']; ?></td>
+                        <td><?php echo $row['description']; ?></td>
+                        <td><?php echo $row['link']; ?></td>
+                        <td class="dates"><?php echo date('l, M j, Y', strtotime($row['updated'])); ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Title</th>
+                    <th>Created</th>
+                    <th>Short Description</th>
+                    <th>Description</th>
+                    <th>Link</th>
+                    <th>Last Updated</th>
+                </tr>
+            </tfoot>
+        </table>
     </div>
-     <div class="form-group">
-        <label for="sDescription">Short Description</label>
-        <input type="text" class="form-control" name="shortDescription" id="sDescription" aria-describedby="sDescriptionHelp" placeholder="Enter Short Description">
-    </div>
-     <div class="form-group">
-        <label for="Description">Description</label>
-        <textarea type="text-area" class="form-control" name="description" id="Description" aria-describedby="DescriptionHelp" placeholder="Enter Full Description"></textarea>
-    </div>
-    <div class="form-group">
-        <label for="link">Link</label>
-        <input type="text" class="form-control" name="link" id="link" placeholder="i.e. www.google.com">
-    </div>
-    <div class="form-group">
-    <a class="badge badge-primary" data-toggle="modal" data-target="#UploadPicture" href="#" role="button">Upload Picture</a>
-    </div>
-     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>   
-    
-    
     
 </div>
 
