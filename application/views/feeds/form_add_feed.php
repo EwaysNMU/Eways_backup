@@ -78,19 +78,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
       <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" class="form-control" name="title" id="title" aria-describedby="titleHelp" placeholder="Enter Title">
+        <input type="text" class="form-control" required name="title" id="title" aria-describedby="titleHelp" placeholder="Enter Title">
     </div>
      <div class="form-group">
         <label for="sDescription">Short Description</label>
-        <input type="text" class="form-control" name="shortDescription" id="sDescription" aria-describedby="sDescriptionHelp" placeholder="Enter Short Description">
+        <input type="text" class="form-control" required name="shortDescription" id="sDescription" aria-describedby="sDescriptionHelp" placeholder="Enter Short Description">
     </div>
      <div class="form-group">
         <label for="Description">Description</label>
-        <textarea type="text-area" class="form-control" name="description" id="Description" aria-describedby="DescriptionHelp" placeholder="Enter Full Description"></textarea>
+        <textarea type="text-area" class="form-control" required  name="description" id="Description" aria-describedby="DescriptionHelp" placeholder="Enter Full Description"></textarea>
     </div>
     <div class="form-group">
         <label for="link">Link</label>
-        <input type="text" class="form-control" name="link" id="link" placeholder="i.e. www.google.com">
+        <input type="email" class="form-control" required name="link" id="link" placeholder="i.e. www.google.com">
     </div>
     <div class="form-group">
     <a class="badge badge-primary" data-toggle="modal" data-target="#UploadPicture" href="#" role="button">Upload Picture</a>
