@@ -73,8 +73,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </nav><br><br><br><br>
 
 <div class="container">
-     <?php $attributes = array('class' => 'col s12', 'id' => 'myform');
-  echo form_open('add_feed', $attributes); ?>
+    
+    <?php $attributes = array('class' => 'col s12', 'id' => 'myform');
+    echo form_open_multipart('add_feed', $attributes); ?>
 
       <div class="form-group">
         <label for="title">Title</label>
@@ -93,7 +94,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <input type="email" class="form-control" required name="link" id="link" placeholder="i.e. www.google.com">
     </div>
     <div class="form-group">
-    <a class="badge badge-primary" data-toggle="modal" data-target="#UploadPicture" href="#" role="button">Upload Picture</a>
+
+      <input  name="userfile" type="file" size="80">
     </div>
      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
     <button type="submit" class="btn btn-primary">Submit</button>

@@ -33,15 +33,42 @@ class Feeds_controller extends CI_Controller {
 		$this->form_validation->set_rules('shortDescription', 'Province', 'required');
 		$this->form_validation->set_rules('description', 'Description Province');
 		$this->form_validation->set_rules('link', 'Link', 'required');
+        
 		if ($this->form_validation->run() == FALSE){
+            
 			$this->feeds_form();	
 		}
 		else{
-			$data = array(
+            
+            $config['upload_path'] = './tmp/';
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size'] = 1024;
+            $config['max_width'] = 4000;
+            $config['max_height'] = 4000;
+            
+             if (!$this->upload->do_upload('userfile')) {
+            $filename='No Picture';
+                
+            } else {
+            $filename = $this->upload->data('file_name');
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = './tmp/'. $filename;
+            $config['create_thumb'] = false;
+            $config['maintain_ratio'] = true;
+            $config['width'] = 480;
+            $config['height'] = 480;
+            $config['new_image']= './uploads/';
+
+            $this->load->library('image_lib', $config);
+            $this->image_lib->resize();      
+                                 
+             }
+           $data = array(
 				'title'  =>$this->input->post('title'),
 				'shortDescription'  => $this->input->post('shortDescription'),
 				'description' => $this->input->post('description'),
-				'link'   => $this->input->post('link'));
+				'link'   => $this->input->post('link'),
+                 'picture_path'=>$filename);
 				
 				if ($this->Feeds_model->add_feed($data))
 				{
