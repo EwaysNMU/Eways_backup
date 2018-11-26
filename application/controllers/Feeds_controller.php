@@ -27,7 +27,7 @@ class Feeds_controller extends CI_Controller {
     
         
         
-    public function add_feeds() {
+    public function do_upload() {
         
        	$this->form_validation->set_rules('title', 'Title', 'required');
 		$this->form_validation->set_rules('shortDescription', 'Province', 'required');
@@ -45,6 +45,7 @@ class Feeds_controller extends CI_Controller {
             $config['max_size'] = 1024;
             $config['max_width'] = 4000;
             $config['max_height'] = 4000;
+             $this->load->library('upload', $config);
             
              if (!$this->upload->do_upload('userfile')) {
             $filename='No Picture';

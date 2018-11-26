@@ -94,7 +94,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <input type="email" class="form-control" required name="link" id="link" placeholder="i.e. www.google.com">
     </div>
     <div class="form-group">
-
       <input  name="userfile" type="file" size="80">
     </div>
      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
