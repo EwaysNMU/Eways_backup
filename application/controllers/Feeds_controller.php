@@ -48,7 +48,8 @@ class Feeds_controller extends CI_Controller {
              $this->load->library('upload', $config);
             
              if (!$this->upload->do_upload('userfile')) {
-            $filename='No Picture';
+            
+                 $filename='No Picture';
                 
             } else {
             $filename = $this->upload->data('file_name');
