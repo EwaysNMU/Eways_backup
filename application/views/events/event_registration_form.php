@@ -48,13 +48,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </li>
                 </ul>
             </div>
+        </nav><br><br><br><br>
 
-        </nav><br><br>
+<div class="container">
+    
+    <?php $attributes = array('class' => 'col s12', 'id' => 'myform');
+    echo form_open_multipart('add_feed', $attributes); ?>
 
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" required name="title" id="title" aria-describedby="titleHelp" placeholder="Enter Title">
+    </div>
+     <div class="form-group">
+        <label for="sDescription">Short Description</label>
+        <input type="text" class="form-control" required name="shortDescription" id="sDescription" aria-describedby="sDescriptionHelp" placeholder="Enter Short Description">
+    </div>
+     <div class="form-group">
+        <label for="Description">Description</label>
+        <textarea type="text-area" class="form-control" required  name="description" id="Description" aria-describedby="DescriptionHelp" placeholder="Enter Full Description"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="link">Link</label>
+        <input type="email" class="form-control" required name="link" id="link" placeholder="i.e. www.google.com">
+    </div>
+    <div class="form-group">
+      <input  name="userfile" type="file" size="80">
+            <?php if(isset($say_something)){
+   echo $error;
+    } ?>
 
-
-
-
+    </div>
+    <a class="btn btn-danger" href="<?php echo site_url() ?>/allfeeds" role="button">Cancel</a>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    
+</form>   
+    
+    
+    
+</div>
 
 
 
