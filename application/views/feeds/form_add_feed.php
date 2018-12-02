@@ -52,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </style>
 </head>
 <body>
+
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark mandelacolor">
     <a class="navbar-brand" href="#">E-WAYS</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,6 +96,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
     <div class="form-group">
       <input  name="userfile" type="file" size="80">
+            <?php if(isset($say_something)){
+   echo $error;
+    } ?>
+
     </div>
      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
     <button type="submit" class="btn btn-primary">Submit</button>
