@@ -35,15 +35,14 @@ class C_upload extends CI_Controller
             $filename = $this->upload->data('file_name');
 
             $config2['image_library'] = 'gd2';
-            $config2['source_image'] = './tmp/'. $filename;
+            $config2['source_image'] = './tmp/'.$filename;
             $config2['create_thumb'] = false;
             $config2['maintain_ratio'] = true;
             $config2['width'] = 480;
             $config2['height'] = 480;
-            $config2['new_image']= './uploads/';
+            $config2['new_image']= './uploads/feeds';
 
             $this->load->library('image_lib', $config2);
-
             $this->image_lib->resize();
           
            

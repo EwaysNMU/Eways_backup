@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="icon" href="<?php echo base_url() ?>assets/images/favicon/favicon.ico" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+<link href="<?php echo base_url() ?>assets/lightbox/css/lightbox.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
@@ -35,6 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         color: white
     }
     .anyClass {
+        
       height:700px;
       overflow-y: scroll;
       font-size: 12px;
@@ -124,15 +125,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="anyClass ">
         <div class="row"> 
             <div class="col-12">
-               <?php foreach ($feeds_list as $row){?>
-                <p><b>Date:</b>&nbsp;<?php echo date('d-M-Y', strtotime($row['created'])); ?><br>
-                    <b>Title:</b>&nbsp;<mark><?php echo $row['title']; ?></mark><br>
-                    <b>Link:</b>&nbsp;<a target="_blank" href="<?php echo $row['link']; ?>"><?php echo $row['link']; ?></a>
-                </p>
-                <hr>
+               <?php foreach ($feeds_list as $row){?> 
+                          <div class="row">
+    <div class="col-xs-12 col-sm-3">
+        <a class="example-image-link" href="<?php echo base_url() ?>uploads/feeds/<?php echo $row['picture_path']; ?>" data-lightbox="<?php echo $row['picture_path']; ?>" data-title="<?php echo $row['picture_path']; ?>"><img class="example-image" src="<?php echo base_url() ?>uploads/feeds/<?php echo $row['picture_path']; ?>" alt="" height="65" width="65"/></a>
+    </div>
+    <div class="col-xs-12 col-sm-8">
+        <div class="row">
+            <div class="col-sm-12">
+                <p><b>Title:</b>&nbsp;<?php echo $row['title']; ?><br>
+                    <b>Date:</b>&nbsp;<?php echo date('d-M-Y', strtotime($row['created'])); ?><br>
+                 <b>Link:</b>&nbsp;<a target="_blank" href="<?php echo $row['link']; ?>"><?php echo $row['link']; ?></a></p>
+            </div>
+        </div> 
+    </div>
+    <div class="col-xs-12">
+        <hr>
+    </div>
+</div>
             <?php } ?>
             
         </div> 
+            
+
+            
+            
     </div>
 </div>
 </div> 
@@ -140,96 +157,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Create new feed</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-      </button>
-  </div>
-  <div class="modal-body">
-     <form>
-      <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" aria-describedby="titleHelp" placeholder="Enter Title">
-    </div>
-     <div class="form-group">
-        <label for="sDescription">Short Description</label>
-        <input type="text" class="form-control" id="sDescription" aria-describedby="sDescriptionHelp" placeholder="Enter Short Description">
-    </div>
-     <div class="form-group">
-        <label for="Description">Description</label>
-        <textarea type="text-area" class="form-control" id="Description" aria-describedby="DescriptionHelp" placeholder="Enter Full Description"></textarea>
-    </div>
-    <div class="form-group">
-        <label for="link">Link</label>
-        <input type="text" class="form-control" id="link" placeholder="i.e. www.google.com">
-    </div>
-    <div class="form-group">
-    <a class="badge badge-primary" data-toggle="modal" data-target="#UploadPicture" href="#" role="button">Upload Picture</a>
-    </div>
-     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>   
-</div>
-
-  
-      <!-- Modal -->
-<div class="modal fade" id="UploadPicture" tabindex="1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Upload Picture</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-      </button>
-  </div>
-  <div class="modal-body">
-     <form>
-      <div class="form-group">
-    <?php
-    if (isset($error)) {
-        echo "<div class='alert'>$error</div>";
-    }
-    ?>
-  <?php  
-  $attributes = array('class' => 'col s12', 'id' => 'myform');
-    echo form_open_multipart('c_upload/do_upload', $attributes); ?>
-
-  <div class="row">
-    <div class="input-field col s4">
-      <input  name="userfile" type="file" size="80">
-    </div>
-</div>
-  <div class="modal-footer left">
-  <a href="<?php echo base_url('c_search/s_patient_by'); ?>; ?>" class="waves-effect waves-light  red darken-4 btn"><i class="material-icons right">clear</i>Cancel</a>
-        <button class="btn waves-effect waves-light green darken-4" type="submit" name="action">Submit
-  <i class="material-icons right">send</i>
-</button>
-</div>
-<?php echo form_close(); ?>
-
-    </div>
-
-     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-</div>
-        
-</div>
-</div>
-</div>
-
-
-
-
 
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script src="<?php echo base_url() ?>assets/lightbox/js/lightbox.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
@@ -238,6 +170,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     $(document).ready(function() {
         $('#example').DataTable();
     } );
+</script>
+        <script>
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true,
+        'alwaysShowNavOnTouchDevices':false,
+        'disableScrolling':false
+        
+    })
 </script>
 </body>
 </html>

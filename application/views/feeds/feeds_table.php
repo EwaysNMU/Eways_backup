@@ -11,8 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="icon" href="<?php echo base_url() ?>assets/images/favicon/favicon.ico" type="image/x-icon">
      <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-
+<link href="<?php echo base_url() ?>assets/lightbox/css/lightbox.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
     <!-- Google Fonts  -->
@@ -82,6 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <th>Short Description</th>
                         <th>Description</th>
                         <th>Link</th>
+                        <th>Image</th>
                         <th>Last Updated</th>
                     </tr>
                 </thead>
@@ -93,6 +93,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <td><?php echo $row['shortDescription']; ?></td>
                         <td><?php echo $row['description']; ?></td>
                         <td><?php echo $row['link']; ?></td>
+                        <td>
+                            <a class="example-image-link" href="<?php echo base_url() ?>uploads/feeds/<?php echo $row['picture_path']; ?>" data-lightbox="<?php echo $row['picture_path']; ?>" data-title="<?php echo $row['picture_path']; ?>"><img class="example-image" src="<?php echo base_url() ?>uploads/feeds/<?php echo $row['picture_path']; ?>" alt="" height="40" width="40"/></a>
+                        </td>
                         <td class="dates"><?php echo date('l, M j, Y', strtotime($row['updated'])); ?></td>
                     </tr>
                 <?php } ?>
@@ -104,6 +107,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <th>Short Description</th>
                     <th>Description</th>
                     <th>Link</th>
+                      <th>Image</th>
                     <th>Last Updated</th>
                 </tr>
             </tfoot>
@@ -116,6 +120,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="<?php echo base_url() ?>assets/lightbox/js/lightbox.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
@@ -124,6 +129,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     $(document).ready(function() {
         $('#example').DataTable();
     } );
+</script>
+<script>
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true,
+        'alwaysShowNavOnTouchDevices':false,
+        'disableScrolling':false
+        
+    })
 </script>
 </body>
 </html>

@@ -55,18 +55,30 @@ public function do_upload() {
 
         } else {
             $filename = $this->upload->data('file_name');
-            $config['image_library'] = 'gd2';
-            $config['source_image'] = './tmp/'. $filename;
-            $config['create_thumb'] = false;
-            $config['maintain_ratio'] = true;
-            $config['width'] = 480;
-            $config['height'] = 480;
-            $config['new_image']= './uploads/';
-
-            $this->load->library('image_lib', $config);
-            $this->image_lib->resize();
-
-               $data = array(
+            $config2['image_library'] = 'gd2';
+            $config2['source_image'] = './tmp/'. $filename;
+            $config2['create_thumb'] = false;
+            $config2['maintain_ratio'] = true;
+            $config2['width'] = 400;
+            $config2['height'] = 400;
+            $config2['new_image']= './uploads/feeds';
+            $this->image_lib->initialize($config2);
+             
+             /*Resize image uploaded*/
+              if (!$this->image_lib->resize())
+            {
+              $error = array('error' => $this->image_lib->display_errors());
+             $this->load->view('feeds/form_add_feed', $error);
+            }
+             
+            /*Delete the temp picture uploaded*/
+            if(file_exists('./tmp/'. $filename))
+            {
+               unlink('./tmp/'. $filename);
+            }
+          
+             
+            $data = array(
             'title'  =>$this->input->post('title'),
             'shortDescription'  => $this->input->post('shortDescription'),
             'description' => $this->input->post('description'),
