@@ -63,9 +63,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </li>
         </ul>
         <ul  class="navbar-nav">
+               <li class="nav-item">
+                <a class="nav-link" href="<?php echo site_url() ?>/nw_feed">New Feed</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url() ?>/admin/login">Help</a>
             </li>
+         
         </ul>
     </div>
 

@@ -65,6 +65,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </li>
         </ul>
         <ul  class="navbar-nav">
+               <li class="nav-item">
+                <a class="nav-link" href="<?php echo site_url() ?>/allfeeds">List Feed</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url() ?>/admin/login">Help</a>
             </li>
@@ -101,8 +104,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     } ?>
 
     </div>
-     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+    <a class="btn btn-danger" href="<?php echo site_url() ?>/allfeeds" role="button">Cancel</a>
     <button type="submit" class="btn btn-primary">Submit</button>
+    
 </form>   
     
     
